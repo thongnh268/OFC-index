@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #f1f5fa;
+  --color-primary-100: #dde8f4;
+  --color-primary-200: #bed2e8;
+  --color-primary-300: #90b2d7;
+  --color-primary-400: #5d87b8;
+  --color-primary-500: #1e3a5f;
+  --color-primary-600: #1a3456;
+  --color-primary-700: #152a46;
+  --color-primary-800: #102138;
+  --color-primary-900: #0a1728;
+  --color-primary: #1e3a5f;
+  --color-accent: #2e7d32;
+  --color-accent-2: #2e7d4e;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-bg: #f8fafc;
+  --color-white: #ffffff;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --container-content: 1060px;
+  --radius-pill: 9999px;
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --shadow-card: 0 1px 2px rgb(20 25 33 / 0.04), 0 2px 6px rgb(20 25 33 / 0.06);
+  --shadow-popover: 0 6px 24px rgb(20 25 33 / 0.12);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility container-content {
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@utility section-min {
+  min-height: 50vh;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+:is(a, button, input):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
