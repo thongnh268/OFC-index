@@ -1,0 +1,189 @@
+<header class="site-header">
+  <div class="h-[70px] bg-primary text-white">
+    <div class="container-content flex h-full items-center justify-between gap-4">
+      <nav class="hidden items-center gap-6 text-sm font-semibold sm:flex" aria-label="Secondary">
+        @for (link of topLinks; track link.route; let last = $last) {
+          <a class="top-link" [routerLink]="link.route">{{ link.label }}</a>
+          @if (!last) {
+            <span class="separator" aria-hidden="true">|</span>
+          }
+        }
+      </nav>
+
+      <div class="flex min-w-0 items-center justify-end gap-10">
+        <div class="flag-switcher" role="group" aria-label="Language">
+          <button
+            type="button"
+            class="flag-button"
+            [class.is-active]="languagePref() === 'vi'"
+            [attr.aria-pressed]="languagePref() === 'vi'"
+            aria-label="Tiếng Việt"
+            (click)="setLanguage('vi')"
+          >
+            <img src="assets/flags/vn.svg" alt="" />
+          </button>
+          <button
+            type="button"
+            class="flag-button"
+            [class.is-active]="languagePref() === 'en'"
+            [attr.aria-pressed]="languagePref() === 'en'"
+            aria-label="English"
+            (click)="setLanguage('en')"
+          >
+            <img src="assets/flags/gb.svg" alt="" />
+          </button>
+        </div>
+
+        <label class="sr-only" for="site-search">Search</label>
+        <input
+          id="site-search"
+          class="search-field"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="h-[100px] border-b border-border bg-white">
+    <div class="container-content flex h-full items-center justify-between gap-6">
+      <app-brand imageHeightClass="h-[100px]" />
+
+      <nav
+        class="desktop-nav hidden h-full items-center gap-6 lg:flex"
+        aria-label="Primary"
+        (focusout)="closeDropdownOnFocusOut($event)"
+      >
+        <div class="nav-item" (mouseenter)="showDropdown('about')" (mouseleave)="closeDropdown()">
+          <button
+            id="about-menu-trigger"
+            class="nav-trigger"
+            type="button"
+            aria-haspopup="menu"
+            aria-controls="about-dropdown"
+            [attr.aria-expanded]="openDropdown() === 'about'"
+            [class.is-open]="openDropdown() === 'about'"
+            (focus)="showDropdown('about')"
+            (click)="toggleDropdown('about')"
+            (keydown)="onDesktopTriggerKeydown($event, 'about')"
+          >
+            About Us
+          </button>
+
+          @if (openDropdown() === 'about') {
+            <div
+              id="about-dropdown"
+              class="dropdown-panel"
+              role="menu"
+              tabindex="-1"
+              aria-labelledby="about-menu-trigger"
+              (keydown)="onDropdownKeydown($event, 'about')"
+            >
+              @for (item of aboutLinks; track item.route) {
+                <a
+                  role="menuitem"
+                  data-dropdown-item
+                  class="dropdown-link"
+                  [routerLink]="item.route"
+                >
+                  {{ item.label }}
+                </a>
+              }
+            </div>
+          }
+        </div>
+
+        <div
+          class="nav-item"
+          (mouseenter)="showDropdown('products')"
+          (mouseleave)="closeDropdown()"
+        >
+          <button
+            id="products-menu-trigger"
+            class="nav-trigger"
+            type="button"
+            aria-haspopup="menu"
+            aria-controls="products-dropdown"
+            [attr.aria-expanded]="openDropdown() === 'products'"
+            [class.is-open]="openDropdown() === 'products'"
+            (focus)="showDropdown('products')"
+            (click)="toggleDropdown('products')"
+            (keydown)="onDesktopTriggerKeydown($event, 'products')"
+          >
+            Products
+          </button>
+
+          @if (openDropdown() === 'products') {
+            <div
+              id="products-dropdown"
+              class="dropdown-panel"
+              role="menu"
+              tabindex="-1"
+              aria-labelledby="products-menu-trigger"
+              (keydown)="onDropdownKeydown($event, 'products')"
+            >
+              @for (item of productLinks; track item.route) {
+                <a
+                  role="menuitem"
+                  data-dropdown-item
+                  class="dropdown-link"
+                  [routerLink]="item.route"
+                >
+                  {{ item.label }}
+                </a>
+              }
+            </div>
+          }
+        </div>
+
+        @for (link of mainLinks; track link.route) {
+          <a
+            class="nav-trigger"
+            [routerLink]="link.route"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+
+      <app-hamburger
+        class="lg:hidden"
+        controls="mobile-drawer"
+        ariaLabel="Open navigation menu"
+        [active]="mobileMenuOpen()"
+        (toggled)="toggleMobileMenu()"
+      />
+    </div>
+  </div>
+
+  <app-mobile-drawer
+    titleId="mobile-menu-title"
+    heading="Menu"
+    [open]="mobileMenuOpen()"
+    (closed)="closeMobileMenu()"
+  >
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a routerLink="/">Home</a>
+      <p>About Us</p>
+      @for (item of aboutLinks; track item.route) {
+        <a [routerLink]="item.route">{{ item.label }}</a>
+      }
+      <p>Products</p>
+      @for (item of productLinks; track item.route) {
+        <a [routerLink]="item.route">{{ item.label }}</a>
+      }
+      @for (link of mainLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </nav>
+
+    <nav class="mobile-nav border-t border-border" aria-label="Mobile secondary">
+      @for (link of topLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </nav>
+  </app-mobile-drawer>
+</header>

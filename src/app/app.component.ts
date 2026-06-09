@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { LayoutComponent } from './layout/layout.component';
 
@@ -8,7 +8,6 @@ import { LayoutComponent } from './layout/layout.component';
   imports: [LayoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  title = 'ofc-index';
-}
+export class AppComponent {}

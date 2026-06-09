@@ -18,12 +18,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ofc-index' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ofc-index');
-  });
-
   it('should render the layout shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

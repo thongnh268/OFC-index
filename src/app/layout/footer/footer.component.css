@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  color: var(--color-text);
+}
+
+.contact-row {
+  align-items: center;
+  color: var(--color-text);
+  display: flex;
+  gap: 12px;
+}
+
+.contact-row p {
+  margin: 0;
+}
+
+.contact-icon {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+  color: white;
+  display: inline-flex;
+  flex: 0 0 24px;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.contact-icon svg {
+  fill: currentColor;
+  height: 14px;
+  width: 14px;
+}
+
+.copyright {
+  align-items: center;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  color: rgb(255 255 255 / 0.82);
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.copyright p {
+  margin: 0;
+}

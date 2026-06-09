@@ -1,0 +1,63 @@
+<footer class="site-footer">
+  <section class="contact-bar min-h-[200px] bg-white">
+    <div
+      class="container-content grid h-full gap-10 py-10 md:grid-cols-[1fr_360px] md:items-center"
+    >
+      <div>
+        <h2 class="text-2xl font-bold text-primary">{{ company.brand }}</h2>
+        <div class="mt-6 grid gap-4">
+          @for (row of contactRows; track row.icon) {
+            <div class="contact-row">
+              <span class="contact-icon" aria-hidden="true">
+                <app-icon [name]="row.icon" [size]="14" />
+              </span>
+              <p>{{ row.text }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <app-subscription-form inputId="footer-email" (submitted)="onSubscriptionSubmit($event)" />
+    </div>
+  </section>
+
+  <section class="footer-main min-h-[600px] bg-primary text-white/80">
+    <div class="container-content grid gap-12 py-24 md:grid-cols-3">
+      <app-footer-column heading="INTRODUCTION">
+        <nav aria-label="Introduction">
+          @for (link of introductionLinks; track link.route) {
+            <a [routerLink]="link.route">{{ link.label }}</a>
+          }
+        </nav>
+      </app-footer-column>
+
+      <app-footer-column heading="PRODUCTS AND SERVICES">
+        <nav aria-label="Products and services">
+          @for (link of productLinks; track link.route) {
+            <a [routerLink]="link.route">{{ link.label }}</a>
+          }
+        </nav>
+      </app-footer-column>
+
+      <app-footer-column class="contact-details" heading="CONTACT US">
+        @for (office of company.offices; track office.label; let first = $first) {
+          <p>
+            @if (first) {
+              <strong>{{ company.legalName }}</strong>
+            }
+            {{ office.label }}: {{ office.address }}
+          </p>
+        }
+        <p>Hotline: {{ company.contact.hotline }}</p>
+        <p>Operations Director {{ company.contact.ops.name }}: {{ company.contact.ops.phone }}</p>
+        <p>Email: {{ company.contact.email }}</p>
+        <p>Website: {{ company.contact.website }}</p>
+        <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />
+      </app-footer-column>
+    </div>
+  </section>
+
+  <section class="copyright min-h-[50px] bg-primary-700">
+    <p>© {{ currentYear }} {{ company.brand }}. All rights reserved.</p>
+  </section>
+</footer>
