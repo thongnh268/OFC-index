@@ -10,41 +10,25 @@ import {
   tablerPhoneFill,
 } from '@ng-icons/tabler-icons/fill';
 
-export type IconName =
-  | 'facebook'
-  | 'linkedin'
-  | 'youtube'
-  | 'map-pin'
-  | 'phone'
-  | 'email'
-  | 'close';
+// Single source of truth: adding an entry here registers the icon and extends IconName.
+const ICONS = {
+  facebook: tablerBrandFacebookFill,
+  linkedin: tablerBrandLinkedinFill,
+  youtube: tablerBrandYoutubeFill,
+  mapPin: tablerMapPinFill,
+  phone: tablerPhoneFill,
+  email: tablerMailFill,
+  close: tablerX,
+} as const;
 
-const ICON_KEY: Record<IconName, string> = {
-  facebook: 'tablerBrandFacebookFill',
-  linkedin: 'tablerBrandLinkedinFill',
-  youtube: 'tablerBrandYoutubeFill',
-  'map-pin': 'tablerMapPinFill',
-  phone: 'tablerPhoneFill',
-  email: 'tablerMailFill',
-  close: 'tablerX',
-};
+export type IconName = keyof typeof ICONS;
 
 @Component({
   selector: 'app-icon',
   standalone: true,
   imports: [NgIcon],
-  template: `<ng-icon [name]="iconKey()" [size]="pxSize()" aria-hidden="true" />`,
-  viewProviders: [
-    provideIcons({
-      tablerBrandFacebookFill,
-      tablerBrandLinkedinFill,
-      tablerBrandYoutubeFill,
-      tablerMailFill,
-      tablerMapPinFill,
-      tablerPhoneFill,
-      tablerX,
-    }),
-  ],
+  template: `<ng-icon [name]="name()" [size]="pxSize()" aria-hidden="true" />`,
+  viewProviders: [provideIcons(ICONS)],
   styles: [
     `
       :host {
@@ -63,6 +47,5 @@ export class IconComponent {
   readonly name = input.required<IconName>();
   readonly size = input<number>(24);
 
-  protected readonly iconKey = computed(() => ICON_KEY[this.name()]);
   protected readonly pxSize = computed(() => `${this.size()}px`);
 }

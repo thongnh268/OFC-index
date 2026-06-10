@@ -1,3 +1,10 @@
+// Social platforms must stay assignable to IconName (shared/components/icon).
+export interface SocialLink {
+  readonly name: 'facebook' | 'linkedin' | 'youtube';
+  readonly label: string;
+  readonly href: string;
+}
+
 interface CompanyOffice {
   readonly label: string;
   readonly address: string;
@@ -13,19 +20,13 @@ interface CompanyContact {
   readonly website: string;
 }
 
-interface CompanySocial {
-  readonly name: 'facebook' | 'linkedin' | 'youtube';
-  readonly label: string;
-  readonly href: string;
-}
-
 interface OfcCompany {
   readonly brand: string;
   readonly legalName: string;
   readonly shortAddress: string;
   readonly offices: readonly CompanyOffice[];
   readonly contact: CompanyContact;
-  readonly socials: readonly CompanySocial[];
+  readonly socials: readonly SocialLink[];
 }
 
 export const OFC_COMPANY: OfcCompany = {
@@ -34,12 +35,12 @@ export const OFC_COMPANY: OfcCompany = {
   shortAddress: 'Lot 11, Cai Lan Industrial Zone, Quang Ninh, Vietnam',
   offices: [
     {
-      label: 'Head Office',
+      label: $localize`:@@company.headOffice:Head Office`,
       address:
         'Lot 11, Cai Lan Industrial Zone, Bai Chay Ward, Ha Long City, Quang Ninh Province, Vietnam',
     },
     {
-      label: 'Hanoi Office',
+      label: $localize`:@@company.hanoiOffice:Hanoi Office`,
       address: 'TSQ Millennium Tower, Ha Tay - No. 4, Quang Trung Street, Ha Dong District, Hanoi',
     },
   ],
@@ -52,9 +53,10 @@ export const OFC_COMPANY: OfcCompany = {
     email: 'cco@binhminhhp.com',
     website: 'www.binhminhhp.com',
   },
+  // TODO: replace '#' with real profile URLs once provided.
   socials: [
-    { name: 'facebook', label: 'Facebook placeholder', href: '#' },
-    { name: 'linkedin', label: 'LinkedIn placeholder', href: '#' },
-    { name: 'youtube', label: 'YouTube placeholder', href: '#' },
+    { name: 'facebook', label: 'Facebook', href: '#' },
+    { name: 'linkedin', label: 'LinkedIn', href: '#' },
+    { name: 'youtube', label: 'YouTube', href: '#' },
   ],
-} as const;
+};

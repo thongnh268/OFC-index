@@ -33,7 +33,7 @@ export class FooterComponent {
   readonly introductionLinks: readonly NavLink[] = INTRODUCTION_NAV;
   readonly productLinks: readonly NavLink[] = PRODUCT_NAV;
   protected readonly contactRows: readonly ContactRow[] = [
-    { icon: 'map-pin', text: this.company.shortAddress },
+    { icon: 'mapPin', text: this.company.shortAddress },
     { icon: 'phone', text: this.company.contact.ops.phone },
     { icon: 'email', text: this.company.contact.email },
   ];
@@ -41,6 +41,5 @@ export class FooterComponent {
   onSubscriptionSubmit(email: string): void {
     // TODO: wire to Resend in Sprint 2 Day 7.
     void email;
-    console.log('Footer subscription submitted');
   }
 }

@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
-import type { IconName } from '../icon/icon.component';
-
-export interface SocialLink {
-  readonly name: IconName;
-  readonly label: string;
-  readonly href: string;
-}
+import type { SocialLink } from '../../../core/data';
 
 @Component({
   selector: 'app-social-row',

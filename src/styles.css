@@ -21,6 +21,8 @@
   --color-white: #ffffff;
   --font-sans: 'Inter', system-ui, sans-serif;
   --container-content: 1060px;
+  --spacing-header-top: 70px;
+  --spacing-header-main: 100px;
   --radius-pill: 9999px;
   --radius-card: 12px;
   --radius-input: 8px;
