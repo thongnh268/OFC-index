@@ -34,6 +34,60 @@ Expected: at least `.bg-primary`, `.flex`, `.hidden`, `.text-white` print. If em
 
 The `.design/` and `.claude/` directories must NOT be tracked. Add them to `.git/info/exclude` (per-clone, not committed) — never to `.gitignore`, because `.gitignore` is public and would leak their existence.
 
+## Branch flow & CI/CD
+
+```
+feature/* ──PR──▶ develop ──PR──▶ main
+                  (staging)       (production)
+```
+
+One pipeline (`.github/workflows/pipeline.yml`), three stages — later stages only run when
+earlier ones pass:
+
+| Stage     | Trigger                       | What it does                                                        |
+| --------- | ----------------------------- | ------------------------------------------------------------------- |
+| `quality` | PR + push to `main`/`develop` | `npm ci`, lint, typecheck, unit tests (headless Chrome), full build |
+| `image`   | push to `main`/`develop` only | Builds the Dockerfile, pushes `ghcr.io/thongnh268/ofc-index`        |
+| `deploy`  | push, and only when enabled   | SSH to the VPS, pull the branch image, restart the container        |
+
+Image tags: branch name (`main`, `develop`), commit SHA, and `latest` (main only).
+
+### Enabling deploy
+
+Deploy is off by default (VPS/domain not ready yet). To enable:
+
+1. Repository variable `DEPLOY_ENABLED` = `true`.
+2. Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` (private key of a deploy user that can run docker).
+3. Optional: protect the `production` / `staging` GitHub environments with required reviewers.
+
+Containers on the VPS: `ofc-index-main` on `127.0.0.1:4000`, `ofc-index-develop` on `127.0.0.1:4001`.
+
+### VPS layout (Docker + Nginx + cloudflared)
+
+The container serves both locales itself (`tools/serve-ssr.mjs`: `/` → `/vi/`, `/en/`).
+Nginx only reverse-proxies a domain to a port:
+
+```nginx
+server {
+  server_name ofc.example.com;          # production
+  location / { proxy_pass http://127.0.0.1:4000; }
+}
+server {
+  server_name staging.ofc.example.com;  # staging
+  location / { proxy_pass http://127.0.0.1:4001; }
+}
+```
+
+Public ingress goes through a cloudflared tunnel pointing at Nginx; no ports are exposed publicly.
+
+### Running the image locally
+
+```bash
+docker build -t ofc-index .
+docker run --rm -p 4000:4000 ofc-index
+# http://localhost:4000 → redirects to /vi/
+```
+
 ## Code organization
 
 ```
@@ -106,13 +160,13 @@ Author every component (page, layout, or shared primitive) against this list. CI
 
 ## Icon library
 
-Icons go through `<app-icon name="..." />`, which wraps **lucide-angular**. To add a glyph:
+Icons go through `<app-icon name="..." />`, which wraps **@ng-icons** (Tabler set, fill weight). To add a glyph:
 
-1. Import the lucide icon by name in `src/app/shared/components/icon/icon.component.ts`.
-2. Add it to the `IconName` union and the `ICON_MAP` record.
-3. Use `<app-icon name="new-name" size="20" />` in templates.
+1. Import the tabler icon in `src/app/shared/components/icon/icon.component.ts`.
+2. Add one entry to the `ICONS` map (camelCase key) — `IconName` and the registry derive from it.
+3. Use `<app-icon name="newName" size="20" />` in templates.
 
-Do not inline SVG `<path>` data. Do not import lucide directly from feature components — go through `<app-icon>` so swapping the library later is one file.
+Do not inline SVG `<path>` data. Do not import the icon library directly from feature components — go through `<app-icon>` so swapping the library later is one file.
 
 ## Lessons learned (do not repeat)
 
