@@ -5,6 +5,7 @@ import {
   Injector,
   LOCALE_ID,
   afterNextRender,
+  computed,
   inject,
   signal,
   viewChildren,
@@ -60,6 +61,11 @@ export class HeaderComponent {
     { key: 'about', label: $localize`:@@nav.aboutMenu:About Us`, links: ABOUT_NAV },
     { key: 'products', label: $localize`:@@nav.productsMenu:Products`, links: PRODUCT_NAV },
   ];
+
+  // The single full-width sub-menu bar renders the links of whichever dropdown is open.
+  readonly activeDropdown = computed(
+    () => this.dropdowns.find((menu) => menu.key === this.openDropdown()) ?? null,
+  );
 
   private readonly currentUrl = signal(this.router.url);
   private readonly dropdownTriggers =
