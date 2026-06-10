@@ -23,7 +23,7 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 })
 export class HamburgerComponent {
   readonly active = input<boolean>(false);
-  readonly ariaLabel = input<string>('Open navigation');
+  readonly ariaLabel = input<string>($localize`:@@hamburger.openNav:Open navigation`);
   readonly controls = input<string>('');
   readonly toggled = output<void>();
 }
