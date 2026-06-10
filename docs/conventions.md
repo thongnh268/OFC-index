@@ -57,8 +57,22 @@ Image tags: branch name (`main`, `develop`), commit SHA, and `latest` (main only
 Deploy is off by default (VPS/domain not ready yet). To enable:
 
 1. Repository variable `DEPLOY_ENABLED` = `true`.
-2. Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` (private key of a deploy user that can run docker).
+2. Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` (private key of a deploy user that can run
+   docker), and `VPS_PORT` if sshd listens on a non-default port (defaults to 22).
 3. Optional: protect the `production` / `staging` GitHub environments with required reviewers.
+
+CI authenticates with a **per-app SSH key**, never a password:
+
+```bash
+ssh-keygen -t ed25519 -f ofc-index-deploy -C "ci-deploy-ofc-index" -N ''
+ssh -p <PORT> deploy@<HOST> \
+  "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" \
+  < ofc-index-deploy.pub
+```
+
+The private key goes into `VPS_SSH_KEY`. Each app gets its own key with its own comment, so
+revoking one app is a single line: `sed -i '/ci-deploy-ofc-index/d' ~/.ssh/authorized_keys`.
+Once keys work, disable password login (`PasswordAuthentication no` in `/etc/ssh/sshd_config`).
 
 Containers on the VPS: `ofc-index-main` on `127.0.0.1:4000`, `ofc-index-develop` on `127.0.0.1:4001`.
 
