@@ -1,15 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { tablerX } from '@ng-icons/tabler-icons';
 import {
-  Facebook,
-  Linkedin,
-  type LucideIconData,
-  LucideAngularModule,
-  Mail,
-  MapPin,
-  Phone,
-  X,
-  Youtube,
-} from 'lucide-angular';
+  tablerBrandFacebookFill,
+  tablerBrandLinkedinFill,
+  tablerBrandYoutubeFill,
+  tablerMailFill,
+  tablerMapPinFill,
+  tablerPhoneFill,
+} from '@ng-icons/tabler-icons/fill';
 
 export type IconName =
   | 'facebook'
@@ -20,21 +19,32 @@ export type IconName =
   | 'email'
   | 'close';
 
-const ICON_MAP: Record<IconName, LucideIconData> = {
-  facebook: Facebook,
-  linkedin: Linkedin,
-  youtube: Youtube,
-  'map-pin': MapPin,
-  phone: Phone,
-  email: Mail,
-  close: X,
+const ICON_KEY: Record<IconName, string> = {
+  facebook: 'tablerBrandFacebookFill',
+  linkedin: 'tablerBrandLinkedinFill',
+  youtube: 'tablerBrandYoutubeFill',
+  'map-pin': 'tablerMapPinFill',
+  phone: 'tablerPhoneFill',
+  email: 'tablerMailFill',
+  close: 'tablerX',
 };
 
 @Component({
   selector: 'app-icon',
   standalone: true,
-  imports: [LucideAngularModule],
-  template: `<lucide-angular [img]="icon()" [size]="size()" aria-hidden="true"></lucide-angular>`,
+  imports: [NgIcon],
+  template: `<ng-icon [name]="iconKey()" [size]="pxSize()" aria-hidden="true" />`,
+  viewProviders: [
+    provideIcons({
+      tablerBrandFacebookFill,
+      tablerBrandLinkedinFill,
+      tablerBrandYoutubeFill,
+      tablerMailFill,
+      tablerMapPinFill,
+      tablerPhoneFill,
+      tablerX,
+    }),
+  ],
   styles: [
     `
       :host {
@@ -42,7 +52,7 @@ const ICON_MAP: Record<IconName, LucideIconData> = {
         vertical-align: middle;
       }
 
-      :host lucide-angular {
+      :host ng-icon {
         color: currentColor;
       }
     `,
@@ -53,5 +63,6 @@ export class IconComponent {
   readonly name = input.required<IconName>();
   readonly size = input<number>(24);
 
-  protected readonly icon = computed(() => ICON_MAP[this.name()]);
+  protected readonly iconKey = computed(() => ICON_KEY[this.name()]);
+  protected readonly pxSize = computed(() => `${this.size()}px`);
 }
