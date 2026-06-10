@@ -19,14 +19,14 @@
   gap: 16px;
 }
 
-.footer-column a {
+.footer-column nav a {
   color: rgb(255 255 255 / 0.82);
   line-height: 1.5;
   text-decoration: none;
 }
 
-.footer-column a:hover,
-.footer-column a:focus-visible {
+.footer-column nav a:hover,
+.footer-column nav a:focus-visible {
   color: white;
 }
 
