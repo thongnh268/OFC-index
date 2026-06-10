@@ -21,5 +21,5 @@ export class BrandComponent {
   readonly imageHeightClass = input<string>('h-12');
 
   protected readonly company = OFC_COMPANY;
-  protected readonly ariaLabel = OFC_COMPANY.brand + ' home';
+  protected readonly ariaLabel = $localize`:@@brand.homeLink:${OFC_COMPANY.brand}:brand: home`;
 }

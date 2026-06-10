@@ -14,16 +14,20 @@ import {
     <form class="subscription" (submit)="onSubmit($event)">
       <h2 class="text-2xl font-bold text-primary">{{ heading() }}</h2>
       <div class="mt-6 flex gap-3">
-        <label class="sr-only" [attr.for]="inputId()">Email address</label>
+        <label class="sr-only" [attr.for]="inputId()" i18n="@@subscription.emailLabel"
+          >Email address</label
+        >
         <input
           [id]="inputId()"
           #emailInput
           type="email"
           placeholder="Email address"
+          i18n-placeholder="@@subscription.emailPlaceholder"
           aria-label="Email address"
+          i18n-aria-label="@@subscription.emailLabel"
           required
         />
-        <button type="submit">Send</button>
+        <button type="submit" i18n="@@subscription.send">Send</button>
       </div>
     </form>
   `,
@@ -31,7 +35,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SubscriptionFormComponent {
-  readonly heading = input<string>('Subscription');
+  readonly heading = input<string>($localize`:@@subscription.heading:Subscription`);
   readonly inputId = input.required<string>();
   readonly submitted = output<string>();
 

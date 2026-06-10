@@ -23,23 +23,27 @@
 
   <section class="footer-main min-h-[600px] bg-primary text-white/80">
     <div class="container-content grid gap-12 py-24 md:grid-cols-3">
-      <app-footer-column heading="INTRODUCTION">
-        <nav aria-label="Introduction">
+      <app-footer-column heading="INTRODUCTION" i18n-heading="@@footer.introduction">
+        <nav aria-label="Introduction" i18n-aria-label="@@footer.introductionNav">
           @for (link of introductionLinks; track link.route) {
             <a [routerLink]="link.route">{{ link.label }}</a>
           }
         </nav>
       </app-footer-column>
 
-      <app-footer-column heading="PRODUCTS AND SERVICES">
-        <nav aria-label="Products and services">
+      <app-footer-column heading="PRODUCTS AND SERVICES" i18n-heading="@@footer.products">
+        <nav aria-label="Products and services" i18n-aria-label="@@footer.productsNav">
           @for (link of productLinks; track link.route) {
             <a [routerLink]="link.route">{{ link.label }}</a>
           }
         </nav>
       </app-footer-column>
 
-      <app-footer-column class="contact-details" heading="CONTACT US">
+      <app-footer-column
+        class="contact-details"
+        heading="CONTACT US"
+        i18n-heading="@@footer.contact"
+      >
         @for (office of company.offices; track office.label; let first = $first) {
           <p>
             @if (first) {
@@ -48,16 +52,18 @@
             {{ office.label }}: {{ office.address }}
           </p>
         }
-        <p>Hotline: {{ company.contact.hotline }}</p>
-        <p>Operations Director {{ company.contact.ops.name }}: {{ company.contact.ops.phone }}</p>
-        <p>Email: {{ company.contact.email }}</p>
-        <p>Website: {{ company.contact.website }}</p>
+        <p i18n="@@footer.hotline">Hotline: {{ company.contact.hotline }}</p>
+        <p i18n="@@footer.opsDirector">
+          Operations Director {{ company.contact.ops.name }}: {{ company.contact.ops.phone }}
+        </p>
+        <p i18n="@@footer.emailLine">Email: {{ company.contact.email }}</p>
+        <p i18n="@@footer.websiteLine">Website: {{ company.contact.website }}</p>
         <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />
       </app-footer-column>
     </div>
   </section>
 
   <section class="copyright min-h-[50px] bg-primary-700">
-    <p>© {{ currentYear }} {{ company.brand }}. All rights reserved.</p>
+    <p i18n="@@footer.copyright">© {{ currentYear }} {{ company.brand }}. All rights reserved.</p>
   </section>
 </footer>
