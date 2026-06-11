@@ -3,6 +3,8 @@ FROM node:22-alpine AS build
 WORKDIR /app
 # Husky's prepare script must not run outside a git checkout.
 ENV HUSKY=0
+# node 22 ships npm 10; pin npm 11 to match the locally generated lockfile resolver.
+RUN npm i -g npm@11
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
