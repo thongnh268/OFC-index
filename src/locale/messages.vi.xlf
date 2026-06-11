@@ -206,6 +206,26 @@
         <source>Subscription</source>
         <target>Đăng ký nhận tin</target>
       </trans-unit>
+      <trans-unit id="dialog.close" datatype="html">
+        <source>Close dialog</source>
+        <target>Đóng hộp thoại</target>
+      </trans-unit>
+      <trans-unit id="pagination.label" datatype="html">
+        <source>Pagination</source>
+        <target>Phân trang</target>
+      </trans-unit>
+      <trans-unit id="pagination.previous" datatype="html">
+        <source>Previous page</source>
+        <target>Trang trước</target>
+      </trans-unit>
+      <trans-unit id="pagination.next" datatype="html">
+        <source>Next page</source>
+        <target>Trang sau</target>
+      </trans-unit>
+      <trans-unit id="pagination.page" datatype="html">
+        <source>Page <x id="page"/></source>
+        <target>Trang <x id="page"/></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

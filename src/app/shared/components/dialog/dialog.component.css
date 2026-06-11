@@ -1,0 +1,75 @@
+/* Above the header (z 30) and its dropdown overlay (z 20). */
+.dialog-backdrop {
+  background: rgb(10 23 40 / 0.45);
+  border: 0;
+  cursor: default;
+  inset: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity var(--duration-base) var(--ease-out);
+  z-index: 40;
+}
+
+.dialog-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dialog-panel {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-popover);
+  left: 50%;
+  max-height: min(85vh, 640px);
+  opacity: 0;
+  overflow: auto;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -48%);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+  width: min(92vw, 560px);
+  z-index: 41;
+}
+
+.dialog-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.dialog-header {
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.dialog-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dialog-close {
+  background: transparent;
+  border: 0;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.dialog-close:hover {
+  color: var(--color-text);
+}
+
+.dialog-body {
+  padding: 20px;
+}

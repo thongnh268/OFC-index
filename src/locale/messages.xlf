@@ -255,60 +255,60 @@
         <source>Primary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.openMenu" datatype="html">
         <source>Open navigation menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">130,131</context>
+          <context context-type="linenumber">104,105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="drawer.heading" datatype="html">
         <source>Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.mobilePrimaryNav" datatype="html">
         <source>Mobile primary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">145</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.home" datatype="html">
         <source>Home</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">147</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.mobileSecondaryNav" datatype="html">
         <source>Mobile secondary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">160,161</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.aboutMenu" datatype="html">
         <source>About Us</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.productsMenu" datatype="html">
         <source>Products</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.comingSoon" datatype="html">
@@ -336,11 +336,11 @@
         <source>Close navigation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">20,21</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">45,46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.emailLabel" datatype="html">

@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { tablerX } from '@ng-icons/tabler-icons';
+import {
+  tablerChevronDown,
+  tablerChevronLeft,
+  tablerChevronRight,
+  tablerX,
+} from '@ng-icons/tabler-icons';
 import {
   tablerBrandFacebookFill,
   tablerBrandLinkedinFill,
@@ -19,6 +24,9 @@ const ICONS = {
   phone: tablerPhoneFill,
   email: tablerMailFill,
   close: tablerX,
+  chevronDown: tablerChevronDown,
+  chevronLeft: tablerChevronLeft,
+  chevronRight: tablerChevronRight,
 } as const;
 
 export type IconName = keyof typeof ICONS;

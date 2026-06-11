@@ -1,0 +1,31 @@
+<div class="tab-list" role="tablist">
+  @for (tab of tabs(); track tab; let i = $index) {
+    <button
+      #trigger
+      class="tab-trigger"
+      type="button"
+      role="tab"
+      [id]="groupId() + '-tab-' + i"
+      [class.is-active]="activeIndex() === i"
+      [attr.aria-selected]="activeIndex() === i"
+      [attr.aria-controls]="groupId() + '-panel-' + i"
+      [tabindex]="activeIndex() === i ? 0 : -1"
+      (click)="select(i)"
+      (keydown)="onKeydown($event)"
+    >
+      {{ tab.label() }}
+    </button>
+  }
+</div>
+
+<div
+  class="tab-panel"
+  role="tabpanel"
+  tabindex="0"
+  [id]="groupId() + '-panel-' + activeIndex()"
+  [attr.aria-labelledby]="groupId() + '-tab-' + activeIndex()"
+>
+  @if (activeTab(); as tab) {
+    <ng-container [ngTemplateOutlet]="tab.content()" />
+  }
+</div>

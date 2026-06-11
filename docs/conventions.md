@@ -96,17 +96,41 @@ src/app/
     company.ts      # OFC_COMPANY (brand, legal name, offices, contact, socials)
     navigation.ts   # SECONDARY_NAV, MAIN_NAV, ABOUT_NAV, PRODUCT_NAV, INTRODUCTION_NAV
     index.ts        # barrel
+  core/sanity/        # SanityService (GROQ over HttpClient), SANITY_CONFIG, queries, types
   shared/components/  # atomic reusable UI — standalone components, OnPush
-    icon/             # <app-icon name="..." size="..." /> — lucide-angular wrapper
+    icon/             # <app-icon name="..." size="..." /> — @ng-icons (Tabler) wrapper
     brand/            # <app-brand imageHeightClass="..." /> — logo + home link
     footer-column/    # <app-footer-column heading="..."> <ng-content /> </>
     social-row/       # <app-social-row [links]="..." variant="header|footer" />
     subscription-form/ # <app-subscription-form inputId="..." (submitted)="..." />
     hamburger/        # <app-hamburger [active]="..." (toggled)="..." />
     mobile-drawer/    # <app-mobile-drawer [open]="..." (closed)="..."> <ng-content /> </>
+    tabs/             # <app-tab-group groupId="..."> <app-tab label="..."> — APG tablist
+    accordion/        # <app-accordion accordionId="..." [multi]> <app-accordion-item heading="...">
+    dialog/           # <app-dialog [open] (closed) heading="..."> — centered modal, CDK focus trap
+    pagination/       # <app-pagination [totalPages] [currentPage] (pageChanged) />
+  shared/directives/  # style carriers on native elements (see below)
   layout/             # Header + Footer + LayoutComponent shell. No data, no SVG paths.
   pages/              # feature pages (grow in Sprint 2)
+sanity/               # Sanity Studio (own package.json — not part of the Angular build)
 ```
+
+### Style carriers vs behavioral primitives
+
+Two kinds of shared UI primitives — pick deliberately:
+
+- **Style carrier = directive on a native element** (`shared/directives/`): `button[appButton]`,
+  `input|textarea|select[appField]`, `[appBadge]`, `[appCard]`. The directive only sets classes;
+  visuals live ONCE in `src/styles.css` under `@layer components`. Native semantics, forms,
+  `routerLink` and mobile keyboards keep working — never wrap a native control in a component
+  just to style it.
+- **Behavioral primitive = component** (`shared/components/`): tabs, accordion, dialog,
+  pagination — anything owning state, keyboard handling or ARIA wiring.
+- Components that need element ids for ARIA take an `*Id` input prefix (`groupId`, `accordionId`,
+  `dialogId`) and derive ids per index — never module-level counters (they drift between server
+  and client and break hydration).
+- Angular CDK is allowed for hard a11y only (`cdkTrapFocus` in app-dialog). Do not pull in CDK
+  overlay/menus while a native element (`<select>`) or a small hand-rolled pattern suffices.
 
 ## Component checklist (every new .component.ts must pass all)
 
@@ -176,4 +200,14 @@ Do not inline SVG `<path>` data. Do not import the icon library directly from fe
 4. **2026-06-10**: Component-scoped CSS (`.hamburger { display: inline-flex }`) overrode the Tailwind utility `lg:hidden` because Angular adds an attribute selector to scoped rules, raising their specificity above the global utility. Fix is architectural: extract any element that needs responsive visibility into its own shared component and do not set host display in scoped CSS.
 5. **2026-06-10**: Angular ESLint forbids `output()` names that match a standard DOM event (`toggle`, `close`, `click`, etc.). Use `toggled`, `closed`, etc., when emitting from shared components.
 6. **2026-06-10**: New components landed without `OnPush` and without `viewChild()` signal API even though the conventions section said both were required. Convention text alone is not enough — every component PR review must run through the checklist above.
-7. **2026-06-10**: Social icons turned white-on-white ("trắng tinh") on hover. Root cause: `app-footer-column` uses `ViewEncapsulation.None` with a bare global rule `.footer-column a:hover { color: white }` (specificity 0,2,1). `app-social-row` is projected into the footer column, so its `<a class="social-button">` matched that global rule and the navy icon turned white on hover. The base `.social-button` color survived (scoped, 0,2,0) but lost on `:hover`. Fix is architectural, at the source of the leak: scope the footer-column rule to `.footer-column nav a` so it only targets the nav links it ships, never anchors of projected child components. Audit confirmed `footer-column` is the ONLY `ViewEncapsulation.None` component — every other component is Emulated, so its `:hover` rules carry `[_ngcontent]` and cannot leak across component boundaries.
+7. **2026-06-11**: `ng extract-i18n` only extracts from components reachable from the app —
+   a shared component with no consumer is tree-shaken and its `i18n` strings silently skipped.
+   Because `i18nMissingTranslation: error`, the build then fails LATER, when Sprint-2 first
+   imports the component. Rule: when adding i18n strings to a not-yet-consumed shared component,
+   add the `<trans-unit>` to `src/locale/messages.vi.xlf` by hand in the same commit (extra
+   translations are harmless; missing ones break the build).
+8. **2026-06-11**: Two components in one file where the parent queries the child
+   (`contentChildren(Child)`) hit a TDZ crash — the compiled query lives in a static initializer
+   that runs at class-definition time. Declare the CHILD first; the child may reference the
+   parent only lazily (`inject(forwardRef(() => Parent))`).
+9. **2026-06-10**: Social icons turned white-on-white ("trắng tinh") on hover. Root cause: `app-footer-column` uses `ViewEncapsulation.None` with a bare global rule `.footer-column a:hover { color: white }` (specificity 0,2,1). `app-social-row` is projected into the footer column, so its `<a class="social-button">` matched that global rule and the navy icon turned white on hover. The base `.social-button` color survived (scoped, 0,2,0) but lost on `:hover`. Fix is architectural, at the source of the leak: scope the footer-column rule to `.footer-column nav a` so it only targets the nav links it ships, never anchors of projected child components. Audit confirmed `footer-column` is the ONLY `ViewEncapsulation.None` component — every other component is Emulated, so its `:hover` rules carry `[_ngcontent]` and cannot leak across component boundaries.
