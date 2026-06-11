@@ -1,0 +1,11 @@
+<section class="hero">
+  @if (content().imageUrl; as imageUrl) {
+    <img class="hero-image" [src]="imageUrl" alt="" />
+  }
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="container-content hero-inner">
+    <h1 class="hero-heading">{{ content().heading }}</h1>
+    <p class="hero-subheading">{{ content().subheading }}</p>
+  </div>
+</section>

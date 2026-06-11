@@ -1,0 +1,51 @@
+.hero {
+  align-items: center;
+  /* Fallback when the CMS has no banner image yet. */
+  background: linear-gradient(120deg, var(--color-primary-700) 0%, var(--color-primary) 100%);
+  display: flex;
+  min-height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 480px;
+  }
+}
+
+.hero-image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.hero-scrim {
+  background: linear-gradient(90deg, rgb(10 23 40 / 0.7) 0%, rgb(10 23 40 / 0.25) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.hero-inner {
+  color: var(--color-white);
+  position: relative;
+  width: 100%;
+}
+
+.hero-heading {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  max-width: 18ch;
+}
+
+.hero-subheading {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  margin: 16px 0 0;
+  max-width: 52ch;
+  opacity: 0.92;
+}
