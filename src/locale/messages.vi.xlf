@@ -46,9 +46,9 @@
         <source>Wood Chips Export</source>
         <target>Xuất khẩu dăm gỗ</target>
       </trans-unit>
-      <trans-unit id="nav.woodPallets" datatype="html">
-        <source>Wood Pallets Export</source>
-        <target>Xuất khẩu pallet gỗ</target>
+      <trans-unit id="nav.woodPellets" datatype="html">
+        <source>Wood Pellets Export</source>
+        <target>Xuất khẩu viên nén gỗ</target>
       </trans-unit>
       <trans-unit id="nav.timber" datatype="html">
         <source>Timber Processing</source>
