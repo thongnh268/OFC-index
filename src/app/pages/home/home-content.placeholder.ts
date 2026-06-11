@@ -6,10 +6,42 @@ import type { HomeContent } from './home-content.model';
 // sensibly before marketing fills the CMS. Replace via Sanity, never hard-code in views.
 export const HOME_CONTENT_PLACEHOLDER: HomeContent = {
   hero: {
-    heading: 'Leading wood chip & pellet exporter',
-    subheading:
-      'Sustainable forestry products from Vietnam — FSC & PEFC certified, exported to China, Japan and Korea.',
+    heading: [
+      { tone: 'navy', text: 'Leading wood chip & pellet' },
+      { tone: 'accent', text: 'exporter in Vietnam' },
+    ],
+    subheading: 'Sustainable sourcing. Reliable global supply chain.',
     imageUrl: null,
+    stats: [
+      {
+        icon: 'factory',
+        lines: [
+          { text: '1M+', style: 'value' },
+          { text: 'BDMT Annual Capacity', style: 'caption' },
+        ],
+      },
+      {
+        icon: 'experience',
+        lines: [
+          { text: '20+', style: 'value' },
+          { text: 'Years Experience', style: 'caption' },
+        ],
+      },
+      {
+        icon: 'people',
+        lines: [
+          { text: '740+', style: 'value' },
+          { text: 'Employees & Collaborators', style: 'caption' },
+        ],
+      },
+      {
+        icon: 'globe',
+        lines: [
+          { text: 'Export to', style: 'lead' },
+          { text: 'Japan & China', style: 'highlight' },
+        ],
+      },
+    ],
   },
   about: {
     heading: 'About OFC Company',

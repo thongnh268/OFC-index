@@ -8,7 +8,7 @@ import { Directive, computed, input } from '@angular/core';
   host: { '[class]': 'hostClasses()' },
 })
 export class ButtonDirective {
-  readonly variant = input<'primary' | 'outline' | 'ghost'>('primary');
+  readonly variant = input<'primary' | 'accent' | 'outline' | 'ghost'>('primary');
   readonly size = input<'md' | 'sm'>('md');
 
   protected readonly hostClasses = computed(

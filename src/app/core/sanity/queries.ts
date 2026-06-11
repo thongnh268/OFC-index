@@ -14,8 +14,18 @@ export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
 // back to HOME_CONTENT_PLACEHOLDER in HomeContentService.
 export const HOME_QUERY = `*[_type == "homepage"][0] {
   "hero": {
-    "heading": coalesce(hero.heading[$locale], hero.heading.vi),
+    "heading": hero.heading[]{
+      tone,
+      "text": coalesce(text[$locale], text.vi)
+    },
     "subheading": coalesce(hero.subheading[$locale], hero.subheading.vi),
-    "imageUrl": hero.image.asset->url
+    "imageUrl": hero.image.asset->url,
+    "stats": hero.stats[]{
+      icon,
+      "lines": lines[]{
+        style,
+        "text": coalesce(text[$locale], text.vi)
+      }
+    }
   }
 }`;

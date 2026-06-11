@@ -30,7 +30,12 @@ import { IconComponent } from '../icon/icon.component';
         (click)="toggle()"
       >
         <span>{{ heading() }}</span>
-        <app-icon name="chevronDown" size="20" class="accordion-chevron" [class.is-open]="open()" />
+        <app-icon
+          name="chevronDown"
+          [size]="20"
+          class="accordion-chevron"
+          [class.is-open]="open()"
+        />
       </button>
     </h3>
     <div
