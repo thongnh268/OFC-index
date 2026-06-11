@@ -50,7 +50,142 @@ body {
   margin: 0;
 }
 
-:is(a, button, input):focus-visible {
+:is(a, button, input, textarea, select):focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+/* Primitive classes applied by shared/directives (appButton, appField, appBadge, appCard). */
+@layer components {
+  .btn {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-input);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 700;
+    gap: 8px;
+    height: 44px;
+    justify-content: center;
+    padding: 0 20px;
+    text-decoration: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+    white-space: nowrap;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-primary-600);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    background: var(--color-primary-700);
+  }
+
+  .btn-accent {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .btn-accent:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-accent) 88%, black);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline:hover:not(:disabled),
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--color-primary-50);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn-sm {
+    font-size: 0.875rem;
+    height: 36px;
+    padding: 0 14px;
+  }
+
+  .field {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-input);
+    color: var(--color-text);
+    font: inherit;
+    min-height: 44px;
+    padding: 0 14px;
+    width: 100%;
+  }
+
+  textarea.field {
+    padding: 10px 14px;
+    resize: vertical;
+  }
+
+  .field::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .field:disabled {
+    background: var(--color-bg);
+    cursor: not-allowed;
+  }
+
+  .badge {
+    align-items: center;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    font-size: 0.8125rem;
+    font-weight: 650;
+    gap: 4px;
+    line-height: 1;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  .badge-primary {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .badge-accent {
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-white));
+    color: var(--color-accent);
+  }
+
+  .badge-neutral {
+    background: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-padded {
+    padding: 20px;
+  }
 }

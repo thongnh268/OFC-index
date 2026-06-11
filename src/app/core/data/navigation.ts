@@ -23,12 +23,11 @@ export const ABOUT_NAV: readonly NavLink[] = [
   },
 ];
 
-// TODO: OFC sells both Pellets and Pallets — final IA pending; revisit before Sprint 2 Products routes.
 export const PRODUCT_NAV: readonly NavLink[] = [
   { label: $localize`:@@nav.woodChips:Wood Chips Export`, route: '/products/wood-chips-export' },
   {
-    label: $localize`:@@nav.woodPallets:Wood Pallets Export`,
-    route: '/products/wood-pallets-export',
+    label: $localize`:@@nav.woodPellets:Wood Pellets Export`,
+    route: '/products/wood-pellets-export',
   },
   { label: $localize`:@@nav.timber:Timber Processing`, route: '/products/timber-processing' },
   { label: $localize`:@@nav.afforestation:Afforestation`, route: '/products/afforestation' },

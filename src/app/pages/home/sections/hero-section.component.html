@@ -1,0 +1,44 @@
+<section class="hero">
+  @if (content().imageUrl; as imageUrl) {
+    <img class="hero-image" [src]="imageUrl" alt="" />
+  }
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-top">
+        <h1 class="hero-heading">
+          @for (segment of content().heading; track $index) {
+            <span [class]="'tone-' + segment.tone">{{ segment.text }}</span>
+            <!-- segments are joined by a space so editors never need trailing spaces -->
+            {{ ' ' }}
+          }
+        </h1>
+
+        <span class="hero-divider" aria-hidden="true"></span>
+
+        <p class="hero-subheading">{{ content().subheading }}</p>
+
+        <a appButton variant="accent" class="hero-cta" routerLink="/contacts">
+          <span i18n="@@home.heroCta">Get a quote</span>
+          <app-icon name="chevronRight" [size]="18" />
+        </a>
+      </div>
+
+      @if (content().stats.length) {
+        <ul class="hero-stats">
+          @for (stat of content().stats; track $index) {
+            <li class="hero-stat">
+              <app-icon class="hero-stat-icon" [name]="stat.icon" [size]="48" />
+              <span class="hero-stat-lines">
+                @for (line of stat.lines; track $index) {
+                  <span class="stat-line" [class]="'style-' + line.style">{{ line.text }}</span>
+                }
+              </span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</section>

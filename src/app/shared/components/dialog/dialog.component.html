@@ -1,0 +1,40 @@
+<button
+  class="dialog-backdrop"
+  type="button"
+  aria-label="Close dialog"
+  i18n-aria-label="@@dialog.close"
+  [class.is-open]="open()"
+  [attr.aria-hidden]="!open()"
+  [attr.tabindex]="open() ? 0 : -1"
+  (click)="closed.emit()"
+></button>
+
+<div
+  class="dialog-panel"
+  role="dialog"
+  [class.is-open]="open()"
+  [attr.aria-modal]="open() ? 'true' : null"
+  [attr.aria-hidden]="!open()"
+  [attr.aria-labelledby]="dialogId() + '-title'"
+  [attr.inert]="open() ? null : ''"
+  [cdkTrapFocus]="open()"
+  [cdkTrapFocusAutoCapture]="open()"
+  (keydown.escape)="closed.emit()"
+>
+  <header class="dialog-header">
+    <h2 class="dialog-title" [id]="dialogId() + '-title'">{{ heading() }}</h2>
+    <button
+      class="dialog-close"
+      type="button"
+      aria-label="Close dialog"
+      i18n-aria-label="@@dialog.close"
+      (click)="closed.emit()"
+    >
+      <app-icon name="close" />
+    </button>
+  </header>
+
+  <div class="dialog-body">
+    <ng-content />
+  </div>
+</div>

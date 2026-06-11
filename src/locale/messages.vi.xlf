@@ -46,9 +46,9 @@
         <source>Wood Chips Export</source>
         <target>Xuất khẩu dăm gỗ</target>
       </trans-unit>
-      <trans-unit id="nav.woodPallets" datatype="html">
-        <source>Wood Pallets Export</source>
-        <target>Xuất khẩu pallet gỗ</target>
+      <trans-unit id="nav.woodPellets" datatype="html">
+        <source>Wood Pellets Export</source>
+        <target>Xuất khẩu viên nén gỗ</target>
       </trans-unit>
       <trans-unit id="nav.timber" datatype="html">
         <source>Timber Processing</source>
@@ -205,6 +205,30 @@
       <trans-unit id="subscription.heading" datatype="html">
         <source>Subscription</source>
         <target>Đăng ký nhận tin</target>
+      </trans-unit>
+      <trans-unit id="home.heroCta" datatype="html">
+        <source>Get a quote</source>
+        <target>Nhận báo giá</target>
+      </trans-unit>
+      <trans-unit id="dialog.close" datatype="html">
+        <source>Close dialog</source>
+        <target>Đóng hộp thoại</target>
+      </trans-unit>
+      <trans-unit id="pagination.label" datatype="html">
+        <source>Pagination</source>
+        <target>Phân trang</target>
+      </trans-unit>
+      <trans-unit id="pagination.previous" datatype="html">
+        <source>Previous page</source>
+        <target>Trang trước</target>
+      </trans-unit>
+      <trans-unit id="pagination.next" datatype="html">
+        <source>Next page</source>
+        <target>Trang sau</target>
+      </trans-unit>
+      <trans-unit id="pagination.page" datatype="html">
+        <source>Page <x id="page"/></source>
+        <target>Trang <x id="page"/></target>
       </trans-unit>
     </body>
   </file>

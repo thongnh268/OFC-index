@@ -76,77 +76,77 @@
         <source>Wood Chips Export</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="nav.woodPallets" datatype="html">
-        <source>Wood Pallets Export</source>
+      <trans-unit id="nav.woodPellets" datatype="html">
+        <source>Wood Pellets Export</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.timber" datatype="html">
         <source>Timber Processing</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.afforestation" datatype="html">
         <source>Afforestation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.transportation" datatype="html">
         <source>Transportation and Warehouses</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.aboutUs" datatype="html">
         <source>About us</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.directorGreetings" datatype="html">
         <source>Director Greetings</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.companyProfile" datatype="html">
         <source>Company Profile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.visionMission" datatype="html">
         <source>Vision and Mission</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.history" datatype="html">
         <source>History</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.orgChart" datatype="html">
         <source>Organizational chart</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.introduction" datatype="html">
@@ -255,67 +255,67 @@
         <source>Primary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.openMenu" datatype="html">
         <source>Open navigation menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">130,131</context>
+          <context context-type="linenumber">104,105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="drawer.heading" datatype="html">
         <source>Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.mobilePrimaryNav" datatype="html">
         <source>Mobile primary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">145</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.home" datatype="html">
         <source>Home</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">147</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.mobileSecondaryNav" datatype="html">
         <source>Mobile secondary</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
-          <context context-type="linenumber">160,161</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.aboutMenu" datatype="html">
         <source>About Us</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.productsMenu" datatype="html">
         <source>Products</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="home.comingSoon" datatype="html">
-        <source> Home page — coming soon </source>
+      <trans-unit id="home.heroCta" datatype="html">
+        <source>Get a quote</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/home/home-placeholder.component.ts</context>
-          <context context-type="linenumber">9,11</context>
+          <context context-type="sourcefile">src/app/pages/home/sections/hero-section.component.html</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="brand.homeLink" datatype="html">
@@ -336,11 +336,11 @@
         <source>Close navigation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">20,21</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/mobile-drawer/mobile-drawer.component.ts</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">45,46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.emailLabel" datatype="html">
