@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { ABOUT_NAV, MAIN_NAV, OFC_COMPANY, PRODUCT_NAV, SECONDARY_NAV } from '../../core/data';
+import { ABOUT_NAV, MAIN_NAV, PRODUCT_NAV, SECONDARY_NAV } from '../../core/data';
 import { BrandComponent } from '../../shared/components/brand/brand.component';
 import { HamburgerComponent } from '../../shared/components/hamburger/hamburger.component';
 import { MobileDrawerComponent } from '../../shared/components/mobile-drawer/mobile-drawer.component';
@@ -54,7 +54,6 @@ export class HeaderComponent {
   // Locale is baked into each build by @angular/localize; switching is a full page load.
   readonly currentLocale: LocaleCode = inject(LOCALE_ID).startsWith('vi') ? 'vi' : 'en';
 
-  readonly company = OFC_COMPANY;
   readonly topLinks: readonly NavLink[] = SECONDARY_NAV;
   readonly mainLinks: readonly NavLink[] = MAIN_NAV;
   readonly dropdowns: readonly HeaderDropdown[] = [
