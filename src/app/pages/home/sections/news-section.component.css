@@ -1,0 +1,130 @@
+/* Mirrors Figma node 5:270 — 250x343 post cards with a 190px cover, 16px semibold
+   3-line titles and a "View details | date" footer pinned to the bottom. */
+.news {
+  background: var(--color-white);
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.news-eyebrow {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.news-tagline {
+  color: var(--color-text);
+  line-height: 1.85;
+  margin: 5px 0 0;
+}
+
+.news-row {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.news-featured {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.85;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.news-viewall {
+  align-items: center;
+  color: var(--color-accent);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  gap: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.news-viewall:hover {
+  text-decoration: underline;
+}
+
+.news-carousel {
+  margin-top: 17px;
+}
+
+/* Fluid card width: 1 per view on phones, 2 on small tablets, 4 on desktop (Figma). */
+.news-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  flex: 0 0 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 560px) {
+  .news-card {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .news-card {
+    flex-basis: calc((100% - 60px) / 4);
+  }
+}
+
+.news-card-link {
+  color: inherit;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.news-image {
+  display: block;
+  height: 190px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.news-image-placeholder {
+  background: var(--color-primary-50);
+}
+
+.news-title {
+  -webkit-box-orient: vertical;
+  color: var(--color-text);
+  display: -webkit-box;
+  font-size: 1rem;
+  font-weight: 600;
+  -webkit-line-clamp: 3;
+  line-height: 1.3;
+  margin: 24px 14px 0;
+  /* Reserve three title lines so footers align across cards. */
+  min-height: 63px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.news-title:hover {
+  text-decoration: underline;
+}
+
+.news-meta {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  font-size: 0.875rem;
+  gap: 6px;
+  line-height: 1.5;
+  margin: 16px 14px 22px;
+  margin-top: auto;
+  padding-top: 16px;
+}

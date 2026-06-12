@@ -1,0 +1,48 @@
+<section class="partners">
+  <div class="container-content">
+    <div class="partners-head">
+      <app-section-head [eyebrow]="content().eyebrow" [heading]="content().heading" />
+      <a class="partners-viewall" routerLink="/subsidiaries">
+        {{ content().viewAllLabel }}
+        <app-icon name="chevronRight" [size]="16" />
+      </a>
+    </div>
+
+    <app-carousel class="partner-carousel">
+      <!-- track $index: the list is static and entries may legitimately repeat -->
+      @for (logo of content().logos; track $index) {
+        <li class="partner-card">
+          <img [src]="logo.imageUrl" [alt]="logo.name" loading="lazy" />
+        </li>
+      }
+    </app-carousel>
+
+    <div class="certs">
+      <div class="certs-intro">
+        <h3 class="certs-title">{{ content().certificatesTitle }}</h3>
+        <p class="certs-body">{{ content().certificatesBody }}</p>
+      </div>
+
+      @for (cert of content().certificates; track $index) {
+        <div class="cert">
+          <img class="cert-logo" [src]="cert.imageUrl" [alt]="cert.name" loading="lazy" />
+          <p class="cert-name">{{ cert.name }}</p>
+          <p class="cert-subtitle">{{ cert.subtitle }}</p>
+          @for (code of cert.codes; track $index) {
+            <p class="cert-code">{{ code }}</p>
+          }
+        </div>
+      }
+    </div>
+
+    <ul class="figures">
+      @for (figure of content().figures; track figure.label) {
+        <li class="figure">
+          <p class="figure-value">{{ figure.value }}</p>
+          <p class="figure-label">{{ figure.label }}</p>
+          <p class="figure-sublabel">{{ figure.sublabel }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

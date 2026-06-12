@@ -1,5 +1,14 @@
 // GROQ queries. `$locale` ('vi' | 'en') is bound automatically by SanityService.fetch();
 // project localized objects with coalesce(field[$locale], field.vi) — vi is the site default.
+
+// Latest posts for the home "News & updates" carousel (blog pages will use richer queries).
+export const NEWS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...12] {
+  "slug": slug.current,
+  "title": coalesce(title[$locale], title.vi),
+  "imageUrl": mainImage.asset->url,
+  publishedAt
+}`;
+
 export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   _id,
   "slug": slug.current,

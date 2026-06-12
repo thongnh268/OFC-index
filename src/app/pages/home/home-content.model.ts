@@ -82,19 +82,53 @@ export interface ProductsContent {
   readonly items: readonly ProductCard[];
 }
 
+export interface PartnerLogo {
+  readonly name: string;
+  readonly imageUrl: string;
+}
+
+export interface CertificateItem {
+  readonly imageUrl: string;
+  readonly name: string;
+  readonly subtitle: string;
+  readonly codes: readonly string[];
+}
+
 export interface Figure {
   readonly value: string;
   readonly label: string;
+  readonly sublabel: string;
+}
+
+export interface PartnersContent {
+  readonly eyebrow: string;
+  readonly heading: string;
+  readonly viewAllLabel: string;
+  readonly logos: readonly PartnerLogo[];
+  readonly certificatesTitle: string;
+  readonly certificatesBody: string;
+  readonly certificates: readonly CertificateItem[];
+  readonly figures: readonly Figure[];
+}
+
+// Section chrome for "News & updates" — the posts themselves come from Sanity.
+export interface NewsContent {
+  readonly eyebrow: string;
+  readonly tagline: string;
+  readonly featuredLabel: string;
+  readonly viewAllLabel: string;
 }
 
 export interface CtaContent {
   readonly heading: string;
+  readonly body: string;
 }
 
 export interface HomeContent {
   readonly hero: HeroContent;
   readonly about: AboutContent;
   readonly products: ProductsContent;
-  readonly figures: readonly Figure[];
+  readonly partners: PartnersContent;
+  readonly news: NewsContent;
   readonly cta: CtaContent;
 }

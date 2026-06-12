@@ -1,0 +1,15 @@
+<section class="cta">
+  <div class="container-content">
+    <div class="cta-panel">
+      <div class="cta-text">
+        <h2 class="cta-heading">{{ content().heading }}</h2>
+        <p class="cta-body">{{ content().body }}</p>
+      </div>
+
+      <a appButton variant="accent" class="cta-button" routerLink="/contacts">
+        <span i18n="@@home.getInTouch">Get in touch</span>
+        <app-icon name="chevronRight" [size]="18" />
+      </a>
+    </div>
+  </div>
+</section>

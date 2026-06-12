@@ -1,5 +1,23 @@
 import { parseEmphasis } from '../../shared/components/text-segments/text-segments.component';
-import type { HomeContent } from './home-content.model';
+import type { HomeContent, PartnerLogo } from './home-content.model';
+
+// Locale-independent partner logos, defined once and shared by both copies below.
+const PARTNER_LOGOS: readonly PartnerLogo[] = [
+  { name: 'Vietcombank', imageUrl: 'assets/images/partners/vietcombank.png' },
+  { name: 'Preferred by Nature', imageUrl: 'assets/images/partners/preferred-by-nature.png' },
+  { name: 'SGS', imageUrl: 'assets/images/partners/sgs.png' },
+  { name: 'Vinacontrol CE', imageUrl: 'assets/images/partners/vinacontrol.jpg' },
+  { name: 'Korea Forest Service', imageUrl: 'assets/images/partners/korea-forest-service.png' },
+  { name: 'VIFORES', imageUrl: 'assets/images/partners/vifores.png' },
+];
+
+// TODO(demo): tripled only to exercise the carousel paging — swap back to PARTNER_LOGOS
+// once the real partner list arrives.
+const PARTNER_LOGOS_DEMO: readonly PartnerLogo[] = [
+  ...PARTNER_LOGOS,
+  ...PARTNER_LOGOS,
+  ...PARTNER_LOGOS,
+];
 
 // THE homepage content — code-owned, one full copy per locale. Homepage editorial
 // changes ~yearly and always with a dev in the loop, so the CMS plays no part here
@@ -121,13 +139,59 @@ const EN: HomeContent = {
       },
     ],
   },
-  figures: [
-    { value: '1M BDMT', label: 'Annual capacity' },
-    { value: '740+', label: 'Employees' },
-    { value: '16%', label: 'YoY growth' },
-  ],
+  partners: {
+    eyebrow: 'Partners & Certificates',
+    heading: 'Trusted by national and global organizations',
+    viewAllLabel: 'View all partners',
+    logos: PARTNER_LOGOS_DEMO,
+    certificatesTitle: 'Our certificates',
+    certificatesBody:
+      'We are committed to international and national standards for quality control, environment and responsible forestry.',
+    certificates: [
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC FM',
+        subtitle: 'Forest Management',
+        codes: ['FSC-STD-50-001', 'FSC-STD-30-005'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC COC',
+        subtitle: 'Chains of Custody',
+        codes: ['FSC-STD-40-004 V3-1', 'FSC-STD-50-001'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC CW',
+        subtitle: 'Controlled Wood',
+        codes: ['FSC-STD-40-005 V3-1', 'FSC-STD-50-001'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/pefc.png',
+        name: 'PEFC COC',
+        subtitle: 'Chains of Custody',
+        codes: ['PEFC ST 2002:2020', 'PEFC ST 2001:2020'],
+      },
+    ],
+    figures: [
+      {
+        value: '1M BDMT',
+        label: 'Production capacity',
+        sublabel: 'Annual production capacity BDMT',
+      },
+      { value: '740+', label: 'Collaborators', sublabel: 'Number of employees' },
+      { value: '16%', label: 'Growth', sublabel: 'Growth rate year over year' },
+    ],
+  },
+  news: {
+    eyebrow: 'News and updates',
+    tagline: 'Stay informed with the latest from OFC Company',
+    featuredLabel: 'Featured news',
+    viewAllLabel: 'View all news',
+  },
   cta: {
     heading: 'Looking for a reliable wood supply partner?',
+    body: 'We are ready to support your business with sustainable products and dedicated services.',
   },
 };
 
@@ -143,7 +207,7 @@ const VI: HomeContent = {
       {
         icon: 'factory',
         lines: [
-          { text: '1M+', style: 'value' },
+          { text: '1Tr+', style: 'value' },
           { text: 'BDMT công suất hàng năm', style: 'caption' },
         ],
       },
@@ -245,13 +309,59 @@ const VI: HomeContent = {
       },
     ],
   },
-  figures: [
-    { value: '1M BDMT', label: 'Công suất hàng năm' },
-    { value: '740+', label: 'Nhân sự' },
-    { value: '16%', label: 'Tăng trưởng hàng năm' },
-  ],
+  partners: {
+    eyebrow: 'Đối tác & chứng chỉ',
+    heading: 'Được tin cậy bởi các tổ chức trong nước và quốc tế',
+    viewAllLabel: 'Xem tất cả đối tác',
+    logos: PARTNER_LOGOS_DEMO,
+    certificatesTitle: 'Chứng chỉ của chúng tôi',
+    certificatesBody:
+      'Chúng tôi cam kết tuân thủ các tiêu chuẩn quốc tế và trong nước về kiểm soát chất lượng, môi trường và lâm nghiệp có trách nhiệm.',
+    certificates: [
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC FM',
+        subtitle: 'Quản lý rừng',
+        codes: ['FSC-STD-50-001', 'FSC-STD-30-005'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC COC',
+        subtitle: 'Chuỗi hành trình sản phẩm',
+        codes: ['FSC-STD-40-004 V3-1', 'FSC-STD-50-001'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/fsc.png',
+        name: 'FSC CW',
+        subtitle: 'Gỗ có kiểm soát',
+        codes: ['FSC-STD-40-005 V3-1', 'FSC-STD-50-001'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/pefc.png',
+        name: 'PEFC COC',
+        subtitle: 'Chuỗi hành trình sản phẩm',
+        codes: ['PEFC ST 2002:2020', 'PEFC ST 2001:2020'],
+      },
+    ],
+    figures: [
+      {
+        value: '1Tr BDMT',
+        label: 'Công suất sản xuất',
+        sublabel: 'Công suất sản xuất hàng năm (BDMT)',
+      },
+      { value: '740+', label: 'Cộng tác viên', sublabel: 'Số lượng nhân sự' },
+      { value: '16%', label: 'Tăng trưởng', sublabel: 'Tốc độ tăng trưởng hàng năm' },
+    ],
+  },
+  news: {
+    eyebrow: 'Tin tức & cập nhật',
+    tagline: 'Cập nhật những thông tin mới nhất từ OFC Company',
+    featuredLabel: 'Tin nổi bật',
+    viewAllLabel: 'Xem tất cả tin',
+  },
   cta: {
     heading: 'Bạn đang tìm đối tác cung ứng gỗ đáng tin cậy?',
+    body: 'Chúng tôi sẵn sàng đồng hành cùng doanh nghiệp của bạn bằng sản phẩm bền vững và dịch vụ tận tâm.',
   },
 };
 
