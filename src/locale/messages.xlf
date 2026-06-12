@@ -336,6 +336,20 @@
           <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="home.getInTouch" datatype="html">
+        <source>Get in touch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/sections/cta-section.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.viewDetails" datatype="html">
+        <source>View details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/sections/news-section.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.learnMore" datatype="html">
         <source>Learn more</source>
         <context-group purpose="location">
@@ -348,6 +362,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/brand/brand.component.ts</context>
           <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="carousel.page" datatype="html">
+        <source>Page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/carousel/carousel.component.ts</context>
+          <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="hamburger.openNav" datatype="html">
@@ -380,7 +401,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.emailPlaceholder" datatype="html">
-        <source>Email address</source>
+        <source>Enter your email here</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
           <context context-type="linenumber">24,25</context>
@@ -394,10 +415,17 @@
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.heading" datatype="html">
-        <source>Subscription</source>
+        <source>NEWSLETTER SUBSCRIPTION</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
           <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subscription.description" datatype="html">
+        <source>Stay updated with our latest news &amp; insights</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
+          <context context-type="linenumber">39,41</context>
         </context-group>
       </trans-unit>
     </body>
