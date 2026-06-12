@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, LOCALE_ID, inject } from '@angular/core';
 
 import { homeContent } from './home-content.data';
+import { AboutSectionComponent } from './sections/about-section.component';
 import { ContactBarComponent } from './sections/contact-bar.component';
 import { HeroSectionComponent } from './sections/hero-section.component';
 
@@ -9,11 +10,12 @@ import { HeroSectionComponent } from './sections/hero-section.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroSectionComponent, ContactBarComponent],
+  imports: [HeroSectionComponent, ContactBarComponent, AboutSectionComponent],
   template: `
     <app-hero-section [content]="content.hero" />
     <app-contact-bar />
-    <!-- TODO(day-5 sections): about, products×5, partners+figures, news, cta -->
+    <app-about-section [content]="content.about" />
+    <!-- TODO(day-5 sections): products×5, partners+figures, news, cta -->
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
