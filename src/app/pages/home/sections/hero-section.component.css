@@ -13,16 +13,26 @@
   width: 100%;
 }
 
+/* Small screens: content is full-width, so wash the whole photo evenly — every line
+   (incl. the right-hand stats) stays readable; the ship stays as a faint texture. */
 .hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgb(241 245 250 / 0.97) 0%,
-    rgb(241 245 250 / 0.92) 34%,
-    rgb(241 245 250 / 0.4) 56%,
-    rgb(241 245 250 / 0) 78%
-  );
+  background: rgb(241 245 250 / 0.9);
   inset: 0;
   position: absolute;
+}
+
+/* Desktop: content caps at 50% on the left, so fade the wash out to the right
+   and let the photo show through. */
+@media (min-width: 1024px) {
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgb(241 245 250 / 0.97) 0%,
+      rgb(241 245 250 / 0.92) 34%,
+      rgb(241 245 250 / 0.4) 56%,
+      rgb(241 245 250 / 0) 78%
+    );
+  }
 }
 
 /* Full-bleed banner hugs the left (not the centered container-content) to match Figma;
