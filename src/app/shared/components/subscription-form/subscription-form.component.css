@@ -1,19 +1,37 @@
-.subscription input {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-input);
+.subscription-heading {
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.subscription-description {
   color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+
+.subscription-fields {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.subscription input {
   flex: 1;
+  min-height: 36px;
   min-width: 0;
-  padding: 0 14px;
+}
+
+.subscription input::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 .subscription button {
-  background: var(--color-accent);
-  border: 0;
-  border-radius: var(--radius-pill);
-  color: white;
-  cursor: pointer;
-  font-weight: 700;
-  min-height: 44px;
-  padding: 0 22px;
+  height: 36px;
+  min-width: 86px;
 }
