@@ -218,6 +218,10 @@
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
+      <trans-unit id="home.learnMore" datatype="html">
+        <source>Learn more</source>
+        <target>Tìm hiểu thêm</target>
+      </trans-unit>
       <trans-unit id="dialog.close" datatype="html">
         <source>Close dialog</source>
         <target>Đóng hộp thoại</target>
