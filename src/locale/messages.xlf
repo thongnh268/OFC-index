@@ -6,14 +6,14 @@
         <source>Head Office</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/company.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="company.hanoiOffice" datatype="html">
         <source>Hanoi Office</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/company.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.news" datatype="html">
@@ -185,38 +185,38 @@
         </context-group>
       </trans-unit>
       <trans-unit id="footer.hotline" datatype="html">
-        <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></source>
+        <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company().contact.hotline }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">55,56</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.opsDirector" datatype="html">
-        <source> Operations Director <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
+        <source> Operations Director <x id="INTERPOLATION" equiv-text="{{ company().contact.ops.name }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ company().contact.ops.phone }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">57,59</context>
+          <context context-type="linenumber">56,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.emailLine" datatype="html">
-        <source>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></source>
+        <source>Email: <x id="INTERPOLATION" equiv-text="{{ company().contact.email }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.websiteLine" datatype="html">
+        <source>Website: <x id="INTERPOLATION" equiv-text="{{ company().contact.website }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
           <context context-type="linenumber">59,60</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="footer.websiteLine" datatype="html">
-        <source>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">60,61</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
-        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.brand }}"/>. All rights reserved.</source>
+        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">67,69</context>
+          <context context-type="linenumber">66,68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.secondaryNav" datatype="html">
@@ -301,28 +301,46 @@
         <source>About Us</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.productsMenu" datatype="html">
         <source>Products</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactBar.hotline" datatype="html">
+        <source>Hotline</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/sections/contact-bar.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactBar.email" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/sections/contact-bar.component.html</context>
+          <context context-type="linenumber">9,10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.heroCta" datatype="html">
         <source>Get a quote</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/sections/contact-bar.component.html</context>
+          <context context-type="linenumber">16,19</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/hero-section.component.html</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="brand.homeLink" datatype="html">
         <source><x id="brand" equiv-text="OFC_COMPANY.brand"/> home</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/brand/brand.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="hamburger.openNav" datatype="html">

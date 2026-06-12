@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 import { HOME_CONTENT_PLACEHOLDER } from './home-content.placeholder';
 import { HomeContentService } from './home-content.service';
+import { ContactBarComponent } from './sections/contact-bar.component';
 import { HeroSectionComponent } from './sections/hero-section.component';
 
 // Container: resolves Home content (CMS → placeholder) once and feeds each section.
@@ -11,9 +12,10 @@ import { HeroSectionComponent } from './sections/hero-section.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroSectionComponent],
+  imports: [HeroSectionComponent, ContactBarComponent],
   template: `
     <app-hero-section [content]="content().hero" />
+    <app-contact-bar />
     <!-- TODO(day-5 sections): about, products×5, partners+figures, news, cta -->
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

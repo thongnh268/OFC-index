@@ -210,6 +210,14 @@
         <source>Get a quote</source>
         <target>Nhận báo giá</target>
       </trans-unit>
+      <trans-unit id="contactBar.hotline" datatype="html">
+        <source>Hotline</source>
+        <target>Hotline</target>
+      </trans-unit>
+      <trans-unit id="contactBar.email" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
       <trans-unit id="dialog.close" datatype="html">
         <source>Close dialog</source>
         <target>Đóng hộp thoại</target>
