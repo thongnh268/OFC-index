@@ -1,7 +1,6 @@
-// Editorial content of the Home page — the swappable boundary between code and CMS.
-// Layout, section order and UI chrome strings live in code; only the words/numbers/images
-// below are CMS-editable. Company facts (phone, address, socials) stay in core/data/company.ts
-// and are NOT duplicated here. The model grows one section at a time after the Figma freeze.
+// Shape of the Home page's editorial content (code-owned — see home-content.data.ts).
+// Layout, section order and UI chrome strings live in components; company facts
+// (phone, address, socials) stay in core/data/company.ts and are NOT duplicated here.
 
 // Heading is built from coloured segments so the CMS controls per-phrase colour
 // (e.g. navy + green accent) from a fixed brand palette — no arbitrary colours.
@@ -43,16 +42,44 @@ export interface HeroContent {
   readonly stats: readonly HeroStat[];
 }
 
+import type { TextSegment } from '../../shared/components/text-segments/text-segments.component';
+
 export interface AboutHighlight {
   readonly label: string;
-  readonly value: string;
+  readonly value: readonly TextSegment[];
+}
+
+// One row of the "annual export volume" timeline (e.g. 2024 → 1,050,000 BDMT).
+export interface ExportVolume {
+  readonly year: string;
+  readonly volume: string;
 }
 
 export interface AboutContent {
+  readonly eyebrow: string;
   readonly heading: string;
-  readonly body: string;
-  readonly highlights: readonly AboutHighlight[];
+  readonly body: readonly TextSegment[];
+  /** YouTube embed URL; null → the component shows a neutral placeholder. */
   readonly videoUrl: string | null;
+  readonly majorBusiness: AboutHighlight;
+  readonly exportVolume: AboutHighlight;
+  readonly exportVolumes: readonly ExportVolume[];
+  readonly subsidiaries: AboutHighlight;
+}
+
+export interface ProductCard {
+  readonly title: string;
+  readonly description: string;
+  /** Card photo; null → the component shows a neutral placeholder block. */
+  readonly imageUrl: string | null;
+  readonly route: string;
+}
+
+export interface ProductsContent {
+  readonly eyebrow: string;
+  readonly heading: string;
+  readonly body: readonly TextSegment[];
+  readonly items: readonly ProductCard[];
 }
 
 export interface Figure {
@@ -67,6 +94,7 @@ export interface CtaContent {
 export interface HomeContent {
   readonly hero: HeroContent;
   readonly about: AboutContent;
+  readonly products: ProductsContent;
   readonly figures: readonly Figure[];
   readonly cta: CtaContent;
 }
