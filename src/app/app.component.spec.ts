@@ -1,14 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
+import { SanityService } from './core/sanity';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [provideRouter(routes)],
+      // Footer pulls company facts via SiteSettingsService → SanityService; stub the fetch
+      // so the shell renders from code-owned defaults without any HTTP.
+      providers: [
+        provideRouter(routes),
+        { provide: SanityService, useValue: { fetch: () => of(null) } },
+      ],
     }).compileComponents();
   });
 

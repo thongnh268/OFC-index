@@ -29,3 +29,22 @@ export const HOME_QUERY = `*[_type == "homepage"][0] {
     }
   }
 }`;
+
+// Site settings singleton — company/contact facts. Every field is an optional override;
+// SiteSettingsService overlays whatever the CMS returns onto the code-owned company defaults.
+export const SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
+  "brand": coalesce(brand[$locale], brand.vi),
+  "legalName": coalesce(legalName[$locale], legalName.vi),
+  "shortAddress": coalesce(shortAddress[$locale], shortAddress.vi),
+  "logoUrl": logo.asset->url,
+  "offices": offices[]{
+    "label": coalesce(label[$locale], label.vi),
+    "address": coalesce(address[$locale], address.vi)
+  },
+  hotline,
+  opsName,
+  opsPhone,
+  email,
+  website,
+  "socials": socials[]{ platform, url }
+}`;

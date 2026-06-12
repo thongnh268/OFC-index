@@ -4,9 +4,9 @@
       class="container-content grid h-full gap-10 py-10 md:grid-cols-[1fr_360px] md:items-center"
     >
       <div>
-        <h2 class="text-2xl font-bold text-primary">{{ company.brand }}</h2>
+        <h2 class="text-2xl font-bold text-primary">{{ company().brand }}</h2>
         <div class="mt-6 grid gap-4">
-          @for (row of contactRows; track row.icon) {
+          @for (row of contactRows(); track row.icon) {
             <div class="contact-row">
               <span class="contact-icon" aria-hidden="true">
                 <app-icon [name]="row.icon" [size]="14" />
@@ -44,26 +44,25 @@
         heading="CONTACT US"
         i18n-heading="@@footer.contact"
       >
-        @for (office of company.offices; track office.label; let first = $first) {
-          <p>
-            @if (first) {
-              <strong>{{ company.legalName }}</strong>
-            }
-            {{ office.label }}: {{ office.address }}
-          </p>
-        }
-        <p i18n="@@footer.hotline">Hotline: {{ company.contact.hotline }}</p>
-        <p i18n="@@footer.opsDirector">
-          Operations Director {{ company.contact.ops.name }}: {{ company.contact.ops.phone }}
+        <p>
+          <strong>{{ company().legalName }}</strong>
         </p>
-        <p i18n="@@footer.emailLine">Email: {{ company.contact.email }}</p>
-        <p i18n="@@footer.websiteLine">Website: {{ company.contact.website }}</p>
-        <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />
+        <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
+        @for (office of company().offices; track $index) {
+          <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>
+        }
+        <p i18n="@@footer.hotline">Hotline: {{ company().contact.hotline }}</p>
+        <p i18n="@@footer.opsDirector">
+          Operations Director {{ company().contact.ops.name }}: {{ company().contact.ops.phone }}
+        </p>
+        <p i18n="@@footer.emailLine">Email: {{ company().contact.email }}</p>
+        <p i18n="@@footer.websiteLine">Website: {{ company().contact.website }}</p>
+        <app-social-row [links]="company().socials" variant="footer" [iconSize]="20" />
       </app-footer-column>
     </div>
   </section>
 
   <section class="copyright min-h-[50px] bg-primary-700">
-    <p i18n="@@footer.copyright">© {{ currentYear }} {{ company.brand }}. All rights reserved.</p>
+    <p i18n="@@footer.copyright">© {{ currentYear }} {{ company().brand }}. All rights reserved.</p>
   </section>
 </footer>

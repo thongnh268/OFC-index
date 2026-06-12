@@ -2,8 +2,10 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 
 import { HeaderComponent } from './header.component';
+import { SanityService } from '../../core/sanity';
 
 describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
@@ -13,7 +15,11 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([])],
+      // <app-brand> pulls the logo/brand via SiteSettingsService → SanityService; stub it.
+      providers: [
+        provideRouter([]),
+        { provide: SanityService, useValue: { fetch: () => of(null) } },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
