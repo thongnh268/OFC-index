@@ -22,6 +22,18 @@
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
           <context context-type="linenumber">7</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-list.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-list.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="nav.recruitment" datatype="html">
         <source>Recruitment</source>
@@ -149,74 +161,78 @@
           <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="footer.contact" datatype="html">
+        <source> CONTACT US </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">8,10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="footer.introduction" datatype="html">
         <source>INTRODUCTION</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.introductionNav" datatype="html">
         <source>Introduction</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.products" datatype="html">
         <source>PRODUCTS AND SERVICES</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.productsNav" datatype="html">
         <source>Products and services</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="footer.contact" datatype="html">
-        <source>CONTACT US</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">44,45</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.hotline" datatype="html">
         <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company().contact.hotline }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">54,55</context>
+          <context context-type="linenumber">56,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.opsDirector" datatype="html">
         <source> Operations Director <x id="INTERPOLATION" equiv-text="{{ company().contact.ops.name }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ company().contact.ops.phone }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">56,58</context>
+          <context context-type="linenumber">58,60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.emailLine" datatype="html">
         <source>Email: <x id="INTERPOLATION" equiv-text="{{ company().contact.email }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">60,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.websiteLine" datatype="html">
         <source>Website: <x id="INTERPOLATION" equiv-text="{{ company().contact.website }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">59,60</context>
+          <context context-type="linenumber">61,62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
         <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">66,68</context>
+          <context context-type="linenumber">68,69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.secondaryNav" datatype="html">
@@ -329,7 +345,7 @@
         <source>Get a quote</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/contact-bar.component.html</context>
-          <context context-type="linenumber">16,19</context>
+          <context context-type="linenumber">16,18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/hero-section.component.html</context>
@@ -355,6 +371,56 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/products-section.component.html</context>
           <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.by" datatype="html">
+        <source>By</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.back" datatype="html">
+        <source>← Back to news</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
+          <context context-type="linenumber">28,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.notFoundTitle" datatype="html">
+        <source>Post not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.notFoundBody" datatype="html">
+        <source>This article may have been moved or removed.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.home" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-list.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.empty" datatype="html">
+        <source>No posts have been published yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-list.component.html</context>
+          <context context-type="linenumber">30,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="brand.homeLink" datatype="html">
@@ -393,40 +459,58 @@
         <source>Email address</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">18,21</context>
+          <context context-type="linenumber">22,25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">31,32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.emailPlaceholder" datatype="html">
         <source>Enter your email here</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.send" datatype="html">
         <source>Send</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">30,32</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.heading" datatype="html">
         <source>NEWSLETTER SUBSCRIPTION</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="subscription.description" datatype="html">
         <source>Stay updated with our latest news &amp; insights</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/subscription-form/subscription-form.component.ts</context>
-          <context context-type="linenumber">39,41</context>
+          <context context-type="linenumber">45</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="sidebar.getQuote" datatype="html">
+        <source>Get a Quote</source>
+      </trans-unit>
+      <trans-unit id="sidebar.company" datatype="html">
+        <source>OFC Company</source>
+      </trans-unit>
+      <trans-unit id="sidebar.about" datatype="html">
+        <source>About us</source>
+      </trans-unit>
+      <trans-unit id="sidebar.products" datatype="html">
+        <source>Products &amp; Services</source>
+      </trans-unit>
+      <trans-unit id="quoteCta.heading" datatype="html">
+        <source>Looking for a reliable wood supply partner?</source>
+      </trans-unit>
+      <trans-unit id="quoteCta.body" datatype="html">
+        <source>Get in touch with OFC for competitive pricing, certified quality and on-time delivery.</source>
       </trans-unit>
     </body>
   </file>

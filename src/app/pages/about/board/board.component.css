@@ -1,0 +1,28 @@
+/* Signature sits to the right of the letter (per Figma), with its lines centred as a block. */
+.signature {
+  margin-left: auto;
+  margin-top: 24px;
+  text-align: center;
+  width: fit-content;
+}
+
+.signature__role,
+.signature__signed,
+.signature__name {
+  margin: 0;
+}
+
+.signature__role {
+  font-weight: 700;
+}
+
+.signature__signed {
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.signature__name {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-top: 8px;
+}

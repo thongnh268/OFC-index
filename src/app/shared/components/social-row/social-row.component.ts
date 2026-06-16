@@ -7,7 +7,11 @@ import type { SocialLink } from '../../../core/data';
   standalone: true,
   imports: [IconComponent],
   template: `
-    <div class="social-row" [class.is-header]="variant() === 'header'">
+    <div
+      class="social-row"
+      [class.is-header]="variant() === 'header'"
+      [class.is-plain]="variant() === 'plain'"
+    >
       @for (link of links(); track link.name) {
         <a
           class="social-button"
@@ -26,6 +30,7 @@ import type { SocialLink } from '../../../core/data';
 })
 export class SocialRowComponent {
   readonly links = input.required<readonly SocialLink[]>();
-  readonly variant = input<'header' | 'footer'>('footer');
+  // 'header'/'footer' = white pill buttons; 'plain' = bare accent-green icons (e.g. breadcrumb bar).
+  readonly variant = input<'header' | 'footer' | 'plain'>('footer');
   readonly iconSize = input<number>(20);
 }

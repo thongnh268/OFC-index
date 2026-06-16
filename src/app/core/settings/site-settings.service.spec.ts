@@ -24,11 +24,25 @@ describe('SiteSettingsService', () => {
     return value;
   };
 
+  const latestHeroImage = (): string | null => {
+    let value!: string | null;
+    service.getHeroImageUrl().subscribe((heroImageUrl) => (value = heroImageUrl));
+    return value;
+  };
+
+  const latestPartnerLogos = (): readonly { name: string; imageUrl: string }[] => {
+    let value!: readonly { name: string; imageUrl: string }[];
+    service.getPartnerLogos().subscribe((logos) => (value = logos));
+    return value;
+  };
+
   beforeEach(setup);
 
   it('keeps all code-owned defaults when the document is missing (null)', () => {
     fetchSpy.and.returnValue(of(null));
     expect(latest()).toEqual(OFC_COMPANY);
+    expect(latestHeroImage()).toBeNull();
+    expect(latestPartnerLogos()).toEqual([]);
   });
 
   it('overlays only the fields the CMS provides, keeping defaults for the rest', () => {
@@ -65,8 +79,39 @@ describe('SiteSettingsService', () => {
   it('fetches the settings document once across multiple consumers', () => {
     fetchSpy.and.returnValue(of(null));
     service.getCompany().subscribe();
+    service.getHeroImageUrl().subscribe();
+    service.getPartnerLogos().subscribe();
     service.getCompany().subscribe();
     expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns the CMS hero image URL when present', () => {
+    fetchSpy.and.returnValue(of({ heroImageUrl: 'https://cdn.sanity.io/images/hero.webp' }));
+    expect(latestHeroImage()).toBe('https://cdn.sanity.io/images/hero.webp');
+  });
+
+  it('returns the CMS partner logos when present', () => {
+    fetchSpy.and.returnValue(
+      of({ partnerLogos: [{ name: 'ACME', imageUrl: 'https://cdn.sanity.io/images/acme.png' }] }),
+    );
+    expect(latestPartnerLogos()).toEqual([
+      { name: 'ACME', imageUrl: 'https://cdn.sanity.io/images/acme.png' },
+    ]);
+  });
+
+  it('drops partner logos missing a name or image', () => {
+    fetchSpy.and.returnValue(
+      of({
+        partnerLogos: [
+          { name: 'ACME', imageUrl: 'https://cdn.sanity.io/images/acme.png' },
+          { name: null, imageUrl: 'https://cdn.sanity.io/images/noname.png' },
+          { name: 'No Logo', imageUrl: null },
+        ],
+      }),
+    );
+    expect(latestPartnerLogos()).toEqual([
+      { name: 'ACME', imageUrl: 'https://cdn.sanity.io/images/acme.png' },
+    ]);
   });
 
   it('keeps only valid socials (known platform + url) and labels them', () => {
