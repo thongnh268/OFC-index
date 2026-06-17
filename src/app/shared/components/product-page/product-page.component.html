@@ -1,0 +1,183 @@
+<div class="breadcrumb-bar">
+  <div class="container-content breadcrumb-bar__inner">
+    <app-breadcrumb [items]="breadcrumb()" />
+
+    <app-social-row
+      class="breadcrumb-socials"
+      [links]="company().socials"
+      variant="plain"
+      [iconSize]="18"
+    />
+  </div>
+</div>
+
+<section class="banner">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <span class="banner__rule" aria-hidden="true"></span>
+      <h1 class="banner__title">{{ content().title }}</h1>
+      <p class="banner__intro">{{ content().intro }}</p>
+
+      <ul class="badges">
+        @for (badge of content().badges; track badge.label) {
+          <li class="badge">
+            <span class="badge__icon"><app-icon [name]="badge.icon" [size]="24" /></span>
+            <span class="badge__label">{{ badge.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="banner__media">
+      @if (content().bannerImage; as src) {
+        <img [src]="src" [alt]="content().bannerAlt" />
+      } @else {
+        <div class="banner__media-placeholder" aria-hidden="true"></div>
+      }
+    </div>
+  </div>
+</section>
+
+<div class="container-content product">
+  <div class="product__main">
+    <section id="overview" class="section">
+      <h2 class="section__title">{{ chrome.overviewHeading }}</h2>
+
+      <div class="overview">
+        <div class="overview__text">
+          @for (para of content().overview; track $index) {
+            <p>{{ para }}</p>
+          }
+
+          @if (content().overviewImage; as src) {
+            <img class="overview__img" [src]="src" [alt]="content().overviewImageAlt" />
+          } @else {
+            <div class="overview__img overview__img--placeholder" aria-hidden="true"></div>
+          }
+        </div>
+
+        <div id="specifications" class="specs">
+          <h3 class="specs__title">{{ chrome.specsHeading }}</h3>
+          <dl class="specs__list">
+            @for (spec of content().specs; track spec.label) {
+              <div class="specs__row">
+                <dt>{{ spec.label }}</dt>
+                <dd>{{ spec.value }}</dd>
+              </div>
+            }
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="applications" class="section">
+      <h2 class="section__title">{{ chrome.applicationsHeading }}</h2>
+      <p class="section__lead">{{ content().applicationsIntro }}</p>
+
+      <ul class="cards">
+        @for (app of content().applications; track app.title) {
+          <li class="card">
+            <span class="card__icon"><app-icon [name]="app.icon" [size]="26" /></span>
+            <h3 class="card__title">{{ app.title }}</h3>
+            <p class="card__desc">{{ app.description }}</p>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <section id="why-choose-us" class="section">
+      <h2 class="section__title">{{ chrome.whyChooseHeading }}</h2>
+
+      <ul class="reasons">
+        @for (reason of content().whyChoose; track reason.title) {
+          <li class="reason">
+            <span class="reason__icon"><app-icon [name]="reason.icon" [size]="28" /></span>
+            <h3 class="reason__title">{{ reason.title }}</h3>
+            <p class="reason__desc">{{ reason.description }}</p>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <section id="video" class="section">
+      <h2 class="section__title">{{ chrome.videoHeading }}</h2>
+
+      <div class="video">
+        <div class="video__player">
+          @if (videoEmbed(); as src) {
+            <iframe
+              [src]="src"
+              title="OFC video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          } @else {
+            <div class="video__placeholder">
+              @if (content().videoThumbnail; as thumb) {
+                <img [src]="thumb" alt="" />
+              }
+              <span class="video__play" aria-hidden="true"></span>
+            </div>
+          }
+        </div>
+
+        <div class="video__blurb">
+          <span class="video__eyebrow">{{ content().videoEyebrow }}</span>
+          <h3 class="video__title">{{ content().videoTitle }}</h3>
+          @for (para of content().videoParagraphs; track $index) {
+            <p>{{ para }}</p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs" class="section">
+      <h2 class="section__title">{{ chrome.faqHeading }}</h2>
+
+      <app-accordion class="faq" accordionId="product-faq">
+        @for (faq of content().faqs; track faq.question) {
+          <app-accordion-item [heading]="faq.question">{{ faq.answer }}</app-accordion-item>
+        }
+      </app-accordion>
+    </section>
+  </div>
+
+  <aside class="product__side">
+    <nav class="anchor-nav" [attr.aria-label]="content().name">
+      <p class="anchor-nav__title">{{ content().name }}</p>
+      <ul>
+        @for (item of chrome.anchorNav; track item.id) {
+          <li>
+            <a
+              [href]="'#' + item.id"
+              [class.is-active]="item.id === activeId()"
+              (click)="scrollToSection($event, item.id)"
+              >{{ item.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="quote-card">
+      <span class="quote-card__icon"><app-icon name="clipboard" [size]="26" /></span>
+      <h3 class="quote-card__title">{{ chrome.quotationHeading }}</h3>
+      <p class="quote-card__body">{{ chrome.quotationBody }}</p>
+      <a appButton variant="accent" class="quote-card__button" routerLink="/contacts">
+        <span>{{ chrome.quotationButton }}</span>
+        <app-icon name="chevronRight" [size]="18" />
+      </a>
+    </div>
+  </aside>
+</div>
+
+<app-quote-cta />

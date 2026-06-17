@@ -1,0 +1,537 @@
+/* Breadcrumb bar — same chrome as the About inner-page shell. */
+.breadcrumb-bar {
+  background: var(--color-bg);
+  border-block: 1px solid var(--color-border);
+  padding-block: 16px;
+}
+
+.breadcrumb-bar__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.breadcrumb-bar__inner > app-breadcrumb {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.breadcrumb-socials {
+  flex: 0 0 auto;
+}
+
+/* Banner: title + intro + trust badges on the left, diagonally-clipped hero on the right. */
+.banner {
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* Full-bleed like the homepage hero: the text hugs the left with the same clamped padding,
+   and the image takes the right half of the viewport (50vw), bleeding to the right edge. */
+.banner__inner {
+  align-items: center;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 50vw;
+  min-height: 380px;
+  padding-left: clamp(1rem, 4vw, 4rem);
+}
+
+.banner__text {
+  padding-block: 36px;
+}
+
+.banner__rule {
+  background: var(--color-accent);
+  display: block;
+  height: 3px;
+  margin-bottom: 22px;
+  width: 56px;
+}
+
+.banner__title {
+  color: var(--color-primary);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.banner__intro {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 28px;
+  max-width: 46ch;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.badge {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  width: 96px;
+}
+
+/* Hexagon outline around the badge icon (per the design). The hexagon is an inline SVG so the
+   stroke stays a clean, even width at any size; the icon is centred on top. */
+.badge__icon {
+  align-items: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 91,27 91,73 50,96 9,73 9,27' fill='none' stroke='%232e7d32' stroke-width='5'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--color-accent);
+  display: inline-flex;
+  height: 58px;
+  justify-content: center;
+  width: 58px;
+}
+
+.badge__label {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.banner__media {
+  align-self: stretch;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  min-height: 380px;
+  position: relative;
+}
+
+.banner__media img,
+.banner__media-placeholder {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.banner__media-placeholder {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+/* Two-column body: main content + 249px sidebar (matches the About inner-page grid). */
+.product {
+  align-items: start;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) 249px;
+  padding-block: 48px 8px;
+}
+
+.product__main {
+  min-width: 0;
+}
+
+.section {
+  margin-bottom: 48px;
+  scroll-margin-top: 24px;
+}
+
+.section__title {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.section__title::after {
+  background: var(--color-accent);
+  bottom: 0;
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 56px;
+}
+
+.section__lead {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  margin: 0 0 22px;
+}
+
+/* Overview + specifications. */
+.overview {
+  align-items: start;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+}
+
+.overview__text p {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.overview__img {
+  border-radius: 8px;
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.overview__img--placeholder {
+  aspect-ratio: 16 / 10;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.specs__title {
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.specs__list {
+  margin: 0;
+}
+
+.specs__row {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  padding: 9px 0;
+}
+
+.specs__row dt {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.specs__row dd {
+  color: var(--color-text);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Applications — icon cards. */
+.cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.card__icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+.card__title {
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Why choose us — 4 reasons on a light panel. */
+.reasons {
+  background: var(--color-bg);
+  border-radius: 10px;
+  display: grid;
+  gap: 24px 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 30px 24px;
+}
+
+.reason {
+  text-align: center;
+}
+
+.reason__icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+.reason__title {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.reason__desc {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Video + company blurb. */
+.video {
+  align-items: center;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+
+.video__player {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video__player iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.video__placeholder {
+  align-items: center;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.video__placeholder img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.video__play {
+  background: #f00;
+  border-radius: 14px;
+  height: 50px;
+  position: relative;
+  width: 72px;
+  z-index: 1;
+}
+
+.video__play::after {
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  content: '';
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-35%, -50%);
+}
+
+.video__eyebrow {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.video__title {
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 6px 0 12px;
+}
+
+.video__blurb p {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+/* FAQ — shared accordion laid out in two columns. */
+app-accordion.faq {
+  align-items: start;
+  column-gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Sidebar: anchor nav + quote card. */
+.product__side {
+  position: sticky;
+  top: 24px;
+}
+
+.anchor-nav {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.anchor-nav__title {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 14px 18px;
+  text-transform: uppercase;
+}
+
+.anchor-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.anchor-nav a {
+  align-items: center;
+  color: var(--color-text);
+  display: flex;
+  font-size: 0.875rem;
+  gap: 10px;
+  padding: 9px 18px;
+  text-decoration: none;
+}
+
+.anchor-nav a::before {
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  content: '';
+  flex-shrink: 0;
+  height: 10px;
+  width: 10px;
+}
+
+.anchor-nav a:hover {
+  color: var(--color-accent);
+}
+
+.anchor-nav a.is-active {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.anchor-nav a.is-active::before {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.quote-card {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.quote-card__icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  margin-bottom: 8px;
+}
+
+.quote-card__title {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.quote-card__body {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.quote-card__button {
+  text-transform: uppercase;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  /* On mobile, lift the anchor-nav above the content (easy jump-to) and keep the quote card
+     last. display:contents drops the sidebar wrapper so its two parts order independently. */
+  .product__side {
+    display: contents;
+  }
+
+  .anchor-nav {
+    order: -1;
+  }
+
+  .quote-card {
+    margin-top: 0;
+    order: 1;
+  }
+
+  .banner__inner {
+    gap: 0;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-inline: 1rem;
+  }
+
+  .banner__media {
+    clip-path: none;
+    min-height: 240px;
+  }
+
+  .overview,
+  .video {
+    grid-template-columns: 1fr;
+  }
+
+  .reasons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  app-accordion.faq {
+    grid-template-columns: 1fr;
+  }
+}
