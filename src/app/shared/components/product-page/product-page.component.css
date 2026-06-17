@@ -66,7 +66,9 @@
   max-width: 46ch;
 }
 
-.badges {
+/* Own class name (not the global `.badge` pill in styles.css) — sharing it leaked the pill's
+   `padding` and `white-space: nowrap` in, which clipped the box and stopped long labels wrapping. */
+.trust-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
@@ -75,18 +77,18 @@
   padding: 0;
 }
 
-.badge {
+.trust-badge {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 8px;
   text-align: center;
-  width: 96px;
+  width: 110px;
 }
 
 /* Hexagon outline around the badge icon (per the design). The hexagon is an inline SVG so the
    stroke stays a clean, even width at any size; the icon is centred on top. */
-.badge__icon {
+.trust-badge__icon {
   align-items: center;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 91,27 91,73 50,96 9,73 9,27' fill='none' stroke='%232e7d32' stroke-width='5'/%3E%3C/svg%3E");
   background-position: center;
@@ -99,11 +101,13 @@
   width: 58px;
 }
 
-.badge__label {
+.trust-badge__label {
   color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.3;
+  /* Constrain to the badge width so long labels (e.g. Vietnamese) wrap instead of overflowing. */
+  width: 100%;
 }
 
 .banner__media {

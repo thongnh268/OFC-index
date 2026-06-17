@@ -18,11 +18,11 @@
       <h1 class="banner__title">{{ content().title }}</h1>
       <p class="banner__intro">{{ content().intro }}</p>
 
-      <ul class="badges">
+      <ul class="trust-badges">
         @for (badge of content().badges; track badge.label) {
-          <li class="badge">
-            <span class="badge__icon"><app-icon [name]="badge.icon" [size]="24" /></span>
-            <span class="badge__label">{{ badge.label }}</span>
+          <li class="trust-badge">
+            <span class="trust-badge__icon"><app-icon [name]="badge.icon" [size]="24" /></span>
+            <span class="trust-badge__label">{{ badge.label }}</span>
           </li>
         }
       </ul>
