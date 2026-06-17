@@ -6,7 +6,8 @@ import { type WorkflowStep } from './sections/workflow.component';
 // Code-owned bilingual content for the Board of Directors page. Org chart, leadership team,
 // advisory board and workflow are real company content from the Figma design (which shipped
 // them as a flat image); the CEO "thank you letter" is real copy. Vietnamese is a working
-// translation for review. Person photos are pending — cards show initials placeholders.
+// translation for review. Person photos are PLACEHOLDER portraits (randomuser.me) so the cards
+// aren't empty — replace `photoUrl` with the real headshots when available.
 export interface BoardSignature {
   readonly role: string;
   readonly signed: string;
@@ -91,14 +92,27 @@ const EN: BoardContent = {
   ],
   leadershipHeading: 'Leadership Team',
   leadership: [
-    { name: 'Thang Khanh Huy', title: 'Chief Executive Officer (CEO)' },
-    { name: 'Cao Trung Hung', title: 'Chief Commercial Officer (CCO) – Board Member' },
-    { name: 'Do Thi Diu', title: 'Chief Financial Officer (CFO)' },
+    {
+      name: 'Thang Khanh Huy',
+      title: 'Chief Executive Officer (CEO)',
+      photoUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+    },
+    {
+      name: 'Cao Trung Hung',
+      title: 'Chief Commercial Officer (CCO) – Board Member',
+      photoUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+    },
+    {
+      name: 'Do Thi Diu',
+      title: 'Chief Financial Officer (CFO)',
+      photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+    },
   ],
   advisoryHeading: 'Advisory Board',
   advisory: [
     {
       name: 'Park Jeong Eun',
+      photoUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
       bio: [
         'Professor at Ewha Womans University',
         'Senior Advisor in Marketing (Korea)',
@@ -107,6 +121,7 @@ const EN: BoardContent = {
     },
     {
       name: 'Pham Quoc Khanh',
+      photoUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
       bio: [
         'PhD in Economics',
         'Senior Lecturer at National Defense Academy',
@@ -117,6 +132,7 @@ const EN: BoardContent = {
     },
     {
       name: 'Nguyen Ngoc Mai',
+      photoUrl: 'https://randomuser.me/api/portraits/women/26.jpg',
       bio: ['Chairman of Vietkao Group / Board Member', 'Senior Advisor at Binh Minh HP'],
     },
   ],
@@ -128,7 +144,7 @@ const EN: BoardContent = {
     { icon: 'handshake', number: '04', label: 'Sign Contract' },
   ],
   letterHeading: 'Thank you letter',
-  blocks: [{ paragraphs: LETTER_EN }],
+  blocks: [{ heading: LETTER_EN[0], paragraphs: LETTER_EN.slice(1) }],
   signature: { role: 'C.E.O', signed: '(Signed)', name: 'Phan Van Hien' },
 };
 
@@ -167,14 +183,27 @@ const VI: BoardContent = {
   ],
   leadershipHeading: 'Ban lãnh đạo',
   leadership: [
-    { name: 'Thắng Khánh Huy', title: 'Tổng Giám đốc (CEO)' },
-    { name: 'Cao Trung Hưng', title: 'Giám đốc Thương mại (CCO) – Thành viên HĐQT' },
-    { name: 'Đỗ Thị Dịu', title: 'Giám đốc Tài chính (CFO)' },
+    {
+      name: 'Thắng Khánh Huy',
+      title: 'Tổng Giám đốc (CEO)',
+      photoUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+    },
+    {
+      name: 'Cao Trung Hưng',
+      title: 'Giám đốc Thương mại (CCO) – Thành viên HĐQT',
+      photoUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+    },
+    {
+      name: 'Đỗ Thị Dịu',
+      title: 'Giám đốc Tài chính (CFO)',
+      photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+    },
   ],
   advisoryHeading: 'Hội đồng cố vấn',
   advisory: [
     {
       name: 'Park Jeong Eun',
+      photoUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
       bio: [
         'Giáo sư Đại học Ewha Womans',
         'Cố vấn cấp cao về Marketing (Hàn Quốc)',
@@ -183,6 +212,7 @@ const VI: BoardContent = {
     },
     {
       name: 'Phạm Quốc Khánh',
+      photoUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
       bio: [
         'Tiến sĩ Kinh tế',
         'Giảng viên cao cấp Học viện Quốc phòng',
@@ -193,6 +223,7 @@ const VI: BoardContent = {
     },
     {
       name: 'Nguyễn Ngọc Mai',
+      photoUrl: 'https://randomuser.me/api/portraits/women/26.jpg',
       bio: ['Chủ tịch Tập đoàn Vietkao / Thành viên HĐQT', 'Cố vấn cấp cao tại Bình Minh HP'],
     },
   ],
@@ -204,7 +235,7 @@ const VI: BoardContent = {
     { icon: 'handshake', number: '04', label: 'Ký hợp đồng' },
   ],
   letterHeading: 'Thư cảm ơn',
-  blocks: [{ paragraphs: LETTER_VI }],
+  blocks: [{ heading: LETTER_VI[0], paragraphs: LETTER_VI.slice(1) }],
   signature: { role: 'Tổng Giám đốc', signed: '(Đã ký)', name: 'Phan Văn Hiền' },
 };
 

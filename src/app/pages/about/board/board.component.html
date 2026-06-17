@@ -9,12 +9,14 @@
 
   <app-board-workflow [heading]="content.workflowHeading" [steps]="content.workflow" />
 
-  <h2 class="inner-section-title">{{ content.letterHeading }}</h2>
-  <app-inner-content [blocks]="content.blocks" />
+  <div class="letter-box">
+    <h2 class="inner-section-title">{{ content.letterHeading }}</h2>
+    <app-inner-content [blocks]="content.blocks" />
 
-  <div class="signature">
-    <p class="signature__role">{{ content.signature.role }}</p>
-    <p class="signature__signed">{{ content.signature.signed }}</p>
-    <p class="signature__name">{{ content.signature.name }}</p>
+    <div class="signature">
+      <p class="signature__role">{{ content.signature.role }}</p>
+      <p class="signature__signed">{{ content.signature.signed }}</p>
+      <p class="signature__name">{{ content.signature.name }}</p>
+    </div>
   </div>
 </app-inner-page>
