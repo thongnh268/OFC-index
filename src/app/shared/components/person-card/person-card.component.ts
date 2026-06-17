@@ -9,11 +9,13 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   template: `
     <figure class="person" [class.person--advisor]="(bio()?.length ?? 0) > 0">
       <div class="person__photo">
-        @if (photoUrl(); as src) {
-          <img [src]="src" [alt]="name()" />
-        } @else {
-          <span class="person__initials" aria-hidden="true">{{ initials() }}</span>
-        }
+        <div class="person__photo-inner">
+          @if (photoUrl(); as src) {
+            <img [src]="src" [alt]="name()" />
+          } @else {
+            <span class="person__initials" aria-hidden="true">{{ initials() }}</span>
+          }
+        </div>
       </div>
       <figcaption class="person__body">
         <p class="person__name">{{ name() }}</p>
@@ -37,20 +39,29 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
       }
 
       .person__photo {
-        align-items: center;
         aspect-ratio: 1;
-        background: var(--color-bg);
-        border: 3px solid var(--color-accent);
+        border: 2px solid var(--color-accent);
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
         margin: 0 auto;
-        overflow: hidden;
-        width: 140px;
+        padding: 6px;
+        width: 148px;
       }
 
+      .person__photo-inner {
+        align-items: center;
+        background: var(--color-bg);
+        border-radius: 50%;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* Advisory portraits sit flush in the circle with no ring or gap. */
       .person--advisor .person__photo {
         border-color: transparent;
+        padding: 0;
       }
 
       .person__photo img {
