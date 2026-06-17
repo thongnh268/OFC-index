@@ -64,6 +64,22 @@
   line-height: 1.7;
   margin: 0 0 28px;
   max-width: 46ch;
+  /* Justify so each line stretches to the diagonally-shrinking shape boundary below, turning the
+     ragged right edge into a clean slant that echoes the banner image. */
+  text-align: justify;
+}
+
+/* Slant the paragraph's right edge so it echoes the banner image's diagonal left edge — the
+   text narrows toward the bottom. An invisible right-floated triangle drives the wrap. Height
+   spans ~4 lines (the tallest intro). It's deliberately NOT contained (no flow-root): a 4-line
+   float is still shorter than a 3-line intro plus its 28px bottom margin, so it never reaches
+   the badges below — keeping them tight to the text without padding the box on shorter pages. */
+.banner__intro::before {
+  content: '';
+  float: right;
+  height: 6.8em;
+  shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+  width: 80px;
 }
 
 /* Own class name (not the global `.badge` pill in styles.css) — sharing it leaked the pill's
@@ -525,6 +541,16 @@ app-accordion.faq {
   .banner__media {
     clip-path: none;
     min-height: 240px;
+  }
+
+  /* Banner stacks and the image is no longer diagonal beside the text — drop the slant and the
+     justification that drove it (left-align reads better on a narrow column). */
+  .banner__intro {
+    text-align: left;
+  }
+
+  .banner__intro::before {
+    display: none;
   }
 
   .overview,
