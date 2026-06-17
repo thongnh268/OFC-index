@@ -388,12 +388,13 @@
   margin: 0 0 12px;
 }
 
-/* FAQ — shared accordion laid out in two columns. */
+/* FAQ — single-column accordion inside a clean bordered card (two columns misaligned the
+   rows whenever a question wrapped, which looked cluttered). */
 app-accordion.faq {
-  align-items: start;
-  column-gap: 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  display: block;
+  padding: 4px 24px;
 }
 
 /* Sidebar: anchor nav + quote card. */
@@ -532,6 +533,6 @@ app-accordion.faq {
   }
 
   app-accordion.faq {
-    grid-template-columns: 1fr;
+    padding: 4px 16px;
   }
 }
