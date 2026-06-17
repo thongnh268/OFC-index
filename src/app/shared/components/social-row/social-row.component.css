@@ -35,3 +35,22 @@
   height: 36px;
   width: 36px;
 }
+
+.social-row.is-plain {
+  margin-top: 0;
+}
+
+.social-row.is-plain .social-button {
+  background: transparent;
+  border-radius: 0;
+  color: var(--color-accent);
+  height: auto;
+  width: auto;
+}
+
+.social-row.is-plain .social-button:hover,
+.social-row.is-plain .social-button:focus-visible {
+  box-shadow: none;
+  color: var(--color-primary);
+  transform: none;
+}

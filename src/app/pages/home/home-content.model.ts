@@ -119,16 +119,10 @@ export interface NewsContent {
   readonly viewAllLabel: string;
 }
 
-export interface CtaContent {
-  readonly heading: string;
-  readonly body: string;
-}
-
 export interface HomeContent {
   readonly hero: HeroContent;
   readonly about: AboutContent;
   readonly products: ProductsContent;
   readonly partners: PartnersContent;
   readonly news: NewsContent;
-  readonly cta: CtaContent;
 }

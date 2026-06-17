@@ -11,17 +11,9 @@ const PARTNER_LOGOS: readonly PartnerLogo[] = [
   { name: 'VIFORES', imageUrl: 'assets/images/partners/vifores.png' },
 ];
 
-// TODO(demo): tripled only to exercise the carousel paging — swap back to PARTNER_LOGOS
-// once the real partner list arrives.
-const PARTNER_LOGOS_DEMO: readonly PartnerLogo[] = [
-  ...PARTNER_LOGOS,
-  ...PARTNER_LOGOS,
-  ...PARTNER_LOGOS,
-];
-
-// THE homepage content — code-owned, one full copy per locale. Homepage editorial
-// changes ~yearly and always with a dev in the loop, so the CMS plays no part here
-// (Sanity is for posts + siteSettings only; decision 2026-06-12).
+// THE homepage editorial copy — code-owned, one full copy per locale. Homepage text
+// changes ~yearly and always with a dev in the loop. Sanity only supplies posts and
+// optional siteSettings media overrides such as the hero background.
 // Plain strings (NOT $localize): this is editorial copy, not UI chrome. Emphasis is
 // authored inline with <b>…</b> / <accent>…</accent> via parseEmphasis.
 
@@ -143,7 +135,7 @@ const EN: HomeContent = {
     eyebrow: 'Partners & Certificates',
     heading: 'Trusted by national and global organizations',
     viewAllLabel: 'View all partners',
-    logos: PARTNER_LOGOS_DEMO,
+    logos: PARTNER_LOGOS,
     certificatesTitle: 'Our certificates',
     certificatesBody:
       'We are committed to international and national standards for quality control, environment and responsible forestry.',
@@ -188,10 +180,6 @@ const EN: HomeContent = {
     tagline: 'Stay informed with the latest from OFC Company',
     featuredLabel: 'Featured news',
     viewAllLabel: 'View all news',
-  },
-  cta: {
-    heading: 'Looking for a reliable wood supply partner?',
-    body: 'We are ready to support your business with sustainable products and dedicated services.',
   },
 };
 
@@ -313,7 +301,7 @@ const VI: HomeContent = {
     eyebrow: 'Đối tác & chứng chỉ',
     heading: 'Được tin cậy bởi các tổ chức trong nước và quốc tế',
     viewAllLabel: 'Xem tất cả đối tác',
-    logos: PARTNER_LOGOS_DEMO,
+    logos: PARTNER_LOGOS,
     certificatesTitle: 'Chứng chỉ của chúng tôi',
     certificatesBody:
       'Chúng tôi cam kết tuân thủ các tiêu chuẩn quốc tế và trong nước về kiểm soát chất lượng, môi trường và lâm nghiệp có trách nhiệm.',
@@ -358,10 +346,6 @@ const VI: HomeContent = {
     tagline: 'Cập nhật những thông tin mới nhất từ OFC Company',
     featuredLabel: 'Tin nổi bật',
     viewAllLabel: 'Xem tất cả tin',
-  },
-  cta: {
-    heading: 'Bạn đang tìm đối tác cung ứng gỗ đáng tin cậy?',
-    body: 'Chúng tôi sẵn sàng đồng hành cùng doanh nghiệp của bạn bằng sản phẩm bền vững và dịch vụ tận tâm.',
   },
 };
 

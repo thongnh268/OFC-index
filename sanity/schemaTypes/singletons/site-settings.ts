@@ -10,6 +10,7 @@ export const siteSettings = defineType({
   type: 'document',
   groups: [
     { name: 'seo', title: 'SEO', default: true },
+    { name: 'home', title: 'Home page' },
     { name: 'company', title: 'Company & contact' },
   ],
   fields: [
@@ -25,6 +26,40 @@ export const siteSettings = defineType({
       title: 'Default social share image',
       type: 'image',
       group: 'seo',
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Hero banner image',
+      description: 'Homepage hero background. Leave empty to use the built-in default.',
+      type: 'image',
+      group: 'home',
+    }),
+    defineField({
+      name: 'partnerLogos',
+      title: 'Partner logos',
+      description: 'Homepage logo wall. Leave empty to use the built-in set.',
+      type: 'array',
+      group: 'home',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Partner name',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'logo',
+              title: 'Logo',
+              type: 'image',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+          preview: { select: { title: 'name', media: 'logo' } },
+        }),
+      ],
     }),
 
     defineField({ name: 'brand', title: 'Brand name', type: 'localeString', group: 'company' }),

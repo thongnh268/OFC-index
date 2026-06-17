@@ -9,6 +9,8 @@ import type { OfcCompany, SocialLink } from '../data';
 
 // Raw shape SETTINGS_QUERY can return — every field is an optional CMS override.
 interface SettingsDto {
+  readonly heroImageUrl?: string | null;
+  readonly partnerLogos?: readonly { name: string | null; imageUrl: string | null }[] | null;
   readonly brand?: string | null;
   readonly legalName?: string | null;
   readonly shortAddress?: string | null;
@@ -22,28 +24,54 @@ interface SettingsDto {
   readonly socials?: readonly { platform: string | null; url: string | null }[] | null;
 }
 
+// A partner logo as the home logo wall needs it: name + ready-to-use CDN image URL.
+export interface PartnerLogoData {
+  readonly name: string;
+  readonly imageUrl: string;
+}
+
+interface SiteSettings {
+  readonly company: OfcCompany;
+  readonly heroImageUrl: string | null;
+  readonly partnerLogos: readonly PartnerLogoData[];
+}
+
 @Injectable({ providedIn: 'root' })
 export class SiteSettingsService {
   private readonly sanity = inject(SanityService);
-  private company$?: Observable<OfcCompany>;
+  private settings$?: Observable<SiteSettings>;
 
   // CMS values overlay the code-owned company defaults field by field; anything the CMS
   // leaves blank keeps its default, so contact info never renders empty.
   // Memoized + shareReplay: footer and contact-bar both consume this on one page —
   // they share a single fetch instead of each firing their own.
   getCompany(): Observable<OfcCompany> {
-    this.company$ ??= this.sanity.fetch<SettingsDto | null>(SETTINGS_QUERY).pipe(
+    return this.getSettings().pipe(map((settings) => settings.company));
+  }
+
+  // Optional CMS override for the home hero background. Null means use code-owned default.
+  getHeroImageUrl(): Observable<string | null> {
+    return this.getSettings().pipe(map((settings) => settings.heroImageUrl));
+  }
+
+  // Optional CMS-managed logo wall. Empty array means use the code-owned default set.
+  getPartnerLogos(): Observable<readonly PartnerLogoData[]> {
+    return this.getSettings().pipe(map((settings) => settings.partnerLogos));
+  }
+
+  private getSettings(): Observable<SiteSettings> {
+    this.settings$ ??= this.sanity.fetch<SettingsDto | null>(SETTINGS_QUERY).pipe(
       map((dto) => this.merge(dto)),
-      catchError(() => of(OFC_COMPANY)),
+      catchError(() => of(this.merge(null))),
       shareReplay({ bufferSize: 1, refCount: false }),
     );
 
-    return this.company$;
+    return this.settings$;
   }
 
-  private merge(dto: SettingsDto | null): OfcCompany {
+  private merge(dto: SettingsDto | null): SiteSettings {
     if (!dto) {
-      return OFC_COMPANY;
+      return { company: OFC_COMPANY, heroImageUrl: null, partnerLogos: [] };
     }
 
     // An office without an address has nothing to show — drop it; a missing label is
@@ -63,22 +91,30 @@ export class SiteSettingsService {
         href: social.url,
       }));
 
+    const partnerLogos = (dto.partnerLogos ?? [])
+      .filter((logo) => logo.name && logo.imageUrl)
+      .map((logo) => ({ name: logo.name ?? '', imageUrl: logo.imageUrl ?? '' }));
+
     return {
-      brand: dto.brand ?? OFC_COMPANY.brand,
-      legalName: dto.legalName ?? OFC_COMPANY.legalName,
-      shortAddress: dto.shortAddress ?? OFC_COMPANY.shortAddress,
-      logoUrl: dto.logoUrl ?? OFC_COMPANY.logoUrl,
-      offices: offices.length ? offices : OFC_COMPANY.offices,
-      contact: {
-        hotline: dto.hotline ?? OFC_COMPANY.contact.hotline,
-        ops: {
-          name: dto.opsName ?? OFC_COMPANY.contact.ops.name,
-          phone: dto.opsPhone ?? OFC_COMPANY.contact.ops.phone,
+      heroImageUrl: dto.heroImageUrl ?? null,
+      partnerLogos,
+      company: {
+        brand: dto.brand ?? OFC_COMPANY.brand,
+        legalName: dto.legalName ?? OFC_COMPANY.legalName,
+        shortAddress: dto.shortAddress ?? OFC_COMPANY.shortAddress,
+        logoUrl: dto.logoUrl ?? OFC_COMPANY.logoUrl,
+        offices: offices.length ? offices : OFC_COMPANY.offices,
+        contact: {
+          hotline: dto.hotline ?? OFC_COMPANY.contact.hotline,
+          ops: {
+            name: dto.opsName ?? OFC_COMPANY.contact.ops.name,
+            phone: dto.opsPhone ?? OFC_COMPANY.contact.ops.phone,
+          },
+          email: dto.email ?? OFC_COMPANY.contact.email,
+          website: dto.website ?? OFC_COMPANY.contact.website,
         },
-        email: dto.email ?? OFC_COMPANY.contact.email,
-        website: dto.website ?? OFC_COMPANY.contact.website,
+        socials: socials.length ? socials : OFC_COMPANY.socials,
       },
-      socials: socials.length ? socials : OFC_COMPANY.socials,
     };
   }
 }

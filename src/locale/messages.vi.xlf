@@ -258,6 +258,54 @@
         <source>Page <x id="page"/></source>
         <target>Trang <x id="page"/></target>
       </trans-unit>
+      <trans-unit id="common.home" datatype="html">
+        <source>Home</source>
+        <target>Trang chủ</target>
+      </trans-unit>
+      <trans-unit id="news.by" datatype="html">
+        <source>By</source>
+        <target>Bởi</target>
+      </trans-unit>
+      <trans-unit id="news.back" datatype="html">
+        <source>← Back to news</source>
+        <target>← Quay lại tin tức</target>
+      </trans-unit>
+      <trans-unit id="news.empty" datatype="html">
+        <source>No posts have been published yet.</source>
+        <target>Chưa có bài viết nào được đăng.</target>
+      </trans-unit>
+      <trans-unit id="news.notFoundTitle" datatype="html">
+        <source>Post not found</source>
+        <target>Không tìm thấy bài viết</target>
+      </trans-unit>
+      <trans-unit id="news.notFoundBody" datatype="html">
+        <source>This article may have been moved or removed.</source>
+        <target>Bài viết có thể đã được di chuyển hoặc gỡ bỏ.</target>
+      </trans-unit>
+      <trans-unit id="sidebar.getQuote" datatype="html">
+        <source>Get a Quote</source>
+        <target>Nhận báo giá</target>
+      </trans-unit>
+      <trans-unit id="sidebar.company" datatype="html">
+        <source>OFC Company</source>
+        <target>Công ty OFC</target>
+      </trans-unit>
+      <trans-unit id="sidebar.about" datatype="html">
+        <source>About us</source>
+        <target>Giới thiệu</target>
+      </trans-unit>
+      <trans-unit id="sidebar.products" datatype="html">
+        <source>Products &amp; Services</source>
+        <target>Sản phẩm &amp; Dịch vụ</target>
+      </trans-unit>
+      <trans-unit id="quoteCta.heading" datatype="html">
+        <source>Looking for a reliable wood supply partner?</source>
+        <target>Bạn đang tìm đối tác cung ứng gỗ đáng tin cậy?</target>
+      </trans-unit>
+      <trans-unit id="quoteCta.body" datatype="html">
+        <source>Get in touch with OFC for competitive pricing, certified quality and on-time delivery.</source>
+        <target>Liên hệ OFC để có mức giá cạnh tranh, chất lượng đạt chứng nhận và giao hàng đúng hẹn.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

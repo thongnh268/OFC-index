@@ -1,0 +1,24 @@
+<div class="breadcrumb-bar">
+  <div class="container-content breadcrumb-bar__inner">
+    <app-breadcrumb [items]="breadcrumb()" />
+
+    <app-social-row
+      class="breadcrumb-socials"
+      [links]="company().socials"
+      variant="plain"
+      [iconSize]="18"
+    />
+  </div>
+</div>
+
+<app-page-banner [imageUrl]="bannerImage()" [alt]="bannerAlt()" />
+
+<div class="container-content inner-page">
+  <main class="inner-page__main">
+    <ng-content />
+  </main>
+
+  <app-inner-sidebar class="inner-page__side" />
+</div>
+
+<app-quote-cta />
