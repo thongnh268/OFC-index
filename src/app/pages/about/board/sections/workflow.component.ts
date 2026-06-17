@@ -83,7 +83,7 @@ export interface WorkflowStep {
         margin-top: 24px;
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 639.98px) {
         .workflow__steps {
           align-items: center;
           flex-direction: column;

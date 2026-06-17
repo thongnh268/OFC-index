@@ -67,7 +67,7 @@
   scroll-snap-align: start;
 }
 
-@media (min-width: 560px) {
+@media (min-width: 640px) {
   .news-card {
     flex-basis: calc((100% - 20px) / 2);
   }

@@ -186,7 +186,7 @@ export interface OrgDepartment {
         color: var(--color-accent);
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 767.98px) {
         .org__departments {
           flex-direction: column;
         }

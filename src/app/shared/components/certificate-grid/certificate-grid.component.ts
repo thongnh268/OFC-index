@@ -88,7 +88,7 @@ export interface CertificateItem {
         line-height: 1.4;
       }
 
-      @media (max-width: 700px) {
+      @media (max-width: 767.98px) {
         .cert-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }

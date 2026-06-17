@@ -10,7 +10,7 @@
   margin-top: 16px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .about-grid {
     align-items: start;
     /* Figma: video 489 / details 519 with a 46px gutter. */

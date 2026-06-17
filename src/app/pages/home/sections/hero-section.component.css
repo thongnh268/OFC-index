@@ -142,7 +142,7 @@
 }
 
 /* Wide desktop: one row of four with dividers between all cells. */
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .hero-stats {
     gap: 0;
     grid-template-columns: repeat(4, minmax(0, 1fr));

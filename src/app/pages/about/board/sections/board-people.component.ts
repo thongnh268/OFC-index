@@ -44,7 +44,7 @@ export interface PersonEntry {
         padding: 0;
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 767.98px) {
         .people__grid {
           gap: 28px;
           grid-template-columns: 1fr;
