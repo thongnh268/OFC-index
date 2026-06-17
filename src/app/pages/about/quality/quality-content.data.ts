@@ -3,8 +3,8 @@ import { type InnerContentBlock } from '../../../shared/components/inner-content
 
 // Code-owned bilingual content for the Policies of Quality Control page. Policy text is real
 // company copy from the Figma design (Vietnamese is a working translation for review). The
-// certificate cards render as placeholders until the real FSC/PEFC PDF previews are supplied
-// (set thumbnailUrl + pdfUrl on each item).
+// certificate cards show real FSC/PEFC preview images from assets/images/certificates; add a
+// pdfUrl on an item to make its card link to the full certificate PDF.
 export interface QualityContent {
   readonly breadcrumbHome: string;
   readonly breadcrumbAbout: string;
@@ -48,11 +48,27 @@ const EN: QualityContent = {
   ],
   certHeading: 'Certificates of FSC FM, FSC CW/COC & PEFC',
   certificates: [
-    { title: 'FSC FM — Thanh Hoa (2023–2028)' },
-    { title: 'FSC CW/COC — THC 2025' },
-    { title: 'PEFC COC — Dai Duong' },
-    { title: 'FSC COC with CW — Dai Duong Forest Products JSC' },
-    { title: 'Company Information' },
+    { title: 'FM - Dai Lam 2025-2030', thumbnailUrl: 'assets/images/certificates/FM-DaiLam.png' },
+    {
+      title: 'FSC FM - Thanh Hoa (2023-2028)',
+      thumbnailUrl: 'assets/images/certificates/FSC-FM-ThanhHoa.png',
+    },
+    {
+      title: 'FSC CW/COC - THC 2025',
+      thumbnailUrl: 'assets/images/certificates/FSC-CW-COC-THC.png',
+    },
+    {
+      title: 'PEFC COC - Dai Duong',
+      thumbnailUrl: 'assets/images/certificates/PEFC-COC-DaiDuong.png',
+    },
+    {
+      title: 'FSC COC with CW - Dai Duong Forest Products JSC',
+      thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
+    },
+    {
+      title: 'Company Information',
+      thumbnailUrl: 'assets/images/certificates/Company-Information.png',
+    },
   ],
 };
 
@@ -90,11 +106,27 @@ const VI: QualityContent = {
   ],
   certHeading: 'Chứng chỉ FSC FM, FSC CW/COC & PEFC',
   certificates: [
-    { title: 'FSC FM — Thanh Hòa (2023–2028)' },
-    { title: 'FSC CW/COC — THC 2025' },
-    { title: 'PEFC COC — Đại Dương' },
-    { title: 'FSC COC kèm CW — Lâm sản Đại Dương' },
-    { title: 'Thông tin công ty' },
+    { title: 'FM - Đại Lâm 2025-2030', thumbnailUrl: 'assets/images/certificates/FM-DaiLam.png' },
+    {
+      title: 'FSC FM - Thanh Hòa (2023-2028)',
+      thumbnailUrl: 'assets/images/certificates/FSC-FM-ThanhHoa.png',
+    },
+    {
+      title: 'FSC CW/COC - THC 2025',
+      thumbnailUrl: 'assets/images/certificates/FSC-CW-COC-THC.png',
+    },
+    {
+      title: 'PEFC COC - Đại Dương',
+      thumbnailUrl: 'assets/images/certificates/PEFC-COC-DaiDuong.png',
+    },
+    {
+      title: 'FSC COC kèm CW - CP Lâm sản Đại Dương',
+      thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
+    },
+    {
+      title: 'Thông tin công ty',
+      thumbnailUrl: 'assets/images/certificates/Company-Information.png',
+    },
   ],
 };
 
