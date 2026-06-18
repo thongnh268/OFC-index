@@ -1,3 +1,11 @@
+/* White box (panel) on the tinted contact bar. */
+.subscription {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
 .subscription-heading {
   color: var(--color-accent);
   font-size: 1rem;
