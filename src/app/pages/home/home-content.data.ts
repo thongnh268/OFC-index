@@ -11,7 +11,7 @@ const PARTNER_LOGOS: readonly PartnerLogo[] = [
   { name: 'VIFORES', imageUrl: 'assets/images/partners/vifores.png' },
 ];
 
-// THE homepage editorial copy — code-owned, one full copy per locale. Homepage text
+// THE homepage editorial copy - code-owned, one full copy per locale. Homepage text
 // changes ~yearly and always with a dev in the loop. Sanity only supplies posts and
 // optional siteSettings media overrides such as the hero background.
 // Plain strings (NOT $localize): this is editorial copy, not UI chrome. Emphasis is
@@ -226,7 +226,7 @@ const VI: HomeContent = {
     eyebrow: 'Về công ty OFC',
     heading: 'Sản phẩm bền vững. Chuỗi cung ứng đáng tin cậy',
     body: parseEmphasis(
-      '<b>OFC Company</b> gồm <b>Công ty TNHH Thanh Hoa</b> (thành lập năm 2005) và <b>CTCP Lâm sản Đại Dương</b> (thành lập năm 2017). Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa OFC trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín — liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
+      '<b>OFC Company</b> gồm <b>Công ty TNHH Thanh Hoa</b> (thành lập năm 2005) và <b>CTCP Lâm sản Đại Dương</b> (thành lập năm 2017). Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa OFC trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín - liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
     ),
     videoUrl: 'https://www.youtube.com/embed/YTUConEONEs',
     majorBusiness: {
@@ -262,7 +262,7 @@ const VI: HomeContent = {
     eyebrow: 'Sản phẩm & dịch vụ',
     heading: 'Sản phẩm gỗ chất lượng cao cho công nghiệp toàn cầu',
     body: parseEmphasis(
-      'OFC Company cung cấp <b>dăm gỗ cho sản xuất bột giấy</b> và <b>viên nén gỗ — nhiên liệu sinh khối thân thiện môi trường</b>. Các dịch vụ hỗ trợ gồm <b>cung ứng nguyên liệu</b>, <b>phát triển rừng</b> và <b>logistics</b>, đảm bảo chuỗi cung ứng ổn định và giao hàng hiệu quả ở quy mô công nghiệp.',
+      'OFC Company cung cấp <b>dăm gỗ cho sản xuất bột giấy</b> và <b>viên nén gỗ - nhiên liệu sinh khối thân thiện môi trường</b>. Các dịch vụ hỗ trợ gồm <b>cung ứng nguyên liệu</b>, <b>phát triển rừng</b> và <b>logistics</b>, đảm bảo chuỗi cung ứng ổn định và giao hàng hiệu quả ở quy mô công nghiệp.',
     ),
     items: [
       {

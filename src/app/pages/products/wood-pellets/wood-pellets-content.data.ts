@@ -3,7 +3,7 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 // Code-owned bilingual content for the Wood Pellets Export page (Figma node 2142:1503).
 // Title, intro, badges, overview, specs and applications are real design content. Why-choose,
 // the video blurb and `videoUrl` are shared OFC/company content carried across product pages
-// (placeholder video — swap for the real link). FAQ is neutral OFC-grounded provisional copy
+// (placeholder video - swap for the real link). FAQ is neutral OFC-grounded provisional copy
 // (Milestones approach). Banner/overview images stay null → styled placeholders.
 
 const EN: ProductContent = {
@@ -101,7 +101,7 @@ const EN: ProductContent = {
     {
       question: 'Are the pellets certified and sustainably sourced?',
       answer:
-        'Yes — they are made from sustainably grown acacia and our supply chain holds PEFC FM/COC certification.',
+        'Yes - they are made from sustainably grown acacia and our supply chain holds PEFC FM/COC certification.',
     },
     {
       question: 'What are your order and payment terms?',
@@ -210,7 +210,7 @@ const VI: ProductContent = {
     {
       question: 'Viên nén có chứng nhận và nguồn bền vững không?',
       answer:
-        'Có — được làm từ gỗ keo trồng bền vững và chuỗi cung ứng đạt chứng nhận PEFC FM/COC.',
+        'Có - được làm từ gỗ keo trồng bền vững và chuỗi cung ứng đạt chứng nhận PEFC FM/COC.',
     },
     {
       question: 'Điều khoản đặt hàng và thanh toán?',

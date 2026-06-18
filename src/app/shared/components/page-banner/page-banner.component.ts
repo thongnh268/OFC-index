@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 // Full-width inner-page banner (Figma: 480px hero image). Rendered ONLY when an image is
-// supplied — pages without a banner in the design (e.g. Establishment Milestones) pass null
+// supplied - pages without a banner in the design (e.g. Establishment Milestones) pass null
 // and no banner block appears, so there is never an empty placeholder band.
 @Component({
   selector: 'app-page-banner',

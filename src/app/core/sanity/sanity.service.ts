@@ -11,7 +11,7 @@ import { SANITY_CONFIG } from './config';
 export class SanityService {
   private readonly http = inject(HttpClient);
 
-  /** Locale of this build ('vi' | 'en') — bound into every query as $locale. */
+  /** Locale of this build ('vi' | 'en') - bound into every query as $locale. */
   readonly locale = inject(LOCALE_ID).startsWith('vi') ? 'vi' : 'en';
 
   private readonly queryUrl =

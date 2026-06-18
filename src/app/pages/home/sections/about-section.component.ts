@@ -6,7 +6,7 @@ import { SectionHeadComponent } from '../../../shared/components/section-head/se
 import { TextSegmentsComponent } from '../../../shared/components/text-segments/text-segments.component';
 import type { AboutContent } from '../home-content.model';
 
-// "About OFC Company" section (Figma node 2:281): intro on top, then a two-column row —
+// "About OFC Company" section (Figma node 2:281): intro on top, then a two-column row -
 // an intro video on the left, the business/export/subsidiaries blocks on the right.
 // Content comes from the HomeContent boundary; layout and chrome are code-owned.
 @Component({

@@ -28,7 +28,7 @@ export interface ProductFaq {
 }
 
 export interface ProductContent {
-  /** Product name — the last breadcrumb crumb and the sidebar anchor-nav card title. */
+  /** Product name - the last breadcrumb crumb and the sidebar anchor-nav card title. */
   readonly name: string;
   /** Banner H1. */
   readonly title: string;
@@ -142,7 +142,7 @@ export function productChrome(locale: string): ProductChrome {
 // Turn any YouTube watch / share / shorts / embed link into a privacy-friendly embed URL so it
 // can be dropped straight into an <iframe>. A non-YouTube URL is returned unchanged (assumed
 // already embeddable); empty input returns null. To show a video on a product page, just set
-// `videoUrl` in its *-content.data.ts to a normal YouTube link — the player appears automatically.
+// `videoUrl` in its *-content.data.ts to a normal YouTube link - the player appears automatically.
 export function videoEmbedUrl(url: string | null): string | null {
   if (!url) {
     return null;

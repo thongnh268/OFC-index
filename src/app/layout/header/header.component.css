@@ -182,7 +182,7 @@
   color: var(--color-primary);
 }
 
-/* Scrim below the header (z 20) — header sits above it (z 30) so menu stays bright. */
+/* Scrim below the header (z 20) - header sits above it (z 30) so menu stays bright. */
 .dropdown-overlay {
   animation: overlay-in var(--duration-base) var(--ease-out);
   background: rgb(10 23 40 / 0.45);

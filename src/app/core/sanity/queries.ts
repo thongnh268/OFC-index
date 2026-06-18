@@ -1,5 +1,5 @@
 // GROQ queries. `$locale` ('vi' | 'en') is bound automatically by SanityService.fetch();
-// project localized objects with coalesce(field[$locale], field.vi) — vi is the site default.
+// project localized objects with coalesce(field[$locale], field.vi) - vi is the site default.
 
 // Latest posts for the home "News & updates" carousel (blog pages will use richer queries).
 export const NEWS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...12] {
@@ -9,7 +9,7 @@ export const NEWS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...12] 
   publishedAt
 }`;
 
-// Full blog index for the /news list page — every post, newest first, with card fields.
+// Full blog index for the /news list page - every post, newest first, with card fields.
 export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   _id,
   "slug": slug.current,
@@ -36,7 +36,7 @@ export const POST_BY_SLUG_QUERY = `*[_type == "post" && slug.current == $slug][0
   }
 }`;
 
-// Site settings singleton — company/contact facts + replaceable site media.
+// Site settings singleton - company/contact facts + replaceable site media.
 // Every field is an optional override;
 // SiteSettingsService overlays whatever the CMS returns onto the code-owned company defaults.
 // The hero URL carries image-pipeline params (cap width, modern format, sane quality) so the

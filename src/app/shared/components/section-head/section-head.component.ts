@@ -4,7 +4,7 @@ import { TextSegmentsComponent } from '../text-segments/text-segments.component'
 import type { TextSegment } from '../text-segments/text-segments.component';
 
 // Standard section opener (Figma 2:281/2:283/…): green uppercase eyebrow, navy
-// heading, optional justified intro with per-segment emphasis. Sizes mirror Figma —
+// heading, optional justified intro with per-segment emphasis. Sizes mirror Figma -
 // 20px eyebrow, 24px heading, 14px/21px ink body.
 @Component({
   selector: 'app-section-head',

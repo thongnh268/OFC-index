@@ -3,7 +3,7 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 // Code-owned bilingual content for the Timber Processing & Export page (Figma node 2142:1041).
 // Application card descriptions were read from the high-res design screenshots (baked into a
 // raster image in Figma). Why-choose, the video blurb and `videoUrl` are shared OFC content
-// carried across product pages (placeholder video — swap for the real link). FAQ is neutral
+// carried across product pages (placeholder video - swap for the real link). FAQ is neutral
 // OFC-grounded provisional copy. Banner/overview images stay null → styled placeholders.
 
 const EN: ProductContent = {
@@ -126,7 +126,7 @@ const EN: ProductContent = {
     {
       question: 'Is your timber sustainably sourced?',
       answer:
-        'Yes — our supply chain is PEFC FM/COC certified, ensuring legal and responsibly managed timber.',
+        'Yes - our supply chain is PEFC FM/COC certified, ensuring legal and responsibly managed timber.',
     },
   ],
 };
@@ -246,7 +246,7 @@ const VI: ProductContent = {
     {
       question: 'Gỗ có nguồn bền vững không?',
       answer:
-        'Có — chuỗi cung ứng đạt chứng nhận PEFC FM/COC, đảm bảo gỗ hợp pháp và quản lý có trách nhiệm.',
+        'Có - chuỗi cung ứng đạt chứng nhận PEFC FM/COC, đảm bảo gỗ hợp pháp và quản lý có trách nhiệm.',
     },
   ],
 };

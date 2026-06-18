@@ -21,7 +21,7 @@ import { TabComponent } from './tab.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabGroupComponent {
-  /** Unique per page when several groups coexist — prefixes the tab/panel ids. */
+  /** Unique per page when several groups coexist - prefixes the tab/panel ids. */
   readonly groupId = input<string>('tabs');
 
   protected readonly tabs = contentChildren(TabComponent);

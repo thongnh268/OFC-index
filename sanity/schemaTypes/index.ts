@@ -4,7 +4,7 @@ import { category } from './documents/category';
 import { post } from './documents/post';
 import { siteSettings } from './singletons/site-settings';
 
-// Document types edited in place — exactly one instance each (see structure.ts).
+// Document types edited in place - exactly one instance each (see structure.ts).
 // Homepage editorial copy is code-owned (src/app/pages/home/home-content.data.ts);
 // siteSettings only owns operational overrides and replaceable media such as hero image.
 export const singletonTypes = new Set(['siteSettings']);

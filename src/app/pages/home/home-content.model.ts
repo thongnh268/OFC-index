@@ -1,9 +1,9 @@
-// Shape of the Home page's editorial content (code-owned — see home-content.data.ts).
+// Shape of the Home page's editorial content (code-owned - see home-content.data.ts).
 // Layout, section order and UI chrome strings live in components; company facts
 // (phone, address, socials) stay in core/data/company.ts and are NOT duplicated here.
 
 // Heading is built from coloured segments so the CMS controls per-phrase colour
-// (e.g. navy + green accent) from a fixed brand palette — no arbitrary colours.
+// (e.g. navy + green accent) from a fixed brand palette - no arbitrary colours.
 export type HeadingTone = 'navy' | 'accent' | 'white';
 
 export interface HeadingSegment {
@@ -16,12 +16,12 @@ export interface HeadingSegment {
 export type HeroStatIcon = 'factory' | 'experience' | 'people' | 'globe';
 
 // A cell is an icon + ordered text lines; each line picks ONE typographic style from this
-// fixed set. Every cell (figures, callouts, anything future) is then pure data — no per-cell
+// fixed set. Every cell (figures, callouts, anything future) is then pure data - no per-cell
 // special-casing in the component. Add a new look = add a style here + one CSS rule.
-//   value     — large bold navy number (1M+, 740+)
-//   caption   — small navy supporting text (BDMT Annual Capacity)
-//   lead      — medium navy lead-in (Export to)
-//   highlight — medium bold green emphasis (Japan & China)
+//   value     - large bold navy number (1M+, 740+)
+//   caption   - small navy supporting text (BDMT Annual Capacity)
+//   lead      - medium navy lead-in (Export to)
+//   highlight - medium bold green emphasis (Japan & China)
 export type StatLineStyle = 'value' | 'caption' | 'lead' | 'highlight';
 
 export interface StatLine {
@@ -111,7 +111,7 @@ export interface PartnersContent {
   readonly figures: readonly Figure[];
 }
 
-// Section chrome for "News & updates" — the posts themselves come from Sanity.
+// Section chrome for "News & updates" - the posts themselves come from Sanity.
 export interface NewsContent {
   readonly eyebrow: string;
   readonly tagline: string;

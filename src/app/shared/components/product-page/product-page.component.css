@@ -1,4 +1,4 @@
-/* Breadcrumb bar — same chrome as the About inner-page shell. */
+/* Breadcrumb bar - same chrome as the About inner-page shell. */
 .breadcrumb-bar {
   background: var(--color-bg);
   border-block: 1px solid var(--color-border);
@@ -68,11 +68,11 @@
   text-align: justify;
 }
 
-/* Slant the paragraph's right edge so it echoes the banner image's diagonal left edge — the
+/* Slant the paragraph's right edge so it echoes the banner image's diagonal left edge - the
    text narrows toward the bottom. An invisible right-floated triangle drives the wrap. Height
    spans ~4 lines (the tallest intro). It's deliberately NOT contained (no flow-root): a 4-line
    float is still shorter than a 3-line intro plus its 28px bottom margin, so it never reaches
-   the badges below — keeping them tight to the text without padding the box on shorter pages. */
+   the badges below - keeping them tight to the text without padding the box on shorter pages. */
 .banner__intro::before {
   content: '';
   float: right;
@@ -81,10 +81,10 @@
   width: 80px;
 }
 
-/* Own class name (not the global `.badge` pill in styles.css) — sharing it leaked the pill's
+/* Own class name (not the global `.badge` pill in styles.css) - sharing it leaked the pill's
    `padding` and `white-space: nowrap` in, which clipped the box and stopped long labels wrapping. */
 .trust-badges {
-  /* Clear the intro's slant float so it can never shrink/shift this row — the badges stay
+  /* Clear the intro's slant float so it can never shrink/shift this row - the badges stay
      centred at every width (on a short intro the float would otherwise push them off-centre). */
   clear: right;
   display: flex;
@@ -223,7 +223,7 @@
   border: 1px solid var(--color-border);
 }
 
-/* Specifications — white box (panel) on the tinted page. */
+/* Specifications - white box (panel) on the tinted page. */
 .specs {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -264,7 +264,7 @@
   margin: 0;
 }
 
-/* Applications — white icon-card boxes (own class name, not the global `.card`) on the tinted
+/* Applications - white icon-card boxes (own class name, not the global `.card`) on the tinted
    page, centred and wrapping ~3 per row; a partial last row stays centred. */
 .app-cards {
   display: flex;
@@ -307,7 +307,7 @@
   margin: 0;
 }
 
-/* Why choose us — 4 reasons in a white panel (box) on the tinted page. */
+/* Why choose us - 4 reasons in a white panel (box) on the tinted page. */
 .reasons {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -426,7 +426,7 @@
   margin: 0 0 12px;
 }
 
-/* FAQ — single-column accordion inside a clean bordered card (two columns misaligned the
+/* FAQ - single-column accordion inside a clean bordered card (two columns misaligned the
    rows whenever a question wrapped, which looked cluttered). */
 app-accordion.faq {
   background: var(--color-white);
@@ -533,7 +533,7 @@ app-accordion.faq {
 }
 
 /* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)
-   so the whole page changes together — a 2-column body under a mobile header looked inconsistent. */
+   so the whole page changes together - a 2-column body under a mobile header looked inconsistent. */
 @media (max-width: 1023.98px) {
   .product {
     grid-template-columns: 1fr;
@@ -566,7 +566,7 @@ app-accordion.faq {
     min-height: 240px;
   }
 
-  /* Banner stacks (image drops below), so the text is no longer beside a diagonal edge — drop the
+  /* Banner stacks (image drops below), so the text is no longer beside a diagonal edge - drop the
      slant and centre the title, rule and intro within the full-width column (the badges already
      centre via the base rule). */
   .banner__text {

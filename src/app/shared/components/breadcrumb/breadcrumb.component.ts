@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 
 export interface BreadcrumbItem {
   readonly label: string;
-  /** Omit on the current (last) page — it renders as plain text. */
+  /** Omit on the current (last) page - it renders as plain text. */
   readonly route?: string;
 }
 

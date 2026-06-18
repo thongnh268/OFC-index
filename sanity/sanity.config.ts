@@ -19,7 +19,7 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-    // Singletons are edited in place (see structure.ts) — hide them from "create new".
+    // Singletons are edited in place (see structure.ts) - hide them from "create new".
     templates: (templates) => templates.filter((item) => !singletonTypes.has(item.schemaType)),
   },
 

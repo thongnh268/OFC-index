@@ -5,7 +5,7 @@ export interface SocialLink {
   readonly href: string;
 }
 
-// Display label per supported platform — extend together with SocialLink['name']
+// Display label per supported platform - extend together with SocialLink['name']
 // (and the platform list in sanity/schemaTypes/singletons/site-settings.ts).
 export const SOCIAL_LABELS: Record<SocialLink['name'], string> = {
   facebook: 'Facebook',

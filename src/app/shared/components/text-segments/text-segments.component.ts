@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-// Inline emphasis for editorial copy — a sentence is a list of segments, each picking
+// Inline emphasis for editorial copy - a sentence is a list of segments, each picking
 // one tone. Authors write ONE string with <b>…</b> (bold) and <accent>…</accent>
 // (green) tags; parseEmphasis turns it into segments. Only these two tags are
-// recognised — anything else stays literal text, so no raw HTML ever reaches the DOM.
+// recognised - anything else stays literal text, so no raw HTML ever reaches the DOM.
 export type TextTone = 'plain' | 'strong' | 'accent';
 
 export interface TextSegment {

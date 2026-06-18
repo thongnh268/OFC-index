@@ -4,9 +4,9 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 // Title, intro, badges, overview, specs, applications, why-choose-us and the video blurb are
 // real content from the design. The FAQ is provisional: Figma ships only "What are wood
 // chips?" ×10, so the Q&A below is neutral, OFC-grounded placeholder copy (per the Milestones
-// approach) — replace with the real FAQ when available. Banner/overview images stay null →
+// approach) - replace with the real FAQ when available. Banner/overview images stay null →
 // styled placeholders until real assets arrive. `videoUrl` is a PLACEHOLDER YouTube link
-// (Blender's public-domain "Big Buck Bunny") so the player renders now — swap it for OFC's
+// (Blender's public-domain "Big Buck Bunny") so the player renders now - swap it for OFC's
 // real video link (any youtube.com/watch, youtu.be, shorts or embed URL works).
 
 const EN: ProductContent = {
@@ -122,7 +122,7 @@ const EN: ProductContent = {
     {
       question: 'Are your wood chips certified?',
       answer:
-        'Yes — our supply chain holds PEFC FM/COC certification, ensuring responsibly and legally sourced timber.',
+        'Yes - our supply chain holds PEFC FM/COC certification, ensuring responsibly and legally sourced timber.',
     },
     {
       question: 'What payment terms do you accept?',
@@ -244,7 +244,7 @@ const VI: ProductContent = {
     {
       question: 'Dăm gỗ có được chứng nhận không?',
       answer:
-        'Có — chuỗi cung ứng của chúng tôi đạt chứng nhận PEFC FM/COC, đảm bảo nguồn gỗ hợp pháp và có trách nhiệm.',
+        'Có - chuỗi cung ứng của chúng tôi đạt chứng nhận PEFC FM/COC, đảm bảo nguồn gỗ hợp pháp và có trách nhiệm.',
     },
     {
       question: 'Quý công ty chấp nhận điều khoản thanh toán nào?',

@@ -22,7 +22,7 @@ for (const locale of LOCALES) {
   const serverEntry = join(rootDir, 'dist', 'ofc-index', 'server', locale.id, 'server.mjs');
 
   if (!existsSync(serverEntry)) {
-    console.error(`Missing ${serverEntry} — run \`npm run build\` first.`);
+    console.error(`Missing ${serverEntry} - run \`npm run build\` first.`);
     process.exit(1);
   }
 

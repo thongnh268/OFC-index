@@ -175,8 +175,8 @@
         <target>Sản phẩm</target>
       </trans-unit>
       <trans-unit id="home.comingSoon" datatype="html">
-        <source> Home page — coming soon </source>
-        <target> Trang chủ — sắp ra mắt </target>
+        <source> Home page - coming soon </source>
+        <target> Trang chủ - sắp ra mắt </target>
       </trans-unit>
       <trans-unit id="brand.homeLink" datatype="html">
         <source><x id="brand" equiv-text="OFC_COMPANY.brand"/> home</source>

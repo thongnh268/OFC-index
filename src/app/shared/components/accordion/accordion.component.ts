@@ -12,7 +12,7 @@ import {
 import { IconComponent } from '../icon/icon.component';
 
 // Parent and item live in one file: the item injects the parent while the parent
-// queries the items — separate files would create a circular import. The item is
+// queries the items - separate files would create a circular import. The item is
 // declared first because the parent's compiled query references it in a static
 // initializer; the item only references the parent lazily (forwardRef + inject).
 @Component({
@@ -92,7 +92,7 @@ export class AccordionItemComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionComponent {
-  /** Unique per page when several accordions coexist — prefixes the item ids. */
+  /** Unique per page when several accordions coexist - prefixes the item ids. */
   readonly accordionId = input<string>('accordion');
   /** When false (default) opening an item closes its siblings. */
   readonly multi = input<boolean>(false);

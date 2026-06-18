@@ -4,7 +4,7 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 // NOTE: Figma reused the Timber spec table here by mistake, so the specs below are neutral,
 // provisional afforestation program facts (replace with real figures when available). Card
 // descriptions are from the design screenshots. Why-choose, the video blurb and `videoUrl`
-// are shared OFC content (placeholder video — swap for the real link). FAQ is provisional.
+// are shared OFC content (placeholder video - swap for the real link). FAQ is provisional.
 
 const EN: ProductContent = {
   name: 'Afforestation',
@@ -19,7 +19,7 @@ const EN: ProductContent = {
     { icon: 'leaf', label: 'Sustainable Source' },
   ],
   overview: [
-    'Afforestation is the process of planting trees on land that has not recently — or ever — been covered by a forest. It differs from reforestation, which involves replanting trees on land that was recently deforested.',
+    'Afforestation is the process of planting trees on land that has not recently - or ever - been covered by a forest. It differs from reforestation, which involves replanting trees on land that was recently deforested.',
   ],
   overviewImage: 'assets/images/products/afforestation-overview.jpg',
   overviewImageAlt: 'Tree seedlings planted on a hillside',
@@ -131,7 +131,7 @@ const VI: ProductContent = {
   name: 'Trồng rừng',
   title: 'Sáng kiến trồng rừng bền vững',
   intro:
-    'Chúng tôi tập trung vào trồng rừng và tái trồng rừng quy mô lớn — kiến tạo những cánh rừng khỏe mạnh, nâng cao đa dạng sinh học và thực hiện các giải pháp hấp thụ carbon bền vững trên khắp Việt Nam.',
+    'Chúng tôi tập trung vào trồng rừng và tái trồng rừng quy mô lớn - kiến tạo những cánh rừng khỏe mạnh, nâng cao đa dạng sinh học và thực hiện các giải pháp hấp thụ carbon bền vững trên khắp Việt Nam.',
   bannerImage: 'assets/images/products/afforestation-banner.png',
   bannerAlt: 'Sáng kiến trồng rừng bền vững',
   badges: [
@@ -140,7 +140,7 @@ const VI: ProductContent = {
     { icon: 'leaf', label: 'Khai thác bền vững' },
   ],
   overview: [
-    'Trồng rừng (afforestation) là quá trình trồng cây trên vùng đất chưa từng — hoặc đã rất lâu không — có rừng che phủ. Khác với tái trồng rừng (reforestation) là trồng lại cây trên vùng đất vừa bị mất rừng.',
+    'Trồng rừng (afforestation) là quá trình trồng cây trên vùng đất chưa từng - hoặc đã rất lâu không - có rừng che phủ. Khác với tái trồng rừng (reforestation) là trồng lại cây trên vùng đất vừa bị mất rừng.',
   ],
   overviewImage: 'assets/images/products/afforestation-overview.jpg',
   overviewImageAlt: 'Cây giống được trồng trên sườn đồi',

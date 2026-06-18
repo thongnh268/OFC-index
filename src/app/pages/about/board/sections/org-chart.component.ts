@@ -77,7 +77,7 @@ export interface OrgDepartment {
         text-transform: uppercase;
       }
 
-      /* vertical drop from the CEO row down to the horizontal bar — anchored to the
+      /* vertical drop from the CEO row down to the horizontal bar - anchored to the
          full-width row centre (same 50% reference as the middle column) so it lines up
          pixel-for-pixel with the middle card's drop */
       .org__top::after {

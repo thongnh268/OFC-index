@@ -7,7 +7,7 @@ import { type WorkflowStep } from './sections/workflow.component';
 // advisory board and workflow are real company content from the Figma design (which shipped
 // them as a flat image); the CEO "thank you letter" is real copy. Vietnamese is a working
 // translation for review. Person photos are PLACEHOLDER portraits (randomuser.me) so the cards
-// aren't empty — replace `photoUrl` with the real headshots when available.
+// aren't empty - replace `photoUrl` with the real headshots when available.
 export interface BoardSignature {
   readonly role: string;
   readonly signed: string;

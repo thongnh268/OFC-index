@@ -26,9 +26,9 @@ import { SocialRowComponent } from '../social-row/social-row.component';
 import { productChrome, videoEmbedUrl, type ProductContent } from './product-content.model';
 
 // Shared, data-driven shell for every product-detail page (Wood Chips, Wood Pellets, Timber,
-// Afforestation, Transportation). It owns the whole layout — breadcrumb bar, badge banner,
+// Afforestation, Transportation). It owns the whole layout - breadcrumb bar, badge banner,
 // overview + specs, applications, why-choose-us, video, FAQ and the right-hand anchor-nav +
-// quote card — and renders it from one `ProductContent` input. Per-page copy is code-owned
+// quote card - and renders it from one `ProductContent` input. Per-page copy is code-owned
 // bilingual (in each page's *-content.data.ts); the structural chrome comes from
 // productChrome(LOCALE_ID). The FAQ reuses the shared <app-accordion>, and the bottom CTA
 // reuses <app-quote-cta>; nothing here is bespoke per page.
@@ -127,7 +127,7 @@ export class ProductPageComponent implements AfterViewInit {
   }
 
   // Smooth-scroll to a section on click. Handled in JS (not a bare "#id" href) because the
-  // page has <base href="/">, which resolves "#id" against the site root — that would navigate
+  // page has <base href="/">, which resolves "#id" against the site root - that would navigate
   // home instead of scrolling within this page.
   protected scrollToSection(event: Event, id: string): void {
     event.preventDefault();

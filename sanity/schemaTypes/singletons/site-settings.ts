@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 // Site-wide settings: SEO defaults + company/contact facts.
-// Company fields are OPTIONAL overrides — when blank, the Angular app falls back to the
+// Company fields are OPTIONAL overrides - when blank, the Angular app falls back to the
 // code-owned defaults in src/app/core/data/company.ts (see SiteSettingsService). This lets
 // editors update address/phone/email/socials without a code deploy.
 export const siteSettings = defineType({
@@ -96,13 +96,13 @@ export const siteSettings = defineType({
     defineField({ name: 'hotline', title: 'Hotline', type: 'string', group: 'company' }),
     defineField({
       name: 'opsName',
-      title: 'Operations director — name',
+      title: 'Operations director - name',
       type: 'string',
       group: 'company',
     }),
     defineField({
       name: 'opsPhone',
-      title: 'Operations director — phone',
+      title: 'Operations director - phone',
       type: 'string',
       group: 'company',
     }),

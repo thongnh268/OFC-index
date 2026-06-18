@@ -18,7 +18,7 @@ const AUTOPLAY_MS = 4000;
 //
 // Paging is anchored to real elements: how many cards fit a page is MEASURED from the
 // first card, and goTo scrolls the TRACK to the target card's measured edge. The target
-// equals a snap position exactly, so CSS snap agrees with it — and scrolling the track
+// equals a snap position exactly, so CSS snap agrees with it - and scrolling the track
 // (never scrollIntoView) means the page itself is never yanked toward the carousel.
 //
 // Autoplay advances every few seconds but only while the carousel is on screen
@@ -147,14 +147,14 @@ export class CarouselComponent {
     }
     const per = this.cardsPerPage(el, first);
     const target = el.children[Math.min(index * per, el.children.length - 1)];
-    // Scroll the track only — scrollIntoView would also scroll the PAGE whenever the
+    // Scroll the track only - scrollIntoView would also scroll the PAGE whenever the
     // carousel is off-screen. The measured card edge is exactly a snap position.
     const left =
       target.getBoundingClientRect().left - el.getBoundingClientRect().left + el.scrollLeft;
     el.scrollTo({ left, behavior: 'smooth' });
   }
 
-  // The user grabbed the carousel — autoplay would fight them, so it stops for good.
+  // The user grabbed the carousel - autoplay would fight them, so it stops for good.
   protected stopAutoplay(): void {
     if (this.autoplayTimer !== null) {
       clearInterval(this.autoplayTimer);
@@ -183,7 +183,7 @@ export class CarouselComponent {
     }, AUTOPLAY_MS);
   }
 
-  // How many whole cards fit one viewport — measured, so fractional widths stay exact.
+  // How many whole cards fit one viewport - measured, so fractional widths stay exact.
   private cardsPerPage(el: HTMLElement, card: HTMLElement): number {
     return Math.max(1, Math.round((el.clientWidth + this.gap(el)) / this.cardStride(el, card)));
   }

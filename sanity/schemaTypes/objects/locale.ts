@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
-// Field-level localization — matches the build-time @angular/localize setup (vi default, en).
+// Field-level localization - matches the build-time @angular/localize setup (vi default, en).
 // Queries project one language with `coalesce(field[$locale], field.vi)`.
 const LOCALES = [
   { id: 'vi', title: 'Tiếng Việt' },
@@ -37,7 +37,7 @@ export const localeBlock = defineType({
       of: [
         defineArrayMember({
           type: 'block',
-          // Curated blog toolbar — authors only get formats the renderer styles.
+          // Curated blog toolbar - authors only get formats the renderer styles.
           // H1 is omitted on purpose: the page title is the post's single <h1>.
           styles: [
             { title: 'Normal', value: 'normal' },

@@ -1,6 +1,6 @@
 import { Directive, computed, input } from '@angular/core';
 
-// Style carrier for native buttons/anchors — keeps form semantics and routerLink intact.
+// Style carrier for native buttons/anchors - keeps form semantics and routerLink intact.
 // Visuals live in src/styles.css (`.btn*`, @layer components).
 @Directive({
   selector: 'button[appButton], a[appButton]',

@@ -7,7 +7,7 @@ import { SETTINGS_QUERY, SanityService } from '../sanity';
 import { OFC_COMPANY, SOCIAL_LABELS } from '../data';
 import type { OfcCompany, SocialLink } from '../data';
 
-// Raw shape SETTINGS_QUERY can return — every field is an optional CMS override.
+// Raw shape SETTINGS_QUERY can return - every field is an optional CMS override.
 interface SettingsDto {
   readonly heroImageUrl?: string | null;
   readonly partnerLogos?: readonly { name: string | null; imageUrl: string | null }[] | null;
@@ -43,7 +43,7 @@ export class SiteSettingsService {
 
   // CMS values overlay the code-owned company defaults field by field; anything the CMS
   // leaves blank keeps its default, so contact info never renders empty.
-  // Memoized + shareReplay: footer and contact-bar both consume this on one page —
+  // Memoized + shareReplay: footer and contact-bar both consume this on one page -
   // they share a single fetch instead of each firing their own.
   getCompany(): Observable<OfcCompany> {
     return this.getSettings().pipe(map((settings) => settings.company));
@@ -74,7 +74,7 @@ export class SiteSettingsService {
       return { company: OFC_COMPANY, heroImageUrl: null, partnerLogos: [] };
     }
 
-    // An office without an address has nothing to show — drop it; a missing label is
+    // An office without an address has nothing to show - drop it; a missing label is
     // fine (the footer renders the address alone).
     const offices = (dto.offices ?? [])
       .filter((office) => office.address)

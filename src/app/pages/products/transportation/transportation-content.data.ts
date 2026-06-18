@@ -3,7 +3,7 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 // Code-owned bilingual content for the Transportation & Warehouses page (Figma node 2142:2022).
 // NOTE: Figma left the spec table as placeholder dots, so the specs below are neutral,
 // provisional logistics facts (replace with real figures when available). Why-choose, the
-// video blurb and `videoUrl` are shared OFC content (placeholder video — swap for the real
+// video blurb and `videoUrl` are shared OFC content (placeholder video - swap for the real
 // link). FAQ is neutral provisional copy. Banner/overview images stay null → placeholders.
 
 const EN: ProductContent = {
@@ -92,7 +92,7 @@ const EN: ProductContent = {
     {
       question: 'What logistics services do you offer?',
       answer:
-        'We provide end-to-end export logistics — inland transport, warehousing, loading, documentation and customs support — from origin to destination.',
+        'We provide end-to-end export logistics - inland transport, warehousing, loading, documentation and customs support - from origin to destination.',
     },
     {
       question: 'What cargo do you handle?',
@@ -106,7 +106,7 @@ const EN: ProductContent = {
     {
       question: 'Can you consolidate and store cargo?',
       answer:
-        'Yes — our covered and open-yard warehouses offer secure storage, inventory management and flexible cargo consolidation.',
+        'Yes - our covered and open-yard warehouses offer secure storage, inventory management and flexible cargo consolidation.',
     },
   ],
 };
@@ -197,7 +197,7 @@ const VI: ProductContent = {
     {
       question: 'Quý công ty cung cấp dịch vụ logistics nào?',
       answer:
-        'Chúng tôi cung cấp logistics xuất khẩu trọn gói — vận chuyển nội địa, lưu kho, bốc xếp, chứng từ và hỗ trợ hải quan — từ điểm đầu đến điểm cuối.',
+        'Chúng tôi cung cấp logistics xuất khẩu trọn gói - vận chuyển nội địa, lưu kho, bốc xếp, chứng từ và hỗ trợ hải quan - từ điểm đầu đến điểm cuối.',
     },
     {
       question: 'Quý công ty xử lý loại hàng nào?',
@@ -211,7 +211,7 @@ const VI: ProductContent = {
     {
       question: 'Có thể gom và lưu kho hàng không?',
       answer:
-        'Có — kho kín và bãi ngoài trời của chúng tôi cung cấp lưu trữ an toàn, quản lý tồn kho và gom hàng linh hoạt.',
+        'Có - kho kín và bãi ngoài trời của chúng tôi cung cấp lưu trữ an toàn, quản lý tồn kho và gom hàng linh hoạt.',
     },
   ],
 };

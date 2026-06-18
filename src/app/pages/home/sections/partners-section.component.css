@@ -1,4 +1,4 @@
-/* Mirrors Figma node 5:272 — 160x100 logo cards, the pale-green certificates card
+/* Mirrors Figma node 5:272 - 160x100 logo cards, the pale-green certificates card
    (unique #fdfffa/#dde6cd palette) and the three-figure band. */
 .partners {
   background: var(--color-white);
@@ -161,7 +161,7 @@
   }
 }
 
-/* From 900px up: the same 5-column system as .certs — figure 1 sits under the certs
+/* From 900px up: the same 5-column system as .certs - figure 1 sits under the certs
    intro, figures 2 and 3 each span two certificate columns, so dividers align. */
 @media (min-width: 1024px) {
   .figures {

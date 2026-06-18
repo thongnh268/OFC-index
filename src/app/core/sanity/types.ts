@@ -1,4 +1,4 @@
-/** Shape returned by POSTS_QUERY — localized fields are projected to plain strings. */
+/** Shape returned by POSTS_QUERY - localized fields are projected to plain strings. */
 export interface PostSummary {
   readonly _id: string;
   readonly slug: string;

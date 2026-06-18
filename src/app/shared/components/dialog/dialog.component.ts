@@ -16,7 +16,7 @@ import { IconComponent } from '../icon/icon.component';
 export class DialogComponent {
   readonly open = input<boolean>(false);
   readonly heading = input<string>('');
-  /** Unique per page when several dialogs coexist — prefixes the title id. */
+  /** Unique per page when several dialogs coexist - prefixes the title id. */
   readonly dialogId = input<string>('dialog');
   readonly closed = output<void>();
 }

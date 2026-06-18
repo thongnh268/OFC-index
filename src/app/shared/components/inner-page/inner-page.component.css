@@ -32,7 +32,7 @@
 }
 
 /* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)
-   so the whole page changes together — a 2-column body under a mobile header looked inconsistent. */
+   so the whole page changes together - a 2-column body under a mobile header looked inconsistent. */
 @media (max-width: 1023.98px) {
   .inner-page {
     grid-template-columns: 1fr;
