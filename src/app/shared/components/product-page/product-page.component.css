@@ -26,8 +26,8 @@
   overflow: hidden;
 }
 
-/* Full-bleed like the homepage hero: the text hugs the left with the same clamped padding,
-   and the image takes the right half of the viewport (50vw), bleeding to the right edge. */
+/* Full-bleed like the homepage hero: the text hugs the left with the same clamped padding, and
+   the image takes the right half of the viewport (50vw), bleeding to the right edge. */
 .banner__inner {
   align-items: center;
   display: grid;
@@ -63,9 +63,8 @@
   font-size: 0.95rem;
   line-height: 1.7;
   margin: 0 0 28px;
-  max-width: 46ch;
-  /* Justify so each line stretches to the diagonally-shrinking shape boundary below, turning the
-     ragged right edge into a clean slant that echoes the banner image. */
+  /* No max-width on desktop: the intro fills the full left zone; only the right edge slopes
+     (the slant float below). A readable cap is restored on the stacked/mobile layout. */
   text-align: justify;
 }
 
@@ -85,9 +84,14 @@
 /* Own class name (not the global `.badge` pill in styles.css) — sharing it leaked the pill's
    `padding` and `white-space: nowrap` in, which clipped the box and stopped long labels wrapping. */
 .trust-badges {
+  /* Clear the intro's slant float so it can never shrink/shift this row — the badges stay
+     centred at every width (on a short intro the float would otherwise push them off-centre). */
+  clear: right;
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
+  /* Centred within the text column on every size; the title/intro above stay left + slanted. */
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -219,6 +223,14 @@
   border: 1px solid var(--color-border);
 }
 
+/* Specifications — white box (panel) on the tinted page. */
+.specs {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
 .specs__title {
   color: var(--color-accent);
   font-size: 1rem;
@@ -252,47 +264,53 @@
   margin: 0;
 }
 
-/* Applications — icon cards. */
-.cards {
-  display: grid;
+/* Applications — white icon-card boxes (own class name, not the global `.card`) on the tinted
+   page, centred and wrapping ~3 per row; a partial last row stays centred. */
+.app-cards {
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.card {
+.app-card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 22px 18px;
+  border-radius: 12px;
+  flex: 0 1 calc(33.333% - 16px);
+  max-width: 320px;
+  min-width: 190px;
+  padding: 24px 18px;
   text-align: center;
 }
 
-.card__icon {
+.app-card__icon {
   color: var(--color-accent);
   display: inline-flex;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
-.card__title {
+.app-card__title {
   color: var(--color-primary);
   font-size: 0.95rem;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
 
-.card__desc {
+.app-card__desc {
   color: var(--color-text-muted);
   font-size: 0.82rem;
   line-height: 1.5;
   margin: 0;
 }
 
-/* Why choose us — 4 reasons on a light panel. */
+/* Why choose us — 4 reasons in a white panel (box) on the tinted page. */
 .reasons {
-  background: var(--color-bg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   display: grid;
   gap: 24px 20px;
@@ -411,6 +429,7 @@
 /* FAQ — single-column accordion inside a clean bordered card (two columns misaligned the
    rows whenever a question wrapped, which looked cluttered). */
 app-accordion.faq {
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   display: block;
@@ -424,6 +443,7 @@ app-accordion.faq {
 }
 
 .anchor-nav {
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 10px;
   overflow: hidden;
@@ -479,6 +499,7 @@ app-accordion.faq {
 }
 
 .quote-card {
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 10px;
   margin-top: 20px;
@@ -545,10 +566,21 @@ app-accordion.faq {
     min-height: 240px;
   }
 
-  /* Banner stacks and the image is no longer diagonal beside the text — drop the slant and the
-     justification that drove it (left-align reads better on a narrow column). */
+  /* Banner stacks (image drops below), so the text is no longer beside a diagonal edge — drop the
+     slant and centre the title, rule and intro within the full-width column (the badges already
+     centre via the base rule). */
+  .banner__text {
+    text-align: center;
+  }
+
+  .banner__rule {
+    margin-inline: auto;
+  }
+
   .banner__intro {
-    text-align: left;
+    margin-inline: auto;
+    max-width: 46ch;
+    text-align: center;
   }
 
   .banner__intro::before {

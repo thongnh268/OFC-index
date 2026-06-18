@@ -74,12 +74,12 @@
       <h2 class="section__title">{{ chrome.applicationsHeading }}</h2>
       <p class="section__lead">{{ content().applicationsIntro }}</p>
 
-      <ul class="cards">
+      <ul class="app-cards">
         @for (app of content().applications; track app.title) {
-          <li class="card">
-            <span class="card__icon"><app-icon [name]="app.icon" [size]="26" /></span>
-            <h3 class="card__title">{{ app.title }}</h3>
-            <p class="card__desc">{{ app.description }}</p>
+          <li class="app-card">
+            <span class="app-card__icon"><app-icon [name]="app.icon" [size]="40" /></span>
+            <h3 class="app-card__title">{{ app.title }}</h3>
+            <p class="app-card__desc">{{ app.description }}</p>
           </li>
         }
       </ul>
