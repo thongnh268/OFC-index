@@ -8,4 +8,6 @@ export interface PostSummary {
   /** ISO 8601 datetime, e.g. 2026-06-11T08:00:00Z */
   readonly publishedAt: string;
   readonly author: string | null;
+  /** 'SBP' | 'FSC' for aggregated news; null for original OFC posts. */
+  readonly source: string | null;
 }

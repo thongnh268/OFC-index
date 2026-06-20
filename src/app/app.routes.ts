@@ -1,4 +1,7 @@
-import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, Routes } from '@angular/router';
+
+import { PostsService } from './core/posts';
 
 export const routes: Routes = [
   {
@@ -51,5 +54,21 @@ export const routes: Routes = [
       import('./pages/products/transportation/transportation.component').then(
         (m) => m.TransportationComponent,
       ),
+  },
+  {
+    path: 'news',
+    // Resolve posts before activation so the list is rendered when the router restores scroll.
+    resolve: { posts: () => inject(PostsService).getAll() },
+    loadComponent: () =>
+      import('./pages/news/news-list.component').then((m) => m.NewsListComponent),
+  },
+  {
+    path: 'news/:slug',
+    resolve: {
+      post: (route: ActivatedRouteSnapshot) =>
+        inject(PostsService).getBySlug(route.paramMap.get('slug') ?? ''),
+    },
+    loadComponent: () =>
+      import('./pages/news/news-detail.component').then((m) => m.NewsDetailComponent),
   },
 ];

@@ -1,7 +1,8 @@
 // GROQ queries. `$locale` ('vi' | 'en') is bound automatically by SanityService.fetch();
 // project localized objects with coalesce(field[$locale], field.vi) - vi is the site default.
 
-// Latest posts for the home "News & updates" carousel (blog pages will use richer queries).
+// Latest posts for the home "News & updates" carousel - includes aggregated/cloned news
+// (SBP/FSC) alongside OFC's own posts, newest first, same pool as the /news index.
 export const NEWS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...12] {
   "slug": slug.current,
   "title": coalesce(title[$locale], title.vi),
@@ -10,6 +11,8 @@ export const NEWS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...12] 
 }`;
 
 // Full blog index for the /news list page - every post, newest first, with card fields.
+// `source` is set on aggregated/cloned news (SBP/FSC) and null on original OFC posts; the card
+// shows it as a small badge.
 export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   _id,
   "slug": slug.current,
@@ -17,11 +20,13 @@ export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   "excerpt": coalesce(excerpt[$locale], excerpt.vi),
   "imageUrl": mainImage.asset->url + "?w=800&q=75&auto=format",
   publishedAt,
-  "author": author->name
+  "author": author->name,
+  source
 }`;
 
-// One post by slug for /news/[slug]. body is the locale's Portable Text, with inline image
-// assets resolved to CDN-optimized URLs so the renderer can <img> them without extra lookups.
+// One post by slug for /news/[slug]. Original OFC posts carry Portable Text `body`; aggregated
+// news (SBP/FSC) carries raw `bodyHtml` plus `source`/`sourceUrl` for the "Read original" link.
+// body's inline image assets resolve to CDN-optimized URLs so the renderer can <img> them directly.
 export const POST_BY_SLUG_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   "slug": slug.current,
   "title": coalesce(title[$locale], title.vi),
@@ -30,6 +35,9 @@ export const POST_BY_SLUG_QUERY = `*[_type == "post" && slug.current == $slug][0
   "imageAlt": coalesce(mainImage.alt[$locale], mainImage.alt.vi),
   publishedAt,
   "author": author->name,
+  bodyHtml,
+  source,
+  sourceUrl,
   "body": coalesce(body[$locale], body.vi)[]{
     ...,
     _type == "image" => { ..., "url": asset->url + "?w=1200&q=80&auto=format" }

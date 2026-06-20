@@ -282,6 +282,10 @@
         <source>This article may have been moved or removed.</source>
         <target>Bài viết có thể đã được di chuyển hoặc gỡ bỏ.</target>
       </trans-unit>
+      <trans-unit id="news.readOriginal" datatype="html">
+        <source>Read the original article</source>
+        <target>Đọc bài viết gốc</target>
+      </trans-unit>
       <trans-unit id="sidebar.getQuote" datatype="html">
         <source>Get a Quote</source>
         <target>Nhận báo giá</target>

@@ -100,7 +100,7 @@ const EN: BoardContent = {
     {
       name: 'Cao Trung Hung',
       title: 'Chief Commercial Officer (CCO) – Board Member',
-      photoUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+      photoUrl: 'assets/images/directors/ceo-cao-trung-hung.jpeg',
     },
     {
       name: 'Do Thi Diu',

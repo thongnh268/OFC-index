@@ -1,0 +1,102 @@
+@for (group of groups(); track $index) {
+  @if (group.kind === 'list') {
+    @if (group.ordered) {
+      <ol>
+        @for (item of group.items; track $index) {
+          <li>
+            <ng-container
+              [ngTemplateOutlet]="inline"
+              [ngTemplateOutletContext]="{ $implicit: item }"
+            />
+          </li>
+        }
+      </ol>
+    } @else {
+      <ul>
+        @for (item of group.items; track $index) {
+          <li>
+            <ng-container
+              [ngTemplateOutlet]="inline"
+              [ngTemplateOutletContext]="{ $implicit: item }"
+            />
+          </li>
+        }
+      </ul>
+    }
+  } @else if (group.kind === 'image') {
+    @if (group.node.url) {
+      <figure>
+        <img [src]="group.node.url" [alt]="group.node.alt ?? ''" loading="lazy" />
+      </figure>
+    }
+  } @else {
+    @switch (group.node.style) {
+      @case ('h2') {
+        <h2>
+          <ng-container
+            [ngTemplateOutlet]="inline"
+            [ngTemplateOutletContext]="{ $implicit: group.node }"
+          />
+        </h2>
+      }
+      @case ('h3') {
+        <h3>
+          <ng-container
+            [ngTemplateOutlet]="inline"
+            [ngTemplateOutletContext]="{ $implicit: group.node }"
+          />
+        </h3>
+      }
+      @case ('blockquote') {
+        <blockquote>
+          <ng-container
+            [ngTemplateOutlet]="inline"
+            [ngTemplateOutletContext]="{ $implicit: group.node }"
+          />
+        </blockquote>
+      }
+      @default {
+        <p>
+          <ng-container
+            [ngTemplateOutlet]="inline"
+            [ngTemplateOutletContext]="{ $implicit: group.node }"
+          />
+        </p>
+      }
+    }
+  }
+}
+
+<!-- A block's inline content: each span wrapped in its link / strong / em as needed. -->
+<ng-template #inline let-block>
+  @for (span of block.children ?? []; track $index) {
+    @if (linkHref(span, block.markDefs); as href) {
+      <a
+        [href]="href"
+        [attr.target]="isExternal(href) ? '_blank' : null"
+        [attr.rel]="isExternal(href) ? 'noopener noreferrer' : null"
+      >
+        <ng-container
+          [ngTemplateOutlet]="emphasis"
+          [ngTemplateOutletContext]="{ $implicit: span }"
+        />
+      </a>
+    } @else {
+      <ng-container [ngTemplateOutlet]="emphasis" [ngTemplateOutletContext]="{ $implicit: span }" />
+    }
+  }
+</ng-template>
+
+<ng-template #emphasis let-span>
+  @if (isStrong(span) && isEm(span)) {
+    <strong
+      ><em>{{ span.text }}</em></strong
+    >
+  } @else if (isStrong(span)) {
+    <strong>{{ span.text }}</strong>
+  } @else if (isEm(span)) {
+    <em>{{ span.text }}</em>
+  } @else {
+    {{ span.text }}
+  }
+</ng-template>

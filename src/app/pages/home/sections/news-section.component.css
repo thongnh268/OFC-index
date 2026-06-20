@@ -94,8 +94,19 @@
   width: 100%;
 }
 
+/* Posts without a Main Image (e.g. SBP text announcements) show a faint OFC logo watermark
+   over the tinted tile instead of an empty box - matches the /news list placeholder. */
 .news-image-placeholder {
   background: var(--color-primary-50);
+  position: relative;
+}
+
+.news-image-placeholder::after {
+  background: url('/assets/logos/ofc-company.svg') no-repeat center / 46%;
+  content: '';
+  inset: 0;
+  opacity: 0.25;
+  position: absolute;
 }
 
 .news-title {

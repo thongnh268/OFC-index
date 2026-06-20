@@ -1,0 +1,40 @@
+name: News aggregator
+
+# Clones the latest SBP + FSC articles into Sanity once a day (the lead's "Ngày 1 lượt").
+# The site reads Sanity live on the client for /news, so no rebuild/redeploy is needed after a
+# run. Trigger manually from the Actions tab via "Run workflow" to backfill on demand.
+on:
+  schedule:
+    - cron: '0 22 * * *' # 22:00 UTC daily = 05:00 Asia/Ho_Chi_Minh
+  workflow_dispatch:
+
+concurrency:
+  group: news-aggregator
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  aggregate:
+    name: Fetch sources and upsert into Sanity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Match the build job: the lockfile is generated with npm 11.
+      - name: Pin npm to 11
+        run: npm i -g npm@11
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run aggregator
+        run: node tools/news/aggregate.mjs
+        env:
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}

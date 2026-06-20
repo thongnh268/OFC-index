@@ -40,6 +40,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Anchor for the stretched link so the whole card is clickable (see .product-link::after). */
+  position: relative;
 }
 
 .product-image {
@@ -49,8 +51,18 @@
   width: 100%;
 }
 
+/* Faint OFC logo watermark over the tinted tile - matches the news card placeholders. */
 .product-image-placeholder {
   background: var(--color-primary-50);
+  position: relative;
+}
+
+.product-image-placeholder::after {
+  background: url('/assets/logos/ofc-company.svg') no-repeat center / 46%;
+  content: '';
+  inset: 0;
+  opacity: 0.25;
+  position: absolute;
 }
 
 .product-body {
@@ -93,4 +105,11 @@
 
 .product-link:hover {
   text-decoration: underline;
+}
+
+/* Stretch the link over the whole card so clicking anywhere on the card navigates. */
+.product-link::after {
+  content: '';
+  inset: 0;
+  position: absolute;
 }

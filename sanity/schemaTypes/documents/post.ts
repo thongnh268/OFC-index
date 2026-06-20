@@ -54,6 +54,33 @@ export const post = defineType({
       title: 'Body',
       type: 'localeBlock',
     }),
+    defineField({
+      name: 'bodyHtml',
+      title: 'Body HTML (aggregated)',
+      type: 'text',
+      rows: 12,
+      description:
+        'Raw article HTML for aggregated/cloned news; rendered sanitized. Original OFC posts use the rich-text Body above instead.',
+    }),
+    defineField({
+      name: 'source',
+      title: 'Source',
+      type: 'string',
+      description: 'External source for aggregated news. Leave empty for original OFC posts.',
+      options: {
+        list: [
+          { title: 'SBP', value: 'SBP' },
+          { title: 'FSC', value: 'FSC' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'sourceUrl',
+      title: 'Source URL',
+      type: 'url',
+      description:
+        'Link to the original article (shown as "Read original"). Also the dedup key used by the daily aggregator.',
+    }),
   ],
   orderings: [
     {
