@@ -66,10 +66,10 @@ describe('NewsSectionComponent', () => {
     expect(links[0].querySelector('.news-title')?.textContent).toContain('Timber Processing');
   });
 
-  it('formats the published date as yyyy - MM - dd next to View details', () => {
+  it('formats the published date as dd/MM/yyyy next to View details', () => {
     const meta = host.querySelector('.news-meta')?.textContent?.replace(/\s+/g, ' ');
     expect(meta).toContain('View details');
-    expect(meta).toContain('2026 - 06 - 08');
+    expect(meta).toContain('08/06/2026');
   });
 
   it('shows the cover when set and a neutral placeholder when missing', () => {
