@@ -34,6 +34,8 @@ export class InnerPageComponent {
   readonly breadcrumb = input.required<readonly BreadcrumbItem[]>();
   readonly bannerImage = input<string | null>(null);
   readonly bannerAlt = input<string>('');
+  // Optional centred pill over the banner (e.g. the Subsidiaries Network title).
+  readonly bannerLabel = input<string | null>(null);
 
   protected readonly company = toSignal(this.settings.getCompany(), { initialValue: OFC_COMPANY });
 }

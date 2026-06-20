@@ -9,6 +9,10 @@ export const structure: StructureResolver = (S) =>
         .title('Site settings')
         .id('siteSettings')
         .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+      S.listItem()
+        .title('Subsidiaries Network')
+        .id('subsidiaries')
+        .child(S.document().schemaType('subsidiaries').documentId('subsidiaries')),
       S.divider(),
       S.documentTypeListItem('post').title('Posts'),
       S.documentTypeListItem('category').title('Categories'),

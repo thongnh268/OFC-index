@@ -44,6 +44,15 @@ export const POST_BY_SLUG_QUERY = `*[_type == "post" && slug.current == $slug][0
   }
 }`;
 
+// Subsidiaries network - the single "subsidiaries" document holds the ports, each with its
+// mills in order. Locale-independent (proper nouns + figures), so no $locale.
+export const SUBSIDIARIES_QUERY = `*[_type == "subsidiaries"][0]{
+  ports[]{
+    name,
+    subsidiaries[]{ name, location, capacity, distance, rawMaterial }
+  }
+}`;
+
 // Site settings singleton - company/contact facts + replaceable site media.
 // Every field is an optional override;
 // SiteSettingsService overlays whatever the CMS returns onto the code-owned company defaults.

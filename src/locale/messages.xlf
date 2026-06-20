@@ -430,6 +430,83 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="contacts.hotline" datatype="html">
+        <source>Hotline</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contacts.opsDirector" datatype="html">
+        <source>Operations Director</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contacts.email" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contacts.website" datatype="html">
+        <source>Website</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.title" datatype="html">
+        <source>Subsidiaries Network</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.location" datatype="html">
+        <source>Location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.capacity" datatype="html">
+        <source>Capacity</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.distance" datatype="html">
+        <source>Distance to Port</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.rawMaterial" datatype="html">
+        <source>Raw Material</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewMore" datatype="html">
+        <source>View more</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewLess" datatype="html">
+        <source>View less</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/subsidiaries/subsidiaries.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="brand.homeLink" datatype="html">
         <source><x id="brand" equiv-text="OFC_COMPANY.brand"/> home</source>
         <context-group purpose="location">

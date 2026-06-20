@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 
 import { PostsService } from './core/posts';
+import { SubsidiariesService } from './core/subsidiaries';
 
 export const routes: Routes = [
   {
@@ -70,5 +71,17 @@ export const routes: Routes = [
     },
     loadComponent: () =>
       import('./pages/news/news-detail.component').then((m) => m.NewsDetailComponent),
+  },
+  {
+    path: 'subsidiaries',
+    // Resolve the network before activation so it is present when the router restores scroll.
+    resolve: { ports: () => inject(SubsidiariesService).getPorts() },
+    loadComponent: () =>
+      import('./pages/subsidiaries/subsidiaries.component').then((m) => m.SubsidiariesComponent),
+  },
+  {
+    path: 'contacts',
+    loadComponent: () =>
+      import('./pages/contacts/contacts.component').then((m) => m.ContactsComponent),
   },
 ];

@@ -7,5 +7,7 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   { path: 'news', renderMode: RenderMode.Client },
   { path: 'news/:slug', renderMode: RenderMode.Client },
+  // CMS-managed; render on the client so Sanity edits show live without a rebuild.
+  { path: 'subsidiaries', renderMode: RenderMode.Client },
   { path: '**', renderMode: RenderMode.Prerender },
 ];

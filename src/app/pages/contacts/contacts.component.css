@@ -1,0 +1,25 @@
+.contacts {
+  color: var(--color-text);
+  max-width: 640px;
+}
+
+.contacts__brand {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+
+.contacts__row {
+  line-height: 1.85;
+  margin: 0 0 14px;
+}
+
+.contacts__link {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.contacts__link:hover {
+  text-decoration: underline;
+}

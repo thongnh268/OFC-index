@@ -286,6 +286,50 @@
         <source>Read the original article</source>
         <target>Đọc bài viết gốc</target>
       </trans-unit>
+      <trans-unit id="contacts.hotline" datatype="html">
+        <source>Hotline</source>
+        <target>Hotline</target>
+      </trans-unit>
+      <trans-unit id="contacts.opsDirector" datatype="html">
+        <source>Operations Director</source>
+        <target>Giám đốc vận hành</target>
+      </trans-unit>
+      <trans-unit id="contacts.email" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="contacts.website" datatype="html">
+        <source>Website</source>
+        <target>Website</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.title" datatype="html">
+        <source>Subsidiaries Network</source>
+        <target>Mạng lưới công ty con</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.location" datatype="html">
+        <source>Location</source>
+        <target>Vị trí</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.capacity" datatype="html">
+        <source>Capacity</source>
+        <target>Công suất</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.distance" datatype="html">
+        <source>Distance to Port</source>
+        <target>Khoảng cách tới cảng</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.rawMaterial" datatype="html">
+        <source>Raw Material</source>
+        <target>Nguyên liệu</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewMore" datatype="html">
+        <source>View more</source>
+        <target>Xem thêm</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewLess" datatype="html">
+        <source>View less</source>
+        <target>Thu gọn</target>
+      </trans-unit>
       <trans-unit id="sidebar.getQuote" datatype="html">
         <source>Get a Quote</source>
         <target>Nhận báo giá</target>
