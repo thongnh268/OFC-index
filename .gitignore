@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# Wrangler / Cloudflare local dev cache
+.wrangler/
+
 # Node
 /node_modules
 npm-debug.log
