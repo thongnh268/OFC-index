@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const BROWSER_DIR = 'dist/ofc-index/browser';
 const LOCALES = ['en', 'vi'];
 const DEFAULT_LOCALE = 'vi'; // root "/" lands here; swap to 'en' if the export site should default to English
-const CLIENT_PATHS = ['news']; // Angular RenderMode.Client routes; every other route is prerendered
+const CLIENT_PATHS = ['news', 'subsidiaries']; // Angular RenderMode.Client routes; every other route is prerendered
 
 if (!existsSync(BROWSER_DIR)) {
   console.error(`${BROWSER_DIR} not found - run "ng build" first.`);
