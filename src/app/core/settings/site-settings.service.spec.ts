@@ -38,21 +38,20 @@ describe('SiteSettingsService', () => {
 
   beforeEach(setup);
 
-  it('keeps all code-owned defaults when the document is missing (null)', () => {
+  it('uses minimal code-owned defaults when the document is missing (null)', () => {
     fetchSpy.and.returnValue(of(null));
     expect(latest()).toEqual(OFC_COMPANY);
     expect(latestHeroImage()).toBeNull();
     expect(latestPartnerLogos()).toEqual([]);
   });
 
-  it('overlays only the fields the CMS provides, keeping defaults for the rest', () => {
+  it('overlays only the fields the CMS provides, leaving missing contact facts empty', () => {
     fetchSpy.and.returnValue(of({ email: 'sales@ofc.test', opsPhone: '+84 900 000 000' }));
 
     const company = latest();
     expect(company.contact.email).toBe('sales@ofc.test');
     expect(company.contact.ops.phone).toBe('+84 900 000 000');
-    // untouched fields fall back to the defaults
-    expect(company.contact.hotline).toBe(OFC_COMPANY.contact.hotline);
+    expect(company.contact.hotline).toBeNull();
     expect(company.brand).toBe(OFC_COMPANY.brand);
   });
 
@@ -61,14 +60,14 @@ describe('SiteSettingsService', () => {
     expect(latest().offices).toEqual([{ label: 'HQ', address: '1 Test Street' }]);
   });
 
-  it('keeps default offices when the CMS array is empty', () => {
+  it('keeps offices empty when the CMS array is empty', () => {
     fetchSpy.and.returnValue(of({ offices: [] }));
-    expect(latest().offices).toEqual(OFC_COMPANY.offices);
+    expect(latest().offices).toEqual([]);
   });
 
-  it('drops offices without an address; keeps defaults when none remain', () => {
+  it('drops offices without an address', () => {
     fetchSpy.and.returnValue(of({ offices: [{ label: 'HQ', address: null }] }));
-    expect(latest().offices).toEqual(OFC_COMPANY.offices);
+    expect(latest().offices).toEqual([]);
   });
 
   it('keeps a label-less office as long as it has an address', () => {

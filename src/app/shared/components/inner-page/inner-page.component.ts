@@ -36,6 +36,8 @@ export class InnerPageComponent {
   readonly bannerAlt = input<string>('');
   // Optional centred pill over the banner (e.g. the Subsidiaries Network title).
   readonly bannerLabel = input<string | null>(null);
+  readonly bannerLabelRouterLink = input<string | unknown[] | null>(null);
+  readonly bannerLabelFragment = input<string | null>(null);
 
   protected readonly company = toSignal(this.settings.getCompany(), { initialValue: OFC_COMPANY });
 }

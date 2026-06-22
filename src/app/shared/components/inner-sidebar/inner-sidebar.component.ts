@@ -26,8 +26,20 @@ export class InnerSidebarComponent {
   protected readonly aboutLinks = ABOUT_NAV;
   protected readonly productLinks = PRODUCT_NAV;
 
-  protected readonly telHref = computed(
-    () => `tel:${this.company().contact.hotline.replace(/\s+/g, '')}`,
+  protected readonly primaryOffice = computed(() => this.company().offices[0] ?? null);
+  protected readonly phone = computed(
+    () => this.company().contact.hotline ?? this.company().contact.ops.phone,
   );
-  protected readonly mailHref = computed(() => `mailto:${this.company().contact.email}`);
+  protected readonly email = computed(() => this.company().contact.email);
+  protected readonly hasContactInfo = computed(
+    () => this.primaryOffice() != null || this.phone() != null || this.email() != null,
+  );
+  protected readonly telHref = computed(() => {
+    const phone = this.phone();
+    return phone ? `tel:${phone.replace(/\s+/g, '')}` : null;
+  });
+  protected readonly mailHref = computed(() => {
+    const email = this.email();
+    return email ? `mailto:${email}` : null;
+  });
 }

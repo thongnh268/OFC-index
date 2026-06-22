@@ -41,8 +41,8 @@ export class SiteSettingsService {
   private readonly sanity = inject(SanityService);
   private settings$?: Observable<SiteSettings>;
 
-  // CMS values overlay the code-owned company defaults field by field; anything the CMS
-  // leaves blank keeps its default, so contact info never renders empty.
+  // CMS values overlay the minimal code-owned defaults field by field. Contact facts intentionally
+  // stay empty unless the CMS provides them, so mock NAP data cannot be indexed in production.
   // Memoized + shareReplay: footer and contact-bar both consume this on one page -
   // they share a single fetch instead of each firing their own.
   getCompany(): Observable<OfcCompany> {
@@ -103,7 +103,7 @@ export class SiteSettingsService {
         legalName: dto.legalName ?? OFC_COMPANY.legalName,
         shortAddress: dto.shortAddress ?? OFC_COMPANY.shortAddress,
         logoUrl: dto.logoUrl ?? OFC_COMPANY.logoUrl,
-        offices: offices.length ? offices : OFC_COMPANY.offices,
+        offices,
         contact: {
           hotline: dto.hotline ?? OFC_COMPANY.contact.hotline,
           ops: {
@@ -113,7 +113,7 @@ export class SiteSettingsService {
           email: dto.email ?? OFC_COMPANY.contact.email,
           website: dto.website ?? OFC_COMPANY.contact.website,
         },
-        socials: socials.length ? socials : OFC_COMPANY.socials,
+        socials,
       },
     };
   }

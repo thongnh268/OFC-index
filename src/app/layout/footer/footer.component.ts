@@ -39,11 +39,20 @@ export class FooterComponent {
   readonly productLinks: readonly NavLink[] = PRODUCT_NAV;
   protected readonly contactRows = computed<readonly ContactRow[]>(() => {
     const company = this.company();
-    return [
-      { icon: 'mapPin', text: company.shortAddress },
-      { icon: 'phone', text: company.contact.ops.phone },
-      { icon: 'email', text: company.contact.email },
-    ];
+    const rows: ContactRow[] = [];
+    const phone = company.contact.hotline ?? company.contact.ops.phone;
+
+    if (company.shortAddress) {
+      rows.push({ icon: 'mapPin', text: company.shortAddress });
+    }
+    if (phone) {
+      rows.push({ icon: 'phone', text: phone });
+    }
+    if (company.contact.email) {
+      rows.push({ icon: 'email', text: company.contact.email });
+    }
+
+    return rows;
   });
 
   onSubscriptionSubmit(email: string): void {

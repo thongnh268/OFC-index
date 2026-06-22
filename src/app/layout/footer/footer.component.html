@@ -7,16 +7,20 @@
         <h2 class="text-base font-bold uppercase text-accent" i18n="@@footer.contact">
           CONTACT US
         </h2>
-        <div class="mt-6 grid gap-4">
-          @for (row of contactRows(); track row.icon) {
-            <div class="contact-row">
-              <span class="contact-icon" aria-hidden="true">
-                <app-icon [name]="row.icon" [size]="14" />
-              </span>
-              <p>{{ row.text }}</p>
+        @if (contactRows(); as rows) {
+          @if (rows.length) {
+            <div class="mt-6 grid gap-4">
+              @for (row of rows; track row.icon) {
+                <div class="contact-row">
+                  <span class="contact-icon" aria-hidden="true">
+                    <app-icon [name]="row.icon" [size]="14" />
+                  </span>
+                  <p>{{ row.text }}</p>
+                </div>
+              }
             </div>
           }
-        </div>
+        }
       </div>
 
       <app-subscription-form inputId="footer-email" (submitted)="onSubscriptionSubmit($event)" />
@@ -27,8 +31,8 @@
     <div class="container-content grid gap-12 py-24 md:grid-cols-3">
       <app-footer-column heading="INTRODUCTION" i18n-heading="@@footer.introduction">
         <nav aria-label="Introduction" i18n-aria-label="@@footer.introductionNav">
-          @for (link of introductionLinks; track link.route) {
-            <a [routerLink]="link.route">{{ link.label }}</a>
+          @for (link of introductionLinks; track link.route + ':' + (link.fragment ?? link.label)) {
+            <a [routerLink]="link.route" [fragment]="link.fragment">{{ link.label }}</a>
           }
         </nav>
       </app-footer-column>
@@ -46,20 +50,38 @@
         heading="CONTACT US"
         i18n-heading="@@footer.contact"
       >
-        <p>
-          <strong>{{ company().legalName }}</strong>
-        </p>
-        <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
-        @for (office of company().offices; track $index) {
-          <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>
+        @if (company(); as company) {
+          @if (company.legalName) {
+            <p>
+              <strong>{{ company.legalName }}</strong>
+            </p>
+          }
+          <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
+          @for (office of company.offices; track $index) {
+            <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>
+          }
+          @if (company.contact.hotline) {
+            <p i18n="@@footer.hotline">Hotline: {{ company.contact.hotline }}</p>
+          }
+          @if (company.contact.ops.phone) {
+            <p i18n="@@footer.opsDirector">
+              Operations Director
+              @if (company.contact.ops.name) {
+                {{ company.contact.ops.name }}:
+              }
+              {{ company.contact.ops.phone }}
+            </p>
+          }
+          @if (company.contact.email) {
+            <p i18n="@@footer.emailLine">Email: {{ company.contact.email }}</p>
+          }
+          @if (company.contact.website) {
+            <p i18n="@@footer.websiteLine">Website: {{ company.contact.website }}</p>
+          }
+          @if (company.socials.length) {
+            <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />
+          }
         }
-        <p i18n="@@footer.hotline">Hotline: {{ company().contact.hotline }}</p>
-        <p i18n="@@footer.opsDirector">
-          Operations Director {{ company().contact.ops.name }}: {{ company().contact.ops.phone }}
-        </p>
-        <p i18n="@@footer.emailLine">Email: {{ company().contact.email }}</p>
-        <p i18n="@@footer.websiteLine">Website: {{ company().contact.website }}</p>
-        <app-social-row [links]="company().socials" variant="footer" [iconSize]="20" />
       </app-footer-column>
     </div>
   </section>

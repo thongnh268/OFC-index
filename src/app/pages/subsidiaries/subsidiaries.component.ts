@@ -29,6 +29,8 @@ export class SubsidiariesComponent {
   protected readonly collapseLimit = SUBSIDIARY_COLLAPSE_LIMIT;
   protected readonly bannerImage = 'assets/images/hero-banner.webp';
   protected readonly title = $localize`:@@subsidiaries.title:Subsidiaries Network`;
+  protected readonly pageRoute = '/subsidiaries';
+  protected readonly listId = 'subsidiaries-list';
 
   protected readonly breadcrumb: readonly BreadcrumbItem[] = [
     { label: $localize`:@@common.home:Home`, route: '/' },

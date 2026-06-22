@@ -50,3 +50,7 @@ Thumbs.db
 *.log
 
 .gitnexus
+
+# GitNexus-generated agent instruction files (regenerated locally, not tracked)
+AGENTS.md
+CLAUDE.md

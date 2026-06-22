@@ -3,7 +3,6 @@ import { provideRouter } from '@angular/router';
 import { of } from 'rxjs';
 
 import { SanityService } from '../../../core/sanity';
-import { OFC_COMPANY } from '../../../core/data';
 import { ContactBarComponent } from './contact-bar.component';
 
 describe('ContactBarComponent', () => {
@@ -13,8 +12,16 @@ describe('ContactBarComponent', () => {
     TestBed.configureTestingModule({
       providers: [
         provideRouter([]),
-        // No CMS document → SiteSettingsService falls back to the code-owned defaults.
-        { provide: SanityService, useValue: { fetch: () => of(null) } },
+        {
+          provide: SanityService,
+          useValue: {
+            fetch: () =>
+              of({
+                email: 'sales@ofc.test',
+                opsPhone: '+84 900 000 000',
+              }),
+          },
+        },
       ],
     });
     const fixture = TestBed.createComponent(ContactBarComponent);
@@ -22,16 +29,16 @@ describe('ContactBarComponent', () => {
     host = fixture.nativeElement as HTMLElement;
   });
 
-  it('renders the hotline with a tel: link from company defaults', () => {
+  it('renders the CMS phone with a tel: link', () => {
     const phone = host.querySelector<HTMLAnchorElement>('.contact-value');
-    expect(phone?.textContent).toContain(OFC_COMPANY.contact.ops.phone);
-    expect(phone?.getAttribute('href')).toBe('tel:+84981996789');
+    expect(phone?.textContent).toContain('+84 900 000 000');
+    expect(phone?.getAttribute('href')).toBe('tel:+84900000000');
   });
 
-  it('renders the email with a mailto: link', () => {
+  it('renders the CMS email with a mailto: link', () => {
     const email = host.querySelector<HTMLAnchorElement>('.contact-email');
-    expect(email?.textContent).toContain(OFC_COMPANY.contact.email);
-    expect(email?.getAttribute('href')).toBe(`mailto:${OFC_COMPANY.contact.email}`);
+    expect(email?.textContent).toContain('sales@ofc.test');
+    expect(email?.getAttribute('href')).toBe('mailto:sales@ofc.test');
   });
 
   it('renders a "Get a quote" CTA linking to contacts', () => {

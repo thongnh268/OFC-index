@@ -1,15 +1,21 @@
 <section class="contact-bar-section">
   <div class="container-content contact-bar-inner">
-    <ul class="contact-list">
-      <li class="contact-item">
-        <span class="contact-label" i18n="@@contactBar.hotline">Hotline</span>
-        <a class="contact-value" [href]="telHref()">{{ company().contact.ops.phone }}</a>
-      </li>
-      <li class="contact-item">
-        <span class="contact-label" i18n="@@contactBar.email">Email</span>
-        <a class="contact-value contact-email" [href]="mailHref()">{{ company().contact.email }}</a>
-      </li>
-    </ul>
+    @if (hasContactInfo()) {
+      <ul class="contact-list">
+        @if (phone(); as phone) {
+          <li class="contact-item">
+            <span class="contact-label" i18n="@@contactBar.hotline">Hotline</span>
+            <a class="contact-value" [href]="telHref()">{{ phone }}</a>
+          </li>
+        }
+        @if (email(); as email) {
+          <li class="contact-item">
+            <span class="contact-label" i18n="@@contactBar.email">Email</span>
+            <a class="contact-value contact-email" [href]="mailHref()">{{ email }}</a>
+          </li>
+        }
+      </ul>
+    }
 
     <a appButton variant="accent" class="contact-cta" routerLink="/contacts">
       <app-icon name="edit" [size]="20" />

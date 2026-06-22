@@ -2,12 +2,14 @@
   <div class="container-content breadcrumb-bar__inner">
     <app-breadcrumb [items]="breadcrumb()" />
 
-    <app-social-row
-      class="breadcrumb-socials"
-      [links]="company().socials"
-      variant="plain"
-      [iconSize]="18"
-    />
+    @if (company().socials.length) {
+      <app-social-row
+        class="breadcrumb-socials"
+        [links]="company().socials"
+        variant="plain"
+        [iconSize]="18"
+      />
+    }
   </div>
 </div>
 

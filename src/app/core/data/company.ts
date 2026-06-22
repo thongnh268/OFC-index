@@ -19,20 +19,20 @@ export interface CompanyOffice {
 }
 
 export interface CompanyContact {
-  readonly hotline: string;
+  readonly hotline: string | null;
   readonly ops: {
-    readonly name: string;
-    readonly phone: string;
+    readonly name: string | null;
+    readonly phone: string | null;
   };
-  readonly email: string;
-  readonly website: string;
+  readonly email: string | null;
+  readonly website: string | null;
 }
 
 export interface OfcCompany {
   readonly brand: string;
-  readonly legalName: string;
-  readonly shortAddress: string;
-  /** CMS logo URL; null → components use the built-in default asset. */
+  readonly legalName: string | null;
+  readonly shortAddress: string | null;
+  /** CMS logo URL; null means components use the built-in default asset. */
   readonly logoUrl: string | null;
   readonly offices: readonly CompanyOffice[];
   readonly contact: CompanyContact;
@@ -41,33 +41,18 @@ export interface OfcCompany {
 
 export const OFC_COMPANY: OfcCompany = {
   brand: 'OFC Company',
-  legalName: 'BINH MINH HP CO., LTD.',
-  shortAddress: 'Lot 11, Cai Lan Industrial Zone, Quang Ninh, Vietnam',
+  legalName: null,
+  shortAddress: null,
   logoUrl: null,
-  offices: [
-    {
-      label: $localize`:@@company.headOffice:Head Office`,
-      address:
-        'Lot 11, Cai Lan Industrial Zone, Bai Chay Ward, Ha Long City, Quang Ninh Province, Vietnam',
-    },
-    {
-      label: $localize`:@@company.hanoiOffice:Hanoi Office`,
-      address: 'TSQ Millennium Tower, Ha Tay - No. 4, Quang Trung Street, Ha Dong District, Hanoi',
-    },
-  ],
+  offices: [],
   contact: {
-    hotline: '0347 983 555',
+    hotline: null,
     ops: {
-      name: 'Mr. Cao Trung Hung (Mr. KAO)',
-      phone: '+84 981 99 6789',
+      name: null,
+      phone: null,
     },
-    email: 'cco@binhminhhp.com',
-    website: 'www.binhminhhp.com',
+    email: null,
+    website: null,
   },
-  // TODO: replace '#' with real profile URLs once provided.
-  socials: [
-    { name: 'facebook', label: 'Facebook', href: '#' },
-    { name: 'linkedin', label: 'LinkedIn', href: '#' },
-    { name: 'youtube', label: 'YouTube', href: '#' },
-  ],
+  socials: [],
 };

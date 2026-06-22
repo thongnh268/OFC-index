@@ -7,30 +7,44 @@
 
       @for (office of company.offices; track $index) {
         <p class="contacts__row">
-          <strong>{{ office.label }}:</strong> {{ office.address }}
+          @if (office.label) {
+            <strong>{{ office.label }}:</strong>
+          }
+          {{ office.address }}
         </p>
       }
 
-      <p class="contacts__row">
-        <strong i18n="@@contacts.hotline">Hotline</strong>: {{ company.contact.hotline }}
-      </p>
-      <p class="contacts__row">
-        <strong i18n="@@contacts.opsDirector">Operations Director</strong>,
-        {{ company.contact.ops.name }}: {{ company.contact.ops.phone }}
-      </p>
-      <p class="contacts__row">
-        <strong i18n="@@contacts.email">Email</strong>: {{ company.contact.email }}
-      </p>
-      <p class="contacts__row">
-        <strong i18n="@@contacts.website">Website</strong>:
-        <a
-          class="contacts__link"
-          [href]="'https://' + company.contact.website"
-          target="_blank"
-          rel="noopener noreferrer"
-          >{{ company.contact.website }}</a
-        >
-      </p>
+      @if (company.contact.hotline) {
+        <p class="contacts__row">
+          <strong i18n="@@contacts.hotline">Hotline</strong>: {{ company.contact.hotline }}
+        </p>
+      }
+      @if (company.contact.ops.phone) {
+        <p class="contacts__row">
+          <strong i18n="@@contacts.opsDirector">Operations Director</strong>
+          @if (company.contact.ops.name) {
+            <span>, {{ company.contact.ops.name }}</span>
+          }
+          <span>: {{ company.contact.ops.phone }}</span>
+        </p>
+      }
+      @if (company.contact.email) {
+        <p class="contacts__row">
+          <strong i18n="@@contacts.email">Email</strong>: {{ company.contact.email }}
+        </p>
+      }
+      @if (company.contact.website) {
+        <p class="contacts__row">
+          <strong i18n="@@contacts.website">Website</strong>:
+          <a
+            class="contacts__link"
+            [href]="'https://' + company.contact.website"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ company.contact.website }}</a
+          >
+        </p>
+      }
     </div>
   }
 </app-inner-page>

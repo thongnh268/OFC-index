@@ -4,23 +4,31 @@
 </a>
 
 <div class="side-panel">
-  <section class="side-section">
-    <h2 class="side-section__title" i18n="@@sidebar.company">OFC Company</h2>
-    <ul class="contact-list">
-      <li>
-        <app-icon name="mapPin" [size]="18" />
-        <span>{{ company().offices[0].address }}</span>
-      </li>
-      <li>
-        <app-icon name="phone" [size]="18" />
-        <a [href]="telHref()">{{ company().contact.hotline }}</a>
-      </li>
-      <li>
-        <app-icon name="email" [size]="18" />
-        <a [href]="mailHref()">{{ company().contact.email }}</a>
-      </li>
-    </ul>
-  </section>
+  @if (hasContactInfo()) {
+    <section class="side-section">
+      <h2 class="side-section__title" i18n="@@sidebar.company">OFC Company</h2>
+      <ul class="contact-list">
+        @if (primaryOffice(); as office) {
+          <li>
+            <app-icon name="mapPin" [size]="18" />
+            <span>{{ office.address }}</span>
+          </li>
+        }
+        @if (phone(); as phone) {
+          <li>
+            <app-icon name="phone" [size]="18" />
+            <a [href]="telHref()">{{ phone }}</a>
+          </li>
+        }
+        @if (email(); as email) {
+          <li>
+            <app-icon name="email" [size]="18" />
+            <a [href]="mailHref()">{{ email }}</a>
+          </li>
+        }
+      </ul>
+    </section>
+  }
 
   <nav class="side-section" aria-labelledby="side-about-title">
     <h2 id="side-about-title" class="side-section__title" i18n="@@sidebar.about">About us</h2>

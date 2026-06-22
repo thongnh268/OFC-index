@@ -111,8 +111,8 @@
         <target>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></target>
       </trans-unit>
       <trans-unit id="footer.opsDirector" datatype="html">
-        <source> Operations Director <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
-        <target> Giám đốc vận hành <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </target>
+        <source> Operations Director <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
+        <target> Giám đốc vận hành <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </target>
       </trans-unit>
       <trans-unit id="footer.emailLine" datatype="html">
         <source>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></source>

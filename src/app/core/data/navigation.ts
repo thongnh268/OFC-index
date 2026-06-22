@@ -1,7 +1,13 @@
 export interface NavLink {
   readonly label: string;
   readonly route: string;
+  readonly fragment?: string;
 }
+
+const ABOUT_BOARD_ROUTE = '/about/board';
+const ABOUT_MILESTONES_ROUTE = '/about/milestones';
+const ABOUT_QUALITY_ROUTE = '/about/quality';
+const BOARD_THANK_YOU_LETTER_FRAGMENT = 'thank-you-letter';
 
 export const SECONDARY_NAV: readonly NavLink[] = [
   { label: $localize`:@@nav.news:News`, route: '/news' },
@@ -15,11 +21,11 @@ export const MAIN_NAV: readonly NavLink[] = [
 ];
 
 export const ABOUT_NAV: readonly NavLink[] = [
-  { label: $localize`:@@nav.board:Board of Directors`, route: '/about/board' },
-  { label: $localize`:@@nav.milestones:Establishment Milestones`, route: '/about/milestones' },
+  { label: $localize`:@@nav.board:Board of Directors`, route: ABOUT_BOARD_ROUTE },
+  { label: $localize`:@@nav.milestones:Establishment Milestones`, route: ABOUT_MILESTONES_ROUTE },
   {
     label: $localize`:@@nav.quality:Quality Control and Certificates`,
-    route: '/about/quality',
+    route: ABOUT_QUALITY_ROUTE,
   },
 ];
 
@@ -38,19 +44,20 @@ export const PRODUCT_NAV: readonly NavLink[] = [
 ];
 
 export const INTRODUCTION_NAV: readonly NavLink[] = [
-  { label: $localize`:@@nav.aboutUs:About us`, route: '/about' },
+  { label: $localize`:@@nav.aboutUs:About us`, route: ABOUT_BOARD_ROUTE },
   {
     label: $localize`:@@nav.directorGreetings:Director Greetings`,
-    route: '/about/director-greetings',
+    route: ABOUT_BOARD_ROUTE,
+    fragment: BOARD_THANK_YOU_LETTER_FRAGMENT,
   },
-  { label: $localize`:@@nav.companyProfile:Company Profile`, route: '/about/company-profile' },
+  { label: $localize`:@@nav.companyProfile:Company Profile`, route: ABOUT_MILESTONES_ROUTE },
   {
     label: $localize`:@@nav.visionMission:Vision and Mission`,
     route: '/about/vision-and-mission',
   },
-  { label: $localize`:@@nav.history:History`, route: '/about/history' },
+  { label: $localize`:@@nav.history:History`, route: ABOUT_MILESTONES_ROUTE },
   {
     label: $localize`:@@nav.orgChart:Organizational chart`,
-    route: '/about/organizational-chart',
+    route: ABOUT_BOARD_ROUTE,
   },
 ];

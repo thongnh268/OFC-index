@@ -23,8 +23,17 @@ export class ContactBarComponent {
 
   protected readonly company = toSignal(this.settings.getCompany(), { initialValue: OFC_COMPANY });
 
-  protected readonly telHref = computed(
-    () => `tel:${this.company().contact.ops.phone.replace(/\s+/g, '')}`,
+  protected readonly phone = computed(
+    () => this.company().contact.hotline ?? this.company().contact.ops.phone,
   );
-  protected readonly mailHref = computed(() => `mailto:${this.company().contact.email}`);
+  protected readonly email = computed(() => this.company().contact.email);
+  protected readonly hasContactInfo = computed(() => this.phone() != null || this.email() != null);
+  protected readonly telHref = computed(() => {
+    const phone = this.phone();
+    return phone ? `tel:${phone.replace(/\s+/g, '')}` : null;
+  });
+  protected readonly mailHref = computed(() => {
+    const email = this.email();
+    return email ? `mailto:${email}` : null;
+  });
 }
