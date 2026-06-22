@@ -1,0 +1,8 @@
+<app-inner-page [breadcrumb]="breadcrumb" [bannerImage]="null" [bannerAlt]="content.title">
+  <h1>{{ content.title }}</h1>
+
+  <app-inner-content [blocks]="content.blocks" />
+
+  <h2 class="inner-section-title">{{ content.certHeading }}</h2>
+  <app-certificate-grid [items]="content.certificates" />
+</app-inner-page>

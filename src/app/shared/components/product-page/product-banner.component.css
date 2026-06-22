@@ -1,0 +1,182 @@
+/* Banner: title + intro + trust badges on the left, diagonally-clipped hero on the right. */
+.banner {
+  background: var(--color-bg);
+  border: 1px solid var(--color-primary);
+  min-height: 380px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* The media is a background layer; content sits above it. That keeps image bleed independent
+   from text padding and makes a future left/right swap a layout concern instead of a spacing bug. */
+.banner__inner {
+  align-items: center;
+  display: flex;
+  min-height: 380px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.banner__text {
+  box-sizing: border-box;
+  padding: 36px var(--banner-inline-padding);
+  position: relative;
+  width: 50vw;
+  z-index: 1;
+}
+
+.banner__rule {
+  background: var(--color-accent);
+  display: block;
+  height: 3px;
+  margin-bottom: 22px;
+  width: 56px;
+}
+
+.banner__title {
+  color: var(--color-primary);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.banner__intro {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 28px;
+  text-align: justify;
+}
+
+/* Slant the paragraph's right edge so it echoes the banner image's diagonal left edge. */
+.banner__intro::before {
+  content: '';
+  float: right;
+  height: 6.8em;
+  shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+  width: 80px;
+}
+
+.trust-badges {
+  clear: right;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.trust-badge {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  width: 110px;
+}
+
+.trust-badge__icon {
+  align-items: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 91,27 91,73 50,96 9,73 9,27' fill='none' stroke='%232e7d32' stroke-width='5'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--color-accent);
+  display: inline-flex;
+  height: 58px;
+  justify-content: center;
+  width: 58px;
+}
+
+.trust-badge__label {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.banner__media {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  inset-block: 0;
+  inset-inline-end: 0;
+  position: absolute;
+  width: 50vw;
+  z-index: 0;
+}
+
+.banner__media::before {
+  background: linear-gradient(
+    104deg,
+    rgb(248 250 252 / 0.9) 0%,
+    rgb(248 250 252 / 0.58) 7%,
+    rgb(248 250 252 / 0) 18%
+  );
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.banner__media img,
+.banner__media-placeholder {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.banner__media-placeholder {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+@media (max-width: 1023.98px) {
+  .banner {
+    min-height: 0;
+  }
+
+  .banner__inner {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .banner__text {
+    padding: 36px 1rem;
+    text-align: center;
+    width: auto;
+  }
+
+  .banner__media {
+    clip-path: none;
+    min-height: 240px;
+    position: relative;
+    width: auto;
+  }
+
+  .banner__media::before {
+    display: none;
+  }
+
+  .banner__rule {
+    margin-inline: auto;
+  }
+
+  .banner__intro {
+    margin-inline: auto;
+    max-width: 46ch;
+    text-align: center;
+  }
+
+  .banner__intro::before {
+    display: none;
+  }
+}

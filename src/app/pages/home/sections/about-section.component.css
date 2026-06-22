@@ -1,0 +1,75 @@
+/* Sizes/colours mirror Figma node 2:281 (About). The eyebrow/heading/body live in the
+   shared app-section-head; inline emphasis tones live in app-text-segments. */
+.about {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.about-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    align-items: start;
+    /* Figma: video 489 / details 519 with a 46px gutter. */
+    grid-template-columns: minmax(0, 489fr) minmax(0, 519fr);
+    gap: 46px;
+  }
+}
+
+.about-video {
+  aspect-ratio: 489 / 291;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+}
+
+.about-video-placeholder {
+  background: var(--color-primary-50);
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about-label {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.about-value {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 14px 0 0;
+  text-align: justify;
+  text-transform: uppercase;
+}
+
+.about-volumes {
+  color: var(--color-text);
+  display: grid;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  list-style: none;
+  margin: 13px 0 0;
+  padding: 0;
+}
+
+.about-volume::before {
+  color: var(--color-accent);
+  content: '▲';
+  font-size: 0.7em;
+  margin-right: 8px;
+  vertical-align: middle;
+}

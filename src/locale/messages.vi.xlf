@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="vi" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="company.headOffice" datatype="html">
+        <source>Head Office</source>
+        <target>Trụ sở chính</target>
+      </trans-unit>
+      <trans-unit id="company.hanoiOffice" datatype="html">
+        <source>Hanoi Office</source>
+        <target>Văn phòng Hà Nội</target>
+      </trans-unit>
+      <trans-unit id="nav.news" datatype="html">
+        <source>News</source>
+        <target>Tin tức</target>
+      </trans-unit>
+      <trans-unit id="nav.recruitment" datatype="html">
+        <source>Recruitment</source>
+        <target>Tuyển dụng</target>
+      </trans-unit>
+      <trans-unit id="nav.socialActivities" datatype="html">
+        <source>Social Activities</source>
+        <target>Hoạt động xã hội</target>
+      </trans-unit>
+      <trans-unit id="nav.subsidiaries" datatype="html">
+        <source>Subsidiaries</source>
+        <target>Công ty thành viên</target>
+      </trans-unit>
+      <trans-unit id="nav.contacts" datatype="html">
+        <source>Contacts</source>
+        <target>Liên hệ</target>
+      </trans-unit>
+      <trans-unit id="nav.board" datatype="html">
+        <source>Board of Directors</source>
+        <target>Ban lãnh đạo</target>
+      </trans-unit>
+      <trans-unit id="nav.milestones" datatype="html">
+        <source>Establishment Milestones</source>
+        <target>Cột mốc thành lập</target>
+      </trans-unit>
+      <trans-unit id="nav.quality" datatype="html">
+        <source>Quality Control and Certificates</source>
+        <target>Kiểm soát chất lượng và chứng chỉ</target>
+      </trans-unit>
+      <trans-unit id="nav.woodChips" datatype="html">
+        <source>Wood Chips Export</source>
+        <target>Xuất khẩu dăm gỗ</target>
+      </trans-unit>
+      <trans-unit id="nav.woodPellets" datatype="html">
+        <source>Wood Pellets Export</source>
+        <target>Xuất khẩu viên nén gỗ</target>
+      </trans-unit>
+      <trans-unit id="nav.timber" datatype="html">
+        <source>Timber Processing</source>
+        <target>Chế biến gỗ</target>
+      </trans-unit>
+      <trans-unit id="nav.afforestation" datatype="html">
+        <source>Afforestation</source>
+        <target>Trồng rừng</target>
+      </trans-unit>
+      <trans-unit id="nav.transportation" datatype="html">
+        <source>Transportation and Warehouses</source>
+        <target>Vận tải và kho bãi</target>
+      </trans-unit>
+      <trans-unit id="nav.aboutUs" datatype="html">
+        <source>About us</source>
+        <target>Về chúng tôi</target>
+      </trans-unit>
+      <trans-unit id="nav.directorGreetings" datatype="html">
+        <source>Director Greetings</source>
+        <target>Lời chào của Giám đốc</target>
+      </trans-unit>
+      <trans-unit id="nav.companyProfile" datatype="html">
+        <source>Company Profile</source>
+        <target>Hồ sơ công ty</target>
+      </trans-unit>
+      <trans-unit id="nav.visionMission" datatype="html">
+        <source>Vision and Mission</source>
+        <target>Tầm nhìn và sứ mệnh</target>
+      </trans-unit>
+      <trans-unit id="nav.history" datatype="html">
+        <source>History</source>
+        <target>Lịch sử hình thành</target>
+      </trans-unit>
+      <trans-unit id="nav.orgChart" datatype="html">
+        <source>Organizational chart</source>
+        <target>Sơ đồ tổ chức</target>
+      </trans-unit>
+      <trans-unit id="footer.introduction" datatype="html">
+        <source>INTRODUCTION</source>
+        <target>GIỚI THIỆU</target>
+      </trans-unit>
+      <trans-unit id="footer.introductionNav" datatype="html">
+        <source>Introduction</source>
+        <target>Giới thiệu</target>
+      </trans-unit>
+      <trans-unit id="footer.products" datatype="html">
+        <source>PRODUCTS AND SERVICES</source>
+        <target>SẢN PHẨM VÀ DỊCH VỤ</target>
+      </trans-unit>
+      <trans-unit id="footer.productsNav" datatype="html">
+        <source>Products and services</source>
+        <target>Sản phẩm và dịch vụ</target>
+      </trans-unit>
+      <trans-unit id="footer.contact" datatype="html">
+        <source>CONTACT US</source>
+        <target>LIÊN HỆ</target>
+      </trans-unit>
+      <trans-unit id="footer.hotline" datatype="html">
+        <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></source>
+        <target>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></target>
+      </trans-unit>
+      <trans-unit id="footer.opsDirector" datatype="html">
+        <source> Operations Director <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
+        <target> Giám đốc vận hành <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </target>
+      </trans-unit>
+      <trans-unit id="footer.emailLine" datatype="html">
+        <source>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></source>
+        <target>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></target>
+      </trans-unit>
+      <trans-unit id="footer.websiteLine" datatype="html">
+        <source>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></source>
+        <target>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></target>
+      </trans-unit>
+      <trans-unit id="footer.copyright" datatype="html">
+        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.brand }}"/>. All rights reserved.</source>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.brand }}"/>. Bảo lưu mọi quyền.</target>
+      </trans-unit>
+      <trans-unit id="header.secondaryNav" datatype="html">
+        <source>Secondary</source>
+        <target>Điều hướng phụ</target>
+      </trans-unit>
+      <trans-unit id="header.language" datatype="html">
+        <source>Language</source>
+        <target>Ngôn ngữ</target>
+      </trans-unit>
+      <trans-unit id="header.search" datatype="html">
+        <source>Search</source>
+        <target>Tìm kiếm</target>
+      </trans-unit>
+      <trans-unit id="header.searchPlaceholder" datatype="html">
+        <source>Search...</source>
+        <target>Tìm kiếm...</target>
+      </trans-unit>
+      <trans-unit id="header.primaryNav" datatype="html">
+        <source>Primary</source>
+        <target>Điều hướng chính</target>
+      </trans-unit>
+      <trans-unit id="header.openMenu" datatype="html">
+        <source>Open navigation menu</source>
+        <target>Mở menu điều hướng</target>
+      </trans-unit>
+      <trans-unit id="drawer.heading" datatype="html">
+        <source>Menu</source>
+        <target>Menu</target>
+      </trans-unit>
+      <trans-unit id="header.mobilePrimaryNav" datatype="html">
+        <source>Mobile primary</source>
+        <target>Điều hướng chính (di động)</target>
+      </trans-unit>
+      <trans-unit id="nav.home" datatype="html">
+        <source>Home</source>
+        <target>Trang chủ</target>
+      </trans-unit>
+      <trans-unit id="header.mobileSecondaryNav" datatype="html">
+        <source>Mobile secondary</source>
+        <target>Điều hướng phụ (di động)</target>
+      </trans-unit>
+      <trans-unit id="nav.aboutMenu" datatype="html">
+        <source>About Us</source>
+        <target>Giới thiệu</target>
+      </trans-unit>
+      <trans-unit id="nav.productsMenu" datatype="html">
+        <source>Products</source>
+        <target>Sản phẩm</target>
+      </trans-unit>
+      <trans-unit id="home.comingSoon" datatype="html">
+        <source> Home page - coming soon </source>
+        <target> Trang chủ - sắp ra mắt </target>
+      </trans-unit>
+      <trans-unit id="brand.homeLink" datatype="html">
+        <source><x id="brand" equiv-text="OFC_COMPANY.brand"/> home</source>
+        <target>Trang chủ <x id="brand" equiv-text="OFC_COMPANY.brand"/></target>
+      </trans-unit>
+      <trans-unit id="hamburger.openNav" datatype="html">
+        <source>Open navigation</source>
+        <target>Mở menu điều hướng</target>
+      </trans-unit>
+      <trans-unit id="drawer.close" datatype="html">
+        <source>Close navigation</source>
+        <target>Đóng menu điều hướng</target>
+      </trans-unit>
+      <trans-unit id="subscription.emailLabel" datatype="html">
+        <source>Email address</source>
+        <target>Địa chỉ email</target>
+      </trans-unit>
+      <trans-unit id="subscription.emailPlaceholder" datatype="html">
+        <source>Enter your email here</source>
+        <target>Địa chỉ email</target>
+      </trans-unit>
+      <trans-unit id="subscription.send" datatype="html">
+        <source>Send</source>
+        <target>Gửi</target>
+      </trans-unit>
+      <trans-unit id="subscription.heading" datatype="html">
+        <source>NEWSLETTER SUBSCRIPTION</source>
+        <target>Đăng ký nhận tin</target>
+      </trans-unit>
+      <trans-unit id="subscription.description" datatype="html">
+        <source>Stay updated with our latest news &amp; insights</source>
+        <target>Cập nhật tin tức và thông tin mới nhất từ chúng tôi</target>
+      </trans-unit>
+      <trans-unit id="home.heroCta" datatype="html">
+        <source>Get a quote</source>
+        <target>Nhận báo giá</target>
+      </trans-unit>
+      <trans-unit id="contactBar.hotline" datatype="html">
+        <source>Hotline</source>
+        <target>Hotline</target>
+      </trans-unit>
+      <trans-unit id="contactBar.email" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="home.learnMore" datatype="html">
+        <source>Learn more</source>
+        <target>Tìm hiểu thêm</target>
+      </trans-unit>
+      <trans-unit id="home.getInTouch" datatype="html">
+        <source>Get in touch</source>
+        <target>Liên hệ ngay</target>
+      </trans-unit>
+      <trans-unit id="carousel.page" datatype="html">
+        <source>Page</source>
+        <target>Trang</target>
+      </trans-unit>
+      <trans-unit id="news.viewDetails" datatype="html">
+        <source>View details</source>
+        <target>Xem chi tiết</target>
+      </trans-unit>
+      <trans-unit id="dialog.close" datatype="html">
+        <source>Close dialog</source>
+        <target>Đóng hộp thoại</target>
+      </trans-unit>
+      <trans-unit id="pagination.label" datatype="html">
+        <source>Pagination</source>
+        <target>Phân trang</target>
+      </trans-unit>
+      <trans-unit id="pagination.previous" datatype="html">
+        <source>Previous page</source>
+        <target>Trang trước</target>
+      </trans-unit>
+      <trans-unit id="pagination.next" datatype="html">
+        <source>Next page</source>
+        <target>Trang sau</target>
+      </trans-unit>
+      <trans-unit id="pagination.page" datatype="html">
+        <source>Page <x id="page"/></source>
+        <target>Trang <x id="page"/></target>
+      </trans-unit>
+      <trans-unit id="common.home" datatype="html">
+        <source>Home</source>
+        <target>Trang chủ</target>
+      </trans-unit>
+      <trans-unit id="news.by" datatype="html">
+        <source>By</source>
+        <target>Bởi</target>
+      </trans-unit>
+      <trans-unit id="news.back" datatype="html">
+        <source>← Back to news</source>
+        <target>← Quay lại tin tức</target>
+      </trans-unit>
+      <trans-unit id="news.empty" datatype="html">
+        <source>No posts have been published yet.</source>
+        <target>Chưa có bài viết nào được đăng.</target>
+      </trans-unit>
+      <trans-unit id="news.notFoundTitle" datatype="html">
+        <source>Post not found</source>
+        <target>Không tìm thấy bài viết</target>
+      </trans-unit>
+      <trans-unit id="news.notFoundBody" datatype="html">
+        <source>This article may have been moved or removed.</source>
+        <target>Bài viết có thể đã được di chuyển hoặc gỡ bỏ.</target>
+      </trans-unit>
+      <trans-unit id="news.readOriginal" datatype="html">
+        <source>Read the original article</source>
+        <target>Đọc bài viết gốc</target>
+      </trans-unit>
+      <trans-unit id="contacts.hotline" datatype="html">
+        <source>Hotline</source>
+        <target>Hotline</target>
+      </trans-unit>
+      <trans-unit id="contacts.opsDirector" datatype="html">
+        <source>Operations Director</source>
+        <target>Giám đốc vận hành</target>
+      </trans-unit>
+      <trans-unit id="contacts.email" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="contacts.website" datatype="html">
+        <source>Website</source>
+        <target>Website</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.title" datatype="html">
+        <source>Subsidiaries Network</source>
+        <target>Mạng lưới công ty con</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.location" datatype="html">
+        <source>Location</source>
+        <target>Vị trí</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.capacity" datatype="html">
+        <source>Capacity</source>
+        <target>Công suất</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.distance" datatype="html">
+        <source>Distance to Port</source>
+        <target>Khoảng cách tới cảng</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.rawMaterial" datatype="html">
+        <source>Raw Material</source>
+        <target>Nguyên liệu</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewMore" datatype="html">
+        <source>View more</source>
+        <target>Xem thêm</target>
+      </trans-unit>
+      <trans-unit id="subsidiaries.viewLess" datatype="html">
+        <source>View less</source>
+        <target>Thu gọn</target>
+      </trans-unit>
+      <trans-unit id="sidebar.getQuote" datatype="html">
+        <source>Get a Quote</source>
+        <target>Nhận báo giá</target>
+      </trans-unit>
+      <trans-unit id="sidebar.company" datatype="html">
+        <source>OFC Company</source>
+        <target>Công ty OFC</target>
+      </trans-unit>
+      <trans-unit id="sidebar.about" datatype="html">
+        <source>About us</source>
+        <target>Giới thiệu</target>
+      </trans-unit>
+      <trans-unit id="sidebar.products" datatype="html">
+        <source>Products &amp; Services</source>
+        <target>Sản phẩm &amp; Dịch vụ</target>
+      </trans-unit>
+      <trans-unit id="quoteCta.heading" datatype="html">
+        <source>Looking for a reliable wood supply partner?</source>
+        <target>Bạn đang tìm đối tác cung ứng gỗ đáng tin cậy?</target>
+      </trans-unit>
+      <trans-unit id="quoteCta.body" datatype="html">
+        <source>Get in touch with OFC for competitive pricing, certified quality and on-time delivery.</source>
+        <target>Liên hệ OFC để có mức giá cạnh tranh, chất lượng đạt chứng nhận và giao hàng đúng hẹn.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

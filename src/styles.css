@@ -1,0 +1,286 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #f1f5fa;
+  --color-primary-100: #dde8f4;
+  --color-primary-200: #bed2e8;
+  --color-primary-300: #90b2d7;
+  --color-primary-400: #5d87b8;
+  --color-primary-500: #1e3a5f;
+  --color-primary-600: #1a3456;
+  --color-primary-700: #152a46;
+  --color-primary-800: #102138;
+  --color-primary-900: #0a1728;
+  --color-primary: #1e3a5f;
+  --color-accent: #2e7d32;
+  --color-accent-2: #2e7d4e;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-bg: #f8fafc;
+  --color-white: #ffffff;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --container-content: clamp(66.25rem, 75vw, 100rem);
+  --container-gutter: clamp(1rem, 2.1vw, 2rem);
+  --banner-inline-padding: clamp(
+    var(--container-gutter),
+    calc((100vw - var(--container-content)) / 4),
+    18rem
+  );
+  --layout-gap: clamp(2.5rem, 3.15vw, 4rem);
+  --layout-sidebar: clamp(15.5625rem, 17.3vw, 20.625rem);
+  --spacing-header-top: 70px;
+  --spacing-header-main: 100px;
+  --radius-pill: 9999px;
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --shadow-card: 0 1px 2px rgb(20 25 33 / 0.04), 0 2px 6px rgb(20 25 33 / 0.06);
+  --shadow-popover: 0 6px 24px rgb(20 25 33 / 0.12);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility container-content {
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+}
+
+@utility section-min {
+  min-height: 50vh;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+:is(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Primitive classes applied by shared/directives (appButton, appField, appBadge, appCard). */
+@layer components {
+  .btn {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-input);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 700;
+    gap: 8px;
+    height: 44px;
+    justify-content: center;
+    padding: 0 20px;
+    text-decoration: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+    white-space: nowrap;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-primary-600);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    background: var(--color-primary-700);
+  }
+
+  .btn-accent {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .btn-accent:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-accent) 88%, black);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline:hover:not(:disabled),
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--color-primary-50);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn-sm {
+    font-size: 0.875rem;
+    height: 36px;
+    padding: 0 14px;
+  }
+
+  .field {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-input);
+    color: var(--color-text);
+    font: inherit;
+    min-height: 44px;
+    padding: 0 14px;
+    width: 100%;
+  }
+
+  textarea.field {
+    padding: 10px 14px;
+    resize: vertical;
+  }
+
+  .field::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .field:disabled {
+    background: var(--color-bg);
+    cursor: not-allowed;
+  }
+
+  .badge {
+    align-items: center;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    font-size: 0.8125rem;
+    font-weight: 650;
+    gap: 4px;
+    line-height: 1;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  .badge-primary {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .badge-accent {
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-white));
+    color: var(--color-accent);
+  }
+
+  .badge-neutral {
+    background: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-padded {
+    padding: 20px;
+  }
+}
+
+/* Inner content-page typography. Page-level headings target the projected <main> directly;
+   prose body styles are scoped to app-inner-content so component internals (person cards, org
+   chart, workflow, …) rendered in the same column are NOT affected by prose rules. */
+.inner-page__main > h1:first-child {
+  margin-top: 0;
+}
+
+.inner-page__main h1 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.inner-page__main .inner-section-title {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 28px 0 14px;
+  text-transform: uppercase;
+}
+
+.inner-page__main .inner-heading-center {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 44px 0 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.inner-page__main .inner-heading-center::after {
+  background: var(--color-accent);
+  content: '';
+  display: block;
+  height: 3px;
+  margin: 12px auto 0;
+  width: 48px;
+}
+
+app-inner-content {
+  display: block;
+}
+
+app-inner-content h2 {
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 28px 0 10px;
+}
+
+app-inner-content p {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+app-inner-content ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding-left: 0;
+}
+
+app-inner-content li {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  padding-left: 22px;
+  position: relative;
+}
+
+app-inner-content li::before {
+  color: var(--color-accent);
+  content: '▲';
+  font-size: 0.7em;
+  left: 0;
+  position: absolute;
+  top: 0.4em;
+}

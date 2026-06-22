@@ -1,0 +1,328 @@
+/* Breadcrumb bar - same chrome as the About inner-page shell. */
+.breadcrumb-bar {
+  background: var(--color-bg);
+  border-block: 1px solid var(--color-border);
+  padding-block: 16px;
+}
+
+.breadcrumb-bar__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.breadcrumb-bar__inner > app-breadcrumb {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.breadcrumb-socials {
+  flex: 0 0 auto;
+}
+
+/* Two-column body: main content + sidebar (matches the About inner-page grid). */
+.product {
+  align-items: start;
+  display: grid;
+  gap: var(--layout-gap);
+  grid-template-columns: minmax(0, 1fr) var(--layout-sidebar);
+  padding-block: 48px 8px;
+}
+
+.product__main {
+  min-width: 0;
+}
+
+.section {
+  margin-bottom: 48px;
+  scroll-margin-top: 24px;
+}
+
+.section__title {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.section__title::after {
+  background: var(--color-accent);
+  bottom: 0;
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 56px;
+}
+
+.section__lead {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  margin: 0 0 22px;
+}
+
+/* Overview + specifications. */
+.overview {
+  align-items: start;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+}
+
+.overview__text p {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.overview__img {
+  border-radius: 8px;
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.overview__img--placeholder {
+  aspect-ratio: 16 / 10;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+/* Specifications - white box (panel) on the tinted page. */
+.specs {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.specs__title {
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.specs__list {
+  margin: 0;
+}
+
+.specs__row {
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  padding: 9px 0;
+}
+
+.specs__row dt {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.specs__row dd {
+  color: var(--color-text);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Applications - white icon-card boxes (own class name, not the global `.card`) on the tinted
+   page, centred and wrapping ~3 per row; a partial last row stays centred. */
+.app-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  flex: 0 1 calc(33.333% - 16px);
+  max-width: 320px;
+  min-width: 190px;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.app-card__icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  margin-bottom: 14px;
+}
+
+.app-card__title {
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.app-card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Why choose us - 4 reasons in a white panel (box) on the tinted page. */
+.reasons {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: grid;
+  gap: 24px 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 30px 24px;
+}
+
+.reason {
+  text-align: center;
+}
+
+.reason__icon {
+  color: var(--color-accent);
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+.reason__title {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.reason__desc {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Video + company blurb. */
+.video {
+  align-items: center;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+
+.video__player {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video__player iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.video__placeholder {
+  align-items: center;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.video__placeholder img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.video__play {
+  background: #f00;
+  border-radius: 14px;
+  height: 50px;
+  position: relative;
+  width: 72px;
+  z-index: 1;
+}
+
+.video__play::after {
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  content: '';
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-35%, -50%);
+}
+
+.video__eyebrow {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.video__title {
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 6px 0 12px;
+}
+
+.video__blurb p {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+/* FAQ - single-column accordion inside a clean bordered card (two columns misaligned the
+   rows whenever a question wrapped, which looked cluttered). */
+app-accordion.faq {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  display: block;
+  padding: 4px 24px;
+}
+
+/* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)
+   so the whole page changes together - a 2-column body under a mobile header looked inconsistent. */
+@media (max-width: 1023.98px) {
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .overview,
+  .video {
+    grid-template-columns: 1fr;
+  }
+
+  .reasons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  app-accordion.faq {
+    padding: 4px 16px;
+  }
+}

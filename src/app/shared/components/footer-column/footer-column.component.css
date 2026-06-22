@@ -1,0 +1,41 @@
+.footer-column h2 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 26px;
+}
+
+.footer-column h2::after {
+  border-top: 1px solid rgb(255 255 255 / 0.82);
+  content: '';
+  display: block;
+  margin-top: 16px;
+  width: 70px;
+}
+
+.footer-column nav {
+  display: grid;
+  gap: 16px;
+}
+
+.footer-column nav a {
+  color: rgb(255 255 255 / 0.82);
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.footer-column nav a:hover,
+.footer-column nav a:focus-visible {
+  color: white;
+}
+
+app-footer-column.contact-details .footer-column {
+  display: grid;
+  gap: 14px;
+}
+
+app-footer-column.contact-details p {
+  line-height: 1.5;
+  margin: 0;
+}

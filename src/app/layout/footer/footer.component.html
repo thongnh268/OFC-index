@@ -1,0 +1,88 @@
+<footer class="site-footer">
+  <section class="footer-contact">
+    <div class="container-content footer-contact__inner">
+      <div class="footer-contact__details">
+        <h2 class="footer-contact__heading" i18n="@@footer.contact">CONTACT US</h2>
+        @if (contactRows(); as rows) {
+          @if (rows.length) {
+            <div class="footer-contact__rows">
+              @for (row of rows; track row.icon) {
+                <div class="contact-row">
+                  <span class="contact-icon" aria-hidden="true">
+                    <app-icon [name]="row.icon" [size]="30" />
+                  </span>
+                  <p>{{ row.text }}</p>
+                </div>
+              }
+            </div>
+          }
+        }
+      </div>
+
+      <app-subscription-form inputId="footer-email" (submitted)="onSubscriptionSubmit($event)" />
+    </div>
+  </section>
+
+  <section class="footer-main min-h-[600px] bg-primary text-white/80">
+    <div class="container-content grid gap-12 py-24 md:grid-cols-3">
+      <app-footer-column heading="INTRODUCTION" i18n-heading="@@footer.introduction">
+        <nav aria-label="Introduction" i18n-aria-label="@@footer.introductionNav">
+          @for (link of introductionLinks; track link.route + ':' + (link.fragment ?? link.label)) {
+            <a [routerLink]="link.route" [fragment]="link.fragment">{{ link.label }}</a>
+          }
+        </nav>
+      </app-footer-column>
+
+      <app-footer-column heading="PRODUCTS AND SERVICES" i18n-heading="@@footer.products">
+        <nav aria-label="Products and services" i18n-aria-label="@@footer.productsNav">
+          @for (link of productLinks; track link.route) {
+            <a [routerLink]="link.route">{{ link.label }}</a>
+          }
+        </nav>
+      </app-footer-column>
+
+      <app-footer-column
+        class="contact-details"
+        heading="CONTACT US"
+        i18n-heading="@@footer.contact"
+      >
+        @if (company(); as company) {
+          @if (company.legalName) {
+            <p>
+              <strong>{{ company.legalName }}</strong>
+            </p>
+          }
+          <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
+          @for (office of company.offices; track $index) {
+            <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>
+          }
+          @if (company.contact.hotline) {
+            <p i18n="@@footer.hotline">Hotline: {{ company.contact.hotline }}</p>
+          }
+          @if (company.contact.ops.phone) {
+            <p i18n="@@footer.opsDirector">
+              Operations Director
+              @if (company.contact.ops.name) {
+                {{ company.contact.ops.name }}:
+              }
+              {{ company.contact.ops.phone }}
+            </p>
+          }
+          @if (company.contact.email) {
+            <p i18n="@@footer.emailLine">Email: {{ company.contact.email }}</p>
+          }
+          @if (company.contact.website) {
+            <p i18n="@@footer.websiteLine">Website: {{ company.contact.website }}</p>
+          }
+          @if (company.socials.length) {
+            <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />
+          }
+        }
+      </app-footer-column>
+    </div>
+  </section>
+
+  <section class="copyright min-h-[50px] bg-primary-700">
+    <p i18n="@@footer.copyright">© {{ currentYear }} {{ company().brand }}. All rights reserved.</p>
+  </section>
+</footer>

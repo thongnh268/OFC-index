@@ -1,0 +1,189 @@
+.hero {
+  background: var(--color-primary-50);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Photo bleeds from the right; the text sits over a light left wash for contrast. */
+.hero-image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+/* Small screens: content is full-width, so wash the whole photo evenly - every line
+   (incl. the right-hand stats) stays readable; the ship stays as a faint texture. */
+.hero-overlay {
+  background: rgb(241 245 250 / 0.9);
+  inset: 0;
+  position: absolute;
+}
+
+/* Desktop: content caps at 50% on the left, so fade the wash out to the right
+   and let the photo show through. */
+@media (min-width: 1024px) {
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgb(241 245 250 / 0.97) 0%,
+      rgb(241 245 250 / 0.92) 34%,
+      rgb(241 245 250 / 0.4) 56%,
+      rgb(241 245 250 / 0) 78%
+    );
+  }
+}
+
+/* Full-bleed banner content sits between the viewport edge and centred content container: about
+   half of the container's side offset, capped for very wide monitors. */
+.hero-inner {
+  padding-inline: var(--banner-inline-padding);
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    justify-content: space-between;
+    min-height: 480px;
+    padding: 56px 0;
+  }
+}
+
+/* Cap at half width only when there is room; below this the content goes full width. */
+@media (min-width: 1024px) {
+  .hero-content {
+    max-width: 50%;
+  }
+}
+
+.hero-top {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-heading {
+  /* Capped so the long second line fits the 50% column on two lines from ~1200px up;
+     it drops to three lines only on smaller viewports. */
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.hero-heading .tone-navy {
+  color: var(--color-primary);
+}
+
+.hero-heading .tone-accent {
+  color: var(--color-accent);
+}
+
+.hero-heading .tone-white {
+  color: var(--color-white);
+}
+
+.hero-divider {
+  background: var(--color-accent);
+  border-radius: 2px;
+  display: block;
+  height: 3px;
+  margin: 20px 0;
+  width: 72px;
+}
+
+.hero-subheading {
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 46ch;
+}
+
+.hero-cta {
+  margin-top: 24px;
+  text-transform: uppercase;
+}
+
+/* Mobile: 2 columns; desktop: a single row of four (see media query below). */
+.hero-stats {
+  display: grid;
+  gap: 24px 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-stat {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+/* 2-up layout: divider between the two columns. */
+.hero-stat:nth-child(2n) {
+  border-left: 1px solid var(--color-border);
+}
+
+/* Wide desktop: one row of four with dividers between all cells. */
+@media (min-width: 1280px) {
+  .hero-stats {
+    gap: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero-stat:not(:first-child) {
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.hero-stat-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.hero-stat-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+/* Typographic styles a line can take - compose any cell from these (see model). */
+.style-value {
+  color: var(--color-primary);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 800;
+}
+
+.style-caption {
+  color: var(--color-primary);
+  font-size: 0.9375rem;
+}
+
+.style-lead {
+  color: var(--color-primary);
+  font-size: 1.0625rem;
+}
+
+.style-highlight {
+  color: var(--color-accent);
+  font-size: 1.0625rem;
+  font-weight: 800;
+}

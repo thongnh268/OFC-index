@@ -1,0 +1,52 @@
+name: Deploy Sanity Studio
+
+# Redeploys the hosted Studio (https://ofc.sanity.studio/) whenever the Studio/schema code under
+# sanity/ changes, so editors always get the latest content model without a manual `sanity deploy`.
+# Requires repo secret SANITY_DEPLOY_TOKEN (a Sanity token with deploy permission).
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'sanity/**'
+      - '.github/workflows/studio-deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: studio-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build & deploy Sanity Studio
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sanity
+    env:
+      # Public project id (also in the Angular config); read by sanity.cli.ts. appId is pinned
+      # there so the deploy is non-interactive.
+      SANITY_STUDIO_PROJECT_ID: a2vvkgqy
+      SANITY_STUDIO_DATASET: production
+      # The Sanity CLI authenticates non-interactively from SANITY_AUTH_TOKEN.
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: sanity/package-lock.json
+
+      # Match the main pipeline: the lockfiles are generated with npm 11.
+      - name: Pin npm to 11
+        run: npm i -g npm@11
+
+      - name: Install Studio dependencies
+        run: npm ci
+
+      - name: Deploy Studio
+        run: npx sanity deploy

@@ -1,0 +1,224 @@
+/* Mirrors Figma node 5:272 - 160x100 logo cards, the pale-green certificates card
+   (unique #fdfffa/#dde6cd palette) and the three-figure band. */
+.partners {
+  background: var(--color-white);
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.partners-head {
+  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.partners-viewall {
+  align-items: center;
+  color: var(--color-accent);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  gap: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.partners-viewall:hover {
+  text-decoration: underline;
+}
+
+.partner-carousel {
+  margin-top: 24px;
+}
+
+/* Card width is fluid so a page always shows a whole number of cards (no clipped
+   card at the edge): 2 per view on phones, 4 on tablets, 6 on desktop (Figma). */
+.partner-card {
+  align-items: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  display: flex;
+  flex: 0 0 calc((100% - 20px) / 2);
+  height: 100px;
+  justify-content: center;
+  padding: 10px 12px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .partner-card {
+    flex-basis: calc((100% - 60px) / 4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .partner-card {
+    flex-basis: calc((100% - 100px) / 6);
+  }
+}
+
+.partner-card img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Certs and the figures band below share ONE column system (Figma: intro 349 +
+   4 x 178) so their vertical dividers line up exactly. */
+.certs {
+  background: rgb(253 255 250 / 0.87);
+  border: 1px solid #dde6cd;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: minmax(0, 349fr) repeat(4, minmax(0, 178fr));
+  margin-top: 48px;
+}
+
+.certs-intro {
+  padding: 24px;
+}
+
+.certs-title {
+  color: var(--color-accent);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.65;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.certs-body {
+  color: var(--color-text);
+  line-height: 1.85;
+  margin: 20px 0 0;
+}
+
+.cert {
+  align-items: center;
+  border-left: 1px solid #dde6cd;
+  display: flex;
+  flex-direction: column;
+  padding: 23px 12px;
+  text-align: center;
+}
+
+.cert-logo {
+  height: 85px;
+  object-fit: contain;
+  width: 85px;
+}
+
+.cert-name {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 20px 0 0;
+}
+
+.cert-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.cert-code {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.figures {
+  background: var(--color-bg);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  letter-spacing: 1px;
+  list-style: none;
+  margin: 45px 0 0;
+  padding: 0;
+}
+
+.figure {
+  padding: 17px 35px;
+}
+
+.figure:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .figures {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .figure:not(:last-child) {
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+/* From 900px up: the same 5-column system as .certs - figure 1 sits under the certs
+   intro, figures 2 and 3 each span two certificate columns, so dividers align. */
+@media (min-width: 1024px) {
+  .figures {
+    grid-template-columns: minmax(0, 349fr) repeat(4, minmax(0, 178fr));
+  }
+
+  .figure:nth-child(2),
+  .figure:nth-child(3) {
+    grid-column: span 2;
+  }
+}
+
+.figure-value {
+  color: var(--color-accent);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.figure-label {
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2;
+  margin: 0;
+}
+
+.figure-sublabel {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1023.98px) {
+  .certs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certs-intro {
+    grid-column: 1 / -1;
+  }
+
+  /* Children: intro is 1st, so left-column certs are the even children. */
+  .cert:nth-child(even) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .figure:not(:last-child) {
+    border-bottom: 1px solid var(--color-border);
+    border-right: 0;
+  }
+}

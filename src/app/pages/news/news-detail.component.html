@@ -1,0 +1,52 @@
+@if (post(); as post) {
+  <app-article-layout [breadcrumb]="crumbs()" [title]="post.title">
+    <div article-meta class="news-detail__meta">
+      <time [attr.datetime]="post.publishedAt">{{ post.publishedAt | date: 'dd/MM/yyyy' }}</time>
+      @if (post.source) {
+        <span class="news-detail__dot" aria-hidden="true">•</span>
+        <span class="news-detail__source">{{ post.source }}</span>
+      } @else if (post.author) {
+        <span class="news-detail__dot" aria-hidden="true">•</span>
+        <span><span i18n="@@news.by">By</span> {{ post.author }}</span>
+      }
+    </div>
+
+    @if (post.imageUrl) {
+      <img
+        article-cover
+        class="news-detail__cover"
+        [src]="post.imageUrl"
+        [alt]="post.imageAlt ?? post.title"
+      />
+    }
+
+    @if (post.bodyHtml) {
+      <!-- Aggregated/cloned news: raw source HTML, sanitized by Angular's [innerHTML] binding. -->
+      <div class="news-detail__body news-prose" [innerHTML]="post.bodyHtml"></div>
+    } @else if (post.body.length) {
+      <app-portable-text class="news-detail__body" [value]="post.body" />
+    } @else if (post.excerpt) {
+      <!-- FSC clones carry only the source summary, not a cloned body - show it before the link. -->
+      <p class="news-detail__lead">{{ post.excerpt }}</p>
+    }
+
+    @if (post.sourceUrl) {
+      <p class="news-detail__origin">
+        <a [href]="post.sourceUrl" target="_blank" rel="noopener noreferrer">
+          <span i18n="@@news.readOriginal">Read the original article</span>
+          @if (post.source) {
+            <span class="news-detail__origin-name"> ({{ post.source }})</span>
+          }
+          <span aria-hidden="true"> ↗</span>
+        </a>
+      </p>
+    }
+
+    <a class="news-detail__back" routerLink="/news" i18n="@@news.back">← Back to news</a>
+  </app-article-layout>
+} @else if (post() === null) {
+  <app-article-layout class="news-detail--missing" [breadcrumb]="crumbs()" [title]="notFoundTitle">
+    <p i18n="@@news.notFoundBody">This article may have been moved or removed.</p>
+    <a class="news-detail__back" routerLink="/news" i18n="@@news.back">← Back to news</a>
+  </app-article-layout>
+}

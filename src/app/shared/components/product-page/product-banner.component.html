@@ -1,0 +1,26 @@
+<section class="banner">
+  <div class="banner__inner">
+    <div class="banner__text">
+      <span class="banner__rule" aria-hidden="true"></span>
+      <h1 class="banner__title">{{ content().title }}</h1>
+      <p class="banner__intro">{{ content().intro }}</p>
+
+      <ul class="trust-badges">
+        @for (badge of content().badges; track badge.label) {
+          <li class="trust-badge">
+            <span class="trust-badge__icon"><app-icon [name]="badge.icon" [size]="24" /></span>
+            <span class="trust-badge__label">{{ badge.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="banner__media">
+      @if (content().bannerImage; as src) {
+        <img [src]="src" [alt]="content().bannerAlt" />
+      } @else {
+        <div class="banner__media-placeholder" aria-hidden="true"></div>
+      }
+    </div>
+  </div>
+</section>

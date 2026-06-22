@@ -1,0 +1,14 @@
+.angular
+.claude
+.design
+.git
+.github
+.vscode
+coverage
+dist
+docs
+node_modules
+sanity
+*.md
+.env
+.env.*

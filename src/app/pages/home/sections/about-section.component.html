@@ -1,0 +1,62 @@
+<section class="about container-content">
+  <app-section-head
+    [eyebrow]="content().eyebrow"
+    [heading]="content().heading"
+    [body]="content().body"
+  />
+
+  <div class="about-grid">
+    <div class="about-media">
+      @if (safeVideoUrl(); as src) {
+        <iframe
+          class="about-video"
+          [src]="src"
+          [title]="content().heading"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <div class="about-video about-video-placeholder" aria-hidden="true"></div>
+      }
+    </div>
+
+    <div class="about-details">
+      <div class="about-block">
+        <h3 class="about-label">{{ content().majorBusiness.label }}</h3>
+        <p class="about-value">
+          <app-text-segments [segments]="content().majorBusiness.value" />
+        </p>
+      </div>
+
+      <div class="about-block">
+        <h3 class="about-label">{{ content().exportVolume.label }}</h3>
+        <p class="about-value">
+          <app-text-segments [segments]="content().exportVolume.value" />
+        </p>
+        <ul class="about-volumes">
+          @for (item of content().exportVolumes; track item.year) {
+            <li class="about-volume">
+              <span class="about-volume-year">{{ item.year }}:</span> {{ item.volume }}
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h3 class="about-label">{{ content().subsidiaries.label }}</h3>
+        <p class="about-value">
+          <app-text-segments [segments]="content().subsidiaries.value" />
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

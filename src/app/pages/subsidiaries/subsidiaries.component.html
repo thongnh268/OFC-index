@@ -1,0 +1,62 @@
+<app-inner-page
+  [breadcrumb]="breadcrumb"
+  [bannerImage]="bannerImage"
+  [bannerAlt]="title"
+  [bannerLabel]="title"
+  [bannerLabelRouterLink]="pageRoute"
+  [bannerLabelFragment]="listId"
+>
+  <div [id]="listId" class="subsidiaries-list">
+    @for (port of ports(); track port.name; let portIndex = $index) {
+      <section class="port">
+        <h2 class="port__title">{{ port.name }}</h2>
+
+        <ul class="subsidiary-grid">
+          @for (sub of visible(port.subsidiaries, portIndex); track sub.name; let i = $index) {
+            <li class="subsidiary-card">
+              <h3 class="subsidiary-card__name">{{ i + 1 | number: '2.0-0' }}. {{ sub.name }}</h3>
+              @if (sub.location) {
+                <p class="subsidiary-card__row">
+                  <strong i18n="@@subsidiaries.location">Location</strong>: {{ sub.location }}
+                </p>
+              }
+              @if (sub.capacity) {
+                <p class="subsidiary-card__row">
+                  <strong i18n="@@subsidiaries.capacity">Capacity</strong>: {{ sub.capacity }}
+                </p>
+              }
+              @if (sub.distance) {
+                <p class="subsidiary-card__row">
+                  <strong i18n="@@subsidiaries.distance">Distance to Port</strong>:
+                  {{ sub.distance }}
+                </p>
+              }
+              @if (sub.rawMaterial) {
+                <p class="subsidiary-card__row">
+                  <strong i18n="@@subsidiaries.rawMaterial">Raw Material</strong>:
+                  {{ sub.rawMaterial }}
+                </p>
+              }
+            </li>
+          }
+        </ul>
+
+        @if (port.subsidiaries.length > collapseLimit) {
+          <button
+            type="button"
+            class="port__more"
+            [class.port__more--open]="isExpanded(portIndex)"
+            (click)="toggle(portIndex)"
+          >
+            @if (isExpanded(portIndex)) {
+              <span i18n="@@subsidiaries.viewLess">View less</span>
+            } @else {
+              <span i18n="@@subsidiaries.viewMore">View more</span>
+            }
+            <app-icon class="port__more-icon" name="chevronRight" [size]="16" />
+          </button>
+        }
+      </section>
+    }
+  </div>
+</app-inner-page>

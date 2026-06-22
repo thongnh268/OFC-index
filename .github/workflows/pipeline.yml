@@ -1,0 +1,110 @@
+name: Pipeline
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/thongnh268/ofc-index
+
+jobs:
+  quality:
+    name: Lint, test & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # node 22 ships npm 10, but the lockfile is generated locally with npm 11;
+      # pin so `npm ci` uses the same resolver and stays in sync.
+      - name: Pin npm to 11
+        run: npm i -g npm@11
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build (en + vi)
+        run: npm run build
+
+  image:
+    name: Publish container image
+    # Images are only published for pushes to main/develop, never for PRs.
+    if: github.event_name == 'push'
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=ref,event=branch
+            type=sha
+            type=raw,value=latest,enable=${{ github.ref_name == 'main' }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy to VPS
+    # Enable by setting the repository variable DEPLOY_ENABLED=true and the
+    # VPS_HOST / VPS_USER / VPS_SSH_KEY secrets (see docs/conventions.md).
+    if: github.event_name == 'push' && vars.DEPLOY_ENABLED == 'true'
+    needs: image
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
+    steps:
+      - name: Pull image and restart container over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          port: ${{ secrets.VPS_PORT || '22' }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            docker pull ${{ env.IMAGE }}:${{ github.ref_name }}
+            docker rm -f ofc-index-${{ github.ref_name }} 2>/dev/null || true
+            docker run -d --name ofc-index-${{ github.ref_name }} \
+              --restart unless-stopped \
+              -p 127.0.0.1:${{ github.ref_name == 'main' && '4000' || '4001' }}:4000 \
+              ${{ env.IMAGE }}:${{ github.ref_name }}
+            docker image prune -f

@@ -1,0 +1,56 @@
+<a appButton variant="accent" class="side-quote" routerLink="/contacts">
+  <app-icon name="edit" [size]="18" />
+  <span i18n="@@sidebar.getQuote">Get a Quote</span>
+</a>
+
+<div class="side-panel">
+  @if (hasContactInfo()) {
+    <section class="side-section">
+      <h2 class="side-section__title" i18n="@@sidebar.company">OFC Company</h2>
+      <ul class="contact-list">
+        @if (primaryOffice(); as office) {
+          <li>
+            <app-icon name="mapPin" [size]="18" />
+            <span>{{ office.address }}</span>
+          </li>
+        }
+        @if (phone(); as phone) {
+          <li>
+            <app-icon name="phone" [size]="18" />
+            <a [href]="telHref()">{{ phone }}</a>
+          </li>
+        }
+        @if (email(); as email) {
+          <li>
+            <app-icon name="email" [size]="18" />
+            <a [href]="mailHref()">{{ email }}</a>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <nav class="side-section" aria-labelledby="side-about-title">
+    <h2 id="side-about-title" class="side-section__title" i18n="@@sidebar.about">About us</h2>
+    <ul class="link-list">
+      @for (link of aboutLinks; track link.route) {
+        <li>
+          <a [routerLink]="link.route" routerLinkActive="is-active">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <nav class="side-section" aria-labelledby="side-products-title">
+    <h2 id="side-products-title" class="side-section__title" i18n="@@sidebar.products">
+      Products &amp; Services
+    </h2>
+    <ul class="link-list">
+      @for (link of productLinks; track link.route) {
+        <li>
+          <a [routerLink]="link.route" routerLinkActive="is-active">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>

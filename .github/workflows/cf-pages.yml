@@ -1,0 +1,55 @@
+name: Deploy to Cloudflare Pages
+
+# Builds the Angular site and uploads the static browser bundle to Cloudflare Pages via Wrangler
+# (Direct Upload). The repo lives on another GitHub account, so we deploy with a Cloudflare API
+# token instead of CF's Git integration (which would need the repo owner to install the CF GitHub
+# App). Production branch = main; pushes to other branches deploy as CF preview environments.
+#
+# One-time setup:
+#   1. Create the Pages project once as "Direct Upload", named "ofc-index", production branch main
+#      (Cloudflare dashboard > Workers & Pages > Create > Pages > Upload assets, or
+#       `npx wrangler pages project create ofc-index --production-branch=main`).
+#   2. Add repo secrets: CLOUDFLARE_API_TOKEN (permission: Account > Cloudflare Pages > Edit)
+#      and CLOUDFLARE_ACCOUNT_ID.
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: cf-pages-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build & deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Match the other pipelines: the lockfile is generated with npm 11.
+      - name: Pin npm to 11
+        run: npm i -g npm@11
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Builds en+vi to dist/ofc-index/browser and writes the _redirects file CF Pages needs
+      # (root -> /vi/, and SPA fallback for the client-rendered /news + /subsidiaries routes).
+      - name: Build
+        run: npm run build:cf
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/ofc-index/browser --project-name=ofc-index --branch=${{ github.ref_name }}

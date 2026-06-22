@@ -1,0 +1,37 @@
+<section class="container-content news-list">
+  <app-breadcrumb [items]="crumbs" />
+
+  <h1 class="news-list__title" i18n="@@nav.news">News</h1>
+
+  @if (posts().length) {
+    <ul class="news-grid">
+      @for (post of posts(); track post.slug) {
+        <li>
+          <a class="news-card" [routerLink]="['/news', post.slug]">
+            @if (post.imageUrl) {
+              <img class="news-card__img" [src]="post.imageUrl" [alt]="post.title" loading="lazy" />
+            } @else {
+              <span class="news-card__img news-card__img--placeholder" aria-hidden="true"></span>
+            }
+            <span class="news-card__body">
+              <span class="news-card__meta">
+                <time class="news-card__date" [attr.datetime]="post.publishedAt">{{
+                  post.publishedAt | date: 'dd/MM/yyyy'
+                }}</time>
+                @if (post.source) {
+                  <span class="news-card__source">{{ post.source }}</span>
+                }
+              </span>
+              <span class="news-card__heading">{{ post.title }}</span>
+              @if (post.excerpt) {
+                <span class="news-card__excerpt">{{ post.excerpt }}</span>
+              }
+            </span>
+          </a>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="news-list__empty" i18n="@@news.empty">No posts have been published yet.</p>
+  }
+</section>

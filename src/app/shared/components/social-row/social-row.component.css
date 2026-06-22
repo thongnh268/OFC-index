@@ -1,0 +1,56 @@
+.social-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.social-button {
+  align-items: center;
+  background: white;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 44px;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+  width: 44px;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.18);
+  transform: translateY(-1px);
+}
+
+.social-row.is-header {
+  margin-top: 0;
+}
+
+.social-row.is-header .social-button {
+  height: 36px;
+  width: 36px;
+}
+
+.social-row.is-plain {
+  margin-top: 0;
+}
+
+.social-row.is-plain .social-button {
+  background: transparent;
+  border-radius: 0;
+  color: var(--color-accent);
+  height: auto;
+  width: auto;
+}
+
+.social-row.is-plain .social-button:hover,
+.social-row.is-plain .social-button:focus-visible {
+  box-shadow: none;
+  color: var(--color-primary);
+  transform: none;
+}

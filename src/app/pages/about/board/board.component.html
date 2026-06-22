@@ -1,0 +1,22 @@
+<app-inner-page [breadcrumb]="breadcrumb" [bannerImage]="null" [bannerAlt]="content.title">
+  <h1>{{ content.title }}</h1>
+
+  <app-board-org-chart [ceoLabel]="content.ceoLabel" [departments]="content.departments" />
+
+  <app-board-people [heading]="content.leadershipHeading" [people]="content.leadership" />
+
+  <app-board-people [heading]="content.advisoryHeading" [people]="content.advisory" />
+
+  <app-board-workflow [heading]="content.workflowHeading" [steps]="content.workflow" />
+
+  <div id="thank-you-letter" class="letter-box">
+    <h2 class="inner-section-title">{{ content.letterHeading }}</h2>
+    <app-inner-content [blocks]="content.blocks" />
+
+    <div class="signature">
+      <p class="signature__role">{{ content.signature.role }}</p>
+      <p class="signature__signed">{{ content.signature.signed }}</p>
+      <p class="signature__name">{{ content.signature.name }}</p>
+    </div>
+  </div>
+</app-inner-page>

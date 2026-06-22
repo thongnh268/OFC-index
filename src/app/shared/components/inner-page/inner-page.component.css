@@ -1,0 +1,44 @@
+.breadcrumb-bar {
+  background: var(--color-bg);
+  border-block: 1px solid var(--color-border);
+  padding-block: 16px;
+}
+
+.breadcrumb-bar__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.breadcrumb-bar__inner > app-breadcrumb {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.breadcrumb-socials {
+  flex: 0 0 auto;
+}
+
+.inner-page {
+  align-items: start;
+  display: grid;
+  gap: var(--layout-gap);
+  grid-template-columns: minmax(0, 1fr) var(--layout-sidebar);
+  padding-block: 40px 8px;
+}
+
+.inner-page__main {
+  min-width: 0;
+}
+
+/* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)
+   so the whole page changes together - a 2-column body under a mobile header looked inconsistent. */
+@media (max-width: 1023.98px) {
+  .inner-page {
+    grid-template-columns: 1fr;
+  }
+
+  .inner-page__side {
+    order: 2;
+  }
+}

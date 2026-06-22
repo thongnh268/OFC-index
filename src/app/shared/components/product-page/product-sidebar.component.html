@@ -1,0 +1,25 @@
+<nav class="anchor-nav" [attr.aria-label]="productName()">
+  <p class="anchor-nav__title">{{ productName() }}</p>
+  <ul>
+    @for (item of chrome().anchorNav; track item.id) {
+      <li>
+        <a
+          [href]="'#' + item.id"
+          [class.is-active]="item.id === activeId()"
+          (click)="selectSection($event, item.id)"
+          >{{ item.label }}</a
+        >
+      </li>
+    }
+  </ul>
+</nav>
+
+<div class="quote-card">
+  <span class="quote-card__icon"><app-icon name="clipboard" [size]="26" /></span>
+  <h3 class="quote-card__title">{{ chrome().quotationHeading }}</h3>
+  <p class="quote-card__body">{{ chrome().quotationBody }}</p>
+  <a appButton variant="accent" class="quote-card__button" routerLink="/contacts">
+    <span>{{ chrome().quotationButton }}</span>
+    <app-icon name="chevronRight" [size]="18" />
+  </a>
+</div>

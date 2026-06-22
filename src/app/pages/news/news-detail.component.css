@@ -1,0 +1,135 @@
+.news-detail__meta {
+  align-items: center;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.news-detail__source {
+  background: var(--color-primary-50);
+  border-radius: 4px;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+}
+
+.news-detail__cover {
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.news-detail__body {
+  display: block;
+}
+
+.news-detail__lead {
+  color: var(--color-text);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Prose styling for cloned source HTML rendered via [innerHTML]. Scoped styles only reach
+   elements present at compile time, so target the injected tags with ::ng-deep under the
+   component-owned wrapper class. */
+.news-prose ::ng-deep p {
+  line-height: 1.75;
+  margin: 0 0 1.15em;
+}
+
+.news-prose ::ng-deep h2,
+.news-prose ::ng-deep h3 {
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 1.6em 0 0.6em;
+}
+
+.news-prose ::ng-deep h2 {
+  font-size: 1.4rem;
+}
+
+.news-prose ::ng-deep h3 {
+  font-size: 1.15rem;
+}
+
+.news-prose ::ng-deep a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.news-prose ::ng-deep ul,
+.news-prose ::ng-deep ol {
+  margin: 0 0 1.15em;
+  padding-left: 1.4em;
+}
+
+.news-prose ::ng-deep li {
+  line-height: 1.7;
+  margin-bottom: 0.35em;
+}
+
+.news-prose ::ng-deep img {
+  border-radius: 8px;
+  height: auto;
+  margin: 1em 0;
+  max-width: 100%;
+}
+
+.news-prose ::ng-deep figure {
+  margin: 1.2em 0;
+}
+
+.news-prose ::ng-deep blockquote {
+  border-left: 3px solid var(--color-border);
+  color: var(--color-text-muted);
+  margin: 1.2em 0;
+  padding-left: 1em;
+}
+
+.news-detail__origin {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin-top: 32px;
+  padding: 14px 18px;
+}
+
+.news-detail__origin a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.news-detail__origin a:hover {
+  text-decoration: underline;
+}
+
+.news-detail__origin-name {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.news-detail__back {
+  color: var(--color-accent);
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 40px;
+  text-decoration: none;
+}
+
+.news-detail__back:hover {
+  text-decoration: underline;
+}
+
+.news-detail--missing p {
+  color: var(--color-text-muted);
+  margin: 12px 0 0;
+}

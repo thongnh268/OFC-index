@@ -1,0 +1,174 @@
+<header class="site-header" (mouseleave)="closeDropdown()">
+  <div class="h-header-top bg-primary text-white">
+    <div class="container-content flex h-full items-center justify-between gap-4">
+      <nav
+        class="hidden items-center gap-6 text-sm font-semibold lg:flex"
+        aria-label="Secondary"
+        i18n-aria-label="@@header.secondaryNav"
+      >
+        @for (link of topLinks; track link.route; let last = $last) {
+          <a class="top-link" [routerLink]="link.route">{{ link.label }}</a>
+          @if (!last) {
+            <span class="separator" aria-hidden="true">|</span>
+          }
+        }
+      </nav>
+
+      <div
+        class="flex min-w-0 flex-1 items-center justify-between gap-3 sm:ms-auto sm:flex-none sm:justify-end sm:gap-10"
+      >
+        <div
+          class="flag-switcher"
+          role="group"
+          aria-label="Language"
+          i18n-aria-label="@@header.language"
+        >
+          <a
+            class="flag-button"
+            [class.is-active]="currentLocale === 'vi'"
+            [attr.aria-current]="currentLocale === 'vi' ? 'true' : null"
+            aria-label="Tiếng Việt"
+            [href]="localeHref('vi')"
+          >
+            <img src="assets/flags/vn.svg" alt="" />
+          </a>
+          <a
+            class="flag-button"
+            [class.is-active]="currentLocale === 'en'"
+            [attr.aria-current]="currentLocale === 'en' ? 'true' : null"
+            aria-label="English"
+            [href]="localeHref('en')"
+          >
+            <img src="assets/flags/gb.svg" alt="" />
+          </a>
+        </div>
+
+        <!-- TODO: wire search once a search backend/route exists (Sprint 2+). -->
+        <label class="sr-only" for="site-search" i18n="@@header.search">Search</label>
+        <input
+          id="site-search"
+          class="search-field"
+          type="search"
+          placeholder="Search..."
+          i18n-placeholder="@@header.searchPlaceholder"
+          aria-label="Search"
+          i18n-aria-label="@@header.search"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="h-header-main border-b border-border bg-white">
+    <div class="container-content flex h-full items-center justify-between gap-6">
+      <app-brand imageHeightClass="h-header-main" />
+
+      <nav
+        class="desktop-nav hidden h-full items-center gap-6 lg:flex"
+        aria-label="Primary"
+        i18n-aria-label="@@header.primaryNav"
+        (focusout)="closeDropdownOnFocusOut($event)"
+      >
+        @for (menu of dropdowns; track menu.key) {
+          <div class="nav-item" (mouseenter)="showDropdown(menu.key)">
+            <button
+              #dropdownTrigger
+              [id]="menu.key + '-menu-trigger'"
+              class="nav-trigger"
+              type="button"
+              aria-haspopup="menu"
+              [attr.aria-controls]="menu.key + '-dropdown'"
+              [attr.aria-expanded]="openDropdown() === menu.key"
+              [class.is-open]="openDropdown() === menu.key"
+              (click)="toggleDropdown(menu.key)"
+              (keydown)="onDesktopTriggerKeydown($event, menu.key)"
+            >
+              {{ menu.label }}
+            </button>
+          </div>
+        }
+
+        @for (link of mainLinks; track link.route) {
+          <a
+            class="nav-trigger"
+            [routerLink]="link.route"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (mouseenter)="closeDropdown()"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+
+      <app-hamburger
+        class="lg:hidden"
+        controls="mobile-drawer"
+        ariaLabel="Open navigation menu"
+        i18n-ariaLabel="@@header.openMenu"
+        [active]="mobileMenuOpen()"
+        (toggled)="toggleMobileMenu()"
+      />
+    </div>
+  </div>
+
+  @if (activeDropdown(); as menu) {
+    <div
+      #dropdownPanel
+      [id]="menu.key + '-dropdown'"
+      class="sub-menu-bar"
+      role="menu"
+      tabindex="-1"
+      [attr.aria-labelledby]="menu.key + '-menu-trigger'"
+      (keydown)="onDropdownKeydown($event, menu.key)"
+    >
+      <div class="container-content sub-menu-row">
+        @for (item of menu.links; track item.route) {
+          <a role="menuitem" data-dropdown-item class="sub-menu-link" [routerLink]="item.route">
+            {{ item.label }}
+          </a>
+        }
+      </div>
+    </div>
+  }
+
+  <app-mobile-drawer
+    titleId="mobile-menu-title"
+    heading="Menu"
+    i18n-heading="@@drawer.heading"
+    [open]="mobileMenuOpen()"
+    (closed)="closeMobileMenu()"
+  >
+    <nav class="mobile-nav" aria-label="Mobile primary" i18n-aria-label="@@header.mobilePrimaryNav">
+      <a routerLink="/" i18n="@@nav.home">Home</a>
+      @for (menu of dropdowns; track menu.key) {
+        <p>{{ menu.label }}</p>
+        @for (item of menu.links; track item.route) {
+          <a [routerLink]="item.route">{{ item.label }}</a>
+        }
+      }
+      @for (link of mainLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </nav>
+
+    <nav
+      class="mobile-nav border-t border-border"
+      aria-label="Mobile secondary"
+      i18n-aria-label="@@header.mobileSecondaryNav"
+    >
+      @for (link of topLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </nav>
+  </app-mobile-drawer>
+</header>
+
+@if (openDropdown()) {
+  <button
+    type="button"
+    class="dropdown-overlay"
+    aria-hidden="true"
+    tabindex="-1"
+    (click)="closeDropdown()"
+  ></button>
+}
