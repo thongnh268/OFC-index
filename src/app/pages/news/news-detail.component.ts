@@ -6,7 +6,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 
 import type { PostDetail } from '../../core/posts';
-import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb.component';
+import { ArticleLayoutComponent } from '../../shared/components/article-layout/article-layout.component';
 import type { BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { PortableTextComponent } from '../../shared/components/portable-text/portable-text.component';
 
@@ -16,7 +16,7 @@ import { PortableTextComponent } from '../../shared/components/portable-text/por
 @Component({
   selector: 'app-news-detail',
   standalone: true,
-  imports: [DatePipe, RouterLink, BreadcrumbComponent, PortableTextComponent],
+  imports: [DatePipe, RouterLink, ArticleLayoutComponent, PortableTextComponent],
   templateUrl: './news-detail.component.html',
   styleUrl: './news-detail.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +27,7 @@ export class NewsDetailComponent {
 
   private readonly homeLabel = $localize`:@@common.home:Home`;
   private readonly newsLabel = $localize`:@@nav.news:News`;
+  protected readonly notFoundTitle = $localize`:@@news.notFoundTitle:Post not found`;
 
   // Resolved by the route (app.routes.ts): the post is loaded before activation so the page
   // renders immediately and scroll restoration on back/forward lands correctly.

@@ -23,6 +23,7 @@
 /* Banner: title + intro + trust badges on the left, diagonally-clipped hero on the right. */
 .banner {
   background: var(--color-bg);
+  border: 1px solid var(--color-primary);
   min-height: 380px;
   overflow: hidden;
   position: relative;
@@ -143,6 +144,23 @@
   position: absolute;
   width: 50vw;
   z-index: 0;
+}
+
+.banner__media::before {
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.banner__media::before {
+  background: linear-gradient(
+    104deg,
+    rgb(248 250 252 / 0.9) 0%,
+    rgb(248 250 252 / 0.58) 7%,
+    rgb(248 250 252 / 0) 18%
+  );
 }
 
 .banner__media img,
@@ -583,6 +601,10 @@ app-accordion.faq {
     min-height: 240px;
     position: relative;
     width: auto;
+  }
+
+  .banner__media::before {
+    display: none;
   }
 
   /* Banner stacks (image drops below), so the text is no longer beside a diagonal edge - drop the

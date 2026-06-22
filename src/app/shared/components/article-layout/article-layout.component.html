@@ -1,0 +1,13 @@
+<article class="article-layout">
+  <div class="container-content">
+    <div class="article-layout__content">
+      <app-breadcrumb [items]="breadcrumb()" />
+
+      <h1 class="article-layout__title">{{ title() }}</h1>
+
+      <ng-content select="[article-meta]" />
+      <ng-content select="[article-cover]" />
+      <ng-content />
+    </div>
+  </div>
+</article>

@@ -1,19 +1,15 @@
 <footer class="site-footer">
-  <section class="contact-bar min-h-[200px] bg-bg">
-    <div
-      class="container-content grid h-full gap-10 py-10 md:grid-cols-[1fr_360px] md:items-center"
-    >
-      <div>
-        <h2 class="text-base font-bold uppercase text-accent" i18n="@@footer.contact">
-          CONTACT US
-        </h2>
+  <section class="footer-contact">
+    <div class="container-content footer-contact__inner">
+      <div class="footer-contact__details">
+        <h2 class="footer-contact__heading" i18n="@@footer.contact">CONTACT US</h2>
         @if (contactRows(); as rows) {
           @if (rows.length) {
-            <div class="mt-6 grid gap-4">
+            <div class="footer-contact__rows">
               @for (row of rows; track row.icon) {
                 <div class="contact-row">
                   <span class="contact-icon" aria-hidden="true">
-                    <app-icon [name]="row.icon" [size]="14" />
+                    <app-icon [name]="row.icon" [size]="30" />
                   </span>
                   <p>{{ row.text }}</p>
                 </div>

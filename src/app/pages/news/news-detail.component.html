@@ -1,10 +1,6 @@
 @if (post(); as post) {
-  <article class="container-content news-detail">
-    <app-breadcrumb [items]="crumbs()" />
-
-    <h1 class="news-detail__title">{{ post.title }}</h1>
-
-    <div class="news-detail__meta">
+  <app-article-layout [breadcrumb]="crumbs()" [title]="post.title">
+    <div article-meta class="news-detail__meta">
       <time [attr.datetime]="post.publishedAt">{{ post.publishedAt | date: 'dd/MM/yyyy' }}</time>
       @if (post.source) {
         <span class="news-detail__dot" aria-hidden="true">•</span>
@@ -16,7 +12,12 @@
     </div>
 
     @if (post.imageUrl) {
-      <img class="news-detail__cover" [src]="post.imageUrl" [alt]="post.imageAlt ?? post.title" />
+      <img
+        article-cover
+        class="news-detail__cover"
+        [src]="post.imageUrl"
+        [alt]="post.imageAlt ?? post.title"
+      />
     }
 
     @if (post.bodyHtml) {
@@ -42,12 +43,10 @@
     }
 
     <a class="news-detail__back" routerLink="/news" i18n="@@news.back">← Back to news</a>
-  </article>
+  </app-article-layout>
 } @else if (post() === null) {
-  <section class="container-content news-detail news-detail--missing">
-    <app-breadcrumb [items]="crumbs()" />
-    <h1 class="news-detail__title" i18n="@@news.notFoundTitle">Post not found</h1>
+  <app-article-layout class="news-detail--missing" [breadcrumb]="crumbs()" [title]="notFoundTitle">
     <p i18n="@@news.notFoundBody">This article may have been moved or removed.</p>
     <a class="news-detail__back" routerLink="/news" i18n="@@news.back">← Back to news</a>
-  </section>
+  </app-article-layout>
 }

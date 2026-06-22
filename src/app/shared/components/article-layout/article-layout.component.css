@@ -1,0 +1,16 @@
+.article-layout {
+  padding-block: 32px 64px;
+}
+
+.article-layout__content {
+  margin-inline: auto;
+  max-width: clamp(47.5rem, 50vw, 58rem);
+}
+
+.article-layout__title {
+  color: var(--color-primary);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 16px 0 12px;
+}

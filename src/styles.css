@@ -20,7 +20,7 @@
   --color-bg: #f8fafc;
   --color-white: #ffffff;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --container-content: clamp(66.25rem, 80vw, 100rem);
+  --container-content: clamp(66.25rem, 75vw, 100rem);
   --container-gutter: clamp(1rem, 2.1vw, 2rem);
   --banner-inline-padding: clamp(
     var(--container-gutter),
