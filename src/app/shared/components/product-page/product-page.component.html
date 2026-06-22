@@ -13,32 +13,7 @@
   </div>
 </div>
 
-<section class="banner">
-  <div class="banner__inner">
-    <div class="banner__text">
-      <span class="banner__rule" aria-hidden="true"></span>
-      <h1 class="banner__title">{{ content().title }}</h1>
-      <p class="banner__intro">{{ content().intro }}</p>
-
-      <ul class="trust-badges">
-        @for (badge of content().badges; track badge.label) {
-          <li class="trust-badge">
-            <span class="trust-badge__icon"><app-icon [name]="badge.icon" [size]="24" /></span>
-            <span class="trust-badge__label">{{ badge.label }}</span>
-          </li>
-        }
-      </ul>
-    </div>
-
-    <div class="banner__media">
-      @if (content().bannerImage; as src) {
-        <img [src]="src" [alt]="content().bannerAlt" />
-      } @else {
-        <div class="banner__media-placeholder" aria-hidden="true"></div>
-      }
-    </div>
-  </div>
-</section>
+<app-product-banner [content]="content()" />
 
 <div class="container-content product">
   <div class="product__main">
@@ -153,33 +128,12 @@
     </section>
   </div>
 
-  <aside class="product__side">
-    <nav class="anchor-nav" [attr.aria-label]="content().name">
-      <p class="anchor-nav__title">{{ content().name }}</p>
-      <ul>
-        @for (item of chrome.anchorNav; track item.id) {
-          <li>
-            <a
-              [href]="'#' + item.id"
-              [class.is-active]="item.id === activeId()"
-              (click)="scrollToSection($event, item.id)"
-              >{{ item.label }}</a
-            >
-          </li>
-        }
-      </ul>
-    </nav>
-
-    <div class="quote-card">
-      <span class="quote-card__icon"><app-icon name="clipboard" [size]="26" /></span>
-      <h3 class="quote-card__title">{{ chrome.quotationHeading }}</h3>
-      <p class="quote-card__body">{{ chrome.quotationBody }}</p>
-      <a appButton variant="accent" class="quote-card__button" routerLink="/contacts">
-        <span>{{ chrome.quotationButton }}</span>
-        <app-icon name="chevronRight" [size]="18" />
-      </a>
-    </div>
-  </aside>
+  <app-product-sidebar
+    [chrome]="chrome"
+    [productName]="content().name"
+    [activeId]="activeId()"
+    (sectionSelected)="scrollToSection($event)"
+  />
 </div>
 
 <app-quote-cta />

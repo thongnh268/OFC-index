@@ -13,17 +13,17 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DomSanitizer, type SafeResourceUrl } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 import { OFC_COMPANY } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
-import { ButtonDirective } from '../../directives/button.directive';
 import { AccordionComponent, AccordionItemComponent } from '../accordion/accordion.component';
 import { BreadcrumbComponent, type BreadcrumbItem } from '../breadcrumb/breadcrumb.component';
 import { IconComponent } from '../icon/icon.component';
 import { QuoteCtaComponent } from '../quote-cta/quote-cta.component';
 import { SocialRowComponent } from '../social-row/social-row.component';
+import { ProductBannerComponent } from './product-banner.component';
 import { productChrome, videoEmbedUrl, type ProductContent } from './product-content.model';
+import { ProductSidebarComponent } from './product-sidebar.component';
 
 // Shared, data-driven shell for every product-detail page (Wood Chips, Wood Pellets, Timber,
 // Afforestation, Transportation). It owns the whole layout - breadcrumb bar, badge banner,
@@ -36,12 +36,12 @@ import { productChrome, videoEmbedUrl, type ProductContent } from './product-con
   selector: 'app-product-page',
   standalone: true,
   imports: [
-    RouterLink,
     AccordionComponent,
     AccordionItemComponent,
     BreadcrumbComponent,
-    ButtonDirective,
     IconComponent,
+    ProductBannerComponent,
+    ProductSidebarComponent,
     QuoteCtaComponent,
     SocialRowComponent,
   ],
@@ -129,8 +129,7 @@ export class ProductPageComponent implements AfterViewInit {
   // Smooth-scroll to a section on click. Handled in JS (not a bare "#id" href) because the
   // page has <base href="/">, which resolves "#id" against the site root - that would navigate
   // home instead of scrolling within this page.
-  protected scrollToSection(event: Event, id: string): void {
-    event.preventDefault();
+  protected scrollToSection(id: string): void {
     const el = document.getElementById(id);
     if (!el) {
       return;
