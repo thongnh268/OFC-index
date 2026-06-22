@@ -23,22 +23,28 @@
 /* Banner: title + intro + trust badges on the left, diagonally-clipped hero on the right. */
 .banner {
   background: var(--color-bg);
+  min-height: 380px;
   overflow: hidden;
+  position: relative;
 }
 
-/* Full-bleed like the homepage hero: the text hugs the left with the same clamped padding, and
-   the image takes the right half of the viewport (50vw), bleeding to the right edge. */
+/* The media is a background layer; content sits above it. That keeps image bleed independent
+   from text padding and makes a future left/right swap a layout concern instead of a spacing bug. */
 .banner__inner {
   align-items: center;
-  display: grid;
-  gap: 48px;
-  grid-template-columns: minmax(0, 1fr) 50vw;
+  display: flex;
   min-height: 380px;
-  padding-left: clamp(1rem, 4vw, 4rem);
+  padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .banner__text {
-  padding-block: 36px;
+  box-sizing: border-box;
+  padding: 36px var(--banner-inline-padding);
+  position: relative;
+  width: 50vw;
+  z-index: 1;
 }
 
 .banner__rule {
@@ -131,10 +137,12 @@
 }
 
 .banner__media {
-  align-self: stretch;
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
-  min-height: 380px;
-  position: relative;
+  inset-block: 0;
+  inset-inline-end: 0;
+  position: absolute;
+  width: 50vw;
+  z-index: 0;
 }
 
 .banner__media img,
@@ -150,12 +158,12 @@
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
 }
 
-/* Two-column body: main content + 249px sidebar (matches the About inner-page grid). */
+/* Two-column body: main content + sidebar (matches the About inner-page grid). */
 .product {
   align-items: start;
   display: grid;
-  gap: 40px;
-  grid-template-columns: minmax(0, 1fr) 249px;
+  gap: var(--layout-gap);
+  grid-template-columns: minmax(0, 1fr) var(--layout-sidebar);
   padding-block: 48px 8px;
 }
 
@@ -554,16 +562,27 @@ app-accordion.faq {
     order: 1;
   }
 
+  .banner {
+    min-height: 0;
+  }
+
   .banner__inner {
+    display: grid;
     gap: 0;
     grid-template-columns: 1fr;
     min-height: 0;
-    padding-inline: 1rem;
+  }
+
+  .banner__text {
+    padding: 36px 1rem;
+    width: auto;
   }
 
   .banner__media {
     clip-path: none;
     min-height: 240px;
+    position: relative;
+    width: auto;
   }
 
   /* Banner stacks (image drops below), so the text is no longer beside a diagonal edge - drop the

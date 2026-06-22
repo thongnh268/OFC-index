@@ -30,10 +30,10 @@
   border-radius: var(--radius-input);
   color: var(--color-text);
   height: 40px;
-  max-width: 250px;
+  max-width: none;
   min-width: 0;
   padding: 0 14px;
-  width: min(34vw, 250px);
+  width: clamp(15.625rem, 17.3vw, 20.625rem);
 }
 
 .search-field::placeholder {

@@ -22,8 +22,8 @@
 .inner-page {
   align-items: start;
   display: grid;
-  gap: 40px;
-  grid-template-columns: minmax(0, 1fr) 249px;
+  gap: var(--layout-gap);
+  grid-template-columns: minmax(0, 1fr) var(--layout-sidebar);
   padding-block: 40px 8px;
 }
 

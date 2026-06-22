@@ -20,7 +20,15 @@
   --color-bg: #f8fafc;
   --color-white: #ffffff;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --container-content: 1060px;
+  --container-content: clamp(66.25rem, 80vw, 100rem);
+  --container-gutter: clamp(1rem, 2.1vw, 2rem);
+  --banner-inline-padding: clamp(
+    var(--container-gutter),
+    calc((100vw - var(--container-content)) / 4),
+    18rem
+  );
+  --layout-gap: clamp(2.5rem, 3.15vw, 4rem);
+  --layout-sidebar: clamp(15.5625rem, 17.3vw, 20.625rem);
   --spacing-header-top: 70px;
   --spacing-header-main: 100px;
   --radius-pill: 9999px;
@@ -36,7 +44,7 @@
 @utility container-content {
   max-width: var(--container-content);
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--container-gutter);
 }
 
 @utility section-min {

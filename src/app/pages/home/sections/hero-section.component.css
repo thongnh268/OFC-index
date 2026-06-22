@@ -35,10 +35,10 @@
   }
 }
 
-/* Full-bleed banner hugs the left (not the centered container-content) to match Figma;
-   left padding scales with viewport but caps so it never drifts far on wide screens. */
+/* Full-bleed banner content sits between the viewport edge and centred content container: about
+   half of the container's side offset, capped for very wide monitors. */
 .hero-inner {
-  padding-inline: clamp(1rem, 4vw, 4rem);
+  padding-inline: var(--banner-inline-padding);
   position: relative;
 }
 
