@@ -1,7 +1,7 @@
 // FSC news adapter — FSC has no RSS or JSON:API, so this scrapes the server-rendered Drupal
-// newscentre listing. Each "search-result-item" row carries the article's title, link and the
-// real publish date (views-field-created → <time datetime>); the per-article summary comes from
-// the detail page's og:description. EN only. Standalone CI script (run by the GitHub Actions cron).
+// newscentre feed. Each ".news-article-item-container" row carries the article's title, link and
+// the real publish date (.published-on → <time datetime>); the per-article summary comes from the
+// detail page's og:description. EN only. Standalone CI script (run by the GitHub Actions cron).
 //
 // Usage: node tools/news/fetch-fsc.mjs   (prints a sample; no Sanity write)
 import { pathToFileURL } from 'node:url';
@@ -25,19 +25,26 @@ const stripHtml = (s) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-// Pure: listing HTML -> [{title, sourceUrl, publishedAt}] for newscentre articles (real dates).
+// Pure: listing HTML -> [{source, title, sourceUrl, publishedAt}], newest first. Each feed row is a
+// `.news-article-item-container`: the date is in `.published-on > <time datetime>` and the title +
+// link in `.article-title > <a href>`, pointing at /en/newscentre/<category>/<slug> (general-news,
+// research, stories, events, eudr, ...).
 export function parseFscList(html) {
-  const rows = html.match(/<div class="search-result-item">[\s\S]*?(?=<div class="search-result-item">|$)/g) ?? [];
+  const rows =
+    html.match(
+      /<div class="news-article-item-container">[\s\S]*?(?=<div class="news-article-item-container">|$)/g,
+    ) ?? [];
   const seen = new Set();
   const items = [];
   for (const row of rows) {
-    const href = (row.match(/views-field-title[\s\S]*?<a href="([^"#?]+)"/) ?? [])[1];
-    if (!href || !/^\/en\/newscentre\/(stories|general-news)\//.test(href)) continue;
+    const href = (row.match(/<span class="article-title">\s*<a href="([^"#?]+)"/) ?? [])[1];
+    // Accept any category under /en/newscentre/<cat>/<slug>; skips campaign/landing links (/en/<slug>).
+    if (!href || !/^\/en\/newscentre\/[^/]+\/[^/]+/.test(href)) continue;
     const url = ORIGIN + href;
     if (seen.has(url)) continue;
     seen.add(url);
-    const dt = (row.match(/<time datetime="([^"]+)"/) ?? [])[1];
-    const titleRaw = (row.match(/views-field-title[\s\S]*?<a [^>]*>([\s\S]*?)<\/a>/) ?? [])[1];
+    const dt = (row.match(/<span class="published-on">[\s\S]*?<time datetime="([^"]+)"/) ?? [])[1];
+    const titleRaw = (row.match(/<span class="article-title">\s*<a [^>]*>([\s\S]*?)<\/a>/) ?? [])[1];
     items.push({
       source: 'FSC',
       title: stripHtml(titleRaw),
@@ -45,6 +52,8 @@ export function parseFscList(html) {
       publishedAt: dt ? new Date(dt).toISOString() : null,
     });
   }
+  // The feed is newest-first, but sort defensively so the daily slice always keeps the most recent.
+  items.sort((a, b) => String(b.publishedAt ?? '').localeCompare(String(a.publishedAt ?? '')));
   return items;
 }
 
