@@ -6,7 +6,9 @@
 <div class="side-panel">
   @if (hasContactInfo()) {
     <section class="side-section">
-      <h2 class="side-section__title" i18n="@@sidebar.company">OFC Company</h2>
+      @if (company().legalName; as legalName) {
+        <h2 class="side-section__title">{{ legalName }}</h2>
+      }
       <ul class="contact-list">
         @if (primaryOffice(); as office) {
           <li>
@@ -34,8 +36,28 @@
     <h2 id="side-about-title" class="side-section__title" i18n="@@sidebar.about">About us</h2>
     <ul class="link-list">
       @for (link of aboutLinks; track link.route) {
-        <li>
-          <a [routerLink]="link.route" routerLinkActive="is-active">{{ link.label }}</a>
+        <li [class.has-sections]="isActiveLink(link) && link.sections?.length">
+          <a
+            [routerLink]="link.route"
+            [fragment]="link.fragment"
+            [class.is-active]="isActiveLink(link)"
+            [attr.aria-current]="isActiveLink(link) ? 'page' : null"
+            >{{ link.label }}</a
+          >
+          @if (isActiveLink(link) && link.sections?.length) {
+            <ul class="section-list">
+              @for (section of link.sections ?? []; track section.id) {
+                <li>
+                  <a
+                    [href]="'#' + section.id"
+                    [class.is-active]="section.id === activeSectionId()"
+                    (click)="selectSection($event, section.id)"
+                    >{{ section.label }}</a
+                  >
+                </li>
+              }
+            </ul>
+          }
         </li>
       }
     </ul>
@@ -47,8 +69,28 @@
     </h2>
     <ul class="link-list">
       @for (link of productLinks; track link.route) {
-        <li>
-          <a [routerLink]="link.route" routerLinkActive="is-active">{{ link.label }}</a>
+        <li [class.has-sections]="isActiveLink(link) && link.sections?.length">
+          <a
+            [routerLink]="link.route"
+            [fragment]="link.fragment"
+            [class.is-active]="isActiveLink(link)"
+            [attr.aria-current]="isActiveLink(link) ? 'page' : null"
+            >{{ link.label }}</a
+          >
+          @if (isActiveLink(link) && link.sections?.length) {
+            <ul class="section-list">
+              @for (section of link.sections ?? []; track section.id) {
+                <li>
+                  <a
+                    [href]="'#' + section.id"
+                    [class.is-active]="section.id === activeSectionId()"
+                    (click)="selectSection($event, section.id)"
+                    >{{ section.label }}</a
+                  >
+                </li>
+              }
+            </ul>
+          }
         </li>
       }
     </ul>

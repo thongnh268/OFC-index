@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: sticky;
+  top: 24px;
 }
 
 .side-quote {
@@ -34,13 +36,24 @@
 }
 
 .contact-list,
-.link-list {
+.link-list,
+.section-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.contact-list,
+.link-list {
+  gap: 12px;
+}
+
+.section-list {
+  animation: revealSections var(--duration-base) var(--ease-out);
+  gap: 8px;
+  padding: 6px 0 0 12px;
 }
 
 .contact-list li {
@@ -70,12 +83,62 @@
 }
 
 .link-list a {
-  display: block;
+  align-items: center;
+  display: flex;
   font-size: 0.875rem;
+  gap: 8px;
   padding: 4px 0;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.section-list a {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  padding: 3px 0;
+}
+
+.section-list a::before {
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  content: '';
+  flex: 0 0 9px;
+  height: 9px;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+  width: 9px;
 }
 
 .link-list a.is-active {
   color: var(--color-accent);
   font-weight: 600;
+}
+
+.link-list > li > a.is-active {
+  transform: translateX(2px);
+}
+
+.section-list a.is-active::before {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@keyframes revealSections {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1023.98px) {
+  :host {
+    position: static;
+  }
 }
