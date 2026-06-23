@@ -1,14 +1,14 @@
 /* White box (panel) on the tinted contact bar. */
 .subscription {
   background: var(--color-white);
-  border-radius: 12px;
-  padding: 24px 28px 32px;
+  border-radius: 10px;
+  padding: 22px 28px 26px;
   width: 100%;
 }
 
 .subscription-heading {
   color: var(--color-accent);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 800;
   line-height: 1.25;
   margin: 0;
@@ -17,21 +17,21 @@
 
 .subscription-description {
   color: var(--color-text);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  margin: 12px 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 8px 0 0;
 }
 
 .subscription-fields {
   display: flex;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 22px;
 }
 
 .subscription input {
   flex: 1;
   font-size: 1rem;
-  min-height: 48px;
+  min-height: 44px;
   min-width: 0;
 }
 
@@ -41,9 +41,9 @@
 }
 
 .subscription button {
-  font-size: 1.125rem;
-  height: 48px;
-  min-width: 128px;
+  font-size: 1rem;
+  height: 44px;
+  min-width: 112px;
 }
 
 @media (max-width: 639.98px) {
