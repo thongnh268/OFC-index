@@ -4,6 +4,7 @@
   aria-label="Close dialog"
   i18n-aria-label="@@dialog.close"
   [class.is-open]="open()"
+  [class.dialog-backdrop--lightbox]="size() === 'lightbox'"
   [attr.aria-hidden]="!open()"
   [attr.tabindex]="open() ? 0 : -1"
   (click)="closed.emit()"
@@ -13,6 +14,7 @@
   class="dialog-panel"
   role="dialog"
   [class.is-open]="open()"
+  [class.dialog-panel--lightbox]="size() === 'lightbox'"
   [attr.aria-modal]="open() ? 'true' : null"
   [attr.aria-hidden]="!open()"
   [attr.aria-labelledby]="dialogId() + '-title'"
@@ -34,7 +36,8 @@
     </button>
   </header>
 
-  <div class="dialog-body">
+  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+  <div class="dialog-body" (click)="closeLightboxFromBody($event)">
     <ng-content />
   </div>
 </div>

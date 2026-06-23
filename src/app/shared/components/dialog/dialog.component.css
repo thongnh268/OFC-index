@@ -17,6 +17,10 @@
   pointer-events: auto;
 }
 
+.dialog-backdrop--lightbox {
+  background: rgb(15 15 15 / 0.96);
+}
+
 .dialog-panel {
   background: var(--color-white);
   border-radius: var(--radius-card);
@@ -42,6 +46,19 @@
   transform: translate(-50%, -50%);
 }
 
+.dialog-panel--lightbox {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  overflow: hidden;
+  width: 100vw;
+}
+
 .dialog-header {
   align-items: center;
   border-bottom: 1px solid var(--color-border);
@@ -57,6 +74,21 @@
   margin: 0;
 }
 
+.dialog-panel--lightbox .dialog-header {
+  border-bottom: 0;
+  justify-content: end;
+  padding: 14px;
+}
+
+.dialog-panel--lightbox .dialog-title {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .dialog-close {
   background: transparent;
   border: 0;
@@ -70,6 +102,36 @@
   color: var(--color-text);
 }
 
+.dialog-panel--lightbox .dialog-close {
+  align-items: center;
+  background: rgb(255 255 255 / 0.1);
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+}
+
+.dialog-panel--lightbox .dialog-close:hover {
+  background: rgb(255 255 255 / 0.18);
+  color: var(--color-white);
+}
+
 .dialog-body {
   padding: 20px;
+}
+
+.dialog-panel--lightbox .dialog-body {
+  display: grid;
+  min-height: 0;
+  padding: 0 clamp(16px, 5vw, 72px) clamp(24px, 5vh, 56px);
+  place-items: center;
+}
+
+@media (max-width: 767.98px) {
+  .dialog-panel--lightbox .dialog-body {
+    padding: 0 16px 24px;
+  }
 }

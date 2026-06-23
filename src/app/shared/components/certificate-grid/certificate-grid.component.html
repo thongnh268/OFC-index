@@ -1,0 +1,79 @@
+<ul class="cert-grid">
+  @for (cert of items(); track cert.title) {
+    <li>
+      <button class="cert-card" type="button" aria-haspopup="dialog" (click)="open($index)">
+        @if (cert.thumbnailUrl) {
+          <img class="cert-thumb" [src]="cert.thumbnailUrl" [alt]="cert.title" />
+        } @else {
+          <span class="cert-placeholder">
+            <app-icon name="experience" [size]="40" />
+            <span class="cert-title">{{ cert.title }}</span>
+          </span>
+        }
+        <span class="cert-action" aria-hidden="true">
+          <app-icon name="certificate" [size]="28" />
+        </span>
+      </button>
+    </li>
+  }
+</ul>
+
+<app-dialog
+  dialogId="certificate-preview"
+  size="lightbox"
+  [heading]="selected()?.title ?? ''"
+  [open]="selected() !== null"
+  (keydown.arrowleft)="previous()"
+  (keydown.arrowright)="next()"
+  (closed)="close()"
+>
+  @if (selected(); as cert) {
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+    <div class="gallery-shell" (click)="$event.stopPropagation()" (wheel)="navigateByWheel($event)">
+      <button
+        class="gallery-nav gallery-nav--prev"
+        type="button"
+        aria-label="Previous certificate"
+        i18n-aria-label="@@certGrid.previous"
+        (click)="previous()"
+      >
+        <app-icon name="chevronLeft" [size]="32" />
+      </button>
+
+      <figure class="cert-preview">
+        @if (cert.thumbnailUrl) {
+          <img class="cert-preview-image" [src]="cert.thumbnailUrl" [alt]="cert.title" />
+        } @else {
+          <div class="cert-preview-placeholder">
+            <app-icon name="experience" [size]="56" />
+            <span>{{ cert.title }}</span>
+          </div>
+        }
+
+        @if (cert.pdfUrl) {
+          <a
+            class="cert-pdf-link"
+            [href]="cert.pdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            i18n="@@certGrid.openPdf"
+          >
+            Open PDF
+          </a>
+        }
+      </figure>
+
+      <button
+        class="gallery-nav gallery-nav--next"
+        type="button"
+        aria-label="Next certificate"
+        i18n-aria-label="@@certGrid.next"
+        (click)="next()"
+      >
+        <app-icon name="chevronRight" [size]="32" />
+      </button>
+
+      <p class="gallery-counter">{{ selectedPosition() }} / {{ items().length }}</p>
+    </div>
+  }
+</app-dialog>
