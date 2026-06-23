@@ -42,6 +42,22 @@
         <source>Quality Control and Certificates</source>
         <target>Kiểm soát chất lượng và chứng chỉ</target>
       </trans-unit>
+      <trans-unit id="nav.boardLeadership" datatype="html">
+        <source>Leadership</source>
+        <target>Ban lãnh đạo</target>
+      </trans-unit>
+      <trans-unit id="nav.thankYouLetter" datatype="html">
+        <source>Thank you letter</source>
+        <target>Thư cảm ơn</target>
+      </trans-unit>
+      <trans-unit id="nav.qualityPolicies" datatype="html">
+        <source>Quality policies</source>
+        <target>Chính sách chất lượng</target>
+      </trans-unit>
+      <trans-unit id="nav.certificates" datatype="html">
+        <source>Certificates</source>
+        <target>Chứng chỉ</target>
+      </trans-unit>
       <trans-unit id="nav.woodChips" datatype="html">
         <source>Wood Chips Export</source>
         <target>Xuất khẩu dăm gỗ</target>
@@ -109,6 +125,10 @@
       <trans-unit id="footer.hotline" datatype="html">
         <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></source>
         <target>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></target>
+      </trans-unit>
+      <trans-unit id="footer.taxCode" datatype="html">
+        <source>Tax code: <x id="INTERPOLATION" equiv-text="{{ company.taxCode }}"/></source>
+        <target>Mã số thuế: <x id="INTERPOLATION" equiv-text="{{ company.taxCode }}"/></target>
       </trans-unit>
       <trans-unit id="footer.opsDirector" datatype="html">
         <source> Operations Director <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
@@ -334,10 +354,6 @@
         <source>Get a Quote</source>
         <target>Nhận báo giá</target>
       </trans-unit>
-      <trans-unit id="sidebar.company" datatype="html">
-        <source>OFC Company</source>
-        <target>Công ty OFC</target>
-      </trans-unit>
       <trans-unit id="sidebar.about" datatype="html">
         <source>About us</source>
         <target>Giới thiệu</target>
@@ -353,6 +369,22 @@
       <trans-unit id="quoteCta.body" datatype="html">
         <source>Get in touch with OFC for competitive pricing, certified quality and on-time delivery.</source>
         <target>Liên hệ OFC để có mức giá cạnh tranh, chất lượng đạt chứng nhận và giao hàng đúng hẹn.</target>
+      </trans-unit>
+      <trans-unit id="certGrid.previous" datatype="html">
+        <source>Previous certificate</source>
+        <target>Chứng chỉ trước</target>
+      </trans-unit>
+      <trans-unit id="certGrid.next" datatype="html">
+        <source>Next certificate</source>
+        <target>Chứng chỉ sau</target>
+      </trans-unit>
+      <trans-unit id="certGrid.openPdf" datatype="html">
+        <source>Open PDF</source>
+        <target>Mở PDF</target>
+      </trans-unit>
+      <trans-unit id="scrollTop.label" datatype="html">
+        <source>Scroll to top</source>
+        <target>Lên đầu trang</target>
       </trans-unit>
     </body>
   </file>

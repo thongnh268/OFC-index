@@ -78,6 +78,34 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.boardLeadership" datatype="html">
+        <source>Leadership</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.thankYouLetter" datatype="html">
+        <source>Thank you letter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.qualityPolicies" datatype="html">
+        <source>Quality policies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.certificates" datatype="html">
+        <source>Certificates</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.woodChips" datatype="html">
         <source>Wood Chips Export</source>
         <context-group purpose="location">
@@ -156,77 +184,84 @@
         </context-group>
       </trans-unit>
       <trans-unit id="footer.contact" datatype="html">
-        <source> CONTACT US </source>
+        <source>CONTACT US</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">8,10</context>
+          <context context-type="linenumber">5,6</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">50,51</context>
+          <context context-type="linenumber">46,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.introduction" datatype="html">
         <source>INTRODUCTION</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.introductionNav" datatype="html">
         <source>Introduction</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.products" datatype="html">
         <source>PRODUCTS AND SERVICES</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.productsNav" datatype="html">
         <source>Products and services</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.hotline" datatype="html">
         <source>Hotline: <x id="INTERPOLATION" equiv-text="{{ company.contact.hotline }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">64,66</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.taxCode" datatype="html">
+        <source>Tax code: <x id="INTERPOLATION" equiv-text="{{ company.taxCode }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">55,56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.opsDirector" datatype="html">
         <source> Operations Director <x id="START_BLOCK_IF" equiv-text="@if (company.contact.ops.name) {"/> <x id="INTERPOLATION" equiv-text="{{ company.contact.ops.name }}"/>: <x id="CLOSE_BLOCK_IF" equiv-text="}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.contact.ops.phone }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">68,74</context>
+          <context context-type="linenumber">64,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.emailLine" datatype="html">
         <source>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">76,78</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.websiteLine" datatype="html">
         <source>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">79,81</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
         <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">90,92</context>
+          <context context-type="linenumber">86,87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.secondaryNav" datatype="html">
@@ -332,21 +367,21 @@
         <source>Operations Director</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">24,25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contacts.email" datatype="html">
         <source>Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contacts.website" datatype="html">
         <source>Website</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
-          <context context-type="linenumber">34,36</context>
+          <context context-type="linenumber">38,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.home" datatype="html">
@@ -386,7 +421,7 @@
         <source>Get a quote</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/contact-bar.component.html</context>
-          <context context-type="linenumber">22,25</context>
+          <context context-type="linenumber">22,24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home/sections/hero-section.component.html</context>
@@ -411,39 +446,39 @@
         <source>By</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news.readOriginal" datatype="html">
         <source>Read the original article</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">36,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news.back" datatype="html">
         <source>← Back to news</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">44,46</context>
+          <context context-type="linenumber">45,46</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">51,54</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="news.notFoundTitle" datatype="html">
-        <source>Post not found</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">49,50</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news.notFoundBody" datatype="html">
         <source>This article may have been moved or removed.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/news/news-detail.component.html</context>
-          <context context-type="linenumber">50,51</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="news.notFoundTitle" datatype="html">
+        <source>Post not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/news/news-detail.component.ts</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news.empty" datatype="html">
@@ -514,6 +549,45 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/carousel/carousel.component.ts</context>
           <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="certGrid.previous" datatype="html">
+        <source>Previous certificate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/certificate-grid/certificate-grid.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="certGrid.openPdf" datatype="html">
+        <source> Open PDF </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/certificate-grid/certificate-grid.component.html</context>
+          <context context-type="linenumber">65,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="certGrid.next" datatype="html">
+        <source>Next certificate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/certificate-grid/certificate-grid.component.html</context>
+          <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dialog.close" datatype="html">
+        <source>Close dialog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/dialog/dialog.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="scrollTop.label" datatype="html">
+        <source>Scroll to top</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/scroll-to-top/scroll-to-top.component.ts</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="hamburger.openNav" datatype="html">
