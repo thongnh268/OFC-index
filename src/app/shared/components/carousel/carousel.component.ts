@@ -31,7 +31,7 @@ const AUTOPLAY_MS = 4000;
     <ul
       #track
       class="carousel-track"
-      (scroll)="syncCarousel()"
+      (scroll)="schedulePageSync()"
       (mouseenter)="hovered.set(true)"
       (mouseleave)="hovered.set(false)"
       (pointerdown)="stopAutoplay()"
@@ -112,6 +112,9 @@ export class CarouselComponent {
   private readonly visible = signal(false);
   private autoplayTimer: ReturnType<typeof setInterval> | null = null;
   private visibilityObserver: IntersectionObserver | null = null;
+  private pageSyncFrame: number | null = null;
+  private cardsPerPageValue = 1;
+  private cardStrideValue = 1;
 
   constructor() {
     // Scroll metrics, observers + timers only exist in the browser (SSR-safe).
@@ -123,20 +126,50 @@ export class CarouselComponent {
     this.destroyRef.onDestroy(() => {
       this.stopAutoplay();
       this.visibilityObserver?.disconnect();
+      if (this.pageSyncFrame !== null) {
+        cancelAnimationFrame(this.pageSyncFrame);
+      }
     });
   }
 
   protected syncCarousel(): void {
+    this.syncMetrics();
+    this.syncPage();
+  }
+
+  protected schedulePageSync(): void {
+    if (this.pageSyncFrame !== null) {
+      return;
+    }
+    this.pageSyncFrame = requestAnimationFrame(() => {
+      this.pageSyncFrame = null;
+      this.syncPage();
+    });
+  }
+
+  private syncMetrics(): void {
     const el = this.track().nativeElement;
     const first = el.firstElementChild as HTMLElement | null;
     if (!el.clientWidth || !first) {
       return;
     }
     const per = this.cardsPerPage(el, first);
+    this.cardsPerPageValue = per;
+    this.cardStrideValue = this.cardStride(el, first);
     const pages = Math.max(1, Math.ceil(el.children.length / per));
-    this.pages.set(pages);
-    const leftmostCard = Math.round(el.scrollLeft / this.cardStride(el, first));
-    this.page.set(Math.min(pages - 1, Math.round(leftmostCard / per)));
+    if (this.pages() !== pages) {
+      this.pages.set(pages);
+    }
+  }
+
+  private syncPage(): void {
+    const el = this.track().nativeElement;
+    const pages = this.pages();
+    const leftmostCard = Math.round(el.scrollLeft / this.cardStrideValue);
+    const nextPage = Math.min(pages - 1, Math.round(leftmostCard / this.cardsPerPageValue));
+    if (this.page() !== nextPage) {
+      this.page.set(nextPage);
+    }
   }
 
   protected goTo(index: number): void {
