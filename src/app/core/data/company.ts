@@ -16,6 +16,7 @@ export const SOCIAL_LABELS: Record<SocialLink['name'], string> = {
 export interface CompanyOffice {
   readonly label: string;
   readonly address: string;
+  readonly isMain: boolean;
 }
 
 export interface CompanyContact {
@@ -31,6 +32,7 @@ export interface CompanyContact {
 export interface OfcCompany {
   readonly brand: string;
   readonly legalName: string | null;
+  readonly taxCode: string | null;
   readonly shortAddress: string | null;
   /** CMS logo URL; null means components use the built-in default asset. */
   readonly logoUrl: string | null;
@@ -42,6 +44,7 @@ export interface OfcCompany {
 export const OFC_COMPANY: OfcCompany = {
   brand: 'OFC Company',
   legalName: null,
+  taxCode: null,
   shortAddress: null,
   logoUrl: null,
   offices: [],

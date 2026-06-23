@@ -52,6 +52,9 @@
               <strong>{{ company.legalName }}</strong>
             </p>
           }
+          @if (company.taxCode) {
+            <p i18n="@@footer.taxCode">Tax code: {{ company.taxCode }}</p>
+          }
           <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
           @for (office of company.offices; track $index) {
             <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>

@@ -55,9 +55,30 @@ describe('SiteSettingsService', () => {
     expect(company.brand).toBe(OFC_COMPANY.brand);
   });
 
+  it('uses the CMS tax code when present', () => {
+    fetchSpy.and.returnValue(of({ taxCode: '0101234567' }));
+    expect(latest().taxCode).toBe('0101234567');
+  });
+
   it('uses CMS offices when present', () => {
     fetchSpy.and.returnValue(of({ offices: [{ label: 'HQ', address: '1 Test Street' }] }));
-    expect(latest().offices).toEqual([{ label: 'HQ', address: '1 Test Street' }]);
+    expect(latest().offices).toEqual([{ label: 'HQ', address: '1 Test Street', isMain: false }]);
+  });
+
+  it('preserves the CMS main office marker', () => {
+    fetchSpy.and.returnValue(
+      of({
+        offices: [
+          { label: 'HQ', address: '1 Test Street', isMain: true },
+          { label: 'Branch', address: '2 Test Street', isMain: false },
+        ],
+      }),
+    );
+
+    expect(latest().offices).toEqual([
+      { label: 'HQ', address: '1 Test Street', isMain: true },
+      { label: 'Branch', address: '2 Test Street', isMain: false },
+    ]);
   });
 
   it('keeps offices empty when the CMS array is empty', () => {
@@ -72,7 +93,7 @@ describe('SiteSettingsService', () => {
 
   it('keeps a label-less office as long as it has an address', () => {
     fetchSpy.and.returnValue(of({ offices: [{ label: null, address: '1 Test Street' }] }));
-    expect(latest().offices).toEqual([{ label: '', address: '1 Test Street' }]);
+    expect(latest().offices).toEqual([{ label: '', address: '1 Test Street', isMain: false }]);
   });
 
   it('fetches the settings document once across multiple consumers', () => {

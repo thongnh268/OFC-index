@@ -63,11 +63,13 @@ export const SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
   "partnerLogos": partnerLogos[]{ name, "imageUrl": logo.asset->url + "?w=400&h=200&fit=max&auto=format" },
   "brand": coalesce(brand[$locale], brand.vi),
   "legalName": coalesce(legalName[$locale], legalName.vi),
+  taxCode,
   "shortAddress": coalesce(shortAddress[$locale], shortAddress.vi),
   "logoUrl": logo.asset->url,
   "offices": offices[]{
     "label": coalesce(label[$locale], label.vi),
-    "address": coalesce(address[$locale], address.vi)
+    "address": coalesce(address[$locale], address.vi),
+    "isMain": coalesce(isMain, false)
   },
   hotline,
   opsName,

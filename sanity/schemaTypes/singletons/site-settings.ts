@@ -64,6 +64,7 @@ export const siteSettings = defineType({
 
     defineField({ name: 'brand', title: 'Brand name', type: 'localeString', group: 'company' }),
     defineField({ name: 'legalName', title: 'Legal name', type: 'localeString', group: 'company' }),
+    defineField({ name: 'taxCode', title: 'Tax code', type: 'string', group: 'company' }),
     defineField({
       name: 'shortAddress',
       title: 'Short address (footer heading)',
@@ -88,10 +89,27 @@ export const siteSettings = defineType({
           fields: [
             defineField({ name: 'label', title: 'Label', type: 'localeString' }),
             defineField({ name: 'address', title: 'Address', type: 'localeText' }),
+            defineField({
+              name: 'isMain',
+              title: 'Main office',
+              type: 'boolean',
+              initialValue: false,
+            }),
           ],
-          preview: { select: { title: 'label.vi', subtitle: 'address.vi' } },
+          preview: {
+            select: { title: 'label.vi', subtitle: 'address.vi', isMain: 'isMain' },
+            prepare: ({ title, subtitle, isMain }) => ({
+              title: isMain ? `${title || 'Office'} (main)` : title || 'Office',
+              subtitle,
+            }),
+          },
         }),
       ],
+      validation: (rule) =>
+        rule.custom((offices?: { isMain?: boolean }[]) => {
+          const mainCount = offices?.filter((office) => office.isMain).length ?? 0;
+          return mainCount <= 1 || 'Only one office can be marked as main';
+        }),
     }),
     defineField({ name: 'hotline', title: 'Hotline', type: 'string', group: 'company' }),
     defineField({

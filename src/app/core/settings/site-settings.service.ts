@@ -13,9 +13,12 @@ interface SettingsDto {
   readonly partnerLogos?: readonly { name: string | null; imageUrl: string | null }[] | null;
   readonly brand?: string | null;
   readonly legalName?: string | null;
+  readonly taxCode?: string | null;
   readonly shortAddress?: string | null;
   readonly logoUrl?: string | null;
-  readonly offices?: readonly { label: string | null; address: string | null }[] | null;
+  readonly offices?:
+    | readonly { label: string | null; address: string | null; isMain?: boolean | null }[]
+    | null;
   readonly hotline?: string | null;
   readonly opsName?: string | null;
   readonly opsPhone?: string | null;
@@ -78,7 +81,11 @@ export class SiteSettingsService {
     // fine (the footer renders the address alone).
     const offices = (dto.offices ?? [])
       .filter((office) => office.address)
-      .map((office) => ({ label: office.label ?? '', address: office.address ?? '' }));
+      .map((office) => ({
+        label: office.label ?? '',
+        address: office.address ?? '',
+        isMain: office.isMain === true,
+      }));
 
     const socials = (dto.socials ?? [])
       .filter(
@@ -101,6 +108,7 @@ export class SiteSettingsService {
       company: {
         brand: dto.brand ?? OFC_COMPANY.brand,
         legalName: dto.legalName ?? OFC_COMPANY.legalName,
+        taxCode: dto.taxCode ?? OFC_COMPANY.taxCode,
         shortAddress: dto.shortAddress ?? OFC_COMPANY.shortAddress,
         logoUrl: dto.logoUrl ?? OFC_COMPANY.logoUrl,
         offices,
