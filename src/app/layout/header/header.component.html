@@ -60,7 +60,7 @@
 
   <div class="h-header-main border-b border-border bg-white">
     <div class="container-content flex h-full items-center justify-between gap-6">
-      <app-brand imageHeightClass="h-header-main" />
+      <app-brand imageHeightClass="h-14" />
 
       <nav
         class="desktop-nav hidden h-full items-center gap-6 lg:flex"
@@ -122,8 +122,14 @@
       (keydown)="onDropdownKeydown($event, menu.key)"
     >
       <div class="container-content sub-menu-row">
-        @for (item of menu.links; track item.route) {
-          <a role="menuitem" data-dropdown-item class="sub-menu-link" [routerLink]="item.route">
+        @for (item of menu.links; track item.route + ':' + (item.fragment ?? item.label)) {
+          <a
+            role="menuitem"
+            data-dropdown-item
+            class="sub-menu-link"
+            [routerLink]="item.route"
+            [fragment]="item.fragment"
+          >
             {{ item.label }}
           </a>
         }
@@ -142,8 +148,8 @@
       <a routerLink="/" i18n="@@nav.home">Home</a>
       @for (menu of dropdowns; track menu.key) {
         <p>{{ menu.label }}</p>
-        @for (item of menu.links; track item.route) {
-          <a [routerLink]="item.route">{{ item.label }}</a>
+        @for (item of menu.links; track item.route + ':' + (item.fragment ?? item.label)) {
+          <a [routerLink]="item.route" [fragment]="item.fragment">{{ item.label }}</a>
         }
       }
       @for (link of mainLinks; track link.route) {
