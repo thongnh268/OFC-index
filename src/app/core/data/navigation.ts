@@ -10,6 +10,7 @@ export interface NavSectionLink {
   readonly label: string;
 }
 
+const ABOUT_INTRODUCE_ROUTE = '/about/introduce';
 const ABOUT_BOARD_ROUTE = '/about/board';
 const ABOUT_MILESTONES_ROUTE = '/about/milestones';
 const ABOUT_QUALITY_ROUTE = '/about/quality';
@@ -28,13 +29,31 @@ export const MAIN_NAV: readonly NavLink[] = [
 
 export const ABOUT_NAV: readonly NavLink[] = [
   {
+    label: $localize`:@@nav.introduce:Introduce`,
+    route: ABOUT_INTRODUCE_ROUTE,
+    sections: [
+      { id: 'introduce', label: $localize`:@@nav.introduce:Introduce` },
+      {
+        id: 'business-activities',
+        label: $localize`:@@nav.businessActivities:Business activities`,
+      },
+      {
+        id: 'partnership-network',
+        label: $localize`:@@nav.partnershipNetwork:Partnership Network`,
+      },
+      { id: 'vision', label: $localize`:@@nav.vision:Vision` },
+      { id: 'mission', label: $localize`:@@nav.mission:Mission` },
+      { id: 'core-values', label: $localize`:@@nav.coreValues:Core values` },
+    ],
+  },
+  {
     label: $localize`:@@nav.board:Board of Directors`,
     route: ABOUT_BOARD_ROUTE,
     sections: [
-      { id: 'board-leadership', label: $localize`:@@nav.boardLeadership:Leadership` },
+      { id: 'board-leadership', label: $localize`:@@nav.board:Board of Directors` },
       {
         id: BOARD_THANK_YOU_LETTER_FRAGMENT,
-        label: $localize`:@@nav.thankYouLetter:Thank you letter`,
+        label: $localize`:@@nav.thankYouLetter:Letter of Appreciation`,
       },
     ],
   },
