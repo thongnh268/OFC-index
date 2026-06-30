@@ -11,6 +11,12 @@
   margin-top: 0;
 }
 
+/* Body of the letter reads as a formal document: justified prose (per the design).
+   Scoped to the projected prose so it never overrides the centred signature block. */
+.letter-box app-inner-content p {
+  text-align: justify;
+}
+
 @media (max-width: 767.98px) {
   .letter-box {
     padding: 24px 20px 28px;
@@ -32,11 +38,14 @@
 }
 
 .signature__role {
+  font-size: 1.125rem;
   font-weight: 700;
+  line-height: 1.4;
+  white-space: pre-line;
 }
 
 .signature__signed {
-  color: var(--color-text-muted);
+  font-style: italic;
   margin-top: 4px;
 }
 

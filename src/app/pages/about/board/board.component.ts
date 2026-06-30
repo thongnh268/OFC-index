@@ -4,20 +4,12 @@ import { type BreadcrumbItem } from '../../../shared/components/breadcrumb/bread
 import { InnerContentComponent } from '../../../shared/components/inner-content/inner-content.component';
 import { InnerPageComponent } from '../../../shared/components/inner-page/inner-page.component';
 import { boardContent } from './board-content.data';
-import { BoardPeopleComponent } from './sections/board-people.component';
 import { OrgChartComponent } from './sections/org-chart.component';
-import { WorkflowComponent } from './sections/workflow.component';
 
 @Component({
   selector: 'app-board-page',
   standalone: true,
-  imports: [
-    InnerPageComponent,
-    InnerContentComponent,
-    OrgChartComponent,
-    BoardPeopleComponent,
-    WorkflowComponent,
-  ],
+  imports: [InnerPageComponent, InnerContentComponent, OrgChartComponent],
   templateUrl: './board.component.html',
   styleUrl: './board.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,59 +1,50 @@
 import { type InnerContentBlock } from '../../../shared/components/inner-content/inner-content.component';
-import { type OrgDepartment } from './sections/org-chart.component';
-import { type PersonEntry } from './sections/board-people.component';
-import { type WorkflowStep } from './sections/workflow.component';
+import { type OrgRole } from './sections/org-chart.component';
 
 // Code-owned bilingual content for the Board of Directors page. Org chart, leadership team,
 // advisory board and workflow are real company content from the Figma design (which shipped
-// them as a flat image); the CEO "thank you letter" is real copy. Vietnamese is a working
+// them as a flat image); the CEO "Letter of Appreciation" is real copy. Vietnamese is a working
 // translation for review. Person photos are PLACEHOLDER portraits (randomuser.me) so the cards
 // aren't empty - replace `photoUrl` with the real headshots when available.
 export interface BoardSignature {
   readonly role: string;
   readonly signed: string;
-  readonly name: string;
 }
 
 export interface BoardContent {
   readonly breadcrumbHome: string;
   readonly breadcrumbAbout: string;
   readonly title: string;
-  readonly ceoLabel: string;
-  readonly departments: readonly OrgDepartment[];
-  readonly leadershipHeading: string;
-  readonly leadership: readonly PersonEntry[];
-  readonly advisoryHeading: string;
-  readonly advisory: readonly PersonEntry[];
-  readonly workflowHeading: string;
-  readonly workflow: readonly WorkflowStep[];
+  readonly chairmanLabel: string;
+  readonly executiveLabel: string;
+  readonly directors: readonly OrgRole[];
+  readonly managers: readonly OrgRole[];
   readonly letterHeading: string;
   readonly blocks: readonly InnerContentBlock[];
   readonly signature: BoardSignature;
 }
 
 const LETTER_EN: readonly string[] = [
-  'Dear valued customers,',
-  'On behalf of all the headquarters and subsidiaries of Thanh Hoa Co., Ltd. and Dai Duong Forest Products JSC., I would like to express our respectful greetings and deepest gratitude for your cooperation.',
-  "We are a company that specializes in wood chip and wood pellet processing, manufacturing and afforestation; our corporation's quality management has been strictly controlled and continuously improved throughout its over 10-year history, affirming its position in the market.",
-  'Thanks to your valuable trust and cooperation, we have gained significant achievements. You have been not only valued customers, but our companions and motivators, encouraging everyone and every subsidiary in our system to strive to create the best quality products for the market.',
-  'In addition to building a factory, we also build a nursery system to ensure the best quality of seedlings provided to forest growers.',
-  'We affirm that we will strive to maintain and improve product quality, ensure our reputation with our customers, and be responsible for the community and society.',
-  'We are ready to cooperate in all aspects that you are interested in, such as conveyor belts, warehousing, and providing a stable, high-quality and long-lasting goods output.',
-  'Once again, on behalf of all the member companies in the system of Thanh Hoa Co., Ltd. and Dai Duong Forest Products JSC., I would like to express my sincere thanks and appreciation to you.',
-  'We wish you and your families good health, happiness and success.',
-  'Best regards,',
+  'Dear valued customers and partners,',
+  'On behalf of the Board of Management and all employees of Dai Duong Forest Products Processing Joint Stock Company, I would like to extend our respectful greetings, sincere thanks, and deepest gratitude for your trust, companionship, and valuable cooperation over the years.',
+  'Throughout our journey of building and developing, Dai Duong has always kept in mind that our success is measured not only by production scale or export volume, but also by the trust of our customers, the strong bonds with our partners, and the sustainable values we bring to the community and society.',
+  'As a company operating in the processing and exporting of wood chips, biomass wood pellets, and other wood products, we continuously invest in technology, perfect our quality management systems, and develop legal, sustainable raw material sources to meet the increasingly rigorous standards of the international market. Every product bearing the Dai Duong brand is not merely the outcome of a strict production process, but also a testament to our commitment to quality, credibility, and environmental responsibility.',
+  'We understand that our achievements today bear the significant hallmark of your companionship. Your trust and enduring cooperation have become the driving force for Dai Duong to continuously innovate, enhance our competitive capacity, and steadily affirm our position in both domestic and international markets.',
+  'With a long-term strategic vision, Dai Duong continues to pursue the goal of building a sustainable forestry value chain, developing stable raw material zones, improving service quality, and creating environmentally friendly products. We aim to contribute to the growth of a green economy and the reduction of global carbon emissions.',
+  'We commit to maintaining a spirit of sincere, transparent, and responsible cooperation. We will continuously improve to provide you with the best products and services, truly worthy of the trust you have placed in Dai Duong.',
+  'Once again, we extend our heartfelt thanks for your continued partnership. We wish you and your families health, happiness, prosperity, and success. We look forward to continuing to walk alongside you on the path of sustainable development in the future.',
+  'Sincerely',
 ];
 
 const LETTER_VI: readonly string[] = [
-  'Kính gửi Quý khách hàng,',
-  'Thay mặt toàn thể trụ sở và các công ty thành viên của Công ty TNHH Thanh Hòa và Công ty CP Lâm sản Đại Dương, tôi xin gửi lời chào trân trọng và lòng biết ơn sâu sắc nhất đến sự hợp tác của Quý khách.',
-  'Chúng tôi là doanh nghiệp chuyên chế biến, sản xuất dăm gỗ và viên nén gỗ cùng hoạt động trồng rừng; công tác quản lý chất lượng của tập đoàn luôn được kiểm soát chặt chẽ và không ngừng cải tiến trong suốt hơn 10 năm hình thành và phát triển, khẳng định vị thế trên thị trường.',
-  'Nhờ sự tin tưởng và hợp tác quý báu của Quý khách, chúng tôi đã đạt được những thành tựu đáng kể. Quý khách không chỉ là khách hàng mà còn là người đồng hành và nguồn động lực, thôi thúc mỗi cá nhân và mỗi công ty thành viên trong hệ thống nỗ lực tạo ra những sản phẩm chất lượng tốt nhất cho thị trường.',
-  'Bên cạnh việc xây dựng nhà máy, chúng tôi còn xây dựng hệ thống vườn ươm nhằm bảo đảm chất lượng tốt nhất cho cây giống cung cấp cho người trồng rừng.',
-  'Chúng tôi cam kết sẽ nỗ lực duy trì và nâng cao chất lượng sản phẩm, giữ vững uy tín với khách hàng, đồng thời có trách nhiệm với cộng đồng và xã hội.',
-  'Chúng tôi sẵn sàng hợp tác trên mọi phương diện mà Quý khách quan tâm, như băng tải, kho bãi và cung cấp nguồn hàng ổn định, chất lượng và lâu dài.',
-  'Một lần nữa, thay mặt toàn thể các công ty thành viên trong hệ thống Công ty TNHH Thanh Hòa và Công ty CP Lâm sản Đại Dương, tôi xin gửi lời cảm ơn và tri ân chân thành đến Quý khách.',
-  'Kính chúc Quý khách cùng gia đình sức khỏe, hạnh phúc và thành công.',
+  'Kính gửi quý khách hàng và đối tác,',
+  'Thay mặt Ban Giám đốc và toàn thể cán bộ nhân viên Công ty Cổ phần Chế biến Lâm sản Đại Dương, tôi xin gửi lời chào trân trọng, lời cảm ơn chân thành và lòng biết ơn sâu sắc nhất đối với sự tin tưởng, đồng hành và hợp tác quý báu của Quý vị trong suốt những năm qua.',
+  'Trong suốt hành trình xây dựng và phát triển, Đại Dương luôn khắc ghi rằng thành công của chúng tôi không chỉ được đo bằng quy mô sản xuất hay sản lượng xuất khẩu, mà còn bằng niềm tin của khách hàng, mối quan hệ gắn kết bền chặt với các đối tác, và những giá trị bền vững mà chúng tôi mang lại cho cộng đồng và xã hội.',
+  'Là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu dăm gỗ, viên nén gỗ sinh khối và các sản phẩm gỗ khác, chúng tôi không ngừng đầu tư vào công nghệ, hoàn thiện hệ thống quản lý chất lượng và phát triển nguồn nguyên liệu hợp pháp, bền vững nhằm đáp ứng các tiêu chuẩn ngày càng khắt khe của thị trường quốc tế. Mỗi sản phẩm mang thương hiệu Đại Dương không chỉ đơn thuần là kết quả của một quy trình sản xuất nghiêm ngặt, mà còn là minh chứng cho cam kết của chúng tôi về chất lượng, uy tín và trách nhiệm với môi trường.',
+  'Chúng tôi hiểu rằng những thành quả đạt được ngày hôm nay mang đậm dấu ấn đồng hành của Quý vị. Sự tin tưởng và hợp tác lâu dài của Quý vị đã trở thành động lực to lớn để Đại Dương không ngừng đổi mới, nâng cao năng lực cạnh tranh và từng bước khẳng định vị thế trên cả thị trường trong nước lẫn quốc tế.',
+  'Với tầm nhìn chiến lược dài hạn, Đại Dương tiếp tục theo đuổi mục tiêu xây dựng chuỗi giá trị lâm nghiệp bền vững, phát triển vùng nguyên liệu ổn định, nâng cao chất lượng dịch vụ và tạo ra các sản phẩm thân thiện với môi trường. Chúng tôi hướng tới mục tiêu đóng góp vào sự phát triển của nền kinh tế xanh và giảm thiểu lượng khí thải carbon toàn cầu.',
+  'Chúng tôi cam kết luôn giữ vững tinh thần hợp tác chân thành, minh bạch và có trách nhiệm. Chúng tôi sẽ không ngừng cải tiến để mang đến cho Quý vị những sản phẩm và dịch vụ tốt nhất, xứng đáng với niềm tin mà Quý vị đã dành cho Đại Dương.',
+  'Một lần nữa, chúng tôi xin trân trọng cảm ơn sự đồng hành tiếp tục của Quý vị. Kính chúc Quý vị và gia đình sức khỏe, hạnh phúc, an khang thịnh vượng và thành công. Chúng tôi rất mong được tiếp tục sát cánh cùng Quý vị trên con đường phát triển bền vững trong tương lai.',
   'Trân trọng,',
 ];
 
@@ -61,182 +52,52 @@ const EN: BoardContent = {
   breadcrumbHome: 'Homepage',
   breadcrumbAbout: 'About us',
   title: 'Board of Directors',
-  ceoLabel: 'Chief Executive Officer (CEO)',
-  departments: [
-    {
-      icon: 'chartBar',
-      title: 'Director of Sales',
-      items: [
-        { icon: 'sun', label: 'Sales' },
-        { icon: 'trendingUp', label: 'Marketing' },
-        { icon: 'headset', label: 'Customer Service' },
-      ],
-    },
-    {
-      icon: 'factory',
-      title: 'Director of Production',
-      items: [
-        { icon: 'bulb', label: 'R&D' },
-        { icon: 'cart', label: 'Procurement' },
-        { icon: 'settings', label: 'Manufacturing' },
-      ],
-    },
-    {
-      icon: 'currencyDollar',
-      title: 'Chief Financial Officer (CFO)',
-      items: [
-        { icon: 'fileDollar', label: 'Finance' },
-        { icon: 'people', label: 'Human Resources' },
-      ],
-    },
+  chairmanLabel: 'Chairman of the Board',
+  executiveLabel: 'Executive Board',
+  directors: [
+    { icon: 'settings', label: 'System Director' },
+    { icon: 'people', label: 'HR Director' },
+    { icon: 'chartBar', label: 'Chief Financial Officer' },
+    { icon: 'wood', label: 'Director of Laminated Timber Division', highlight: true },
+    { icon: 'packages', label: 'Director of Pellet Production Division' },
+    { icon: 'ship', label: 'Director of PTSC Dai Duong' },
+    { icon: 'cart', label: 'Procurement Manager' },
   ],
-  leadershipHeading: 'Leadership Team',
-  leadership: [
-    {
-      name: 'Thang Khanh Huy',
-      title: 'Chief Executive Officer (CEO)',
-      photoUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
-    },
-    {
-      name: 'Cao Trung Hung',
-      title: 'Chief Commercial Officer (CCO) – Board Member',
-      photoUrl: 'assets/images/directors/ceo-cao-trung-hung.jpeg',
-    },
-    {
-      name: 'Do Thi Diu',
-      title: 'Chief Financial Officer (CFO)',
-      photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
-    },
+  managers: [
+    { icon: 'factory', label: 'Manager of Dai Duong Wood Chip Factory' },
+    { icon: 'factory', label: 'Manager of PTSC Wood Chip Factory' },
+    { icon: 'factory', label: 'Manager of Dai Duong Laminated Timber Factory' },
+    { icon: 'factory', label: 'Manager of Conveyor Operation Division' },
   ],
-  advisoryHeading: 'Advisory Board',
-  advisory: [
-    {
-      name: 'Park Jeong Eun',
-      photoUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
-      bio: [
-        'Professor at Ewha Womans University',
-        'Senior Advisor in Marketing (Korea)',
-        'Strategic Advisor at Binh Minh HP (Korea)',
-      ],
-    },
-    {
-      name: 'Pham Quoc Khanh',
-      photoUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
-      bio: [
-        'PhD in Economics',
-        'Senior Lecturer at National Defense Academy',
-        'Former Deputy Director of Planning Department',
-        'Former Vice Chairman of Nam Dinh Province',
-        'Current Senior Advisor at Binh Minh HP',
-      ],
-    },
-    {
-      name: 'Nguyen Ngoc Mai',
-      photoUrl: 'https://randomuser.me/api/portraits/women/26.jpg',
-      bio: ['Chairman of Vietkao Group / Board Member', 'Senior Advisor at Binh Minh HP'],
-    },
-  ],
-  workflowHeading: 'Workflow Process',
-  workflow: [
-    { icon: 'mail', number: '01', label: 'Receive Customer Inquiry' },
-    { icon: 'fileDollar', number: '02', label: 'Provide Quotation' },
-    { icon: 'clipboard', number: '03', label: 'Submit Draft Contract' },
-    { icon: 'handshake', number: '04', label: 'Sign Contract' },
-  ],
-  letterHeading: 'Thank you letter',
+  letterHeading: 'Letter of Appreciation',
   blocks: [{ heading: LETTER_EN[0], paragraphs: LETTER_EN.slice(1) }],
-  signature: { role: 'C.E.O', signed: '(Signed)', name: 'Phan Van Hien' },
+  signature: { role: 'Board of Management\nDai Duong Forest JSC', signed: '(Signed)' },
 };
 
 const VI: BoardContent = {
   breadcrumbHome: 'Trang chủ',
   breadcrumbAbout: 'Giới thiệu',
   title: 'Ban Giám đốc',
-  ceoLabel: 'Tổng Giám đốc (CEO)',
-  departments: [
-    {
-      icon: 'chartBar',
-      title: 'Giám đốc Kinh doanh',
-      items: [
-        { icon: 'sun', label: 'Bán hàng' },
-        { icon: 'trendingUp', label: 'Marketing' },
-        { icon: 'headset', label: 'Chăm sóc khách hàng' },
-      ],
-    },
-    {
-      icon: 'factory',
-      title: 'Giám đốc Sản xuất',
-      items: [
-        { icon: 'bulb', label: 'Nghiên cứu & Phát triển' },
-        { icon: 'cart', label: 'Thu mua' },
-        { icon: 'settings', label: 'Sản xuất' },
-      ],
-    },
-    {
-      icon: 'currencyDollar',
-      title: 'Giám đốc Tài chính (CFO)',
-      items: [
-        { icon: 'fileDollar', label: 'Tài chính' },
-        { icon: 'people', label: 'Nhân sự' },
-      ],
-    },
+  chairmanLabel: 'Chủ tịch Hội đồng Quản trị',
+  executiveLabel: 'Ban Điều hành',
+  directors: [
+    { icon: 'settings', label: 'Giám đốc Hệ thống' },
+    { icon: 'people', label: 'Giám đốc Nhân sự' },
+    { icon: 'chartBar', label: 'Giám đốc Tài chính' },
+    { icon: 'wood', label: 'Giám đốc Phân xưởng Gỗ ghép', highlight: true },
+    { icon: 'packages', label: 'Giám đốc Phân xưởng Sản xuất Viên nén' },
+    { icon: 'ship', label: 'Giám đốc PTSC Đại Dương' },
+    { icon: 'cart', label: 'Quản lý Thu mua' },
   ],
-  leadershipHeading: 'Ban lãnh đạo',
-  leadership: [
-    {
-      name: 'Thắng Khánh Huy',
-      title: 'Tổng Giám đốc (CEO)',
-      photoUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
-    },
-    {
-      name: 'Cao Trung Hưng',
-      title: 'Giám đốc Thương mại (CCO) – Thành viên HĐQT',
-      photoUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
-    },
-    {
-      name: 'Đỗ Thị Dịu',
-      title: 'Giám đốc Tài chính (CFO)',
-      photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
-    },
-  ],
-  advisoryHeading: 'Hội đồng cố vấn',
-  advisory: [
-    {
-      name: 'Park Jeong Eun',
-      photoUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
-      bio: [
-        'Giáo sư Đại học Ewha Womans',
-        'Cố vấn cấp cao về Marketing (Hàn Quốc)',
-        'Cố vấn chiến lược tại Bình Minh HP (Hàn Quốc)',
-      ],
-    },
-    {
-      name: 'Phạm Quốc Khánh',
-      photoUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
-      bio: [
-        'Tiến sĩ Kinh tế',
-        'Giảng viên cao cấp Học viện Quốc phòng',
-        'Nguyên Phó Giám đốc Phòng Kế hoạch',
-        'Nguyên Phó Chủ tịch tỉnh Nam Định',
-        'Cố vấn cấp cao hiện tại tại Bình Minh HP',
-      ],
-    },
-    {
-      name: 'Nguyễn Ngọc Mai',
-      photoUrl: 'https://randomuser.me/api/portraits/women/26.jpg',
-      bio: ['Chủ tịch Tập đoàn Vietkao / Thành viên HĐQT', 'Cố vấn cấp cao tại Bình Minh HP'],
-    },
-  ],
-  workflowHeading: 'Quy trình làm việc',
-  workflow: [
-    { icon: 'mail', number: '01', label: 'Tiếp nhận yêu cầu' },
-    { icon: 'fileDollar', number: '02', label: 'Báo giá' },
-    { icon: 'clipboard', number: '03', label: 'Gửi hợp đồng nháp' },
-    { icon: 'handshake', number: '04', label: 'Ký hợp đồng' },
+  managers: [
+    { icon: 'factory', label: 'Quản lý Nhà máy Dăm gỗ Đại Dương' },
+    { icon: 'factory', label: 'Quản lý Nhà máy Dăm gỗ PTSC' },
+    { icon: 'factory', label: 'Quản lý Nhà máy Gỗ ghép Đại Dương' },
+    { icon: 'factory', label: 'Quản lý Bộ phận Vận hành Băng tải' },
   ],
   letterHeading: 'Thư cảm ơn',
   blocks: [{ heading: LETTER_VI[0], paragraphs: LETTER_VI.slice(1) }],
-  signature: { role: 'Tổng Giám đốc', signed: '(Đã ký)', name: 'Phan Văn Hiền' },
+  signature: { role: 'Ban Điều hành \nCông ty Cổ phần Lâm nghiệp Đại Dương', signed: '(Đã ký)' },
 };
 
 export function boardContent(locale: string): BoardContent {
