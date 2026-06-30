@@ -64,6 +64,13 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.introduce" datatype="html">
+        <source>Introduce</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.milestones" datatype="html">
         <source>Establishment Milestones</source>
         <context-group purpose="location">
@@ -86,10 +93,45 @@
         </context-group>
       </trans-unit>
       <trans-unit id="nav.thankYouLetter" datatype="html">
-        <source>Thank you letter</source>
+        <source>Letter of Appreciation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
           <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.businessActivities" datatype="html">
+        <source>Business activities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.partnershipNetwork" datatype="html">
+        <source>Partnership Network</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.vision" datatype="html">
+        <source>Vision</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.mission" datatype="html">
+        <source>Mission</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.coreValues" datatype="html">
+        <source>Core values</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/data/navigation.ts</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.qualityPolicies" datatype="html">
@@ -258,7 +300,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
-        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
+        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Copyright by <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
           <context context-type="linenumber">86,87</context>

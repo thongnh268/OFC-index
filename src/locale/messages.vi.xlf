@@ -34,6 +34,10 @@
         <source>Board of Directors</source>
         <target>Ban lãnh đạo</target>
       </trans-unit>
+      <trans-unit id="nav.introduce" datatype="html">
+        <source>Introduce</source>
+        <target>Giới thiệu</target>
+      </trans-unit>
       <trans-unit id="nav.milestones" datatype="html">
         <source>Establishment Milestones</source>
         <target>Cột mốc thành lập</target>
@@ -47,8 +51,28 @@
         <target>Ban lãnh đạo</target>
       </trans-unit>
       <trans-unit id="nav.thankYouLetter" datatype="html">
-        <source>Thank you letter</source>
+        <source>Letter of Appreciation</source>
         <target>Thư cảm ơn</target>
+      </trans-unit>
+      <trans-unit id="nav.businessActivities" datatype="html">
+        <source>Business activities</source>
+        <target>Hoạt động kinh doanh</target>
+      </trans-unit>
+      <trans-unit id="nav.partnershipNetwork" datatype="html">
+        <source>Partnership Network</source>
+        <target>Mạng lưới đối tác</target>
+      </trans-unit>
+      <trans-unit id="nav.vision" datatype="html">
+        <source>Vision</source>
+        <target>Tầm nhìn</target>
+      </trans-unit>
+      <trans-unit id="nav.mission" datatype="html">
+        <source>Mission</source>
+        <target>Sứ mệnh</target>
+      </trans-unit>
+      <trans-unit id="nav.coreValues" datatype="html">
+        <source>Core values</source>
+        <target>Giá trị cốt lõi</target>
       </trans-unit>
       <trans-unit id="nav.qualityPolicies" datatype="html">
         <source>Quality policies</source>
@@ -143,8 +167,8 @@
         <target>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></target>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
-        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.brand }}"/>. All rights reserved.</source>
-        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> <x id="INTERPOLATION_1" equiv-text="{{ company.brand }}"/>. Bảo lưu mọi quyền.</target>
+        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Copyright by <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Copyright by <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</target>
       </trans-unit>
       <trans-unit id="header.secondaryNav" datatype="html">
         <source>Secondary</source>
@@ -188,7 +212,7 @@
       </trans-unit>
       <trans-unit id="nav.aboutMenu" datatype="html">
         <source>About Us</source>
-        <target>Giới thiệu</target>
+        <target>Về chúng tôi</target>
       </trans-unit>
       <trans-unit id="nav.productsMenu" datatype="html">
         <source>Products</source>
@@ -356,7 +380,7 @@
       </trans-unit>
       <trans-unit id="sidebar.about" datatype="html">
         <source>About us</source>
-        <target>Giới thiệu</target>
+        <target>Về chúng tôi</target>
       </trans-unit>
       <trans-unit id="sidebar.products" datatype="html">
         <source>Products &amp; Services</source>
