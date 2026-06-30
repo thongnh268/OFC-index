@@ -79,7 +79,7 @@ const VI: QualityContent = {
   blocks: [
     {
       paragraphs: [
-        'Ban lãnh đạo <b>CÔNG TY TNHH THANH HÒA</b> và <b>CÔNG TY CP LÂM SẢN ĐẠI DƯƠNG</b> công bố Chính sách kiểm soát chất lượng như sau:',
+        'Ban lãnh đạo <b>CÔNG TY TNHH THANH HÒA</b> và <b>CÔNG TY CỔ PHẦN CHẾ BIẾN LÂM SẢN ĐẠI DƯƠNG</b> công bố Chính sách kiểm soát chất lượng như sau:',
       ],
     },
     {
