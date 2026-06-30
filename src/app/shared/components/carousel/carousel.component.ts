@@ -156,17 +156,33 @@ export class CarouselComponent {
     const per = this.cardsPerPage(el, first);
     this.cardsPerPageValue = per;
     this.cardStrideValue = this.cardStride(el, first);
-    const pages = Math.max(1, Math.ceil(el.children.length / per));
+    const hasOverflow = el.scrollWidth > el.clientWidth + 1;
+    const pages = hasOverflow ? Math.max(1, Math.ceil(el.children.length / per)) : 1;
     if (this.pages() !== pages) {
       this.pages.set(pages);
+    }
+    if (this.page() > pages - 1) {
+      this.page.set(pages - 1);
     }
   }
 
   private syncPage(): void {
     const el = this.track().nativeElement;
     const pages = this.pages();
-    const leftmostCard = Math.round(el.scrollLeft / this.cardStrideValue);
-    const nextPage = Math.min(pages - 1, Math.round(leftmostCard / this.cardsPerPageValue));
+    const childCount = el.children.length;
+    const maxStartIndex = Math.max(0, childCount - this.cardsPerPageValue);
+    const leftmostCard = Math.min(maxStartIndex, Math.round(el.scrollLeft / this.cardStrideValue));
+    let nextPage = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+    for (let i = 0; i < pages; i += 1) {
+      const distance = Math.abs(
+        leftmostCard - this.pageStartIndex(i, pages, childCount, this.cardsPerPageValue),
+      );
+      if (distance <= nearestDistance) {
+        nearestDistance = distance;
+        nextPage = i;
+      }
+    }
     if (this.page() !== nextPage) {
       this.page.set(nextPage);
     }
@@ -179,7 +195,9 @@ export class CarouselComponent {
       return;
     }
     const per = this.cardsPerPage(el, first);
-    const target = el.children[Math.min(index * per, el.children.length - 1)];
+    const pages = this.pages();
+    const targetIndex = this.pageStartIndex(index, pages, el.children.length, per);
+    const target = el.children[targetIndex];
     // Scroll the track only - scrollIntoView would also scroll the PAGE whenever the
     // carousel is off-screen. The measured card edge is exactly a snap position.
     const left =
@@ -209,7 +227,7 @@ export class CarouselComponent {
       return;
     }
     this.autoplayTimer = setInterval(() => {
-      if (!this.visible() || this.hovered() || this.pages() < 2) {
+      if ((!this.visible() && !this.isTrackInViewport()) || this.hovered() || this.pages() < 2) {
         return;
       }
       this.goTo((this.page() + 1) % this.pages());
@@ -223,6 +241,17 @@ export class CarouselComponent {
 
   private cardStride(el: HTMLElement, card: HTMLElement): number {
     return card.getBoundingClientRect().width + this.gap(el);
+  }
+
+  private pageStartIndex(index: number, pages: number, childCount: number, per: number): number {
+    const boundedPage = Math.min(Math.max(index, 0), Math.max(0, pages - 1));
+    const maxStartIndex = Math.max(0, childCount - per);
+    return Math.min(boundedPage * per, maxStartIndex);
+  }
+
+  private isTrackInViewport(): boolean {
+    const rect = this.track().nativeElement.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
   }
 
   private gap(el: HTMLElement): number {

@@ -2,10 +2,6 @@
   <div class="container-content">
     <div class="partners-head">
       <app-section-head [eyebrow]="content().eyebrow" [heading]="content().heading" />
-      <a class="partners-viewall" routerLink="/subsidiaries">
-        {{ content().viewAllLabel }}
-        <app-icon name="chevronRight" [size]="16" />
-      </a>
     </div>
 
     <app-carousel class="partner-carousel">
@@ -25,7 +21,11 @@
 
       @for (cert of content().certificates; track $index) {
         <div class="cert">
-          <img class="cert-logo" [src]="cert.imageUrl" [alt]="cert.name" loading="lazy" />
+          @if (cert.imageUrl) {
+            <img class="cert-logo" [src]="cert.imageUrl" [alt]="cert.name" loading="lazy" />
+          } @else {
+            <div class="cert-logo cert-logo-placeholder" aria-hidden="true"></div>
+          }
           <p class="cert-name">{{ cert.name }}</p>
           <p class="cert-subtitle">{{ cert.subtitle }}</p>
           @for (code of cert.codes; track $index) {

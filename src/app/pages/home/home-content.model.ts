@@ -88,7 +88,7 @@ export interface PartnerLogo {
 }
 
 export interface CertificateItem {
-  readonly imageUrl: string;
+  readonly imageUrl: string | null;
   readonly name: string;
   readonly subtitle: string;
   readonly codes: readonly string[];

@@ -60,20 +60,18 @@ const EN: HomeContent = {
     eyebrow: 'About OFC Company',
     heading: 'Sustainable products. Reliable supply chain',
     body: parseEmphasis(
-      '<b>OFC Company</b> comprises <b>Thanh Hoa Company Limited</b> (established in 2005) and <b>Dai Duong Forest Products JSC</b> (established in 2017). Our leaders and employees strive to make OFC company a professional and reputable provider of wood industry products and services, constantly innovating technology, creating new value, and implementing reliable production processes to contribute to sustainable social development.',
+      '<b>Dai Duong Forest Products JSC</b> was established in 2017. Our leaders and employees strive to make OFC company a professional and reputable provider of wood industry products and services, constantly innovating technology, creating new value, and implementing reliable production processes to contribute to sustainable social development.',
     ),
     videoUrl: 'https://www.youtube.com/embed/YTUConEONEs',
     majorBusiness: {
       label: 'Major business',
       value: parseEmphasis(
-        'Manufacturing of <accent>wood chips</accent> and <accent>wood pellets</accent> for export',
+        'Manufacturing of <accent>wood chips</accent> and <accent>wood pellets</accent> for export, manufacturing of <accent>edge-glued panels</accent>',
       ),
     },
     exportVolume: {
       label: 'Annual export volume',
-      value: parseEmphasis(
-        'Quantity of wood chip exported to <accent>Japan</accent> and <accent>China</accent> per annum',
-      ),
+      value: parseEmphasis(''),
     },
     exportVolumes: [
       { year: '2018', volume: '350.000 BDMT' },
@@ -83,12 +81,13 @@ const EN: HomeContent = {
       { year: '2022', volume: '800.000 BDMT' },
       { year: '2023', volume: '900.000 BDMT' },
       { year: '2024', volume: '1.050.000 BDMT' },
-      { year: '2025', volume: '1.300.000 BDMT (Plan)' },
+      { year: '2025', volume: '1.100.000 BDMT' },
+      { year: '2026', volume: '1.300.000 BDMT (Plan)' },
     ],
     subsidiaries: {
       label: 'Subsidiaries network',
       value: parseEmphasis(
-        '16 subsidiaries at <accent>Nghi Son Port</accent> & 5 subsidiaries at <accent>Song Lam Port</accent>',
+        '7 subsidiaries at <accent>Nghi Son Port</accent> & 5 subsidiaries at <accent>VISSAI Port</accent>',
       ),
     },
   },
@@ -164,6 +163,12 @@ const EN: HomeContent = {
         subtitle: 'Chains of Custody',
         codes: ['PEFC ST 2002:2020', 'PEFC ST 2001:2020'],
       },
+      {
+        imageUrl: 'assets/images/certificates/sbp.png',
+        name: 'SBP',
+        subtitle: 'The promise of good biomass',
+        codes: [],
+      },
     ],
     figures: [
       {
@@ -226,20 +231,18 @@ const VI: HomeContent = {
     eyebrow: 'Về công ty OFC',
     heading: 'Sản phẩm bền vững. Chuỗi cung ứng đáng tin cậy',
     body: parseEmphasis(
-      '<b>OFC Company</b> gồm <b>Công ty TNHH Thanh Hoa</b> (thành lập năm 2005) và <b>CTCP Lâm sản Đại Dương</b> (thành lập năm 2017). Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa OFC trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín - liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
+      '<b>Công ty Cổ phần Chế biến Lâm sản Đại Dương</b> được thành lập năm 2017. Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa OFC trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín - liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
     ),
     videoUrl: 'https://www.youtube.com/embed/YTUConEONEs',
     majorBusiness: {
       label: 'Lĩnh vực kinh doanh chính',
       value: parseEmphasis(
-        'Sản xuất <accent>dăm gỗ</accent> và <accent>viên nén gỗ</accent> phục vụ xuất khẩu',
+        'Sản xuất <accent>dăm gỗ</accent> và <accent>viên nén gỗ</accent> phục vụ xuất khẩu, sản xuất <accent>ván ghép thanh</accent>',
       ),
     },
     exportVolume: {
       label: 'Sản lượng xuất khẩu hàng năm',
-      value: parseEmphasis(
-        'Sản lượng dăm gỗ xuất khẩu sang <accent>Nhật Bản</accent> và <accent>Trung Quốc</accent> mỗi năm',
-      ),
+      value: parseEmphasis(''),
     },
     exportVolumes: [
       { year: '2018', volume: '350.000 BDMT' },
@@ -249,12 +252,13 @@ const VI: HomeContent = {
       { year: '2022', volume: '800.000 BDMT' },
       { year: '2023', volume: '900.000 BDMT' },
       { year: '2024', volume: '1.050.000 BDMT' },
-      { year: '2025', volume: '1.300.000 BDMT (Kế hoạch)' },
+      { year: '2025', volume: '1.100.000 BDMT' },
+      { year: '2026', volume: '1.300.000 BDMT (Kế hoạch)' },
     ],
     subsidiaries: {
       label: 'Mạng lưới công ty thành viên',
       value: parseEmphasis(
-        '16 công ty thành viên tại <accent>cảng Nghi Sơn</accent> & 5 công ty thành viên tại <accent>cảng Sông Lam</accent>',
+        '7 công ty thành viên tại <accent>cảng Nghi Sơn</accent> & 5 công ty thành viên tại <accent>cảng VISSAI</accent>',
       ),
     },
   },
@@ -329,6 +333,12 @@ const VI: HomeContent = {
         name: 'PEFC COC',
         subtitle: 'Chuỗi hành trình sản phẩm',
         codes: ['PEFC ST 2002:2020', 'PEFC ST 2001:2020'],
+      },
+      {
+        imageUrl: 'assets/images/certificates/sbp.png',
+        name: 'SBP',
+        subtitle: 'The promise of good biomass',
+        codes: [],
       },
     ],
     figures: [

@@ -1,4 +1,4 @@
-<section class="about container-content">
+<section id="about" class="about container-content">
   <app-section-head
     [eyebrow]="content().eyebrow"
     [heading]="content().heading"
@@ -32,16 +32,20 @@
     <div class="about-details">
       <div class="about-block">
         <h3 class="about-label">{{ content().majorBusiness.label }}</h3>
-        <p class="about-value">
-          <app-text-segments [segments]="content().majorBusiness.value" />
-        </p>
+        @if (content().majorBusiness.value.length) {
+          <p class="about-value">
+            <app-text-segments [segments]="content().majorBusiness.value" />
+          </p>
+        }
       </div>
 
       <div class="about-block">
         <h3 class="about-label">{{ content().exportVolume.label }}</h3>
-        <p class="about-value">
-          <app-text-segments [segments]="content().exportVolume.value" />
-        </p>
+        @if (content().exportVolume.value.length) {
+          <p class="about-value">
+            <app-text-segments [segments]="content().exportVolume.value" />
+          </p>
+        }
         <ul class="about-volumes">
           @for (item of content().exportVolumes; track item.year) {
             <li class="about-volume">
@@ -53,9 +57,11 @@
 
       <div class="about-block">
         <h3 class="about-label">{{ content().subsidiaries.label }}</h3>
-        <p class="about-value">
-          <app-text-segments [segments]="content().subsidiaries.value" />
-        </p>
+        @if (content().subsidiaries.value.length) {
+          <p class="about-value">
+            <app-text-segments [segments]="content().subsidiaries.value" />
+          </p>
+        }
       </div>
     </div>
   </div>

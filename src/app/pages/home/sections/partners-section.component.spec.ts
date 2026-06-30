@@ -56,13 +56,11 @@ describe('PartnersSectionComponent', () => {
     host = fixture.nativeElement as HTMLElement;
   });
 
-  it('renders the section head and the view-all link to subsidiaries', () => {
+  it('renders the section head without a view-all link', () => {
     expect(host.querySelector('.section-eyebrow')?.textContent).toContain(
       'Partners & Certificates',
     );
-    const viewAll = host.querySelector<HTMLAnchorElement>('.partners-viewall');
-    expect(viewAll?.textContent).toContain('View all partners');
-    expect(viewAll?.getAttribute('href')).toBe('/subsidiaries');
+    expect(host.querySelector('.partners-viewall')).toBeNull();
   });
 
   it('renders one logo card per partner with name as alt text', () => {

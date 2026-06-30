@@ -14,7 +14,7 @@ import { ProductsSectionComponent } from './sections/products-section.component'
 
 // Container: hands the code-owned, locale-specific home content to each section.
 // Homepage copy lives in home-content.data.ts by design; Sanity only supplies the latest
-// posts and optional siteSettings media overrides such as the hero background.
+// posts and optional siteSettings media overrides such as the hero background and partner logos.
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -32,7 +32,9 @@ import { ProductsSectionComponent } from './sections/products-section.component'
     <app-contact-bar />
     <app-about-section [content]="content.about" />
     <app-products-section [content]="content.products" />
-    <app-partners-section [content]="partnersContent()" />
+    @if (partnersContent().logos.length) {
+      <app-partners-section [content]="partnersContent()" />
+    }
     @if (posts().length) {
       <app-news-section [content]="content.news" [posts]="posts()" />
     }
@@ -55,11 +57,11 @@ export class HomeComponent {
     imageUrl: this.heroImageUrl() ?? this.content.hero.imageUrl,
   }));
 
-  // CMS logo wall overrides the code-owned set when the Studio has any; otherwise the
-  // built-in PARTNER_LOGOS render, so the section is never empty.
+  // Partner logos are CMS-owned. If Studio has none, the section stays hidden to avoid
+  // making stale built-in logos look CMS-managed.
   protected readonly partnersContent = computed(() => ({
     ...this.content.partners,
-    logos: this.partnerLogos().length ? this.partnerLogos() : this.content.partners.logos,
+    logos: this.partnerLogos(),
   }));
 
   protected readonly posts = toSignal(inject(PostsService).getLatest(), { initialValue: [] });

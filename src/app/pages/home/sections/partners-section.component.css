@@ -12,21 +12,6 @@
   justify-content: space-between;
 }
 
-.partners-viewall {
-  align-items: center;
-  color: var(--color-accent);
-  display: inline-flex;
-  flex-shrink: 0;
-  font-weight: 700;
-  gap: 4px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.partners-viewall:hover {
-  text-decoration: underline;
-}
-
 .partner-carousel {
   margin-top: 24px;
 }
@@ -64,14 +49,12 @@
   object-fit: contain;
 }
 
-/* Certs and the figures band below share ONE column system (Figma: intro 349 +
-   4 x 178) so their vertical dividers line up exactly. */
+/* Certs stay in one horizontal row on desktop: intro + 5 certificate cards. */
 .certs {
   background: rgb(253 255 250 / 0.87);
   border: 1px solid #dde6cd;
   border-radius: 15px;
   display: grid;
-  grid-template-columns: minmax(0, 349fr) repeat(4, minmax(0, 178fr));
   margin-top: 48px;
 }
 
@@ -107,6 +90,10 @@
   height: 85px;
   object-fit: contain;
   width: 85px;
+}
+
+.cert-logo-placeholder {
+  width: 0;
 }
 
 .cert-name {
@@ -161,16 +148,19 @@
   }
 }
 
-/* From 900px up: the same 5-column system as .certs - figure 1 sits under the certs
-   intro, figures 2 and 3 each span two certificate columns, so dividers align. */
-@media (min-width: 1024px) {
-  .figures {
-    grid-template-columns: minmax(0, 349fr) repeat(4, minmax(0, 178fr));
+@media (min-width: 900px) {
+  .certs {
+    display: flex;
+    flex-wrap: nowrap;
   }
 
-  .figure:nth-child(2),
-  .figure:nth-child(3) {
-    grid-column: span 2;
+  .certs-intro {
+    flex: 0 0 33%;
+  }
+
+  .cert {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 
@@ -197,7 +187,7 @@
   margin: 0;
 }
 
-@media (max-width: 1023.98px) {
+@media (max-width: 899.98px) {
   .certs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
