@@ -4,17 +4,17 @@ import { type BreadcrumbItem } from '../../../shared/components/breadcrumb/bread
 import { CompanySloganComponent } from '../../../shared/components/company-slogan/company-slogan.component';
 import { InnerContentComponent } from '../../../shared/components/inner-content/inner-content.component';
 import { InnerPageComponent } from '../../../shared/components/inner-page/inner-page.component';
-import { introduceContent } from './introduce-content.data';
+import { introductionContent } from './introduction-content.data';
 
 @Component({
-  selector: 'app-introduce-page',
+  selector: 'app-introduction-page',
   standalone: true,
   imports: [InnerPageComponent, InnerContentComponent, CompanySloganComponent],
-  templateUrl: './introduce.component.html',
+  templateUrl: './introduction.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IntroduceComponent {
-  protected readonly content = introduceContent(inject(LOCALE_ID));
+export class IntroductionComponent {
+  protected readonly content = introductionContent(inject(LOCALE_ID));
 
   protected readonly breadcrumb: readonly BreadcrumbItem[] = [
     { label: this.content.breadcrumbHome, route: '/' },

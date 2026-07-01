@@ -26,7 +26,11 @@
     <ng-content />
   </main>
 
-  <app-inner-sidebar class="inner-page__side" />
+  <app-inner-sidebar
+    class="inner-page__side"
+    [cta]="sidebarCta()"
+    [pageSections]="pageSections()"
+  />
 </div>
 
-<app-quote-cta />
+<app-quote-cta [config]="ctaConfig()" />

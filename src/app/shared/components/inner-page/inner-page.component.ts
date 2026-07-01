@@ -4,9 +4,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { OFC_COMPANY } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
 import { BreadcrumbComponent, type BreadcrumbItem } from '../breadcrumb/breadcrumb.component';
-import { InnerSidebarComponent } from '../inner-sidebar/inner-sidebar.component';
+import {
+  InnerSidebarComponent,
+  type SidebarCta,
+  type SidebarSectionGroup,
+} from '../inner-sidebar/inner-sidebar.component';
 import { PageBannerComponent } from '../page-banner/page-banner.component';
-import { QuoteCtaComponent } from '../quote-cta/quote-cta.component';
+import { QuoteCtaComponent, type QuoteCtaConfig } from '../quote-cta/quote-cta.component';
 import { SocialRowComponent } from '../social-row/social-row.component';
 
 // Shared shell for inner content pages (About-section, Product-detail): breadcrumb bar (with
@@ -38,6 +42,11 @@ export class InnerPageComponent {
   readonly bannerLabel = input<string | null>(null);
   readonly bannerLabelRouterLink = input<string | unknown[] | null>(null);
   readonly bannerLabelFragment = input<string | null>(null);
+
+  // Optional sidebar/CTA overrides, forwarded to the shared children; null keeps the defaults.
+  readonly sidebarCta = input<SidebarCta | null>(null);
+  readonly pageSections = input<SidebarSectionGroup | null>(null);
+  readonly ctaConfig = input<QuoteCtaConfig | null>(null);
 
   protected readonly company = toSignal(this.settings.getCompany(), { initialValue: OFC_COMPANY });
 }

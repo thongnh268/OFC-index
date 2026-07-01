@@ -1,0 +1,52 @@
+<app-inner-page
+  [breadcrumb]="breadcrumb"
+  [bannerImage]="null"
+  [bannerAlt]="content.title"
+  [sidebarCta]="sidebarCta"
+  [pageSections]="pageSections"
+  [ctaConfig]="ctaConfig"
+>
+  <h1>{{ content.title }}</h1>
+  <p class="company-line">{{ content.companyLine }}</p>
+  <p class="tagline">{{ content.tagline }}</p>
+  <p class="intro">{{ content.intro }}</p>
+
+  <section id="open-positions">
+    <h2>{{ content.openingPositionsHeading }}</h2>
+    <app-recruitment-positions
+      [positions]="positions()"
+      [emptyLabel]="content.noOpenPositionsLabel"
+      [responsibilitiesLabel]="content.responsibilitiesLabel"
+      [requirementsLabel]="content.requirementsLabel"
+      [compensationLabel]="content.compensationLabel"
+      [benefitsLabel]="content.benefitsLabel"
+    />
+  </section>
+
+  <section id="application-documents">
+    <h2>{{ content.applicationDocumentsHeading }}</h2>
+    <ul class="document-list">
+      @for (doc of content.applicationDocuments; track doc) {
+        <li>{{ doc }}</li>
+      }
+    </ul>
+  </section>
+
+  <section id="contact-information">
+    <h2>{{ content.contactHeading }}</h2>
+    <div class="contact-block">
+      <h3 class="contact-label">{{ content.applicationEmailLabel }}</h3>
+      <p>
+        <a [href]="'mailto:' + content.applicationEmail" class="contact-link">{{
+          content.applicationEmail
+        }}</a>
+      </p>
+    </div>
+    <div class="contact-block">
+      <h3 class="contact-label">{{ content.submitInPersonLabel }}</h3>
+      @for (line of content.submitInPersonLines; track line) {
+        <p>{{ line }}</p>
+      }
+    </div>
+  </section>
+</app-inner-page>

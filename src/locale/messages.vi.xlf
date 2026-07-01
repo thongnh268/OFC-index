@@ -34,8 +34,8 @@
         <source>Board of Directors</source>
         <target>Ban lãnh đạo</target>
       </trans-unit>
-      <trans-unit id="nav.introduce" datatype="html">
-        <source>Introduce</source>
+      <trans-unit id="nav.introduction" datatype="html">
+        <source>Introduction</source>
         <target>Giới thiệu</target>
       </trans-unit>
       <trans-unit id="nav.milestones" datatype="html">

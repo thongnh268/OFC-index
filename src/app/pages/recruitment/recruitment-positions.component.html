@@ -1,0 +1,59 @@
+@if (sortedPositions().length > 0) {
+  @for (position of sortedPositions(); track position.code) {
+    <div class="position-card">
+      <button
+        class="position-card__header"
+        (click)="toggleCard(position.code)"
+        [attr.aria-expanded]="isOpen(position.code)"
+        type="button"
+      >
+        <span class="position-card__title">{{ position.code }}. {{ position.title }}</span>
+        <app-icon
+          name="chevronDown"
+          [class.position-card__chevron--open]="isOpen(position.code)"
+          class="position-card__chevron"
+        />
+      </button>
+
+      @if (isOpen(position.code)) {
+        <div class="position-card__body">
+          <div class="position-card__section">
+            <h4 class="position-card__label">{{ responsibilitiesLabel() }}</h4>
+            <ul class="position-card__list">
+              @for (item of position.responsibilities; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="position-card__section">
+            <h4 class="position-card__label">{{ requirementsLabel() }}</h4>
+            <ul class="position-card__list">
+              @for (item of position.requirements; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+
+          @if (position.compensation) {
+            <div class="position-card__section">
+              <h4 class="position-card__label">{{ compensationLabel() }}</h4>
+              <p class="position-card__text">{{ position.compensation }}</p>
+            </div>
+          }
+
+          <div class="position-card__section">
+            <h4 class="position-card__label">{{ benefitsLabel() }}</h4>
+            <ul class="position-card__list">
+              @for (item of position.benefits; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  }
+} @else {
+  <p class="positions-empty">{{ emptyLabel() }}</p>
+}

@@ -2,6 +2,7 @@ import { localeBlock, localeString, localeText } from './objects/locale';
 import { author } from './documents/author';
 import { category } from './documents/category';
 import { post } from './documents/post';
+import { recruitmentJob } from './documents/recruitment-job';
 import { siteSettings } from './singletons/site-settings';
 import { subsidiaries } from './singletons/subsidiaries';
 
@@ -17,6 +18,7 @@ export const schemaTypes = [
   author,
   category,
   post,
+  recruitmentJob,
   siteSettings,
   subsidiaries,
 ];

@@ -6,6 +6,7 @@ import {
   computed,
   DestroyRef,
   inject,
+  input,
   PLATFORM_ID,
   signal,
 } from '@angular/core';
@@ -13,15 +14,32 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
 import { ABOUT_NAV, OFC_COMPANY, PRODUCT_NAV } from '../../../core/data';
-import type { NavLink } from '../../../core/data';
+import type { NavLink, NavSectionLink } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
 import { ButtonDirective } from '../../directives/button.directive';
-import { IconComponent } from '../icon/icon.component';
+import { IconComponent, type IconName } from '../icon/icon.component';
+
+// Optional overrides let a page repurpose the sidebar without one-off markup:
+// - `cta` swaps the top green button (defaults to the Get-a-Quote link to /contacts).
+// - `pageSections` renders an in-page scroll-spy group as the first panel section (replacing the
+//   company contact card), for pages whose route is not part of ABOUT_NAV/PRODUCT_NAV.
+export interface SidebarCta {
+  readonly label: string;
+  readonly route: string;
+  readonly icon?: IconName;
+  readonly fragment?: string;
+}
+
+export interface SidebarSectionGroup {
+  readonly title: string;
+  readonly sections: readonly NavSectionLink[];
+}
 
 // Right-hand sidebar shared by every inner page (Figma 249px column): a green "Get a Quote"
 // button, then one light panel holding the OFC Company contact card and the About-us and
 // Products link lists, separated by dividers. Company facts come from SiteSettingsService
-// (CMS overlaid on code-owned defaults); the nav arrays are code-owned.
+// (CMS overlaid on code-owned defaults); the nav arrays are code-owned. Pages may override the
+// button and swap the contact card for an in-page scroll-spy via the `cta`/`pageSections` inputs.
 @Component({
   selector: 'app-inner-sidebar',
   standalone: true,
@@ -37,12 +55,19 @@ export class InnerSidebarComponent implements AfterViewInit {
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private spyLockUntil = 0;
 
+  // Optional page overrides; null preserves the default Get-a-Quote button + contact card.
+  readonly cta = input<SidebarCta | null>(null);
+  readonly pageSections = input<SidebarSectionGroup | null>(null);
+
   protected readonly company = toSignal(this.settings.getCompany(), { initialValue: OFC_COMPANY });
   protected readonly aboutLinks = ABOUT_NAV;
   protected readonly productLinks = PRODUCT_NAV;
   protected readonly activePath = signal(this.pathFromUrl(this.router.url));
   protected readonly activeSectionId = signal('');
-  protected readonly activeSections = computed(() => this.activeLink()?.sections ?? []);
+  // A page-supplied scroll-spy group takes precedence over the active nav link's sub-sections.
+  protected readonly activeSections = computed(
+    () => this.pageSections()?.sections ?? this.activeLink()?.sections ?? [],
+  );
 
   protected readonly primaryOffice = computed(() => this.company().offices[0] ?? null);
   protected readonly phone = computed(
