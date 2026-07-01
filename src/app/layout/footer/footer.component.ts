@@ -51,6 +51,9 @@ export class FooterComponent {
     if (company.contact.email) {
       rows.push({ icon: 'email', text: company.contact.email });
     }
+    if (company.contact.website) {
+      rows.push({ icon: 'globe', text: company.contact.website });
+    }
 
     return rows;
   });

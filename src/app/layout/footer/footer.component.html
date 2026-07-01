@@ -52,12 +52,12 @@
               <strong>{{ company.legalName }}</strong>
             </p>
           }
-          @if (company.taxCode) {
-            <p i18n="@@footer.taxCode">Tax code: {{ company.taxCode }}</p>
-          }
           <!-- track $index: CMS offices may share or omit labels, so labels aren't unique keys -->
           @for (office of company.offices; track $index) {
             <p>{{ office.label ? office.label + ': ' + office.address : office.address }}</p>
+          }
+          @if (company.taxCode) {
+            <p i18n="@@footer.taxCode">Tax code: {{ company.taxCode }}</p>
           }
           @if (company.contact.hotline) {
             <p i18n="@@footer.hotline">Hotline: {{ company.contact.hotline }}</p>
@@ -75,7 +75,16 @@
             <p i18n="@@footer.emailLine">Email: {{ company.contact.email }}</p>
           }
           @if (company.contact.website) {
-            <p i18n="@@footer.websiteLine">Website: {{ company.contact.website }}</p>
+            <p>
+              <span i18n="@@footer.websiteLabel">Website: </span>
+              <a
+                class="footer-link"
+                [href]="'https://' + company.contact.website"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{{ company.contact.website }}</a
+              >
+            </p>
           }
           @if (company.socials.length) {
             <app-social-row [links]="company.socials" variant="footer" [iconSize]="20" />

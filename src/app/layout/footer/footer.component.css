@@ -39,15 +39,18 @@
   margin-top: 16px;
 }
 
+.footer-link:hover {
+  text-decoration: underline;
+}
+
 .contact-row {
   align-items: center;
   color: var(--color-text);
   display: flex;
-  gap: 22px;
+  gap: 4px;
 }
 
 .contact-row p {
-  font-size: 1.25rem;
   line-height: 1.35;
   margin: 0;
 }
