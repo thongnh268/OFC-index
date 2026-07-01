@@ -162,13 +162,13 @@
         <source>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></source>
         <target>Email: <x id="INTERPOLATION" equiv-text="{{ company.contact.email }}"/></target>
       </trans-unit>
-      <trans-unit id="footer.websiteLine" datatype="html">
-        <source>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></source>
-        <target>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></target>
+      <trans-unit id="footer.websiteLabel" datatype="html">
+        <source>Website: </source>
+        <target>Website: </target>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
         <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Copyright by <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</source>
-        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Copyright by <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. All rights reserved.</target>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Bản quyền thuộc về <x id="INTERPOLATION_1" equiv-text="{{ company().brand }}"/>. Mọi quyền được bảo lưu.</target>
       </trans-unit>
       <trans-unit id="header.secondaryNav" datatype="html">
         <source>Secondary</source>
@@ -329,6 +329,10 @@
       <trans-unit id="news.readOriginal" datatype="html">
         <source>Read the original article</source>
         <target>Đọc bài viết gốc</target>
+      </trans-unit>
+      <trans-unit id="contacts.taxCode" datatype="html">
+        <source>Tax Code</source>
+        <target>Mã số thuế</target>
       </trans-unit>
       <trans-unit id="contacts.hotline" datatype="html">
         <source>Hotline</source>

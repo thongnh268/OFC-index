@@ -9,11 +9,12 @@ export interface NavSectionLink {
   readonly id: string;
   readonly label: string;
 }
-
+const HOME_PAGE_ROUTE = '/';
 const ABOUT_INTRODUCE_ROUTE = '/about/introduce';
 const ABOUT_BOARD_ROUTE = '/about/board';
 const ABOUT_MILESTONES_ROUTE = '/about/milestones';
 const ABOUT_QUALITY_ROUTE = '/about/quality';
+
 const BOARD_THANK_YOU_LETTER_FRAGMENT = 'thank-you-letter';
 
 export const SECONDARY_NAV: readonly NavLink[] = [
@@ -86,16 +87,21 @@ export const PRODUCT_NAV: readonly NavLink[] = [
 ];
 
 export const INTRODUCTION_NAV: readonly NavLink[] = [
-  { label: $localize`:@@nav.aboutUs:About us`, route: ABOUT_BOARD_ROUTE },
+  {
+    label: $localize`:@@nav.aboutUs:About us`,
+    route: HOME_PAGE_ROUTE,
+    fragment: 'about',
+  },
   {
     label: $localize`:@@nav.directorGreetings:Director Greetings`,
     route: ABOUT_BOARD_ROUTE,
     fragment: BOARD_THANK_YOU_LETTER_FRAGMENT,
   },
-  { label: $localize`:@@nav.companyProfile:Company Profile`, route: ABOUT_MILESTONES_ROUTE },
+  { label: $localize`:@@nav.companyProfile:Company Profile`, route: ABOUT_INTRODUCE_ROUTE },
   {
     label: $localize`:@@nav.visionMission:Vision and Mission`,
-    route: '/about/vision-and-mission',
+    route: ABOUT_INTRODUCE_ROUTE,
+    fragment: 'vision',
   },
   { label: $localize`:@@nav.history:History`, route: ABOUT_MILESTONES_ROUTE },
   {

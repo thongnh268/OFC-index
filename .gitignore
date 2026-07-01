@@ -54,3 +54,5 @@ Thumbs.db
 # GitNexus-generated agent instruction files (regenerated locally, not tracked)
 AGENTS.md
 CLAUDE.md
+
+docs/*

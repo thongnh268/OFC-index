@@ -292,11 +292,11 @@
           <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="footer.websiteLine" datatype="html">
-        <source>Website: <x id="INTERPOLATION" equiv-text="{{ company.contact.website }}"/></source>
+      <trans-unit id="footer.websiteLabel" datatype="html">
+        <source>Website: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">75,76</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer.copyright" datatype="html">
@@ -396,6 +396,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/header/header.component.ts</context>
           <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contacts.taxCode" datatype="html">
+        <source>Tax Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contacts/contacts.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contacts.hotline" datatype="html">
