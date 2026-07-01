@@ -3,7 +3,7 @@
 
   @if (company(); as company) {
     <div class="contacts">
-      <p class="contacts__brand">{{ company.brand }}</p>
+      <p class="contacts__legal-name">{{ company.legalName }}</p>
 
       @for (office of company.offices; track $index) {
         <p class="contacts__row">
@@ -11,6 +11,12 @@
             <strong>{{ office.label }}:</strong>
           }
           {{ office.address }}
+        </p>
+      }
+
+      @if (company.taxCode) {
+        <p class="contacts__row">
+          <strong i18n="@@contacts.taxCode">Tax Code</strong>: {{ company.taxCode }}
         </p>
       }
 

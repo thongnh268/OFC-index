@@ -3,7 +3,7 @@
   max-width: 640px;
 }
 
-.contacts__brand {
+.contacts__legal-name {
   color: var(--color-accent);
   font-weight: 700;
   margin: 0 0 18px;
