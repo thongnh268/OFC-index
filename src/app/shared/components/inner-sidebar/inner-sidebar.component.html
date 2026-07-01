@@ -18,17 +18,20 @@
 
 <div class="side-panel">
   @if (pageSections(); as group) {
-    <nav class="side-section" [attr.aria-label]="group.title">
+    <nav class="side-section side-section--page" [attr.aria-label]="group.title">
       <h2 class="side-section__title">{{ group.title }}</h2>
-      <ul class="section-list">
+      <ul class="section-timeline">
         @for (section of group.sections; track section.id) {
-          <li>
+          <li class="section-timeline__item" [class.is-active]="section.id === activeSectionId()">
             <a
+              class="section-timeline__link"
               [href]="'#' + section.id"
               [class.is-active]="section.id === activeSectionId()"
               (click)="selectSection($event, section.id)"
-              >{{ section.label }}</a
             >
+              <span class="section-timeline__dot" aria-hidden="true"></span>
+              <span class="section-timeline__label">{{ section.label }}</span>
+            </a>
           </li>
         }
       </ul>
