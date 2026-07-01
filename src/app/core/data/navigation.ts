@@ -10,7 +10,7 @@ export interface NavSectionLink {
   readonly label: string;
 }
 const HOME_PAGE_ROUTE = '/';
-const ABOUT_INTRODUCE_ROUTE = '/about/introduce';
+const ABOUT_INTRODUCTION_ROUTE = '/about/introduction';
 const ABOUT_BOARD_ROUTE = '/about/board';
 const ABOUT_MILESTONES_ROUTE = '/about/milestones';
 const ABOUT_QUALITY_ROUTE = '/about/quality';
@@ -30,10 +30,10 @@ export const MAIN_NAV: readonly NavLink[] = [
 
 export const ABOUT_NAV: readonly NavLink[] = [
   {
-    label: $localize`:@@nav.introduce:Introduce`,
-    route: ABOUT_INTRODUCE_ROUTE,
+    label: $localize`:@@nav.introduction:Introduction`,
+    route: ABOUT_INTRODUCTION_ROUTE,
     sections: [
-      { id: 'introduce', label: $localize`:@@nav.introduce:Introduce` },
+      { id: 'introduction', label: $localize`:@@nav.introduction:Introduction` },
       {
         id: 'business-activities',
         label: $localize`:@@nav.businessActivities:Business activities`,
@@ -97,10 +97,10 @@ export const INTRODUCTION_NAV: readonly NavLink[] = [
     route: ABOUT_BOARD_ROUTE,
     fragment: BOARD_THANK_YOU_LETTER_FRAGMENT,
   },
-  { label: $localize`:@@nav.companyProfile:Company Profile`, route: ABOUT_INTRODUCE_ROUTE },
+  { label: $localize`:@@nav.companyProfile:Company Profile`, route: ABOUT_INTRODUCTION_ROUTE },
   {
     label: $localize`:@@nav.visionMission:Vision and Mission`,
-    route: ABOUT_INTRODUCE_ROUTE,
+    route: ABOUT_INTRODUCTION_ROUTE,
     fragment: 'vision',
   },
   { label: $localize`:@@nav.history:History`, route: ABOUT_MILESTONES_ROUTE },
