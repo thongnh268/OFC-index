@@ -2,22 +2,22 @@ import { type InnerContentBlock } from '../../../shared/components/inner-content
 
 // Code-owned bilingual content for the Company Introduction page. Copy is real company text
 // (Vietnamese is a working translation for review). Block ids mirror the sidebar section
-// anchors declared in ABOUT_NAV (introduce, business-activities, partnership-network, vision,
+// anchors declared in ABOUT_NAV (introduction, business-activities, partnership-network, vision,
 // mission, core-values) so the scroll-spy lines up.
-export interface IntroduceContent {
+export interface IntroductionContent {
   readonly breadcrumbHome: string;
   readonly breadcrumbAbout: string;
   readonly title: string;
   readonly blocks: readonly InnerContentBlock[];
 }
 
-const EN: IntroduceContent = {
+const EN: IntroductionContent = {
   breadcrumbHome: 'Homepage',
   breadcrumbAbout: 'About us',
   title: 'Company Introduction',
   blocks: [
     {
-      id: 'introduce',
+      id: 'introduction',
       heading: 'Sustainable Products – Reliable Supply Chain',
       paragraphs: [
         'Established in 2017, Dai Duong Forest Products Processing Joint Stock Company is an enterprise operating in the processing and exporting of wood products. The company aims for sustainable development and strives to become a trusted partner for both domestic and international customers.',
@@ -78,13 +78,13 @@ const EN: IntroduceContent = {
   ],
 };
 
-const VI: IntroduceContent = {
+const VI: IntroductionContent = {
   breadcrumbHome: 'Trang chủ',
   breadcrumbAbout: 'Giới thiệu',
   title: 'Giới thiệu công ty',
   blocks: [
     {
-      id: 'introduce',
+      id: 'introduction',
       heading: 'Sản phẩm bền vững – Chuỗi cung ứng tin cậy',
       paragraphs: [
         'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm gỗ. Công ty hướng đến sự phát triển bền vững và nỗ lực trở thành đối tác tin cậy của cả khách hàng trong nước và quốc tế.',
@@ -143,6 +143,6 @@ const VI: IntroduceContent = {
   ],
 };
 
-export function introduceContent(locale: string): IntroduceContent {
+export function introductionContent(locale: string): IntroductionContent {
   return locale.startsWith('vi') ? VI : EN;
 }

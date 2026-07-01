@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 
 import { PostsService } from './core/posts';
+import { RecruitmentJobsService } from './pages/recruitment/recruitment-jobs.service';
 import { SubsidiariesService } from './core/subsidiaries';
 
 export const routes: Routes = [
@@ -11,9 +12,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'about/introduce',
+    path: 'about/introduction',
     loadComponent: () =>
-      import('./pages/about/introduce/introduce.component').then((m) => m.IntroduceComponent),
+      import('./pages/about/introduction/introduction.component').then(
+        (m) => m.IntroductionComponent,
+      ),
   },
   {
     path: 'about/milestones',
@@ -79,6 +82,8 @@ export const routes: Routes = [
   },
   {
     path: 'recruitment',
+    // Resolve jobs before activation so the list is present when the router restores scroll.
+    resolve: { jobs: () => inject(RecruitmentJobsService).getJobs() },
     loadComponent: () =>
       import('./pages/recruitment/recruitment.component').then((m) => m.RecruitmentComponent),
   },
