@@ -78,6 +78,18 @@ export const routes: Routes = [
       import('./pages/news/news-detail.component').then((m) => m.NewsDetailComponent),
   },
   {
+    path: 'recruitment',
+    loadComponent: () =>
+      import('./pages/recruitment/recruitment.component').then((m) => m.RecruitmentComponent),
+  },
+  {
+    path: 'social-activities',
+    loadComponent: () =>
+      import('./pages/social-activities/social-activities.component').then(
+        (m) => m.SocialActivitiesComponent,
+      ),
+  },
+  {
     path: 'subsidiaries',
     // Resolve the network before activation so it is present when the router restores scroll.
     resolve: { ports: () => inject(SubsidiariesService).getPorts() },

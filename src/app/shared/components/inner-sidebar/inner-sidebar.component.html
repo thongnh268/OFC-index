@@ -1,10 +1,39 @@
-<a appButton variant="accent" class="side-quote" routerLink="/contacts">
-  <app-icon name="edit" [size]="18" />
-  <span i18n="@@sidebar.getQuote">Get a Quote</span>
-</a>
+@if (cta(); as cta) {
+  <a
+    appButton
+    variant="accent"
+    class="side-quote"
+    [routerLink]="cta.route"
+    [fragment]="cta.fragment"
+  >
+    <app-icon [name]="cta.icon ?? 'edit'" [size]="18" />
+    <span>{{ cta.label }}</span>
+  </a>
+} @else {
+  <a appButton variant="accent" class="side-quote" routerLink="/contacts">
+    <app-icon name="edit" [size]="18" />
+    <span i18n="@@sidebar.getQuote">Get a Quote</span>
+  </a>
+}
 
 <div class="side-panel">
-  @if (hasContactInfo()) {
+  @if (pageSections(); as group) {
+    <nav class="side-section" [attr.aria-label]="group.title">
+      <h2 class="side-section__title">{{ group.title }}</h2>
+      <ul class="section-list">
+        @for (section of group.sections; track section.id) {
+          <li>
+            <a
+              [href]="'#' + section.id"
+              [class.is-active]="section.id === activeSectionId()"
+              (click)="selectSection($event, section.id)"
+              >{{ section.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+  } @else if (hasContactInfo()) {
     <section class="side-section">
       @if (company().brand; as brand) {
         <h2 class="side-section__title">{{ brand }}</h2>

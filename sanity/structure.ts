@@ -14,6 +14,7 @@ export const structure: StructureResolver = (S) =>
         .id('subsidiaries')
         .child(S.document().schemaType('subsidiaries').documentId('subsidiaries')),
       S.divider(),
+      S.documentTypeListItem('recruitmentJob').title('Recruitment Jobs'),
       S.documentTypeListItem('post').title('Posts'),
       S.documentTypeListItem('category').title('Categories'),
       S.documentTypeListItem('author').title('Authors'),

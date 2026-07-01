@@ -1,0 +1,104 @@
+.position-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  padding: 0 1.25rem;
+}
+
+.position-card__header {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0.95rem 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--duration-fast) var(--ease-out);
+  width: 100%;
+}
+
+.position-card__header:hover {
+  background-color: var(--color-bg);
+}
+
+.position-card__header[aria-expanded='true'] {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 76%, var(--color-text));
+}
+
+.position-card__title {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding-right: 1rem;
+  text-transform: uppercase;
+}
+
+.position-card__chevron {
+  color: var(--color-text);
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.position-card__chevron--open {
+  transform: rotate(180deg);
+}
+
+.position-card__body {
+  padding: 1rem 0 1.25rem;
+}
+
+.position-card__section {
+  margin-bottom: 0.75rem;
+}
+
+.position-card__section:last-child {
+  margin-bottom: 0;
+}
+
+.position-card__label {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 0.35rem;
+}
+
+.position-card__list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.position-card__list li {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin-bottom: 0.25rem;
+}
+
+.position-card__list li:last-child {
+  margin-bottom: 0;
+}
+
+.position-card__text {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.positions-empty {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+}

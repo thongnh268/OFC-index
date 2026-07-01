@@ -1,0 +1,95 @@
+.company-line {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-top: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.tagline {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.intro {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+section {
+  margin-bottom: 3.25rem;
+}
+
+section:last-of-type {
+  margin-bottom: 0;
+}
+
+section h2 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1.75rem;
+  text-transform: uppercase;
+}
+
+section h2::after {
+  background: var(--color-accent);
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 0.75rem;
+  width: 48px;
+}
+
+.document-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.document-list li {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 0.25rem;
+  padding-left: 0.15rem;
+}
+
+.contact-block {
+  margin-bottom: 1.5rem;
+}
+
+.contact-block:last-child {
+  margin-bottom: 0;
+}
+
+.contact-label {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.contact-block p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0.25rem 0;
+}
