@@ -66,6 +66,14 @@ const EN: QualityContent = {
       thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
     },
     {
+      title: 'FSC COC/CW Scope - Appendix A (Dai Duong)',
+      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-A.png',
+    },
+    {
+      title: 'FSC COC/CW Scope - Appendix B (Dai Duong)',
+      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-B.png',
+    },
+    {
       title: 'Company Information',
       thumbnailUrl: 'assets/images/certificates/Company-Information.png',
     },
@@ -122,6 +130,14 @@ const VI: QualityContent = {
     {
       title: 'FSC COC kèm CW - CP Lâm sản Đại Dương',
       thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
+    },
+    {
+      title: 'Phạm vi FSC COC/CW - Phụ lục A (Đại Dương)',
+      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-A.png',
+    },
+    {
+      title: 'Phạm vi FSC COC/CW - Phụ lục B (Đại Dương)',
+      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-B.png',
     },
     {
       title: 'Thông tin công ty',
