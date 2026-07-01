@@ -35,10 +35,12 @@
             </ul>
           </div>
 
-          <div class="position-card__section">
-            <h4 class="position-card__label">{{ compensationLabel() }}</h4>
-            <p class="position-card__text">{{ position.compensation }}</p>
-          </div>
+          @if (position.compensation) {
+            <div class="position-card__section">
+              <h4 class="position-card__label">{{ compensationLabel() }}</h4>
+              <p class="position-card__text">{{ position.compensation }}</p>
+            </div>
+          }
 
           <div class="position-card__section">
             <h4 class="position-card__label">{{ benefitsLabel() }}</h4>

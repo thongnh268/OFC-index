@@ -39,7 +39,7 @@ export interface RecruitmentContent {
   readonly ctaButtonLabel: string;
 }
 
-const EN = {
+const EN: RecruitmentContent = {
   breadcrumbHome: 'Homepage',
   breadcrumbTitle: 'Recruitment',
   title: 'Career Opportunities',
@@ -78,7 +78,7 @@ const EN = {
   ctaButtonLabel: 'Apply Now',
 };
 
-const VI = {
+const VI: RecruitmentContent = {
   breadcrumbHome: 'Trang chủ',
   breadcrumbTitle: 'Tuyển dụng',
   title: 'Cơ hội nghề nghiệp',

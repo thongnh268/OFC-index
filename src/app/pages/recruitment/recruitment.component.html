@@ -14,7 +14,7 @@
   <section id="open-positions">
     <h2>{{ content.openingPositionsHeading }}</h2>
     <app-recruitment-positions
-      [positions]="(positions$ | async) ?? []"
+      [positions]="positions()"
       [emptyLabel]="content.noOpenPositionsLabel"
       [responsibilitiesLabel]="content.responsibilitiesLabel"
       [requirementsLabel]="content.requirementsLabel"

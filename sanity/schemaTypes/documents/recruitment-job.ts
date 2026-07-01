@@ -1,4 +1,14 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
+
+// List fields are authored as one item per line in a single textarea (a leading "- " is
+// optional and stripped by the frontend), so editors paste a whole list instead of adding
+// array items one at a time. Requires at least one non-empty line in the Vietnamese text.
+const LIST_HELP = 'One item per line. A leading "- " is optional.';
+
+const requireLines = (value: { vi?: string } | undefined) =>
+  (value?.vi ?? '').split('\n').some((line) => line.trim().length > 0)
+    ? true
+    : 'Add at least one line (one item per line).';
 
 export const recruitmentJob = defineType({
   name: 'recruitmentJob',
@@ -27,16 +37,16 @@ export const recruitmentJob = defineType({
     defineField({
       name: 'responsibilities',
       title: 'Job Responsibilities',
-      type: 'array',
-      of: [defineArrayMember({ type: 'localeString' })],
-      validation: (rule) => rule.required().min(1),
+      type: 'localeText',
+      description: LIST_HELP,
+      validation: (rule) => rule.custom(requireLines),
     }),
     defineField({
       name: 'requirements',
       title: 'Requirements',
-      type: 'array',
-      of: [defineArrayMember({ type: 'localeString' })],
-      validation: (rule) => rule.required().min(1),
+      type: 'localeText',
+      description: LIST_HELP,
+      validation: (rule) => rule.custom(requireLines),
     }),
     defineField({
       name: 'compensation',
@@ -46,9 +56,9 @@ export const recruitmentJob = defineType({
     defineField({
       name: 'benefits',
       title: 'Benefits',
-      type: 'array',
-      of: [defineArrayMember({ type: 'localeString' })],
-      validation: (rule) => rule.required().min(1),
+      type: 'localeText',
+      description: LIST_HELP,
+      validation: (rule) => rule.custom(requireLines),
     }),
   ],
   orderings: [

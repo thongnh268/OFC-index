@@ -29,10 +29,10 @@ export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
 export const RECRUITMENT_JOBS_QUERY = `*[_type == "recruitmentJob" && coalesce(isActive, true)] | order(code asc) {
   code,
   "title": coalesce(title[$locale], title.vi),
-  "responsibilities": responsibilities[]{ "text": coalesce(@[$locale], @.vi) },
-  "requirements": requirements[]{ "text": coalesce(@[$locale], @.vi) },
+  "responsibilities": coalesce(responsibilities[$locale], responsibilities.vi),
+  "requirements": coalesce(requirements[$locale], requirements.vi),
   "compensation": coalesce(compensation[$locale], compensation.vi),
-  "benefits": benefits[]{ "text": coalesce(@[$locale], @.vi) }
+  "benefits": coalesce(benefits[$locale], benefits.vi)
 }`;
 
 // One post by slug for /news/[slug]. Original OFC posts carry Portable Text `body`; aggregated
