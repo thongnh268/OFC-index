@@ -6,8 +6,8 @@
 <div class="side-panel">
   @if (hasContactInfo()) {
     <section class="side-section">
-      @if (company().legalName; as legalName) {
-        <h2 class="side-section__title">{{ legalName }}</h2>
+      @if (company().brand; as brand) {
+        <h2 class="side-section__title">{{ brand }}</h2>
       }
       <ul class="contact-list">
         @if (primaryOffice(); as office) {
