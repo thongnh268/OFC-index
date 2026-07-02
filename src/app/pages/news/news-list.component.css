@@ -109,3 +109,8 @@
   color: var(--color-text-muted);
   padding: 24px 0;
 }
+
+.news-list__pagination {
+  display: block;
+  margin-top: 40px;
+}

@@ -5,7 +5,7 @@
 
   @if (posts().length) {
     <ul class="news-grid">
-      @for (post of posts(); track post.slug) {
+      @for (post of paginatedPosts(); track post.slug) {
         <li>
           <a class="news-card" [routerLink]="['/news', post.slug]">
             @if (post.imageUrl) {
@@ -31,6 +31,15 @@
         </li>
       }
     </ul>
+
+    @if (totalPages() > 1) {
+      <app-pagination
+        class="news-list__pagination"
+        [totalPages]="totalPages()"
+        [currentPage]="currentPage()"
+        (pageChanged)="goToPage($event)"
+      />
+    }
   } @else {
     <p class="news-list__empty" i18n="@@news.empty">No posts have been published yet.</p>
   }
