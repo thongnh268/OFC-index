@@ -102,7 +102,7 @@
 }
 
 .news-image-placeholder::after {
-  background: url('/assets/logos/ofc-company.svg') no-repeat center / 46%;
+  background: url('../../../../assets/logos/ofc-company.svg') no-repeat center / 46%;
   content: '';
   inset: 0;
   opacity: 0.25;
