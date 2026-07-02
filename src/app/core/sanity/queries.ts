@@ -70,6 +70,7 @@ export const SUBSIDIARIES_QUERY = `*[_type == "subsidiaries"][0]{
 // The hero URL carries image-pipeline params (cap width, modern format, sane quality) so the
 // CDN never serves a multi-MB original; a missing image stays null (GROQ propagates null through +).
 export const SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
+  "siteTitle": coalesce(siteTitle[$locale], siteTitle.vi),
   "heroImageUrl": heroImage.asset->url + "?w=1920&q=75&auto=format&fit=max",
   "partnerLogos": partnerLogos[]{ name, "imageUrl": logo.asset->url + "?w=400&h=200&fit=max&auto=format" },
   "brand": coalesce(brand[$locale], brand.vi),

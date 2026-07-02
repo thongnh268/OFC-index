@@ -5,7 +5,9 @@ import { Meta, Title } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 
+import { OFC_COMPANY } from '../../core/data';
 import type { PostDetail } from '../../core/posts';
+import { SiteSettingsService } from '../../core/settings';
 import { ArticleLayoutComponent } from '../../shared/components/article-layout/article-layout.component';
 import type { BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { PortableTextComponent } from '../../shared/components/portable-text/portable-text.component';
@@ -24,6 +26,7 @@ import { PortableTextComponent } from '../../shared/components/portable-text/por
 export class NewsDetailComponent {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
+  private readonly settings = inject(SiteSettingsService);
 
   private readonly homeLabel = $localize`:@@common.home:Home`;
   private readonly newsLabel = $localize`:@@nav.news:News`;
@@ -35,6 +38,9 @@ export class NewsDetailComponent {
     inject(ActivatedRoute).data.pipe(map((d) => (d['post'] ?? null) as PostDetail | null)),
     { initialValue: undefined },
   );
+  private readonly siteTitle = toSignal(this.settings.getSiteTitle(), {
+    initialValue: OFC_COMPANY.brand,
+  });
 
   protected readonly crumbs = computed<BreadcrumbItem[]>(() => {
     const base: BreadcrumbItem[] = [
@@ -48,12 +54,13 @@ export class NewsDetailComponent {
   constructor() {
     effect(() => {
       const post = this.post();
-      if (!post) {
+      if (post === undefined) {
         return;
       }
-      this.title.setTitle(`${post.title} - OFC`);
-      if (post.excerpt) {
-        this.meta.updateTag({ name: 'description', content: post.excerpt });
+      this.title.setTitle(`${post?.title ?? this.notFoundTitle} - ${this.siteTitle()}`);
+      const excerpt = post?.excerpt;
+      if (excerpt) {
+        this.meta.updateTag({ name: 'description', content: excerpt });
       }
     });
   }

@@ -36,11 +36,18 @@ describe('SiteSettingsService', () => {
     return value;
   };
 
+  const latestSiteTitle = (): string => {
+    let value!: string;
+    service.getSiteTitle().subscribe((title) => (value = title));
+    return value;
+  };
+
   beforeEach(setup);
 
   it('uses minimal code-owned defaults when the document is missing (null)', () => {
     fetchSpy.and.returnValue(of(null));
     expect(latest()).toEqual(OFC_COMPANY);
+    expect(latestSiteTitle()).toBe(OFC_COMPANY.brand);
     expect(latestHeroImage()).toBeNull();
     expect(latestPartnerLogos()).toEqual([]);
   });
@@ -53,6 +60,21 @@ describe('SiteSettingsService', () => {
     expect(company.contact.ops.phone).toBe('+84 900 000 000');
     expect(company.contact.hotline).toBeNull();
     expect(company.brand).toBe(OFC_COMPANY.brand);
+  });
+
+  it('uses the CMS site title when present', () => {
+    fetchSpy.and.returnValue(of({ siteTitle: 'OFC Forestry Group' }));
+    expect(latestSiteTitle()).toBe('OFC Forestry Group');
+  });
+
+  it('falls back from missing site title to the CMS brand', () => {
+    fetchSpy.and.returnValue(of({ brand: 'Ocean Forestry Company' }));
+    expect(latestSiteTitle()).toBe('Ocean Forestry Company');
+  });
+
+  it('falls back from blank site title to the CMS brand', () => {
+    fetchSpy.and.returnValue(of({ siteTitle: '', brand: 'Ocean Forestry Company' }));
+    expect(latestSiteTitle()).toBe('Ocean Forestry Company');
   });
 
   it('uses the CMS tax code when present', () => {
@@ -101,6 +123,7 @@ describe('SiteSettingsService', () => {
     service.getCompany().subscribe();
     service.getHeroImageUrl().subscribe();
     service.getPartnerLogos().subscribe();
+    service.getSiteTitle().subscribe();
     service.getCompany().subscribe();
     expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
@@ -152,5 +175,6 @@ describe('SiteSettingsService', () => {
   it('falls back to the defaults when the query errors', () => {
     fetchSpy.and.returnValue(throwError(() => new Error('network')));
     expect(latest()).toEqual(OFC_COMPANY);
+    expect(latestSiteTitle()).toBe(OFC_COMPANY.brand);
   });
 });

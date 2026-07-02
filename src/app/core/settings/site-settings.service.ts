@@ -9,6 +9,7 @@ import type { OfcCompany, SocialLink } from '../data';
 
 // Raw shape SETTINGS_QUERY can return - every field is an optional CMS override.
 interface SettingsDto {
+  readonly siteTitle?: string | null;
   readonly heroImageUrl?: string | null;
   readonly partnerLogos?: readonly { name: string | null; imageUrl: string | null }[] | null;
   readonly brand?: string | null;
@@ -34,6 +35,7 @@ export interface PartnerLogoData {
 }
 
 interface SiteSettings {
+  readonly siteTitle: string;
   readonly company: OfcCompany;
   readonly heroImageUrl: string | null;
   readonly partnerLogos: readonly PartnerLogoData[];
@@ -62,6 +64,11 @@ export class SiteSettingsService {
     return this.getSettings().pipe(map((settings) => settings.partnerLogos));
   }
 
+  // CMS-owned default document title. Missing values fall back to brand/default company name.
+  getSiteTitle(): Observable<string> {
+    return this.getSettings().pipe(map((settings) => settings.siteTitle));
+  }
+
   private getSettings(): Observable<SiteSettings> {
     this.settings$ ??= this.sanity.fetch<SettingsDto | null>(SETTINGS_QUERY).pipe(
       map((dto) => this.merge(dto)),
@@ -74,7 +81,12 @@ export class SiteSettingsService {
 
   private merge(dto: SettingsDto | null): SiteSettings {
     if (!dto) {
-      return { company: OFC_COMPANY, heroImageUrl: null, partnerLogos: [] };
+      return {
+        siteTitle: OFC_COMPANY.brand,
+        company: OFC_COMPANY,
+        heroImageUrl: null,
+        partnerLogos: [],
+      };
     }
 
     // An office without an address has nothing to show - drop it; a missing label is
@@ -103,6 +115,7 @@ export class SiteSettingsService {
       .map((logo) => ({ name: logo.name ?? '', imageUrl: logo.imageUrl ?? '' }));
 
     return {
+      siteTitle: dto.siteTitle || dto.brand || OFC_COMPANY.brand,
       heroImageUrl: dto.heroImageUrl ?? null,
       partnerLogos,
       company: {
