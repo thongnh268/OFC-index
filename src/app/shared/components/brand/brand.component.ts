@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { OFC_COMPANY } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
 
-const DEFAULT_LOGO = 'assets/logos/ofc-company.svg';
+const DEFAULT_LOGO = 'assets/logos/ofc-company.svg?v=20260702';
 
 @Component({
   selector: 'app-brand',

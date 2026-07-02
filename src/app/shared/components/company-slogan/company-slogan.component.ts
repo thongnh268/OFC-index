@@ -10,7 +10,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { OFC_COMPANY } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
 
-const DEFAULT_LOGO = 'assets/logos/ofc-company.svg';
+const DEFAULT_LOGO = 'assets/logos/ofc-company.svg?v=20260702';
 
 const DEFAULT_SLOGANS_EN = [
   'Creating value from green resources',
