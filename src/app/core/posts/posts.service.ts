@@ -3,7 +3,13 @@ import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import type { Observable } from 'rxjs';
 
-import { NEWS_QUERY, POSTS_QUERY, POST_BY_SLUG_QUERY, SanityService } from '../sanity';
+import {
+  NEWS_QUERY,
+  POSTS_PAGE_QUERY,
+  POSTS_QUERY,
+  POST_BY_SLUG_QUERY,
+  SanityService,
+} from '../sanity';
 import type { PortableTextNode, PostSummary } from '../sanity';
 
 // A post as the home news carousel needs it. publishedAt is the ISO datetime string
@@ -32,6 +38,16 @@ export interface PostListItem {
   readonly author: string | null;
   // 'SBP' | 'FSC' for aggregated news, null for original OFC posts - shown as a card badge.
   readonly source: string | null;
+}
+
+export interface PostListPage {
+  readonly items: readonly PostListItem[];
+  readonly total: number;
+}
+
+interface PostListPageDto {
+  readonly items: readonly PostSummary[] | null;
+  readonly total: number | null;
 }
 
 // A single post for the /news/[slug] detail page. Original OFC posts render `body` (Portable
@@ -90,20 +106,25 @@ export class PostsService {
   // half-filled drafts are dropped and any failure resolves to an empty list.
   getAll(): Observable<PostListItem[]> {
     return this.sanity.fetch<readonly PostSummary[] | null>(POSTS_QUERY).pipe(
-      map((posts) =>
-        (posts ?? [])
-          .filter((post) => post.slug && post.title && post.publishedAt)
-          .map((post) => ({
-            slug: post.slug,
-            title: post.title ?? '',
-            excerpt: post.excerpt ?? null,
-            imageUrl: post.imageUrl ?? null,
-            publishedAt: post.publishedAt,
-            author: post.author ?? null,
-            source: post.source ?? null,
-          })),
-      ),
+      map((posts) => this.toPostListItems(posts ?? [])),
       catchError(() => of([])),
+    );
+  }
+
+  // Server-side/CMS pagination for /news. Sanity returns only the requested range plus
+  // the total count so the UI can render pagination without loading the whole archive.
+  getPage(page: number, pageSize: number): Observable<PostListPage> {
+    const safePage = Number.isInteger(page) && page > 0 ? page : 1;
+    const safePageSize = Number.isInteger(pageSize) && pageSize > 0 ? pageSize : 1;
+    const start = (safePage - 1) * safePageSize;
+    const end = start + safePageSize;
+
+    return this.sanity.fetch<PostListPageDto | null>(POSTS_PAGE_QUERY, { start, end }).pipe(
+      map((result) => ({
+        items: this.toPostListItems(result?.items ?? []),
+        total: Math.max(0, result?.total ?? 0),
+      })),
+      catchError(() => of({ items: [], total: 0 })),
     );
   }
 
@@ -131,5 +152,19 @@ export class PostsService {
       }),
       catchError(() => of(null)),
     );
+  }
+
+  private toPostListItems(posts: readonly PostSummary[]): PostListItem[] {
+    return posts
+      .filter((post) => post.slug && post.title && post.publishedAt)
+      .map((post) => ({
+        slug: post.slug,
+        title: post.title ?? '',
+        excerpt: post.excerpt ?? null,
+        imageUrl: post.imageUrl ?? null,
+        publishedAt: post.publishedAt,
+        author: post.author ?? null,
+        source: post.source ?? null,
+      }));
   }
 }

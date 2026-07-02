@@ -24,6 +24,20 @@ export const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
   source
 }`;
 
+export const POSTS_PAGE_QUERY = `{
+  "items": *[_type == "post"] | order(publishedAt desc)[$start...$end] {
+    _id,
+    "slug": slug.current,
+    "title": coalesce(title[$locale], title.vi),
+    "excerpt": coalesce(excerpt[$locale], excerpt.vi),
+    "imageUrl": mainImage.asset->url + "?w=800&q=75&auto=format",
+    publishedAt,
+    "author": author->name,
+    source
+  },
+  "total": count(*[_type == "post"])
+}`;
+
 // Recruitment jobs are CMS-owned. The page intentionally has no code fallback:
 // an empty result renders the empty state.
 export const RECRUITMENT_JOBS_QUERY = `*[_type == "recruitmentJob" && coalesce(isActive, true)] | order(code asc) {

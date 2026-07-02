@@ -8,9 +8,8 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    // New navigations scroll to top; back/forward restore the previous position. This works
-    // because the news routes resolve their data before activation (app.routes.ts), so content
-    // is present when the router restores scroll - no jumping from late-loading content.
+    // New navigations scroll to top; back/forward restore the previous position.
+    // Data-heavy CMS lists such as /news fetch live on the client.
     provideRouter(
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),

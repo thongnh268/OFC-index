@@ -4,7 +4,7 @@ import type { Observable } from 'rxjs';
 
 import { SanityService } from '../sanity';
 import { PostsService } from './posts.service';
-import type { PostCard, PostDetail, PostListItem } from './posts.service';
+import type { PostCard, PostDetail, PostListItem, PostListPage } from './posts.service';
 
 describe('PostsService', () => {
   let service: PostsService;
@@ -113,6 +113,92 @@ describe('PostsService', () => {
       expect(firstValue<PostListItem[]>(service.getAll())).toEqual([]);
       fetchSpy.and.returnValue(throwError(() => new Error('x')));
       expect(firstValue<PostListItem[]>(service.getAll())).toEqual([]);
+    });
+  });
+
+  describe('getPage', () => {
+    it('passes a Sanity range and maps page items with total count', () => {
+      fetchSpy.and.returnValue(
+        of({
+          items: [
+            {
+              _id: '1',
+              slug: 'a',
+              title: 'A',
+              excerpt: 'ex',
+              imageUrl: 'i',
+              publishedAt: '2026-01-02',
+              author: 'Jane',
+              source: 'SBP',
+            },
+          ],
+          total: 42,
+        }),
+      );
+
+      expect(firstValue<PostListPage>(service.getPage(3, 12))).toEqual({
+        items: [
+          {
+            slug: 'a',
+            title: 'A',
+            excerpt: 'ex',
+            imageUrl: 'i',
+            publishedAt: '2026-01-02',
+            author: 'Jane',
+            source: 'SBP',
+          },
+        ],
+        total: 42,
+      });
+      expect(fetchSpy).toHaveBeenCalledWith(jasmine.any(String), { start: 24, end: 36 });
+    });
+
+    it('drops incomplete page items and resolves to an empty page on null or error', () => {
+      fetchSpy.and.returnValue(
+        of({
+          items: [
+            {
+              _id: '1',
+              slug: 'a',
+              title: 'A',
+              excerpt: null,
+              imageUrl: null,
+              publishedAt: '2026-01-01',
+              author: null,
+            },
+            {
+              _id: '2',
+              slug: 'b',
+              title: null,
+              excerpt: null,
+              imageUrl: null,
+              publishedAt: '2026-01-01',
+              author: null,
+            },
+          ],
+          total: null,
+        }),
+      );
+      expect(firstValue<PostListPage>(service.getPage(1, 8))).toEqual({
+        items: [
+          {
+            slug: 'a',
+            title: 'A',
+            excerpt: null,
+            imageUrl: null,
+            publishedAt: '2026-01-01',
+            author: null,
+            source: null,
+          },
+        ],
+        total: 0,
+      });
+
+      fetchSpy.and.returnValue(of(null));
+      expect(firstValue<PostListPage>(service.getPage(1, 8))).toEqual({ items: [], total: 0 });
+
+      fetchSpy.and.returnValue(throwError(() => new Error('x')));
+      expect(firstValue<PostListPage>(service.getPage(1, 8))).toEqual({ items: [], total: 0 });
     });
   });
 

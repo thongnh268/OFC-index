@@ -66,8 +66,6 @@ export const routes: Routes = [
   },
   {
     path: 'news',
-    // Resolve posts before activation so the list is rendered when the router restores scroll.
-    resolve: { posts: () => inject(PostsService).getAll() },
     loadComponent: () =>
       import('./pages/news/news-list.component').then((m) => m.NewsListComponent),
   },
