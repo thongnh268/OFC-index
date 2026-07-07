@@ -31,7 +31,7 @@ class HostComponent {
         icon: 'globe',
         lines: [
           { text: 'Export to', style: 'lead' },
-          { text: 'Japan & China', style: 'highlight' },
+          { text: 'Japan, Korea, China & Indonesia', style: 'highlight' },
         ],
       },
     ],

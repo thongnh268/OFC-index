@@ -48,7 +48,7 @@ const EN: HomeContent = {
         icon: 'globe',
         lines: [
           { text: 'Export to', style: 'lead' },
-          { text: 'Japan & China', style: 'highlight' },
+          { text: 'Japan, Korea, China & Indonesia', style: 'highlight' },
         ],
       },
     ],
@@ -68,7 +68,9 @@ const EN: HomeContent = {
     },
     exportVolume: {
       label: 'Annual export volume',
-      value: parseEmphasis(''),
+      value: parseEmphasis(
+        'Quantity of wood chip exported to <accent>JAPAN, KOREA, CHINA AND INDONESIA</accent> per annum',
+      ),
     },
     exportVolumes: [
       { year: '2018', volume: '350.000 BDMT' },
@@ -216,7 +218,7 @@ const VI: HomeContent = {
         icon: 'globe',
         lines: [
           { text: 'Xuất khẩu đến', style: 'lead' },
-          { text: 'Nhật Bản & Trung Quốc', style: 'highlight' },
+          { text: 'Nhật Bản, Hàn Quốc, Trung Quốc & Indonesia', style: 'highlight' },
         ],
       },
     ],
@@ -236,7 +238,9 @@ const VI: HomeContent = {
     },
     exportVolume: {
       label: 'Sản lượng xuất khẩu hàng năm',
-      value: parseEmphasis(''),
+      value: parseEmphasis(
+        'Sản lượng dăm gỗ xuất khẩu sang <accent>NHẬT BẢN, HÀN QUỐC, TRUNG QUỐC VÀ INDONESIA</accent> hàng năm',
+      ),
     },
     exportVolumes: [
       { year: '2018', volume: '350.000 BDMT' },
