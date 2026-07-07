@@ -86,7 +86,7 @@ describe('HeroSectionComponent', () => {
     const calloutLines = host.querySelectorAll('.hero-stat')[1].querySelectorAll('.stat-line');
     expect(calloutLines[0].textContent).toContain('Export to');
     expect(calloutLines[0].className).toContain('style-lead');
-    expect(calloutLines[1].textContent).toContain('Japan & China');
+    expect(calloutLines[1].textContent).toContain('Japan, Korea, China & Indonesia');
     expect(calloutLines[1].className).toContain('style-highlight');
   });
 
