@@ -64,36 +64,36 @@ const VI: MilestonesContent = {
   body: [
     {
       id: 'establishment',
-      heading: 'Thành lập',
+      heading: 'Kiến tạo giá trị từ tài nguyên xanh',
       paragraphs: [
-        'Được thành lập vào năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương ra đời với khát vọng xây dựng một doanh nghiệp lâm nghiệp hiện đại, chuyên nghiệp và bền vững, góp phần nâng cao giá trị của ngành gỗ Việt Nam trên thị trường quốc tế.',
-        'Ngay từ những bước đi đầu tiên, Đại Dương đã xác định chiến lược phát triển dựa trên chất lượng sản phẩm, nguồn nguyên liệu hợp pháp và sự tin cậy trong mọi cam kết với khách hàng. Với tinh thần không ngừng đổi mới, công ty đã từng bước đầu tư vào hệ thống sản xuất, công nghệ chế biến và hạ tầng logistics nhằm nâng cao năng lực cạnh tranh, đáp ứng các tiêu chuẩn ngày càng khắt khe của thị trường xuất khẩu.',
-        'Đến nay, Đại Dương đã trở thành đối tác tin cậy của nhiều khách hàng quốc tế trong các lĩnh vực dăm gỗ, viên nén gỗ sinh học và các sản phẩm gỗ chế biến, góp phần đưa nguồn tài nguyên xanh của Việt Nam vươn xa hơn trên thị trường toàn cầu.',
+        'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương ra đời với khát vọng xây dựng một doanh nghiệp lâm sản hiện đại, chuyên nghiệp và phát triển bền vững, góp phần nâng cao giá trị ngành gỗ Việt Nam trên thị trường quốc tế.',
+        'Từ những bước đi đầu tiên, Đại Dương đã xác định chiến lược phát triển dựa trên nền tảng chất lượng sản phẩm, nguồn nguyên liệu hợp pháp và sự tin cậy trong mọi cam kết với khách hàng. Với tinh thần đổi mới không ngừng, công ty từng bước đầu tư vào hệ thống sản xuất, công nghệ chế biến và hạ tầng logistics nhằm nâng cao năng lực cạnh tranh và đáp ứng yêu cầu ngày càng cao của các thị trường xuất khẩu.',
+        'Ngày nay, Đại Dương đã trở thành đối tác tin cậy của nhiều khách hàng quốc tế trong lĩnh vực dăm gỗ, viên nén gỗ sinh khối và các sản phẩm chế biến từ gỗ, góp phần đưa nguồn tài nguyên xanh của Việt Nam vươn xa trên thị trường toàn cầu.',
       ],
     },
     {
       id: 'growth-milestones',
-      heading: 'Cột mốc phát triển',
+      heading: 'Những dấu mốc tăng trưởng',
       paragraphs: [
-        'Hành trình phát triển của Đại Dương ghi dấu sự tăng trưởng mạnh mẽ về năng lực sản xuất và sản lượng xuất khẩu. Từ quy mô ban đầu, công ty đã liên tục mở rộng mạng lưới nhà máy, phát triển chuỗi cung ứng nguyên liệu và hoàn thiện năng lực vận hành, từng bước đạt sản lượng xuất khẩu hơn một triệu tấn dăm khô (BDMT) mỗi năm.',
-        'Các sản phẩm của Đại Dương hiện đang được xuất khẩu ổn định sang các thị trường trọng điểm như Nhật Bản, Trung Quốc và các quốc gia châu Á khác, nơi các yêu cầu về chất lượng, tính ổn định và trách nhiệm môi trường luôn được đặt lên hàng đầu.',
-        'Mỗi chuyến hàng được trao đi không chỉ mang giá trị thương mại, mà còn gửi gắm cam kết của Đại Dương về uy tín, chất lượng và trách nhiệm đối với khách hàng cũng như cộng đồng.',
+        'Hành trình phát triển của Đại Dương được ghi dấu bằng sự tăng trưởng mạnh mẽ về năng lực sản xuất và sản lượng xuất khẩu. Từ quy mô ban đầu, công ty không ngừng mở rộng hệ thống nhà máy, phát triển chuỗi cung ứng nguyên liệu và nâng cao năng lực vận hành, từng bước đạt sản lượng xuất khẩu trên một triệu BDMT mỗi năm.',
+        'Các sản phẩm của Đại Dương hiện được xuất khẩu ổn định đến những thị trường trọng điểm như Nhật Bản, Trung Quốc và các quốc gia châu Á, nơi các yêu cầu về chất lượng, tính ổn định và trách nhiệm môi trường luôn được đặt lên hàng đầu.',
+        'Mỗi lô hàng được xuất đi không chỉ mang theo giá trị thương mại mà còn là cam kết về uy tín, chất lượng và trách nhiệm của Đại Dương đối với khách hàng và cộng đồng.',
       ],
     },
     {
       id: 'sustainable-development',
       heading: 'Phát triển bền vững – Nền tảng cho tương lai',
       paragraphs: [
-        'Đại Dương tin rằng phát triển bền vững là yếu tố quyết định cho sự thành công lâu dài của doanh nghiệp. Công ty không ngừng đầu tư xây dựng chuỗi cung ứng minh bạch, phát triển vùng nguyên liệu ổn định, thúc đẩy hoạt động quản lý rừng bền vững và áp dụng các tiêu chuẩn quốc tế trong suốt quy trình sản xuất.',
-        'Các chứng nhận như FSC và PEFC, cùng cam kết giảm thiểu phát thải, sử dụng hiệu quả tài nguyên và bảo vệ môi trường đã trở thành những nền tảng quan trọng giúp Đại Dương đáp ứng yêu cầu của thị trường quốc tế và đồng hành cùng xu thế kinh tế xanh toàn cầu.',
+        'Đại Dương tin rằng sự phát triển bền vững chính là yếu tố quyết định cho thành công lâu dài của doanh nghiệp. Công ty liên tục đầu tư xây dựng chuỗi cung ứng minh bạch, phát triển vùng nguyên liệu ổn định, thúc đẩy các hoạt động quản lý rừng bền vững và áp dụng các tiêu chuẩn quốc tế trong toàn bộ quá trình sản xuất.',
+        'Các chứng nhận FSC, PEFC cùng những cam kết về giảm phát thải, sử dụng hiệu quả tài nguyên và bảo vệ môi trường đã trở thành nền tảng quan trọng giúp Đại Dương đáp ứng yêu cầu của các thị trường quốc tế và đồng hành cùng xu hướng phát triển kinh tế xanh toàn cầu.',
       ],
     },
     {
       id: 'heading-towards-the-future',
       heading: 'Hướng tới tương lai',
       paragraphs: [
-        'Bước vào giai đoạn phát triển mới, Đại Dương tiếp tục đầu tư mở rộng quy mô sản xuất, nâng cao chất lượng sản phẩm và hoàn thiện hệ sinh thái lâm nghiệp bền vững.',
-        'Với tầm nhìn dài hạn, tinh thần đổi mới sáng tạo cùng sự đồng hành của khách hàng, đối tác và tập thể cán bộ nhân viên, Đại Dương hướng tới mục tiêu trở thành doanh nghiệp hàng đầu trong lĩnh vực chế biến và xuất khẩu lâm sản, đóng góp vào một tương lai xanh hơn cho các thế hệ mai sau.',
+        'Bước vào giai đoạn phát triển mới, Đại Dương tiếp tục đầu tư mở rộng năng lực sản xuất, nâng cao chất lượng sản phẩm và hoàn thiện hệ sinh thái lâm sản bền vững.',
+        'Với tầm nhìn dài hạn, tinh thần đổi mới và sự đồng hành của khách hàng, đối tác cùng người lao động, Đại Dương hướng tới mục tiêu trở thành doanh nghiệp hàng đầu trong lĩnh vực chế biến và xuất khẩu lâm sản, góp phần tạo dựng một tương lai xanh hơn cho thế hệ mai sau.',
       ],
     },
   ],

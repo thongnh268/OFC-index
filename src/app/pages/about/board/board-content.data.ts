@@ -37,15 +37,15 @@ const LETTER_EN: readonly string[] = [
 ];
 
 const LETTER_VI: readonly string[] = [
-  'Kính gửi quý khách hàng và đối tác,',
-  'Thay mặt Ban Giám đốc và toàn thể cán bộ nhân viên Công ty Cổ phần Chế biến Lâm sản Đại Dương, tôi xin gửi lời chào trân trọng, lời cảm ơn chân thành và lòng biết ơn sâu sắc nhất đối với sự tin tưởng, đồng hành và hợp tác quý báu của Quý vị trong suốt những năm qua.',
-  'Trong suốt hành trình xây dựng và phát triển, Đại Dương luôn khắc ghi rằng thành công của chúng tôi không chỉ được đo bằng quy mô sản xuất hay sản lượng xuất khẩu, mà còn bằng niềm tin của khách hàng, mối quan hệ gắn kết bền chặt với các đối tác, và những giá trị bền vững mà chúng tôi mang lại cho cộng đồng và xã hội.',
-  'Là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu dăm gỗ, viên nén gỗ sinh khối và các sản phẩm gỗ khác, chúng tôi không ngừng đầu tư vào công nghệ, hoàn thiện hệ thống quản lý chất lượng và phát triển nguồn nguyên liệu hợp pháp, bền vững nhằm đáp ứng các tiêu chuẩn ngày càng khắt khe của thị trường quốc tế. Mỗi sản phẩm mang thương hiệu Đại Dương không chỉ đơn thuần là kết quả của một quy trình sản xuất nghiêm ngặt, mà còn là minh chứng cho cam kết của chúng tôi về chất lượng, uy tín và trách nhiệm với môi trường.',
-  'Chúng tôi hiểu rằng những thành quả đạt được ngày hôm nay mang đậm dấu ấn đồng hành của Quý vị. Sự tin tưởng và hợp tác lâu dài của Quý vị đã trở thành động lực to lớn để Đại Dương không ngừng đổi mới, nâng cao năng lực cạnh tranh và từng bước khẳng định vị thế trên cả thị trường trong nước lẫn quốc tế.',
-  'Với tầm nhìn chiến lược dài hạn, Đại Dương tiếp tục theo đuổi mục tiêu xây dựng chuỗi giá trị lâm nghiệp bền vững, phát triển vùng nguyên liệu ổn định, nâng cao chất lượng dịch vụ và tạo ra các sản phẩm thân thiện với môi trường. Chúng tôi hướng tới mục tiêu đóng góp vào sự phát triển của nền kinh tế xanh và giảm thiểu lượng khí thải carbon toàn cầu.',
-  'Chúng tôi cam kết luôn giữ vững tinh thần hợp tác chân thành, minh bạch và có trách nhiệm. Chúng tôi sẽ không ngừng cải tiến để mang đến cho Quý vị những sản phẩm và dịch vụ tốt nhất, xứng đáng với niềm tin mà Quý vị đã dành cho Đại Dương.',
-  'Một lần nữa, chúng tôi xin trân trọng cảm ơn sự đồng hành tiếp tục của Quý vị. Kính chúc Quý vị và gia đình sức khỏe, hạnh phúc, an khang thịnh vượng và thành công. Chúng tôi rất mong được tiếp tục sát cánh cùng Quý vị trên con đường phát triển bền vững trong tương lai.',
-  'Trân trọng,',
+  'Kính gửi Quý khách hàng, Quý đối tác!',
+  'Thay mặt Ban Lãnh đạo cùng toàn thể cán bộ, công nhân viên Công ty Cổ phần Chế biến Lâm sản Đại Dương, tôi xin gửi tới Quý vị lời chào trân trọng, lời cảm ơn chân thành và sự tri ân sâu sắc nhất vì sự tin tưởng, đồng hành và hợp tác quý báu trong suốt thời gian qua.',
+  'Trên hành trình xây dựng và phát triển, Đại Dương luôn tâm niệm rằng thành công của doanh nghiệp không chỉ được đo bằng quy mô sản xuất hay sản lượng xuất khẩu, mà còn được tạo nên từ niềm tin của khách hàng, sự gắn kết của đối tác và những giá trị bền vững mà chúng tôi mang lại cho cộng đồng và xã hội.',
+  'Là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu dăm gỗ, viên nén gỗ sinh khối và các sản phẩm từ gỗ, chúng tôi không ngừng đầu tư công nghệ, hoàn thiện hệ thống quản lý chất lượng, phát triển nguồn nguyên liệu hợp pháp và bền vững nhằm đáp ứng những tiêu chuẩn ngày càng cao của thị trường quốc tế. Mỗi sản phẩm mang thương hiệu Đại Dương không chỉ là kết quả của quá trình sản xuất nghiêm ngặt mà còn là cam kết về chất lượng, uy tín và trách nhiệm đối với môi trường.',
+  'Chúng tôi hiểu rằng, những thành tựu đạt được hôm nay đều có dấu ấn quan trọng từ sự đồng hành của Quý Khách hàng và Quý Đối tác. Chính sự tin tưởng và hợp tác bền chặt của Quý vị đã trở thành động lực để Đại Dương không ngừng đổi mới, nâng cao năng lực cạnh tranh và từng bước khẳng định vị thế của mình trên thị trường trong nước cũng như quốc tế.',
+  'Với định hướng phát triển lâu dài, Đại Dương tiếp tục theo đuổi mục tiêu xây dựng chuỗi giá trị lâm sản bền vững, phát triển vùng nguyên liệu ổn định, nâng cao chất lượng dịch vụ và tạo ra những sản phẩm thân thiện với môi trường, góp phần vào sự phát triển của nền kinh tế xanh và giảm phát thải carbon toàn cầu.',
+  'Chúng tôi cam kết sẽ luôn giữ vững tinh thần hợp tác chân thành, minh bạch và trách nhiệm; không ngừng cải tiến để mang đến cho Quý Khách hàng những sản phẩm và dịch vụ tốt nhất, xứng đáng với niềm tin mà Quý vị đã dành cho Đại Dương.',
+  'Một lần nữa, xin trân trọng cảm ơn sự đồng hành của Quý Khách hàng và Quý Đối tác. Kính chúc Quý vị cùng gia đình sức khỏe, hạnh phúc, thịnh vượng và thành công. Chúng tôi mong muốn tiếp tục được đồng hành cùng Quý vị trên chặng đường phát triển bền vững trong tương lai.',
+  'Trân trọng',
 ];
 
 const EN: BoardContent = {

@@ -85,48 +85,48 @@ const VI: IntroductionContent = {
   blocks: [
     {
       id: 'introduction',
-      heading: 'Sản phẩm bền vững – Chuỗi cung ứng tin cậy',
+      heading: 'Sản phẩm bền vững – Chuỗi cung ứng đáng tin cậy',
       paragraphs: [
-        'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm gỗ. Công ty hướng đến sự phát triển bền vững và nỗ lực trở thành đối tác tin cậy của cả khách hàng trong nước và quốc tế.',
-        'Ngay từ những ngày đầu, Đại Dương đã xây dựng chiến lược phát triển dựa trên ba giá trị cốt lõi: Uy tín – Chất lượng – Bền vững. Công ty không ngừng đầu tư công nghệ hiện đại, nâng cao năng lực quản trị, phát triển nguồn nhân lực và xây dựng chuỗi cung ứng nguyên liệu ổn định để tạo ra những sản phẩm đáp ứng các tiêu chuẩn quốc tế khắt khe nhất.',
-        'Với phương châm hài hòa giữa hiệu quả kinh tế, trách nhiệm xã hội và bảo vệ môi trường, Đại Dương đang từng bước khẳng định vị thế là một trong những doanh nghiệp tiêu biểu của ngành chế biến lâm sản Việt Nam.',
+        'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ, hướng tới mục tiêu phát triển bền vững và trở thành đối tác tin cậy của khách hàng trong nước và quốc tế.',
+        'Ngay từ những ngày đầu thành lập, Đại Dương đã xác định chiến lược phát triển dựa trên ba giá trị cốt lõi: Uy tín – Chất lượng – Bền vững. Công ty không ngừng đầu tư công nghệ hiện đại, nâng cao năng lực quản trị, phát triển nguồn nhân lực và xây dựng chuỗi cung ứng nguyên liệu ổn định nhằm tạo ra những sản phẩm đáp ứng các tiêu chuẩn quốc tế khắt khe nhất.',
+        'Với phương châm phát triển hài hòa giữa hiệu quả kinh tế, trách nhiệm xã hội và bảo vệ môi trường, Đại Dương đang từng bước khẳng định vị thế là một trong những doanh nghiệp tiêu biểu của ngành chế biến lâm sản Việt Nam.',
       ],
     },
     {
       id: 'business-activities',
-      heading: 'Hoạt động kinh doanh',
+      heading: 'Lĩnh vực hoạt động',
       paragraphs: ['Công ty Cổ phần Chế biến Lâm sản Đại Dương chuyên sản xuất và xuất khẩu:'],
       list: [
-        'Dăm gỗ nguyên liệu cho ngành giấy.',
-        'Viên nén gỗ sinh khối cho năng lượng tái tạo.',
-        'Ván ghép thanh và các sản phẩm gỗ chế biến sâu khác.',
+        'Dăm gỗ nguyên liệu phục vụ ngành công nghiệp giấy.',
+        'Viên nén gỗ sinh khối (Wood Pellets) phục vụ năng lượng tái tạo.',
+        'Ván ghép thanh và các sản phẩm chế biến sâu từ gỗ.',
       ],
     },
     {
       paragraphs: [
-        'Hiện nay, sản phẩm của công ty được xuất khẩu đến các thị trường lớn như Nhật Bản, Trung Quốc và nhiều quốc gia khác có nhu cầu cao về nguyên liệu gỗ và năng lượng sinh khối.',
+        'Sản phẩm của công ty hiện được xuất khẩu đến nhiều thị trường lớn như Nhật Bản, Trung Quốc và các quốc gia có nhu cầu cao về nguyên liệu gỗ và năng lượng sinh khối.',
       ],
     },
     {
       id: 'partnership-network',
-      heading: 'Mạng lưới đối tác và chuỗi cung ứng',
+      heading: 'Mạng lưới liên kết và chuỗi cung ứng',
       paragraphs: [
-        'Công ty đã xây dựng hệ thống hợp tác vững mạnh với các đối tác trong các lĩnh vực khai thác, thu mua, vận chuyển và xuất khẩu lâm sản, hình thành chuỗi cung ứng nguyên liệu ổn định và bền vững.',
-        'Thông qua mạng lưới gồm 16 đơn vị liên kết tại khu vực Cảng Nghi Sơn và 5 đơn vị liên kết tại khu vực Cảng Sông Lam, Đại Dương có khả năng đáp ứng các đơn hàng lớn với thời gian giao hàng nhanh, chất lượng đồng đều và năng lực cạnh tranh cao trên thị trường quốc tế.',
+        'Công ty xây dựng hệ thống liên kết chặt chẽ với các đối tác trong lĩnh vực khai thác, thu mua, vận chuyển và xuất khẩu lâm sản, hình thành chuỗi cung ứng nguyên liệu ổn định và bền vững.',
+        'Thông qua mạng lưới gồm 16 đơn vị liên kết tại khu vực Cảng Nghi Sơn và 05 đơn vị liên kết tại khu vực Cảng Sông Lam, Đại Dương có khả năng đáp ứng các đơn hàng lớn với tiến độ nhanh chóng, chất lượng đồng nhất và tính cạnh tranh cao trên thị trường quốc tế.',
       ],
     },
     {
       id: 'vision',
       heading: 'Tầm nhìn',
       paragraphs: [
-        'Trở thành doanh nghiệp hàng đầu Việt Nam trong lĩnh vực chế biến và xuất khẩu các sản phẩm gỗ và sinh khối, góp phần thúc đẩy nền kinh tế xanh và sự phát triển bền vững.',
+        'Trở thành doanh nghiệp hàng đầu Việt Nam trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ và sinh khối, góp phần thúc đẩy nền kinh tế xanh và phát triển bền vững.',
       ],
     },
     {
       id: 'mission',
       heading: 'Sứ mệnh',
       paragraphs: [
-        'Cung cấp các sản phẩm lâm sản chất lượng cao với nguồn gốc hợp pháp và bền vững; mang lại giá trị lâu dài cho khách hàng, đối tác, người lao động và cộng đồng.',
+        'Cung cấp các sản phẩm lâm sản chất lượng cao, có nguồn gốc hợp pháp và bền vững; mang lại giá trị lâu dài cho khách hàng, đối tác, người lao động và cộng đồng.',
       ],
     },
     {
@@ -135,9 +135,9 @@ const VI: IntroductionContent = {
       paragraphs: [
         '<b>Uy tín</b> – Giữ vững cam kết với khách hàng và đối tác.',
         '<b>Chất lượng</b> – Không ngừng cải tiến để nâng cao chất lượng sản phẩm và dịch vụ.',
-        '<b>Bền vững</b> – Gắn phát triển kinh doanh với trách nhiệm xã hội và bảo vệ môi trường.',
+        '<b>Bền vững</b> – Phát triển kinh doanh gắn liền với trách nhiệm xã hội và bảo vệ môi trường.',
         '<b>Đổi mới</b> – Ứng dụng công nghệ và tư duy sáng tạo để tạo ra giá trị mới.',
-        '<b>Hợp tác</b> – Đồng hành cùng đối tác vì sự phát triển chung và lâu dài.',
+        '<b>Hợp tác</b> – Đồng hành cùng đối tác để cùng phát triển lâu dài.',
       ],
     },
   ],

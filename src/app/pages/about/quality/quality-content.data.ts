@@ -21,7 +21,7 @@ const EN: QualityContent = {
   blocks: [
     {
       paragraphs: [
-        'Boards of Leadership of <b>THANH HOA CO., LTD.</b> and <b>DAI DUONG FOREST PRODUCTS JSC.</b> declare the Policies of Quality Control as follows:',
+        '<b>DAI DUONG FOREST PRODUCTS JSC.</b> declare the Policies of Quality Control as follows:',
       ],
     },
     {
@@ -87,7 +87,7 @@ const VI: QualityContent = {
   blocks: [
     {
       paragraphs: [
-        'Ban lãnh đạo <b>CÔNG TY TNHH THANH HÒA</b> và <b>CÔNG TY CỔ PHẦN CHẾ BIẾN LÂM SẢN ĐẠI DƯƠNG</b> công bố Chính sách kiểm soát chất lượng như sau:',
+        '<b>CÔNG TY CỔ PHẦN CHẾ BIẾN LÂM SẢN ĐẠI DƯƠNG</b> công bố Chính sách kiểm soát chất lượng như sau:',
       ],
     },
     {
@@ -115,14 +115,6 @@ const VI: QualityContent = {
   certHeading: 'Chứng chỉ FSC FM, FSC CW/COC & PEFC',
   certificates: [
     { title: 'FM - Đại Lâm 2025-2030', thumbnailUrl: 'assets/images/certificates/FM-DaiLam.png' },
-    {
-      title: 'FSC FM - Thanh Hòa (2023-2028)',
-      thumbnailUrl: 'assets/images/certificates/FSC-FM-ThanhHoa.png',
-    },
-    {
-      title: 'FSC CW/COC - THC 2025',
-      thumbnailUrl: 'assets/images/certificates/FSC-CW-COC-THC.png',
-    },
     {
       title: 'PEFC COC - Đại Dương',
       thumbnailUrl: 'assets/images/certificates/PEFC-COC-DaiDuong.png',

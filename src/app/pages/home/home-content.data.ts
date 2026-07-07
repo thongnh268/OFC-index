@@ -19,10 +19,7 @@ const PARTNER_LOGOS: readonly PartnerLogo[] = [
 
 const EN: HomeContent = {
   hero: {
-    heading: [
-      { tone: 'navy', text: 'Leading wood chip & pellet' },
-      { tone: 'accent', text: 'exporter in Vietnam' },
-    ],
+    heading: [{ tone: 'navy', text: 'HARVESTING FOR GROWING' }],
     subheading: 'Sustainable sourcing. Reliable global supply chain.',
     imageUrl: 'assets/images/hero-banner.webp',
     stats: [
@@ -190,10 +187,7 @@ const EN: HomeContent = {
 
 const VI: HomeContent = {
   hero: {
-    heading: [
-      { tone: 'navy', text: 'Nhà xuất khẩu dăm gỗ & viên nén' },
-      { tone: 'accent', text: 'hàng đầu Việt Nam' },
-    ],
+    heading: [{ tone: 'navy', text: 'KHAI THÁC ĐỂ PHÁT TRIỂN' }],
     subheading: 'Nguồn cung ứng bền vững. Chuỗi cung ứng toàn cầu đáng tin cậy.',
     imageUrl: 'assets/images/hero-banner.webp',
     stats: [

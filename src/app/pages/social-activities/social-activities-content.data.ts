@@ -53,6 +53,12 @@ const EN: SocialActivitiesContent = {
       ],
     },
     {
+      heading: 'Commitment to a Sustainable Future',
+      paragraphs: [
+        'Dai Duong understands that business success is always linked to the development of the community and the environment. Therefore, we are committed to continuing to implement practical social responsibility programs, creating positive values ​​for our employees, customers, partners, and society.',
+      ],
+    },
+    {
       paragraphs: [
         '<accent>Every product created brings not only economic value but is also a commitment from Dai Duong to people, the community, and a green future for generations to come</accent>',
       ],
@@ -101,6 +107,12 @@ const VI: SocialActivitiesContent = {
       paragraphs: [
         'Là doanh nghiệp hoạt động trong lĩnh vực lâm nghiệp, Đại Dương nhận thức sâu sắc trách nhiệm của mình trong việc bảo vệ tài nguyên rừng và môi trường.',
         'Chúng tôi ưu tiên sử dụng nguyên liệu hợp pháp, thúc đẩy quản lý rừng bền vững, áp dụng các tiêu chuẩn quốc tế như FSC và PEFC, và không ngừng cải tiến quy trình sản xuất nhằm giảm thiểu tác động đến môi trường.',
+      ],
+    },
+    {
+      heading: 'Cam kết vì một tương lai bền vững',
+      paragraphs: [
+        'Đại Dương hiểu rằng sự thành công của doanh nghiệp luôn gắn liền với sự phát triển của cộng đồng và môi trường. Vì vậy, chúng tôi cam kết tiếp tục triển khai các chương trình trách nhiệm xã hội thiết thực, tạo ra những giá trị tích cực cho nhân viên, khách hàng, đối tác và xã hội.',
       ],
     },
     {
