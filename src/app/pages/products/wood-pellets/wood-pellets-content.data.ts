@@ -8,9 +8,8 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 
 const EN: ProductContent = {
   name: 'Wood Pellets Export',
-  title: 'Wood Pellets Export',
-  intro:
-    'We provide high-quality acacia wood pellets for pulp, paper and energy industries. Stable supply, consistent quality and sustainable sourcing from Vietnam.',
+  title: 'Wood Pellets',
+  intro: 'Green energy sources for a sustainable future.',
   bannerImage: 'assets/images/products/wood-pellets-banner.jpg',
   bannerAlt: 'Wood pellets export',
   badges: [
@@ -113,15 +112,14 @@ const EN: ProductContent = {
 
 const VI: ProductContent = {
   name: 'Xuất khẩu viên nén gỗ',
-  title: 'Xuất khẩu viên nén gỗ',
-  intro:
-    'Chúng tôi cung cấp viên nén gỗ keo chất lượng cao cho ngành giấy, bột giấy và năng lượng. Nguồn cung ổn định, chất lượng đồng đều và khai thác bền vững từ Việt Nam.',
+  title: 'Viên nén khối sinh học',
+  intro: 'Nguồn năng lượng xanh cho tương lai bền vững.',
   bannerImage: 'assets/images/products/wood-pellets-banner.jpg',
   bannerAlt: 'Xuất khẩu viên nén gỗ',
   badges: [
-    { icon: 'truck', label: 'Nguồn cung ổn định' },
-    { icon: 'circleCheck', label: 'Chất lượng đồng đều' },
-    { icon: 'leaf', label: 'Khai thác bền vững' },
+    { icon: 'truck', label: 'Cung cấp ổn định' },
+    { icon: 'circleCheck', label: 'Chất lượng nhất quán' },
+    { icon: 'leaf', label: 'Nguồn bền vững' },
   ],
   overview: [
     'Dăm gỗ và phoi bào khô được nghiền và ép qua khuôn 8 mm dưới áp suất cao. Nhiệt sinh ra kích hoạt lignin tự nhiên trong sợi gỗ, kết dính các viên nén lại với nhau mà không cần phụ gia.',

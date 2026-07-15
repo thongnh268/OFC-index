@@ -62,7 +62,7 @@ const EN: RecruitmentContent = {
   applicationEmail: 'tuyendung.ofc@gmail.com',
   submitInPersonLabel: 'Submit Applications In Person',
   submitInPersonLines: [
-    'Dai Duong Wood Processing Joint Stock Company',
+    'Dai Duong Forestry Products Processing Joint Stock Company',
     'Nghi Son Economic Zone, Truong Lam Commune, Thanh Hoa Province, Vietnam',
   ],
   responsibilitiesLabel: 'Job Responsibilities',
@@ -85,7 +85,7 @@ const VI: RecruitmentContent = {
   companyLine: 'Tại Công ty Cổ phần Chế biến Lâm sản Đại Dương',
   tagline: 'Tham gia Đại Dương – Cùng chúng tôi phát triển vì một tương lai bền vững',
   intro:
-    'Công ty Cổ phần Chế biến Lâm sản Đại Dương là nhà sản xuất và xuất khẩu mùn cưa, viên gỗ sinh khối và các sản phẩm gỗ. Với môi trường làm việc chuyên nghiệp, ổn định và cơ hội phát triển nghề nghiệp tuyệt vời, chúng tôi chào đón những cá nhân năng động, có trách nhiệm và tận tâm đang tìm kiếm cơ hội xây dựng sự nghiệp lâu dài cùng công ty.',
+    'Công ty Cổ phần Chế biến Lâm sản Đại Dương là nhà sản xuất và xuất khẩu dăm gỗ, viên gỗ sinh khối và các sản phẩm gỗ. Với môi trường làm việc chuyên nghiệp, ổn định và cơ hội phát triển nghề nghiệp tuyệt vời, chúng tôi chào đón những cá nhân năng động, có trách nhiệm và tận tâm đang tìm kiếm cơ hội xây dựng sự nghiệp lâu dài cùng công ty.',
   openingPositionsHeading: 'Các vị trí đang tuyển',
   noOpenPositionsLabel: 'Hiện chưa có vị trí đang tuyển.',
   applicationDocumentsHeading: 'Hồ sơ ứng tuyển',
@@ -101,7 +101,7 @@ const VI: RecruitmentContent = {
   applicationEmail: 'tuyendung.ofc@gmail.com',
   submitInPersonLabel: 'Nộp hồ sơ trực tiếp',
   submitInPersonLines: [
-    'Công ty Cổ phần Chế biến Gỗ Đại Dương',
+    'Công ty cổ phần chế biến lâm sản Đại Dương',
     'Khu kinh tế Nghi Sơn, xã Trường Lâm, tỉnh Thanh Hóa, Việt Nam',
   ],
   responsibilitiesLabel: 'Mô tả công việc',

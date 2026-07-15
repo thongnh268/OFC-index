@@ -84,15 +84,15 @@
       </trans-unit>
       <trans-unit id="nav.woodChips" datatype="html">
         <source>Wood Chips Export</source>
-        <target>Xuất khẩu dăm gỗ</target>
+        <target>Dăm gỗ</target>
       </trans-unit>
       <trans-unit id="nav.woodPellets" datatype="html">
         <source>Wood Pellets Export</source>
-        <target>Xuất khẩu viên nén gỗ</target>
+        <target>Viên nén khối</target>
       </trans-unit>
       <trans-unit id="nav.timber" datatype="html">
         <source>Timber Processing</source>
-        <target>Chế biến gỗ</target>
+        <target>Ván ghép thanh</target>
       </trans-unit>
       <trans-unit id="nav.afforestation" datatype="html">
         <source>Afforestation</source>
@@ -100,7 +100,7 @@
       </trans-unit>
       <trans-unit id="nav.transportation" datatype="html">
         <source>Transportation and Warehouses</source>
-        <target>Vận tải và kho bãi</target>
+        <target>Vận tải &amp; kho bãi</target>
       </trans-unit>
       <trans-unit id="nav.aboutUs" datatype="html">
         <source>About us</source>

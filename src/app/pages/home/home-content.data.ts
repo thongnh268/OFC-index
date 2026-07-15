@@ -189,7 +189,7 @@ const EN: HomeContent = {
 
 const VI: HomeContent = {
   hero: {
-    heading: [{ tone: 'navy', text: 'KHAI THÁC ĐỂ PHÁT TRIỂN' }],
+    heading: [{ tone: 'navy', text: 'KHAI TH\u00c1C \u0110\u1ec2 PH\u00c1T TRI\u1ec2N' }],
     subheading: 'Nguồn cung ứng bền vững. Chuỗi cung ứng toàn cầu đáng tin cậy.',
     imageUrl: 'assets/images/hero-banner.webp',
     stats: [

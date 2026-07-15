@@ -8,9 +8,8 @@ import { type ProductContent } from '../../../shared/components/product-page/pro
 
 const EN: ProductContent = {
   name: 'Timber Processing',
-  title: 'Timber Processing & Export',
-  intro:
-    'We produce and export premium sawn timber, veneer, and processed lumber. Our modern Vietnamese facilities ensure reliable supply, consistent quality, and sustainable sourcing for global furniture and construction markets.',
+  title: 'Finger Joint Board',
+  intro: 'Modern natural wood solutions for interiors and construction.',
   bannerImage: 'assets/images/products/timber-processing-banner.jpg',
   bannerAlt: 'Timber processing and export',
   badges: [
@@ -133,15 +132,14 @@ const EN: ProductContent = {
 
 const VI: ProductContent = {
   name: 'Chế biến gỗ',
-  title: 'Chế biến & xuất khẩu gỗ',
-  intro:
-    'Chúng tôi sản xuất và xuất khẩu gỗ xẻ, ván lạng và gỗ chế biến cao cấp. Các nhà máy hiện đại tại Việt Nam đảm bảo nguồn cung ổn định, chất lượng đồng đều và khai thác bền vững cho thị trường nội thất và xây dựng toàn cầu.',
+  title: 'Ván ghép thanh',
+  intro: 'Giải pháp gỗ tự nhiên hiện đại cho nội thất và xây dựng',
   bannerImage: 'assets/images/products/timber-processing-banner.jpg',
   bannerAlt: 'Chế biến và xuất khẩu gỗ',
   badges: [
-    { icon: 'truck', label: 'Nguồn cung ổn định' },
-    { icon: 'circleCheck', label: 'Chất lượng đồng đều' },
-    { icon: 'leaf', label: 'Khai thác bền vững' },
+    { icon: 'truck', label: 'Cung cấp ổn định' },
+    { icon: 'circleCheck', label: 'Chất lượng nhất quán' },
+    { icon: 'leaf', label: 'Nguồn cung bền vững' },
   ],
   overview: [
     'Chế biến gỗ biến những khúc gỗ khai thác thô thành vô số sản phẩm kết cấu, công nghiệp và tiêu dùng. Quá trình này gồm bốn phương pháp chính: xẻ, lạng, bóc và băm. Đây là ngành tự động hóa cao, cân bằng giữa thu hồi nguyên liệu, tính bền vững và đổi mới công nghệ.',
