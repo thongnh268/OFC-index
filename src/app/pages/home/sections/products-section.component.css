@@ -74,7 +74,7 @@
 
 .product-title {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
   margin: 0;
@@ -85,7 +85,7 @@
 
 .product-desc {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.5;
   margin: 0;
 }

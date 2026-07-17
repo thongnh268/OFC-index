@@ -86,7 +86,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 
       .person__title {
         color: var(--color-text);
-        font-size: 0.875rem;
+        font-size: 16px;
         line-height: 1.5;
         margin: 0;
         text-align: center;

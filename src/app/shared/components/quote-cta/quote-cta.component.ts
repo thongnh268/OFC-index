@@ -99,14 +99,14 @@ export interface QuoteCtaConfig {
       }
 
       .cta-panel--compact .cta-heading {
-        font-size: 0.875rem;
+        font-size: 16px;
         font-weight: 500;
         line-height: 1.5;
       }
 
       .cta-body {
         color: var(--color-white);
-        font-size: 0.875rem;
+        font-size: 16px;
         line-height: 1.5;
         margin: 8px 0 0;
       }

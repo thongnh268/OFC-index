@@ -32,7 +32,7 @@
 
 .side-section__title {
   color: var(--color-primary);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0 0 14px;
@@ -40,7 +40,7 @@
 }
 
 .side-section--page .side-section__title {
-  font-size: 0.875rem;
+  font-size: 16px;
   letter-spacing: 0.02em;
   margin-bottom: 22px;
   position: relative;
@@ -81,7 +81,7 @@
   align-items: start;
   color: var(--color-text);
   display: flex;
-  font-size: 0.875rem;
+  font-size: 16px;
   gap: 10px;
   line-height: 1.5;
 }
@@ -106,7 +106,7 @@
 .link-list a {
   align-items: center;
   display: flex;
-  font-size: 0.875rem;
+  font-size: 16px;
   gap: 8px;
   padding: 4px 0;
   transition:
@@ -173,7 +173,7 @@
   align-items: center;
   color: var(--color-text);
   display: grid;
-  font-size: 0.875rem;
+  font-size: 16px;
   gap: 12px;
   grid-template-columns: 14px 1fr;
   line-height: 1.35;

@@ -63,7 +63,7 @@
 
 .subsidiary-card__row {
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 16px;
   line-height: 1.6;
   margin: 0 0 6px;
 }

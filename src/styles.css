@@ -193,7 +193,7 @@ app-board-org-chart .org-node__icon {
 
 app-board-org-chart .org-node__label {
   color: var(--tone);
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   min-width: 0;
@@ -504,7 +504,7 @@ body {
   }
 
   .btn-sm {
-    font-size: 0.875rem;
+    font-size: 16px;
     height: 36px;
     padding: 0 14px;
   }
@@ -630,7 +630,7 @@ app-inner-content h2 {
 
 app-inner-content p {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.7;
   margin: 0 0 14px;
   text-align: justify;
@@ -644,7 +644,7 @@ app-inner-content ul {
 
 app-inner-content li {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.7;
   margin-bottom: 8px;
   padding-left: 22px;

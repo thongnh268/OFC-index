@@ -45,10 +45,9 @@
 
 .banner__intro {
   color: var(--color-text);
-  font-size: 0.95rem;
+  font-size: 20px;
   line-height: 1.7;
   margin: 0 0 28px;
-  text-align: justify;
 }
 
 /* Slant the paragraph's right edge so it echoes the banner image's diagonal left edge. */
@@ -96,7 +95,7 @@
 
 .trust-badge__label {
   color: var(--color-primary);
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
   white-space: nowrap;

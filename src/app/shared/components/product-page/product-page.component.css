@@ -60,7 +60,7 @@
 
 .section__lead {
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 16px;
   margin: 0 0 22px;
 }
 
@@ -78,7 +78,7 @@
 
 .overview__text p {
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 16px;
   line-height: 1.8;
   margin: 0 0 14px;
   text-align: justify;
@@ -95,11 +95,15 @@
   align-items: start;
   display: grid;
   gap: 36px;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.advantage--single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .bullet-list {
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.55;
   list-style: disc;
   margin: 0;
@@ -107,7 +111,7 @@
 }
 
 .bullet-list--compact {
-  font-size: 0.82rem;
+  font-size: 15.5px;
   line-height: 1.5;
   padding-left: 18px;
 }
@@ -155,7 +159,7 @@
 
 .app-card__desc {
   color: var(--color-text-muted);
-  font-size: 0.82rem;
+  font-size: 15.5px;
   line-height: 1.5;
   margin: 0;
 }
@@ -190,14 +194,14 @@
 
 .reason__title {
   color: var(--color-primary);
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: 700;
   margin: 0 0 6px;
 }
 
 .reason__desc {
   color: var(--color-text-muted);
-  font-size: 0.82rem;
+  font-size: 15.5px;
   line-height: 1.5;
   margin: 0;
 }
@@ -279,9 +283,10 @@
 
 .video__blurb p {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.7;
   margin: 0 0 12px;
+  text-align: justify;
 }
 
 /* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)

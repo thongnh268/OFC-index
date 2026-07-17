@@ -48,7 +48,7 @@
 
 .about-value {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
   margin: 14px 0 0;
@@ -58,7 +58,7 @@
 .about-volumes {
   color: var(--color-text);
   display: grid;
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.5;
   list-style: none;
   margin: 13px 0 0;

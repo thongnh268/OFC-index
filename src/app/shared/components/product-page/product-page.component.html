@@ -43,14 +43,18 @@
 
     @if (content().advantages; as advantages) {
       <section id="advantage" class="section">
-        <h2 class="section__title">{{ sectionHeading('advantage', chrome.advantageHeading) }}</h2>
+        <div class="advantage" [class.advantage--single]="content().specsPlacement !== 'advantage'">
+          <div class="advantage__content">
+            <h2 class="section__title">
+              {{ sectionHeading('advantage', chrome.advantageHeading) }}
+            </h2>
 
-        <div class="advantage">
-          <ul class="bullet-list">
-            @for (advantage of advantages; track advantage) {
-              <li>{{ advantage }}</li>
-            }
-          </ul>
+            <ul class="bullet-list">
+              @for (advantage of advantages; track advantage) {
+                <li>{{ advantage }}</li>
+              }
+            </ul>
+          </div>
 
           @if (content().specsPlacement === 'advantage') {
             <app-product-specs [heading]="chrome.specsHeading" [specs]="content().specs" />

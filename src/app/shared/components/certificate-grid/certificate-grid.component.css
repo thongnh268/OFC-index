@@ -152,7 +152,7 @@
 
 .cert-pdf-link {
   color: var(--color-white);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
   justify-self: center;
   text-decoration: none;
@@ -194,7 +194,7 @@
 .gallery-counter {
   bottom: -34px;
   color: rgb(255 255 255 / 0.72);
-  font-size: 0.875rem;
+  font-size: 16px;
   grid-column: 1 / -1;
   justify-self: center;
   margin: 0;

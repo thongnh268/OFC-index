@@ -44,7 +44,7 @@ import type { TextSegment } from '../text-segments/text-segments.component';
 
       .section-body {
         color: var(--color-text);
-        font-size: 0.875rem;
+        font-size: 16px;
         line-height: 1.5;
         margin: 20px 0 0;
         text-align: justify;

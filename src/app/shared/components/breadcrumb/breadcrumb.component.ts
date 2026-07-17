@@ -39,7 +39,7 @@ export interface BreadcrumbItem {
         color: var(--color-text);
         display: flex;
         flex-wrap: wrap;
-        font-size: 0.875rem;
+        font-size: 16px;
         gap: 8px;
         list-style: none;
         margin: 0;

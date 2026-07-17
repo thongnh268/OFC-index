@@ -9,13 +9,13 @@
 
 .tagline {
   color: var(--color-accent);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 1.25rem;
 }
 
 .intro {
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.75;
   margin-bottom: 2.25rem;
 }
@@ -54,7 +54,7 @@ section h2::after {
 
 .document-list li {
   color: var(--color-text);
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.7;
   margin-bottom: 0.25rem;
   padding-left: 0.15rem;
@@ -70,7 +70,7 @@ section h2::after {
 
 .contact-label {
   color: var(--color-accent);
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0;
   margin-bottom: 0.35rem;
@@ -89,7 +89,7 @@ section h2::after {
 }
 
 .contact-block p {
-  font-size: 0.875rem;
+  font-size: 16px;
   line-height: 1.7;
   margin: 0.25rem 0;
 }

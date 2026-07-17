@@ -14,7 +14,7 @@
 .anchor-nav__title {
   background: var(--color-primary);
   color: var(--color-white);
-  font-size: 0.85rem;
+  font-size: 16px;
   font-weight: 700;
   margin: 0;
   padding: 14px 18px;
@@ -31,7 +31,7 @@
   align-items: center;
   color: var(--color-text);
   display: flex;
-  font-size: 0.875rem;
+  font-size: 16px;
   gap: 10px;
   padding: 9px 18px;
   text-decoration: none;
@@ -84,7 +84,7 @@
 
 .quote-card__body {
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 16px;
   line-height: 1.5;
   margin: 0 0 16px;
 }
