@@ -406,6 +406,14 @@
         <source>Next certificate</source>
         <target>Chứng chỉ sau</target>
       </trans-unit>
+      <trans-unit id="imageViewer.previous" datatype="html">
+        <source>Previous image</source>
+        <target>Ảnh trước</target>
+      </trans-unit>
+      <trans-unit id="imageViewer.next" datatype="html">
+        <source>Next image</source>
+        <target>Ảnh sau</target>
+      </trans-unit>
       <trans-unit id="certGrid.openPdf" datatype="html">
         <source>Open PDF</source>
         <target>Mở PDF</target>
