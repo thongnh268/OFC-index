@@ -1,0 +1,58 @@
+<app-dialog
+  [dialogId]="dialogId()"
+  size="lightbox"
+  [heading]="selected()?.alt ?? ''"
+  [open]="selected() !== null"
+  (keydown.arrowleft)="previous()"
+  (keydown.arrowright)="next()"
+  (closed)="close()"
+>
+  @if (selected(); as image) {
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+    <div class="viewer-shell" (click)="$event.stopPropagation()" (wheel)="navigateByWheel($event)">
+      <button
+        class="viewer-nav viewer-nav--prev"
+        type="button"
+        aria-label="Previous image"
+        i18n-aria-label="@@imageViewer.previous"
+        (click)="previous()"
+      >
+        <app-icon name="chevronLeft" [size]="32" />
+      </button>
+
+      <figure class="viewer-preview">
+        @if (image.src) {
+          <img class="viewer-preview__image" [src]="image.src" [alt]="image.alt" />
+        } @else {
+          <div class="viewer-preview__placeholder">
+            <app-icon name="experience" [size]="56" />
+            <span>{{ image.alt }}</span>
+          </div>
+        }
+
+        @if (image.linkUrl) {
+          <a
+            class="viewer-preview__link"
+            [href]="image.linkUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ image.linkLabel }}
+          </a>
+        }
+      </figure>
+
+      <button
+        class="viewer-nav viewer-nav--next"
+        type="button"
+        aria-label="Next image"
+        i18n-aria-label="@@imageViewer.next"
+        (click)="next()"
+      >
+        <app-icon name="chevronRight" [size]="32" />
+      </button>
+
+      <p class="viewer-counter">{{ selectedPosition() }} / {{ items().length }}</p>
+    </div>
+  }
+</app-dialog>

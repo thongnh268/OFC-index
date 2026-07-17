@@ -154,20 +154,20 @@ const EN: ProductContent = {
   },
   gallery: [
     {
-      src: 'assets/images/products/wood-pellets-overview.webp',
-      alt: 'Finished wood pellets',
+      src: 'assets/images/products/Wood-Pellets/1.png',
+      alt: 'Wood pellet production line',
     },
     {
-      src: 'assets/images/wood-pellets-export.jpg',
-      alt: 'Wood pellet quality inspection',
+      src: 'assets/images/products/Wood-Pellets/2.png',
+      alt: 'Wood pellet production facility interior',
     },
     {
-      src: 'assets/images/products/wood-pellets-banner.jpg',
-      alt: 'Wood pellets made from natural biomass',
+      src: 'assets/images/products/Wood-Pellets/3.png',
+      alt: 'Wood pellets at an industrial production plant',
     },
     {
-      src: 'assets/images/wood-chips-export.webp',
-      alt: 'Wood-chip raw material used in pellet production',
+      src: 'assets/images/products/Wood-Pellets/4.png',
+      alt: 'Wood pellet heating system with storage hopper',
     },
   ],
   whyChoose: [
@@ -357,20 +357,20 @@ const VI: ProductContent = {
   },
   gallery: [
     {
-      src: 'assets/images/products/wood-pellets-overview.webp',
-      alt: 'Viên nén gỗ thành phẩm',
+      src: 'assets/images/products/Wood-Pellets/1.png',
+      alt: 'Dây chuyền sản xuất viên nén gỗ',
     },
     {
-      src: 'assets/images/wood-pellets-export.jpg',
-      alt: 'Kiểm tra chất lượng viên nén gỗ',
+      src: 'assets/images/products/Wood-Pellets/2.png',
+      alt: 'Bên trong cơ sở sản xuất viên nén gỗ',
     },
     {
-      src: 'assets/images/products/wood-pellets-banner.jpg',
-      alt: 'Viên nén gỗ từ sinh khối tự nhiên',
+      src: 'assets/images/products/Wood-Pellets/3.png',
+      alt: 'Viên nén gỗ tại nhà máy sản xuất công nghiệp',
     },
     {
-      src: 'assets/images/wood-chips-export.webp',
-      alt: 'Nguyên liệu dăm gỗ dùng trong sản xuất viên nén',
+      src: 'assets/images/products/Wood-Pellets/4.png',
+      alt: 'Hệ thống sưởi viên nén gỗ với kho chứa',
     },
   ],
   whyChoose: [

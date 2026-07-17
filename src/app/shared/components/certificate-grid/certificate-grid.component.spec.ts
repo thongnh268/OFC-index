@@ -44,15 +44,17 @@ describe('CertificateGridComponent', () => {
     expect(host.querySelector('.dialog-panel')?.getAttribute('aria-modal')).toBe('true');
     expect(host.querySelector('.dialog-panel')?.classList).toContain('dialog-panel--lightbox');
     expect(host.querySelector('.dialog-title')?.textContent).toContain('FSC COC');
-    expect(host.querySelector('.cert-preview-image')?.getAttribute('src')).toContain('FSC-COC.png');
-    expect(host.querySelector('.gallery-counter')?.textContent).toContain('1 / 2');
+    expect(host.querySelector('.viewer-preview__image')?.getAttribute('src')).toContain(
+      'FSC-COC.png',
+    );
+    expect(host.querySelector('.viewer-counter')?.textContent).toContain('1 / 2');
 
-    (host.querySelector('.gallery-nav--next') as HTMLButtonElement).click();
+    (host.querySelector('.viewer-nav--next') as HTMLButtonElement).click();
     fixture.detectChanges();
 
     expect(host.querySelector('.dialog-title')?.textContent).toContain('PEFC');
-    expect(host.querySelector('.cert-preview-image')?.getAttribute('src')).toContain('PEFC.png');
-    expect(host.querySelector('.gallery-counter')?.textContent).toContain('2 / 2');
+    expect(host.querySelector('.viewer-preview__image')?.getAttribute('src')).toContain('PEFC.png');
+    expect(host.querySelector('.viewer-counter')?.textContent).toContain('2 / 2');
 
     (host.querySelector('.dialog-body') as HTMLElement).click();
     fixture.detectChanges();
@@ -66,13 +68,13 @@ describe('CertificateGridComponent', () => {
     card.click();
     fixture.detectChanges();
 
-    const gallery = host.querySelector('.gallery-shell') as HTMLElement;
+    const gallery = host.querySelector('.viewer-shell') as HTMLElement;
 
     gallery.dispatchEvent(new WheelEvent('wheel', { bubbles: true, cancelable: true, deltaY: 90 }));
     fixture.detectChanges();
 
     expect(host.querySelector('.dialog-title')?.textContent).toContain('PEFC');
-    expect(host.querySelector('.gallery-counter')?.textContent).toContain('2 / 2');
+    expect(host.querySelector('.viewer-counter')?.textContent).toContain('2 / 2');
 
     gallery.dispatchEvent(
       new WheelEvent('wheel', { bubbles: true, cancelable: true, deltaY: -90 }),
@@ -80,6 +82,6 @@ describe('CertificateGridComponent', () => {
     fixture.detectChanges();
 
     expect(host.querySelector('.dialog-title')?.textContent).toContain('FSC COC');
-    expect(host.querySelector('.gallery-counter')?.textContent).toContain('1 / 2');
+    expect(host.querySelector('.viewer-counter')?.textContent).toContain('1 / 2');
   });
 });

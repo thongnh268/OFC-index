@@ -87,20 +87,20 @@ const EN: ProductContent = {
   ],
   gallery: [
     {
-      src: 'assets/images/products/timber-processing-overview.jpg',
-      alt: 'Finger joint board production line',
+      src: 'assets/images/products/Finger-Joint-Board/1.png',
+      alt: 'Stacked finger joint boards',
     },
     {
-      src: 'assets/images/products/timber-processing-banner.jpg',
-      alt: 'Processed boards inside a timber factory',
+      src: 'assets/images/products/Finger-Joint-Board/2.png',
+      alt: 'Dining table made from finger joint board',
     },
     {
-      src: 'assets/images/timber-processing.jpeg',
-      alt: 'Natural wood strips prepared for processing',
+      src: 'assets/images/products/Finger-Joint-Board/3.jpg',
+      alt: 'Bundled wood strips for finger joint board production',
     },
     {
-      src: 'assets/images/wood-chips-export.webp',
-      alt: 'Natural wood raw material',
+      src: 'assets/images/products/Finger-Joint-Board/4.png',
+      alt: 'Natural finger joint board panel',
     },
   ],
   whyChoose: [
@@ -231,20 +231,20 @@ const VI: ProductContent = {
   ],
   gallery: [
     {
-      src: 'assets/images/products/timber-processing-overview.jpg',
-      alt: 'Dây chuyền sản xuất ván ghép thanh',
+      src: 'assets/images/products/Finger-Joint-Board/1.png',
+      alt: 'Các tấm ván ghép thanh được xếp chồng',
     },
     {
-      src: 'assets/images/products/timber-processing-banner.jpg',
-      alt: 'Ván gỗ đã qua chế biến trong nhà máy',
+      src: 'assets/images/products/Finger-Joint-Board/2.png',
+      alt: 'Bàn ăn làm từ ván ghép thanh',
     },
     {
-      src: 'assets/images/timber-processing.jpeg',
-      alt: 'Thanh gỗ tự nhiên chuẩn bị gia công',
+      src: 'assets/images/products/Finger-Joint-Board/3.jpg',
+      alt: 'Các bó thanh gỗ dùng để sản xuất ván ghép thanh',
     },
     {
-      src: 'assets/images/wood-chips-export.webp',
-      alt: 'Nguyên liệu gỗ tự nhiên',
+      src: 'assets/images/products/Finger-Joint-Board/4.png',
+      alt: 'Tấm ván ghép thanh gỗ tự nhiên',
     },
   ],
   whyChoose: [

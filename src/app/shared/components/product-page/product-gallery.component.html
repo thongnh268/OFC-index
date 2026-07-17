@@ -1,7 +1,15 @@
 <app-carousel class="gallery">
   @for (picture of images(); track picture.src) {
     <li class="gallery__item">
-      <img [src]="picture.src" [alt]="picture.alt" loading="lazy" />
+      <button class="gallery__button" type="button" aria-haspopup="dialog" (click)="open($index)">
+        <img [src]="picture.src" [alt]="picture.alt" loading="lazy" />
+      </button>
     </li>
   }
 </app-carousel>
+
+<app-image-viewer
+  dialogId="product-gallery-preview"
+  [items]="images()"
+  [(selectedIndex)]="selectedIndex"
+/>
