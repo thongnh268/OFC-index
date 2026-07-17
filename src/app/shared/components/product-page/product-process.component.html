@@ -1,0 +1,14 @@
+<ol class="process">
+  @for (step of process().steps; track $index) {
+    <li class="process__step">
+      <span class="process__number">{{ $index + 1 }}</span>
+      <p class="process__card">{{ step }}</p>
+    </li>
+  }
+  <li class="process__step process__step--complete">
+    <span class="process__complete-icon">
+      <ng-icon name="tablerRosetteDiscountCheckFill" size="40px" aria-hidden="true" />
+    </span>
+    <p class="process__card">{{ process().note }}</p>
+  </li>
+</ol>

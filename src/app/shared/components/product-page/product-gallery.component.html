@@ -1,0 +1,7 @@
+<app-carousel class="gallery">
+  @for (picture of images(); track picture.src) {
+    <li class="gallery__item">
+      <img [src]="picture.src" [alt]="picture.alt" loading="lazy" />
+    </li>
+  }
+</app-carousel>

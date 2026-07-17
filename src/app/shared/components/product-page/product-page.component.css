@@ -72,6 +72,10 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
 }
 
+.overview--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .overview__text p {
   color: var(--color-text);
   font-size: 0.9rem;
@@ -87,51 +91,25 @@
   width: 100%;
 }
 
-.overview__img--placeholder {
-  aspect-ratio: 16 / 10;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-}
-
-/* Specifications - white box (panel) on the tinted page. */
-.specs {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 24px 28px;
-}
-
-.specs__title {
-  color: var(--color-accent);
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 12px;
-  text-transform: uppercase;
-}
-
-.specs__list {
-  margin: 0;
-}
-
-.specs__row {
-  border-bottom: 1px solid var(--color-border);
+.advantage {
+  align-items: start;
   display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr 1fr;
-  padding: 9px 0;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
 }
 
-.specs__row dt {
-  color: var(--color-primary);
-  font-size: 0.85rem;
-  font-weight: 700;
+.bullet-list {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  list-style: disc;
   margin: 0;
+  padding-left: 20px;
 }
 
-.specs__row dd {
-  color: var(--color-text);
-  font-size: 0.85rem;
-  margin: 0;
+.bullet-list--compact {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding-left: 18px;
 }
 
 /* Applications - white icon-card boxes (own class name, not the global `.card`) on the tinted
@@ -157,6 +135,12 @@
   text-align: center;
 }
 
+.app-cards--two-columns .app-card,
+.app-card--featured {
+  flex-basis: calc(50% - 8px);
+  max-width: none;
+}
+
 .app-card__icon {
   color: var(--color-accent);
   display: inline-flex;
@@ -175,6 +159,11 @@
   font-size: 0.82rem;
   line-height: 1.5;
   margin: 0;
+}
+
+.app-card__details {
+  margin-top: 10px;
+  text-align: left;
 }
 
 /* Why choose us - 4 reasons in a white panel (box) on the tinted page. */
@@ -296,16 +285,6 @@
   margin: 0 0 12px;
 }
 
-/* FAQ - single-column accordion inside a clean bordered card (two columns misaligned the
-   rows whenever a question wrapped, which looked cluttered). */
-app-accordion.faq {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  display: block;
-  padding: 4px 24px;
-}
-
 /* Switch to the stacked layout at the same point the header flips to its hamburger (lg, 1024px)
    so the whole page changes together - a 2-column body under a mobile header looked inconsistent. */
 @media (max-width: 1023.98px) {
@@ -314,6 +293,7 @@ app-accordion.faq {
   }
 
   .overview,
+  .advantage,
   .video {
     grid-template-columns: 1fr;
   }
@@ -321,8 +301,11 @@ app-accordion.faq {
   .reasons {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  app-accordion.faq {
-    padding: 4px 16px;
+@media (max-width: 639.98px) {
+  .app-cards--two-columns .app-card,
+  .app-card--featured {
+    flex-basis: 100%;
   }
 }

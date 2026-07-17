@@ -18,9 +18,9 @@
 <div class="container-content product">
   <div class="product__main">
     <section id="overview" class="section">
-      <h2 class="section__title">{{ chrome.overviewHeading }}</h2>
+      <h2 class="section__title">{{ sectionHeading('overview', chrome.overviewHeading) }}</h2>
 
-      <div class="overview">
+      <div class="overview" [class.overview--single]="!showOverviewSpecs()">
         <div class="overview__text">
           @for (para of content().overview; track $index) {
             <p>{{ para }}</p>
@@ -28,42 +28,113 @@
 
           @if (content().overviewImage; as src) {
             <img class="overview__img" [src]="src" [alt]="content().overviewImageAlt" />
-          } @else {
-            <div class="overview__img overview__img--placeholder" aria-hidden="true"></div>
           }
         </div>
 
-        <div id="specifications" class="specs">
-          <h3 class="specs__title">{{ chrome.specsHeading }}</h3>
-          <dl class="specs__list">
-            @for (spec of content().specs; track spec.label) {
-              <div class="specs__row">
-                <dt>{{ spec.label }}</dt>
-                <dd>{{ spec.value }}</dd>
-              </div>
-            }
-          </dl>
-        </div>
+        @if (showOverviewSpecs()) {
+          <app-product-specs
+            sectionId="specifications"
+            [heading]="chrome.specsHeading"
+            [specs]="content().specs"
+          />
+        }
       </div>
     </section>
 
+    @if (content().advantages; as advantages) {
+      <section id="advantage" class="section">
+        <h2 class="section__title">{{ sectionHeading('advantage', chrome.advantageHeading) }}</h2>
+
+        <div class="advantage">
+          <ul class="bullet-list">
+            @for (advantage of advantages; track advantage) {
+              <li>{{ advantage }}</li>
+            }
+          </ul>
+
+          @if (content().specsPlacement === 'advantage') {
+            <app-product-specs [heading]="chrome.specsHeading" [specs]="content().specs" />
+          }
+        </div>
+      </section>
+    }
+
+    @if (content().productionProcess; as process) {
+      <section id="production-process" class="section">
+        <h2 class="section__title">
+          {{ sectionHeading('production-process', chrome.productionProcessHeading) }}
+        </h2>
+
+        <app-product-process [process]="process" />
+      </section>
+    }
+
+    @if (content().productLines; as productLines) {
+      <section id="products" class="section">
+        <h2 class="section__title">{{ sectionHeading('products', chrome.productsHeading) }}</h2>
+        @if (content().productLinesIntro; as intro) {
+          <p class="section__lead">{{ intro }}</p>
+        }
+
+        <app-product-lines [lines]="productLines" />
+      </section>
+    }
+
     <section id="applications" class="section">
-      <h2 class="section__title">{{ chrome.applicationsHeading }}</h2>
+      <h2 class="section__title">
+        {{ sectionHeading('applications', chrome.applicationsHeading) }}
+      </h2>
       <p class="section__lead">{{ content().applicationsIntro }}</p>
 
-      <ul class="app-cards">
+      <ul class="app-cards" [class.app-cards--two-columns]="content().applicationColumns === 2">
         @for (app of content().applications; track app.title) {
-          <li class="app-card">
+          <li
+            class="app-card"
+            [class.app-card--featured]="$index < (content().applicationFeaturedCount ?? 0)"
+          >
             <span class="app-card__icon"><app-icon [name]="app.icon" [size]="40" /></span>
             <h3 class="app-card__title">{{ app.title }}</h3>
-            <p class="app-card__desc">{{ app.description }}</p>
+            @if (app.description) {
+              <p class="app-card__desc">{{ app.description }}</p>
+            }
+            @if (app.details; as details) {
+              <ul class="bullet-list bullet-list--compact app-card__details">
+                @for (detail of details; track detail) {
+                  <li>{{ detail }}</li>
+                }
+              </ul>
+            }
           </li>
         }
       </ul>
     </section>
 
+    @if (content().qualityCommitment; as commitment) {
+      <section id="quality-commitment" class="section">
+        <h2 class="section__title">
+          {{ sectionHeading('quality-commitment', chrome.qualityCommitmentHeading) }}
+        </h2>
+        <p class="section__lead">{{ commitment.intro }}</p>
+        <ul class="bullet-list">
+          @for (detail of commitment.details; track detail) {
+            <li>{{ detail }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    @if (content().gallery; as gallery) {
+      <section id="pictures" class="section">
+        <h2 class="section__title">{{ sectionHeading('pictures', chrome.picturesHeading) }}</h2>
+
+        <app-product-gallery [images]="gallery" />
+      </section>
+    }
+
     <section id="why-choose-us" class="section">
-      <h2 class="section__title">{{ chrome.whyChooseHeading }}</h2>
+      <h2 class="section__title">
+        {{ sectionHeading('why-choose-us', chrome.whyChooseHeading) }}
+      </h2>
 
       <ul class="reasons">
         @for (reason of content().whyChoose; track reason.title) {
@@ -77,7 +148,7 @@
     </section>
 
     <section id="video" class="section">
-      <h2 class="section__title">{{ chrome.videoHeading }}</h2>
+      <h2 class="section__title">{{ sectionHeading('video', chrome.videoHeading) }}</h2>
 
       <div class="video">
         <div class="video__player">
@@ -118,18 +189,15 @@
     </section>
 
     <section id="faqs" class="section">
-      <h2 class="section__title">{{ chrome.faqHeading }}</h2>
+      <h2 class="section__title">{{ sectionHeading('faqs', chrome.faqHeading) }}</h2>
 
-      <app-accordion class="faq" accordionId="product-faq">
-        @for (faq of content().faqs; track faq.question) {
-          <app-accordion-item [heading]="faq.question">{{ faq.answer }}</app-accordion-item>
-        }
-      </app-accordion>
+      <app-product-faq [items]="content().faqs" />
     </section>
   </div>
 
   <app-product-sidebar
     [chrome]="chrome"
+    [items]="anchorNav()"
     [productName]="content().name"
     [activeId]="activeId()"
     (sectionSelected)="scrollToSection($event)"

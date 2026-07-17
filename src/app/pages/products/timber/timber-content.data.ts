@@ -1,83 +1,110 @@
-import { type ProductContent } from '../../../shared/components/product-page/product-content.model';
+import {
+  type ProductContent,
+  type ProductSectionId,
+} from '../../../shared/components/product-page/product-content.model';
 
-// Code-owned bilingual content for the Timber Processing & Export page (Figma node 2142:1041).
-// Application card descriptions were read from the high-res design screenshots (baked into a
-// raster image in Figma). Why-choose, the video blurb and `videoUrl` are shared OFC content
-// carried across product pages (placeholder video - swap for the real link). FAQ is neutral
-// OFC-grounded provisional copy. Banner/overview images stay null → styled placeholders.
+const FINGER_JOINT_BOARD_SECTION_ORDER = [
+  'overview',
+  'advantage',
+  'applications',
+  'pictures',
+  'why-choose-us',
+  'video',
+  'faqs',
+] as const satisfies readonly ProductSectionId[];
 
 const EN: ProductContent = {
-  name: 'Timber Processing',
+  name: 'Finger Joint Board',
   title: 'Finger Joint Board',
   intro: 'Modern natural wood solutions for interiors and construction.',
   bannerImage: 'assets/images/products/timber-processing-banner.jpg',
-  bannerAlt: 'Timber processing and export',
+  bannerAlt: 'Finger joint board production',
   badges: [
     { icon: 'truck', label: 'Stable Supply' },
     { icon: 'circleCheck', label: 'Consistent Quality' },
     { icon: 'leaf', label: 'Sustainable Source' },
   ],
   overview: [
-    'Timber processing transforms raw, harvested logs into a vast array of structural, industrial, and consumer goods. The journey requires four primary manufacturing methods: sawing, peeling, stranding, and chipping. It is a heavily automated industry that balances material recovery, sustainability, and technological innovation.',
+    'Finger joint boards are a type of wood panel produced from small-sized natural wood strips. After being dried to standard, the strips are joined using mortise and tenon joints and pressed with specialized glue under high pressure to form large, durable, and stable wood panels.',
+    'This material is widely used in the furniture, construction, and decoration industries due to its natural wood beauty, good load-bearing capacity, and reduced warping and shrinkage compared to solid wood.',
+    'With raw materials from sustainably managed plantations and a modern production process, laminated wood panels not only bring economic benefits but also contribute to protecting forest resources and developing the wood processing industry in a green direction.',
   ],
-  overviewImage: 'assets/images/products/timber-processing-overview.jpg',
-  overviewImageAlt: 'Processed sawn timber stacked for export',
+  overviewImage: null,
+  overviewImageAlt: 'Acacia finger joint boards',
   specs: [
-    { label: 'Product Name', value: 'Timber processing' },
-    { label: 'Moisture', value: '8-12% (Indoor/Kiln-Dried)' },
-    { label: 'Dimensions', value: 'Nominal' },
-    { label: 'Dimensional Tolerances', value: '±0.5mm, ±1.0mm.' },
-    { label: 'Surface Finish', value: '2 Sides, 4 Sides' },
-    { label: 'Timber Grading', value: 'FAS, #1 Common (Appearance); C16, C24 (Structural).' },
-    { label: 'Defect Tolerances', value: 'Limits on knots' },
-    { label: 'Density', value: '400 - 750 kg/m³' },
-    { label: 'Treatment', value: 'Heat treated - ISPM 15' },
+    { label: 'Product name', value: 'Acacia wood finger joint board' },
+    {
+      label: 'Characteristic',
+      value:
+        'High hardness, beautiful wood grain, natural color, suitable for manufacturing high-end furniture',
+    },
+    { label: 'Humidity', value: '8 - 12%' },
+    { label: 'Glue', value: 'D3 or D4' },
+    { label: 'Thickness', value: '12, 15, 18, 20, 24, 30, 40 (mm)' },
+    { label: 'Size', value: '1220 × 2440 (mm)\nAs per customer request' },
   ],
-  applicationsIntro: 'Our processed timber is widely used in multiple industries.',
+  sectionOrder: FINGER_JOINT_BOARD_SECTION_ORDER,
+  sectionCopy: {
+    applications: { heading: 'Application', navigation: 'Application' },
+  },
+  specsPlacement: 'advantage',
+  advantages: [
+    'Manufactured from 100% natural wood.',
+    'High stability, little warping or cracking.',
+    'Good bearing capacity.',
+    'Beautiful surface, easy to paint with PU, UV or Melamine coating.',
+    'Various sizes and thicknesses.',
+    'Environmentally friendly.',
+    'More cost-effective than solid wood.',
+    'Meets export standards.',
+  ],
+  applicationsIntro:
+    'Thanks to its durable, stable, and environmentally friendly properties, laminated wood panels are widely used in many fields.',
+  applicationFeaturedCount: 2,
   applications: [
     {
-      icon: 'ruler',
-      title: 'Structural Framing',
+      icon: 'armchair',
+      title: 'Home interior',
+      description: 'Dining table, Desk, Bed, Wardrobe, Bookshelf, Kitchen cabinet, Dressing table',
+    },
+    {
+      icon: 'ship',
+      title: 'Export processing',
       description:
-        'High-strength lumber for durable, code-compliant home and commercial construction.',
+        'Furniture components, Woodworking parts, DIY items, Wooden household goods, Wooden toys, OEM products for the market',
+    },
+    {
+      icon: 'certificate',
+      title: 'Interior decoration',
+      description: 'Wall cladding, Wooden ceilings, Partition walls, Decorative slats',
+    },
+    {
+      icon: 'ruler',
+      title: 'Construction',
+      description: 'Stairs, Steps, Handrails, Wooden doors, Door frames',
     },
     {
       icon: 'box',
-      title: 'Engineered Plywood Panels',
-      description: 'Reusable forms, subflooring, and paneling for construction projects.',
+      title: 'Office interior',
+      description: 'Meeting tables, Work desks, Filing cabinets, Reception counters',
+    },
+  ],
+  gallery: [
+    {
+      src: 'assets/images/products/timber-processing-overview.jpg',
+      alt: 'Finger joint board production line',
     },
     {
-      icon: 'wood',
-      title: 'Premium Solid Wood Flooring',
-      description: 'Processed lumber for elegant, long-lasting interior surface finishes.',
+      src: 'assets/images/products/timber-processing-banner.jpg',
+      alt: 'Processed boards inside a timber factory',
     },
     {
-      icon: 'tools',
-      title: 'Fine Millwork & Joinery',
-      description: 'Processed lumber for custom doors, windows, stairs, and decorative trim.',
+      src: 'assets/images/timber-processing.jpeg',
+      alt: 'Natural wood strips prepared for processing',
     },
     {
-      icon: 'armchair',
-      title: 'High-End Furniture Making',
-      description: 'Clean-processed lumber for cabinets, furniture, and cabinetry.',
-    },
-    {
-      icon: 'packages',
-      title: 'Industrial Timber Pallets & Crates',
-      description:
-        'Reusable, standardized timber for efficient, cost-effective shipping materials.',
-    },
-    {
-      icon: 'tree',
-      title: 'Outdoor Decking & Boundaries',
-      description:
-        'Weather-resistant processed timber for enduring outdoor living and boundary fences.',
-    },
-    {
-      icon: 'shieldCheck',
-      title: 'Treated Structural Components',
-      description:
-        'Pressure-treated wood for durability in construction and infrastructure projects.',
+      src: 'assets/images/wood-chips-export.webp',
+      alt: 'Natural wood raw material',
     },
   ],
   whyChoose: [
@@ -108,96 +135,121 @@ const EN: ProductContent = {
   videoThumbnail: null,
   faqs: [
     {
-      question: 'What timber products do you process?',
+      question: 'What is a finger joint board?',
       answer:
-        'We produce sawn timber, veneer and processed lumber for furniture, joinery, flooring, packaging and construction.',
+        'It is an engineered wood panel made by joining kiln-dried natural wood strips with finger joints and specialized adhesive under pressure.',
     },
     {
-      question: 'What grades and dimensions are available?',
+      question: 'What wood and glue are used?',
       answer:
-        'We supply FAS and #1 Common appearance grades and C16/C24 structural grades, at nominal dimensions with ±0.5–1.0 mm tolerances.',
+        'The boards are made from natural acacia wood and use D3 or D4 adhesive depending on the required application.',
     },
     {
-      question: 'How is the timber dried and treated?',
+      question: 'What sizes and thicknesses are available?',
       answer:
-        'Timber is kiln-dried to 8–12% moisture and heat-treated to ISPM 15 for international shipping.',
+        'The standard panel size is 1220 × 2440 mm, with thicknesses from 12 to 40 mm. Custom specifications are available on request.',
     },
     {
-      question: 'Is your timber sustainably sourced?',
+      question: 'Where can finger joint boards be used?',
       answer:
-        'Yes - our supply chain is PEFC FM/COC certified, ensuring legal and responsibly managed timber.',
+        'They are suitable for home and office furniture, interior decoration, stairs, doors, frames, DIY items and export furniture components.',
+    },
+    {
+      question: 'Are the boards suitable for export?',
+      answer:
+        'Yes. The boards are manufactured from sustainably sourced wood and can be produced to customer and export-market requirements.',
     },
   ],
 };
 
 const VI: ProductContent = {
-  name: 'Chế biến gỗ',
+  name: 'Ván ghép thanh',
   title: 'Ván ghép thanh',
-  intro: 'Giải pháp gỗ tự nhiên hiện đại cho nội thất và xây dựng',
+  intro: 'Giải pháp gỗ tự nhiên hiện đại cho nội thất và xây dựng.',
   bannerImage: 'assets/images/products/timber-processing-banner.jpg',
-  bannerAlt: 'Chế biến và xuất khẩu gỗ',
+  bannerAlt: 'Sản xuất ván ghép thanh',
   badges: [
     { icon: 'truck', label: 'Cung cấp ổn định' },
     { icon: 'circleCheck', label: 'Chất lượng nhất quán' },
     { icon: 'leaf', label: 'Nguồn cung bền vững' },
   ],
   overview: [
-    'Chế biến gỗ biến những khúc gỗ khai thác thô thành vô số sản phẩm kết cấu, công nghiệp và tiêu dùng. Quá trình này gồm bốn phương pháp chính: xẻ, lạng, bóc và băm. Đây là ngành tự động hóa cao, cân bằng giữa thu hồi nguyên liệu, tính bền vững và đổi mới công nghệ.',
+    'Ván ghép thanh là loại gỗ tấm được sản xuất từ các thanh gỗ tự nhiên có kích thước nhỏ. Sau khi được sấy khô đạt tiêu chuẩn, các thanh gỗ được ghép nối bằng mộng răng cưa và ép bằng keo chuyên dụng dưới áp lực cao để tạo thành tấm gỗ lớn có độ bền và tính ổn định cao.',
+    'Đây là dòng vật liệu được sử dụng phổ biến trong ngành nội thất, xây dựng và trang trí nhờ sở hữu vẻ đẹp tự nhiên của gỗ, khả năng chịu lực tốt và hạn chế cong vênh, co ngót so với gỗ nguyên khối.',
+    'Với nguồn nguyên liệu từ rừng trồng được quản lý bền vững cùng quy trình sản xuất hiện đại, ván ghép thanh không chỉ mang lại hiệu quả kinh tế mà còn góp phần bảo vệ tài nguyên rừng và phát triển ngành chế biến gỗ theo hướng xanh.',
   ],
-  overviewImage: 'assets/images/products/timber-processing-overview.jpg',
-  overviewImageAlt: 'Gỗ xẻ chế biến xếp chờ xuất khẩu',
+  overviewImage: null,
+  overviewImageAlt: 'Ván ghép thanh gỗ keo',
   specs: [
-    { label: 'Tên sản phẩm', value: 'Chế biến gỗ' },
-    { label: 'Độ ẩm', value: '8-12% (trong nhà/sấy lò)' },
-    { label: 'Kích thước', value: 'Danh nghĩa' },
-    { label: 'Dung sai kích thước', value: '±0.5mm, ±1.0mm.' },
-    { label: 'Hoàn thiện bề mặt', value: '2 mặt, 4 mặt' },
-    { label: 'Phân loại gỗ', value: 'FAS, #1 Common (thẩm mỹ); C16, C24 (kết cấu).' },
-    { label: 'Dung sai khuyết tật', value: 'Giới hạn mắt gỗ' },
-    { label: 'Khối lượng riêng', value: '400 - 750 kg/m³' },
-    { label: 'Xử lý', value: 'Sấy nhiệt - ISPM 15' },
+    { label: 'Tên sản phẩm', value: 'Ván ghép thanh gỗ keo' },
+    {
+      label: 'Đặc tính',
+      value: 'Độ cứng cao, vân gỗ đẹp, màu sắc tự nhiên, phù hợp sản xuất nội thất cao cấp',
+    },
+    { label: 'Độ ẩm', value: '8 - 12%' },
+    { label: 'Keo', value: 'D3 hoặc D4' },
+    { label: 'Độ dày', value: '12, 15, 18, 20, 24, 30, 40 (mm)' },
+    { label: 'Kích thước', value: '1220 × 2440 (mm)\nTheo yêu cầu khách hàng' },
   ],
-  applicationsIntro: 'Gỗ chế biến của chúng tôi được sử dụng rộng rãi trong nhiều ngành.',
+  sectionOrder: FINGER_JOINT_BOARD_SECTION_ORDER,
+  specsPlacement: 'advantage',
+  advantages: [
+    'Được sản xuất từ 100% gỗ tự nhiên.',
+    'Độ ổn định cao, ít cong vênh, nứt nẻ.',
+    'Khả năng chịu lực tốt.',
+    'Bề mặt đẹp, dễ sơn PU, UV hoặc phủ Melamine.',
+    'Đa dạng kích thước và độ dày.',
+    'Thân thiện với môi trường.',
+    'Tiết kiệm chi phí hơn so với gỗ nguyên khối.',
+    'Đáp ứng tiêu chuẩn xuất khẩu.',
+  ],
+  applicationsIntro:
+    'Nhờ đặc tính bền đẹp, ổn định và thân thiện với môi trường, ván ghép thanh được ứng dụng rộng rãi trong nhiều lĩnh vực.',
+  applicationFeaturedCount: 2,
   applications: [
     {
+      icon: 'armchair',
+      title: 'Nội thất gia đình',
+      description: 'Bàn ăn, Bàn làm việc, Giường ngủ, Tủ quần áo, Kệ sách, Tủ bếp, Bàn trang điểm',
+    },
+    {
+      icon: 'ship',
+      title: 'Gia công xuất khẩu',
+      description:
+        'Linh kiện nội thất, Chi tiết đồ gỗ, Đồ DIY, Đồ gia dụng bằng gỗ, Đồ chơi gỗ, Hàng OEM cho thị trường',
+    },
+    {
+      icon: 'certificate',
+      title: 'Trang trí nội thất',
+      description: 'Ốp tường, Trần gỗ, Vách ngăn, Lam trang trí',
+    },
+    {
       icon: 'ruler',
-      title: 'Khung kết cấu',
-      description: 'Gỗ cường độ cao cho công trình nhà ở và thương mại bền vững, đạt chuẩn.',
+      title: 'Xây dựng',
+      description: 'Cầu thang, Bậc tam cấp, Tay vịn, Cửa gỗ, Khung cửa',
     },
     {
       icon: 'box',
-      title: 'Ván ép kỹ thuật',
-      description: 'Cốp pha, ván sàn lót và ván ốp cho công trình xây dựng.',
+      title: 'Nội thất văn phòng',
+      description: 'Bàn họp, Bàn làm việc, Tủ hồ sơ, Quầy lễ tân',
+    },
+  ],
+  gallery: [
+    {
+      src: 'assets/images/products/timber-processing-overview.jpg',
+      alt: 'Dây chuyền sản xuất ván ghép thanh',
     },
     {
-      icon: 'wood',
-      title: 'Sàn gỗ tự nhiên cao cấp',
-      description: 'Gỗ chế biến cho bề mặt nội thất sang trọng, bền lâu.',
+      src: 'assets/images/products/timber-processing-banner.jpg',
+      alt: 'Ván gỗ đã qua chế biến trong nhà máy',
     },
     {
-      icon: 'tools',
-      title: 'Mộc tinh & ghép nối',
-      description: 'Gỗ chế biến cho cửa, cửa sổ, cầu thang và phào trang trí theo yêu cầu.',
+      src: 'assets/images/timber-processing.jpeg',
+      alt: 'Thanh gỗ tự nhiên chuẩn bị gia công',
     },
     {
-      icon: 'armchair',
-      title: 'Sản xuất nội thất cao cấp',
-      description: 'Gỗ chế biến sạch cho tủ, đồ nội thất và tủ bếp.',
-    },
-    {
-      icon: 'packages',
-      title: 'Pallet & thùng gỗ công nghiệp',
-      description: 'Gỗ tiêu chuẩn, tái sử dụng cho vật liệu đóng gói tiết kiệm.',
-    },
-    {
-      icon: 'tree',
-      title: 'Sàn & hàng rào ngoài trời',
-      description: 'Gỗ chế biến chịu thời tiết cho không gian ngoài trời và hàng rào bền bỉ.',
-    },
-    {
-      icon: 'shieldCheck',
-      title: 'Cấu kiện kết cấu đã xử lý',
-      description: 'Gỗ xử lý áp lực cho độ bền trong xây dựng và hạ tầng.',
+      src: 'assets/images/wood-chips-export.webp',
+      alt: 'Nguyên liệu gỗ tự nhiên',
     },
   ],
   whyChoose: [
@@ -211,7 +263,11 @@ const VI: ProductContent = {
       title: 'Công suất & chất lượng',
       description: 'Công suất sản xuất 1 triệu BDMT/năm',
     },
-    { icon: 'certificate', title: 'Chứng nhận', description: 'Chứng nhận PEFC FM/COC cho dăm gỗ' },
+    {
+      icon: 'certificate',
+      title: 'Chứng nhận',
+      description: 'Chứng nhận PEFC FM/COC cho dăm gỗ',
+    },
     {
       icon: 'factory',
       title: 'Kế hoạch tương lai',
@@ -228,23 +284,29 @@ const VI: ProductContent = {
   videoThumbnail: null,
   faqs: [
     {
-      question: 'Quý công ty chế biến những sản phẩm gỗ nào?',
+      question: 'Ván ghép thanh là gì?',
       answer:
-        'Chúng tôi sản xuất gỗ xẻ, ván lạng và gỗ chế biến cho nội thất, mộc, sàn, đóng gói và xây dựng.',
+        'Ván ghép thanh là tấm gỗ kỹ thuật được tạo từ các thanh gỗ tự nhiên đã sấy, ghép bằng mộng răng cưa và keo chuyên dụng dưới áp lực cao.',
     },
     {
-      question: 'Có những cấp và kích thước nào?',
+      question: 'Ván sử dụng loại gỗ và keo nào?',
       answer:
-        'Chúng tôi cung cấp cấp thẩm mỹ FAS và #1 Common, cấp kết cấu C16/C24, kích thước danh nghĩa với dung sai ±0,5–1,0 mm.',
+        'Sản phẩm được làm từ gỗ keo tự nhiên và sử dụng keo D3 hoặc D4 tùy theo yêu cầu ứng dụng.',
     },
     {
-      question: 'Gỗ được sấy và xử lý thế nào?',
-      answer: 'Gỗ được sấy lò xuống độ ẩm 8–12% và xử lý nhiệt theo ISPM 15 để vận chuyển quốc tế.',
+      question: 'Có những kích thước và độ dày nào?',
+      answer:
+        'Kích thước tiêu chuẩn là 1220 × 2440 mm, độ dày từ 12 đến 40 mm. Chúng tôi có thể sản xuất theo yêu cầu riêng.',
     },
     {
-      question: 'Gỗ có nguồn bền vững không?',
+      question: 'Ván ghép thanh được dùng ở đâu?',
       answer:
-        'Có - chuỗi cung ứng đạt chứng nhận PEFC FM/COC, đảm bảo gỗ hợp pháp và quản lý có trách nhiệm.',
+        'Sản phẩm phù hợp cho nội thất gia đình và văn phòng, trang trí, cầu thang, cửa, khung cửa, đồ DIY và linh kiện nội thất xuất khẩu.',
+    },
+    {
+      question: 'Sản phẩm có phù hợp xuất khẩu không?',
+      answer:
+        'Có. Ván được sản xuất từ nguồn gỗ bền vững và có thể đáp ứng các yêu cầu kỹ thuật của khách hàng và thị trường xuất khẩu.',
     },
   ],
 };

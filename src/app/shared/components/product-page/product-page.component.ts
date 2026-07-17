@@ -16,14 +16,25 @@ import { DomSanitizer, type SafeResourceUrl } from '@angular/platform-browser';
 
 import { OFC_COMPANY } from '../../../core/data';
 import { SiteSettingsService } from '../../../core/settings';
-import { AccordionComponent, AccordionItemComponent } from '../accordion/accordion.component';
 import { BreadcrumbComponent, type BreadcrumbItem } from '../breadcrumb/breadcrumb.component';
 import { IconComponent } from '../icon/icon.component';
 import { QuoteCtaComponent } from '../quote-cta/quote-cta.component';
 import { SocialRowComponent } from '../social-row/social-row.component';
 import { ProductBannerComponent } from './product-banner.component';
-import { productChrome, videoEmbedUrl, type ProductContent } from './product-content.model';
+import {
+  DEFAULT_PRODUCT_SECTION_ORDER,
+  productChrome,
+  videoEmbedUrl,
+  type AnchorNavItem,
+  type ProductContent,
+  type ProductSectionId,
+} from './product-content.model';
+import { ProductFaqComponent } from './product-faq.component';
+import { ProductGalleryComponent } from './product-gallery.component';
+import { ProductLinesComponent } from './product-lines.component';
+import { ProductProcessComponent } from './product-process.component';
 import { ProductSidebarComponent } from './product-sidebar.component';
+import { ProductSpecsComponent } from './product-specs.component';
 
 // Shared, data-driven shell for every product-detail page (Wood Chips, Wood Pellets, Timber,
 // Afforestation, Transportation). It owns the whole layout - breadcrumb bar, badge banner,
@@ -36,12 +47,15 @@ import { ProductSidebarComponent } from './product-sidebar.component';
   selector: 'app-product-page',
   standalone: true,
   imports: [
-    AccordionComponent,
-    AccordionItemComponent,
     BreadcrumbComponent,
     IconComponent,
     ProductBannerComponent,
+    ProductFaqComponent,
+    ProductGalleryComponent,
+    ProductLinesComponent,
+    ProductProcessComponent,
     ProductSidebarComponent,
+    ProductSpecsComponent,
     QuoteCtaComponent,
     SocialRowComponent,
   ],
@@ -69,6 +83,20 @@ export class ProductPageComponent implements AfterViewInit {
     { label: this.content().name },
   ]);
 
+  protected readonly anchorNav = computed<readonly AnchorNavItem[]>(() => {
+    const content = this.content();
+    const sectionOrder = content.sectionOrder ?? DEFAULT_PRODUCT_SECTION_ORDER;
+
+    return sectionOrder.map((id) => ({
+      id,
+      label: content.sectionCopy?.[id]?.navigation ?? this.chrome.sectionLabels[id],
+    }));
+  });
+
+  protected readonly showOverviewSpecs = computed(
+    () => this.content().specsPlacement !== 'advantage',
+  );
+
   // Sanitized embed URL for the <iframe>; null → the placeholder thumbnail is shown instead.
   protected readonly videoEmbed = computed<SafeResourceUrl | null>(() => {
     const embed = videoEmbedUrl(this.content().videoUrl);
@@ -78,14 +106,18 @@ export class ProductPageComponent implements AfterViewInit {
 
   // Active anchor-nav item, driven by scroll position (scroll-spy). Defaults to the first
   // section; the listener is attached only in the browser so SSR/prerender is unaffected.
-  protected readonly activeId = signal(this.chrome.anchorNav[0]?.id ?? '');
+  protected readonly activeId = signal<string>(DEFAULT_PRODUCT_SECTION_ORDER[0]);
+
+  protected sectionHeading(id: ProductSectionId, fallback: string): string {
+    return this.content().sectionCopy?.[id]?.heading ?? fallback;
+  }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
 
-    const ids = this.chrome.anchorNav.map((item) => item.id);
+    const ids = this.anchorNav().map((item) => item.id);
     const present = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);

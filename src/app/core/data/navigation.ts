@@ -75,13 +75,13 @@ export const ABOUT_NAV: readonly NavLink[] = [
 export const PRODUCT_NAV: readonly NavLink[] = [
   { label: $localize`:@@nav.woodChips:Wood Chips Export`, route: '/products/wood-chips-export' },
   {
-    label: $localize`:@@nav.woodPellets:Wood Pellets Export`,
+    label: $localize`:@@nav.woodPellets:Wood Pellets`,
     route: '/products/wood-pellets-export',
   },
-  { label: $localize`:@@nav.timber:Timber Processing`, route: '/products/timber-processing' },
+  { label: $localize`:@@nav.timber:Finger Joint Board`, route: '/products/timber-processing' },
   { label: $localize`:@@nav.afforestation:Afforestation`, route: '/products/afforestation' },
   {
-    label: $localize`:@@nav.transportation:Transportation and Warehouses`,
+    label: $localize`:@@nav.transportation:Transportation & Warehouse`,
     route: '/products/transportation-and-warehouses',
   },
 ];

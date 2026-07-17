@@ -1,0 +1,5 @@
+<app-accordion class="faq" accordionId="product-faq">
+  @for (faq of items(); track faq.question) {
+    <app-accordion-item [heading]="faq.question">{{ faq.answer }}</app-accordion-item>
+  }
+</app-accordion>

@@ -1,0 +1,15 @@
+<ul class="product-lines">
+  @for (product of lines(); track product.title) {
+    <li class="product-line">
+      <h3 class="product-line__title">{{ product.title }}</h3>
+      @if (product.description) {
+        <p class="product-line__description">{{ product.description }}</p>
+      }
+      <ul class="product-line__details">
+        @for (detail of product.details; track detail) {
+          <li>{{ detail }}</li>
+        }
+      </ul>
+    </li>
+  }
+</ul>

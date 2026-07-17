@@ -1,7 +1,7 @@
 <nav class="anchor-nav" [attr.aria-label]="productName()">
   <p class="anchor-nav__title">{{ productName() }}</p>
   <ul>
-    @for (item of chrome().anchorNav; track item.id) {
+    @for (item of items(); track item.id) {
       <li>
         <a
           [href]="'#' + item.id"
