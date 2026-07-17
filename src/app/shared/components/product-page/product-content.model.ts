@@ -100,8 +100,6 @@ export interface ProductContent {
   readonly applications: readonly ProductApplicationCard[];
   /** Optional card-grid override; the shared three-column layout remains the default. */
   readonly applicationColumns?: 2 | 3;
-  /** Number of leading application cards promoted to half-width on larger screens. */
-  readonly applicationFeaturedCount?: number;
 
   readonly whyChoose: readonly ProductCard[];
 

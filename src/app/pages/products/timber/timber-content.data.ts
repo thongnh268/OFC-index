@@ -44,9 +44,6 @@ const EN: ProductContent = {
     { label: 'Size', value: '1220 × 2440 (mm)\nAs per customer request' },
   ],
   sectionOrder: FINGER_JOINT_BOARD_SECTION_ORDER,
-  sectionCopy: {
-    applications: { heading: 'Application', navigation: 'Application' },
-  },
   specsPlacement: 'advantage',
   advantages: [
     'Manufactured from 100% natural wood.',
@@ -60,7 +57,6 @@ const EN: ProductContent = {
   ],
   applicationsIntro:
     'Thanks to its durable, stable, and environmentally friendly properties, laminated wood panels are widely used in many fields.',
-  applicationFeaturedCount: 2,
   applications: [
     {
       icon: 'armchair',
@@ -205,7 +201,6 @@ const VI: ProductContent = {
   ],
   applicationsIntro:
     'Nhờ đặc tính bền đẹp, ổn định và thân thiện với môi trường, ván ghép thanh được ứng dụng rộng rãi trong nhiều lĩnh vực.',
-  applicationFeaturedCount: 2,
   applications: [
     {
       icon: 'armchair',

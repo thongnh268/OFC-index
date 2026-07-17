@@ -135,8 +135,7 @@
   text-align: center;
 }
 
-.app-cards--two-columns .app-card,
-.app-card--featured {
+.app-cards--two-columns .app-card {
   flex-basis: calc(50% - 8px);
   max-width: none;
 }
@@ -304,8 +303,7 @@
 }
 
 @media (max-width: 639.98px) {
-  .app-cards--two-columns .app-card,
-  .app-card--featured {
+  .app-cards--two-columns .app-card {
     flex-basis: 100%;
   }
 }

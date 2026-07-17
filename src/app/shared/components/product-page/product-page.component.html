@@ -88,10 +88,7 @@
 
       <ul class="app-cards" [class.app-cards--two-columns]="content().applicationColumns === 2">
         @for (app of content().applications; track app.title) {
-          <li
-            class="app-card"
-            [class.app-card--featured]="$index < (content().applicationFeaturedCount ?? 0)"
-          >
+          <li class="app-card">
             <span class="app-card__icon"><app-icon [name]="app.icon" [size]="40" /></span>
             <h3 class="app-card__title">{{ app.title }}</h3>
             @if (app.description) {
