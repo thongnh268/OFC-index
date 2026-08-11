@@ -1,9 +1,5 @@
 <section id="about" class="about container-content">
-  <app-section-head
-    [eyebrow]="content().eyebrow"
-    [heading]="content().heading"
-    [body]="content().body"
-  />
+  <app-section-head [eyebrow]="content().eyebrow" [heading]="content().heading" />
 
   <div class="about-grid">
     <div class="about-media">
@@ -30,36 +26,17 @@
     </div>
 
     <div class="about-details">
+      @if (content().body.length) {
+        <p class="about-intro">
+          <app-text-segments [segments]="content().body" />
+        </p>
+      }
+
       <div class="about-block">
         <h3 class="about-label">{{ content().majorBusiness.label }}</h3>
         @if (content().majorBusiness.value.length) {
           <p class="about-value">
             <app-text-segments [segments]="content().majorBusiness.value" />
-          </p>
-        }
-      </div>
-
-      <div class="about-block">
-        <h3 class="about-label">{{ content().exportVolume.label }}</h3>
-        @if (content().exportVolume.value.length) {
-          <p class="about-value">
-            <app-text-segments [segments]="content().exportVolume.value" />
-          </p>
-        }
-        <ul class="about-volumes">
-          @for (item of content().exportVolumes; track item.year) {
-            <li class="about-volume">
-              <span class="about-volume-year">{{ item.year }}:</span> {{ item.volume }}
-            </li>
-          }
-        </ul>
-      </div>
-
-      <div class="about-block">
-        <h3 class="about-label">{{ content().subsidiaries.label }}</h3>
-        @if (content().subsidiaries.value.length) {
-          <p class="about-value">
-            <app-text-segments [segments]="content().subsidiaries.value" />
           </p>
         }
       </div>

@@ -66,29 +66,6 @@ const EN: HomeContent = {
         'Manufacturing of <accent>wood chips</accent> and <accent>wood pellets</accent> for export, manufacturing of <accent>edge-glued panels</accent>',
       ),
     },
-    exportVolume: {
-      label: 'Annual export volume',
-      value: parseEmphasis(
-        'Quantity of wood chip exported to <accent>JAPAN, KOREA, CHINA AND INDONESIA</accent> per annum',
-      ),
-    },
-    exportVolumes: [
-      { year: '2018', volume: '350.000 BDMT' },
-      { year: '2019', volume: '450.000 BDMT' },
-      { year: '2020', volume: '500.000 BDMT' },
-      { year: '2021', volume: '600.000 BDMT' },
-      { year: '2022', volume: '800.000 BDMT' },
-      { year: '2023', volume: '900.000 BDMT' },
-      { year: '2024', volume: '1.050.000 BDMT' },
-      { year: '2025', volume: '1.100.000 BDMT' },
-      { year: '2026', volume: '1.300.000 BDMT (Plan)' },
-    ],
-    subsidiaries: {
-      label: 'Subsidiaries network',
-      value: parseEmphasis(
-        '7 subsidiaries at <accent>Nghi Son Port</accent> & 5 subsidiaries at <accent>VISSAI Port</accent>',
-      ),
-    },
   },
   products: {
     eyebrow: 'Products & Services',
@@ -234,29 +211,6 @@ const VI: HomeContent = {
       label: 'Lĩnh vực kinh doanh chính',
       value: parseEmphasis(
         'Sản xuất <accent>dăm gỗ</accent> và <accent>viên nén gỗ</accent> phục vụ xuất khẩu, sản xuất <accent>ván ghép thanh</accent>',
-      ),
-    },
-    exportVolume: {
-      label: 'Sản lượng xuất khẩu hàng năm',
-      value: parseEmphasis(
-        'Sản lượng dăm gỗ xuất khẩu sang <accent>NHẬT BẢN, HÀN QUỐC, TRUNG QUỐC VÀ INDONESIA</accent> hàng năm',
-      ),
-    },
-    exportVolumes: [
-      { year: '2018', volume: '350.000 BDMT' },
-      { year: '2019', volume: '450.000 BDMT' },
-      { year: '2020', volume: '500.000 BDMT' },
-      { year: '2021', volume: '600.000 BDMT' },
-      { year: '2022', volume: '800.000 BDMT' },
-      { year: '2023', volume: '900.000 BDMT' },
-      { year: '2024', volume: '1.050.000 BDMT' },
-      { year: '2025', volume: '1.100.000 BDMT' },
-      { year: '2026', volume: '1.300.000 BDMT (Kế hoạch)' },
-    ],
-    subsidiaries: {
-      label: 'Mạng lưới công ty thành viên',
-      value: parseEmphasis(
-        '7 công ty thành viên tại <accent>cảng Nghi Sơn</accent> & 5 công ty thành viên tại <accent>cảng VISSAI</accent>',
       ),
     },
   },

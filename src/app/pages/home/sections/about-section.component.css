@@ -37,6 +37,14 @@
   gap: 28px;
 }
 
+.about-intro {
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+
 .about-label {
   color: var(--color-primary);
   font-size: 1rem;
@@ -53,27 +61,4 @@
   line-height: 1.5;
   margin: 14px 0 0;
   text-align: justify;
-}
-
-.about-volumes {
-  color: var(--color-text);
-  display: grid;
-  font-size: 16px;
-  line-height: 1.5;
-  list-style: none;
-  margin: 13px 0 0;
-  padding: 0;
-}
-
-.about-volume::before {
-  color: var(--color-accent);
-  content: '▲';
-  font-size: 0.7em;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Equal-width figures so the year column (and the ":" after it) lines up. */
-.about-volume-year {
-  font-variant-numeric: tabular-nums;
 }

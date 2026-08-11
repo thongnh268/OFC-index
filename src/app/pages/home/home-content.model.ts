@@ -49,12 +49,6 @@ export interface AboutHighlight {
   readonly value: readonly TextSegment[];
 }
 
-// One row of the "annual export volume" timeline (e.g. 2024 → 1,050,000 BDMT).
-export interface ExportVolume {
-  readonly year: string;
-  readonly volume: string;
-}
-
 export interface AboutContent {
   readonly eyebrow: string;
   readonly heading: string;
@@ -62,9 +56,6 @@ export interface AboutContent {
   /** YouTube embed URL; null → the component shows a neutral placeholder. */
   readonly videoUrl: string | null;
   readonly majorBusiness: AboutHighlight;
-  readonly exportVolume: AboutHighlight;
-  readonly exportVolumes: readonly ExportVolume[];
-  readonly subsidiaries: AboutHighlight;
 }
 
 export interface ProductCard {

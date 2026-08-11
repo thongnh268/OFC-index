@@ -15,18 +15,6 @@ const ABOUT: AboutContent = {
     label: 'Major business',
     value: parseEmphasis('Manufacturing of <accent>wood chips</accent>'),
   },
-  exportVolume: {
-    label: 'Annual export volume',
-    value: parseEmphasis('Exported to <accent>Japan</accent>'),
-  },
-  exportVolumes: [
-    { year: '2023', volume: '900.000 BDMT' },
-    { year: '2024', volume: '1.050.000 BDMT' },
-  ],
-  subsidiaries: {
-    label: 'Subsidiaries network',
-    value: parseEmphasis('16 at <accent>Nghi Son Port</accent>'),
-  },
 };
 
 @Component({
@@ -48,36 +36,30 @@ describe('AboutSectionComponent', () => {
     host = fixture.nativeElement as HTMLElement;
   });
 
-  it('renders the eyebrow, heading and body through the shared section head', () => {
+  it('renders the eyebrow and heading through the shared section head', () => {
     expect(host.querySelector('.section-eyebrow')?.textContent).toContain('About OFC');
     expect(host.querySelector('.section-heading')?.textContent).toContain('Sustainable products');
-    const body = host.querySelector('.section-body')?.textContent?.replace(/\s+/g, ' ').trim();
+  });
+
+  it('renders the intro body alongside the details column', () => {
+    const body = host.querySelector('.about-intro')?.textContent?.replace(/\s+/g, ' ').trim();
     expect(body).toBe('OFC Company is an intro paragraph.');
   });
 
   it('emphasises body and value segments by tone', () => {
-    const strong = host.querySelector('.section-body .tone-strong');
+    const strong = host.querySelector('.about-intro .tone-strong');
     expect(strong?.textContent).toContain('OFC Company');
 
     const accents = Array.from(host.querySelectorAll('.about-value .tone-accent')).map((el) =>
       el.textContent?.trim(),
     );
-    expect(accents).toEqual(['wood chips', 'Japan', 'Nghi Son Port']);
+    expect(accents).toEqual(['wood chips']);
   });
 
-  it('renders the three labelled blocks', () => {
+  it('renders the labelled block', () => {
     const labels = Array.from(host.querySelectorAll('.about-label')).map((el) => el.textContent);
-    expect(labels.length).toBe(3);
+    expect(labels.length).toBe(1);
     expect(labels[0]).toContain('Major business');
-    expect(labels[1]).toContain('Annual export volume');
-    expect(labels[2]).toContain('Subsidiaries network');
-  });
-
-  it('lists every export volume row', () => {
-    const rows = host.querySelectorAll('.about-volume');
-    expect(rows.length).toBe(2);
-    expect(rows[0].textContent).toContain('2023');
-    expect(rows[0].textContent).toContain('900.000 BDMT');
   });
 
   it('shows the neutral placeholder when there is no video', () => {
