@@ -30,10 +30,6 @@ const PARTNERS: PartnersContent = {
       codes: ['PEFC ST 2002:2020'],
     },
   ],
-  figures: [
-    { value: '1M BDMT', label: 'Production capacity', sublabel: 'Annual production capacity BDMT' },
-    { value: '16%', label: 'Growth', sublabel: 'Growth rate year over year' },
-  ],
 };
 
 @Component({
@@ -75,16 +71,6 @@ describe('PartnersSectionComponent', () => {
     expect(certs[0].querySelector('.cert-name')?.textContent).toContain('FSC FM');
     expect(certs[0].querySelector('.cert-subtitle')?.textContent).toContain('Forest Management');
     expect(certs[0].querySelectorAll('.cert-code').length).toBe(2);
-  });
-
-  it('renders figures with value, label and sublabel', () => {
-    const figures = host.querySelectorAll('.figure');
-    expect(figures.length).toBe(2);
-    expect(figures[0].querySelector('.figure-value')?.textContent).toContain('1M BDMT');
-    expect(figures[0].querySelector('.figure-label')?.textContent).toContain('Production capacity');
-    expect(figures[0].querySelector('.figure-sublabel')?.textContent).toContain(
-      'Annual production capacity BDMT',
-    );
   });
 
   it('hides the carousel dots when all logos fit one page', () => {

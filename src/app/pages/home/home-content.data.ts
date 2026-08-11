@@ -146,15 +146,6 @@ const EN: HomeContent = {
         codes: [],
       },
     ],
-    figures: [
-      {
-        value: '1M BDMT',
-        label: 'Production capacity',
-        sublabel: 'Annual production capacity BDMT',
-      },
-      { value: '740+', label: 'Collaborators', sublabel: 'Number of employees' },
-      { value: '16%', label: 'Growth', sublabel: 'Growth rate year over year' },
-    ],
   },
   news: {
     eyebrow: 'News and updates',
@@ -292,15 +283,6 @@ const VI: HomeContent = {
         subtitle: 'The promise of good biomass',
         codes: [],
       },
-    ],
-    figures: [
-      {
-        value: '1Tr BDMT',
-        label: 'Công suất sản xuất',
-        sublabel: 'Công suất sản xuất hàng năm (BDMT)',
-      },
-      { value: '740+', label: 'Cộng tác viên', sublabel: 'Số lượng nhân sự' },
-      { value: '16%', label: 'Tăng trưởng', sublabel: 'Tốc độ tăng trưởng hàng năm' },
     ],
   },
   news: {

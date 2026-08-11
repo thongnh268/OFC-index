@@ -2,7 +2,9 @@
    3-line titles and a "View details | date" footer pinned to the bottom. */
 .news {
   background: var(--color-white);
-  padding-block: clamp(3rem, 6vw, 5rem);
+  /* Reduced vs the bottom: this is the gap facing the Partners section right above it. */
+  padding-top: clamp(2rem, 4vw, 3.25rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .news-eyebrow {

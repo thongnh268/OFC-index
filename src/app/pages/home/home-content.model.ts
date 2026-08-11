@@ -85,12 +85,6 @@ export interface CertificateItem {
   readonly codes: readonly string[];
 }
 
-export interface Figure {
-  readonly value: string;
-  readonly label: string;
-  readonly sublabel: string;
-}
-
 export interface PartnersContent {
   readonly eyebrow: string;
   readonly heading: string;
@@ -99,7 +93,6 @@ export interface PartnersContent {
   readonly certificatesTitle: string;
   readonly certificatesBody: string;
   readonly certificates: readonly CertificateItem[];
-  readonly figures: readonly Figure[];
 }
 
 // Section chrome for "News & updates" - the posts themselves come from Sanity.

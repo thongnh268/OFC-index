@@ -1,8 +1,10 @@
-/* Mirrors Figma node 5:272 - 160x100 logo cards, the pale-green certificates card
-   (unique #fdfffa/#dde6cd palette) and the three-figure band. */
+/* Mirrors Figma node 5:272 - 160x100 logo cards and the pale-green certificates card
+   (unique #fdfffa/#dde6cd palette). */
 .partners {
   background: var(--color-white);
-  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  /* Reduced vs the top: this is the gap facing the News section right below it. */
+  padding-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 
 .partners-head {
@@ -118,36 +120,6 @@
   margin: 0;
 }
 
-.figures {
-  background: var(--color-bg);
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  letter-spacing: 1px;
-  list-style: none;
-  margin: 45px 0 0;
-  padding: 0;
-}
-
-.figure {
-  padding: 17px 35px;
-}
-
-.figure:not(:last-child) {
-  border-bottom: 1px solid var(--color-border);
-}
-
-@media (min-width: 768px) {
-  .figures {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .figure:not(:last-child) {
-    border-bottom: 0;
-    border-right: 1px solid var(--color-border);
-  }
-}
-
 @media (min-width: 900px) {
   .certs {
     display: flex;
@@ -164,29 +136,6 @@
   }
 }
 
-.figure-value {
-  color: var(--color-accent);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0;
-}
-
-.figure-label {
-  color: var(--color-text);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 2;
-  margin: 0;
-}
-
-.figure-sublabel {
-  color: var(--color-text-muted);
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-}
-
 @media (max-width: 899.98px) {
   .certs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -199,16 +148,5 @@
   /* Children: intro is 1st, so left-column certs are the even children. */
   .cert:nth-child(even) {
     border-left: 0;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .figures {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .figure:not(:last-child) {
-    border-bottom: 1px solid var(--color-border);
-    border-right: 0;
   }
 }
