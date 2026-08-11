@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, startWith, switchMap } from 'rxjs/operators';
-
 import { SiteSettingsService } from './core/settings';
 import { LayoutComponent } from './layout/layout.component';
 
