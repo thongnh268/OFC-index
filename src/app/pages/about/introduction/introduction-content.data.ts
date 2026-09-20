@@ -20,7 +20,7 @@ const EN: IntroductionContent = {
       id: 'introduction',
       heading: 'Sustainable Products – Reliable Supply Chain',
       paragraphs: [
-        'Established in 2017, Dai Duong Forest Products Processing Joint Stock Company is an enterprise operating in the processing and exporting of wood products. The company aims for sustainable development and strives to become a trusted partner for both domestic and international customers.',
+        'Established in 2019, Dai Duong Forest Products Processing Joint Stock Company is an enterprise operating in the processing and exporting of wood products. The company aims for sustainable development and strives to become a trusted partner for both domestic and international customers.',
         'From its earliest days, Dai Duong has built its development strategy upon three core values: Credibility – Quality – Sustainability. The company continuously invests in modern technology, enhances its management capacity, develops its human resources, and builds a stable raw material supply chain to create products that meet the strictest international standards.',
         "With a guiding principle of harmonizing economic efficiency, social responsibility, and environmental protection, Dai Duong is steadily affirming its position as one of the exemplary enterprises in Vietnam's forestry processing industry.",
       ],
@@ -87,7 +87,7 @@ const VI: IntroductionContent = {
       id: 'introduction',
       heading: 'Sản phẩm bền vững – Chuỗi cung ứng đáng tin cậy',
       paragraphs: [
-        'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ, hướng tới mục tiêu phát triển bền vững và trở thành đối tác tin cậy của khách hàng trong nước và quốc tế.',
+        'Được thành lập năm 2019, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ, hướng tới mục tiêu phát triển bền vững và trở thành đối tác tin cậy của khách hàng trong nước và quốc tế.',
         'Ngay từ những ngày đầu thành lập, Đại Dương đã xác định chiến lược phát triển dựa trên ba giá trị cốt lõi: Uy tín – Chất lượng – Bền vững. Công ty không ngừng đầu tư công nghệ hiện đại, nâng cao năng lực quản trị, phát triển nguồn nhân lực và xây dựng chuỗi cung ứng nguyên liệu ổn định nhằm tạo ra những sản phẩm đáp ứng các tiêu chuẩn quốc tế khắt khe nhất.',
         'Với phương châm phát triển hài hòa giữa hiệu quả kinh tế, trách nhiệm xã hội và bảo vệ môi trường, Đại Dương đang từng bước khẳng định vị thế là một trong những doanh nghiệp tiêu biểu của ngành chế biến lâm sản Việt Nam.',
       ],

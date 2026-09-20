@@ -35,7 +35,7 @@ const EN: ProductContent = {
     { label: 'Bark & Rotten', value: 'Max 1% GMT' },
     { label: 'Color', value: 'Nature' },
     { label: 'Stuff', value: 'Bulk' },
-    { label: 'MOQ', value: 'In bulk Vessel (15,000 BDMT)' },
+    { label: 'MOQ', value: 'In bulk Vessel (20,000–25,000 BDMT)' },
     { label: 'Payment', value: 'T/T, L/C at sight' },
     { label: 'Capacity', value: '1 Million BDMT/year' },
   ],
@@ -112,7 +112,7 @@ const EN: ProductContent = {
     {
       question: 'What is your minimum order quantity?',
       answer:
-        'We ship in bulk vessels with a minimum order of around 15,000 BDMT, and can tailor specifications to your requirements.',
+        'We ship in bulk vessels with a minimum order of around 20,000–25,000 BDMT, and can tailor specifications to your requirements.',
     },
     {
       question: 'Which markets do you export to?',
@@ -158,7 +158,7 @@ const VI: ProductContent = {
     { label: 'Vỏ & mục', value: 'Tối đa 1% GMT' },
     { label: 'Màu sắc', value: 'Tự nhiên' },
     { label: 'Đóng gói', value: 'Hàng rời' },
-    { label: 'MOQ', value: 'Tàu hàng rời (15.000 BDMT)' },
+    { label: 'MOQ', value: 'Tàu hàng rời (20.000–25.000 BDMT)' },
     { label: 'Thanh toán', value: 'T/T, L/C trả ngay' },
     { label: 'Công suất', value: '1 triệu BDMT/năm' },
   ],
@@ -234,7 +234,7 @@ const VI: ProductContent = {
     {
       question: 'Số lượng đặt hàng tối thiểu là bao nhiêu?',
       answer:
-        'Chúng tôi giao hàng bằng tàu rời với đơn tối thiểu khoảng 15.000 BDMT, và có thể điều chỉnh thông số theo yêu cầu của bạn.',
+        'Chúng tôi giao hàng bằng tàu rời với đơn tối thiểu khoảng 20.000–25.000 BDMT, và có thể điều chỉnh thông số theo yêu cầu của bạn.',
     },
     {
       question: 'Quý công ty xuất khẩu sang những thị trường nào?',

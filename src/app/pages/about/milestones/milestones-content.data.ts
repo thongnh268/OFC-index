@@ -23,7 +23,7 @@ const EN: MilestonesContent = {
       id: 'establishment',
       heading: 'Establishment',
       paragraphs: [
-        "Established in 2017, Dai Duong Forestry Products Processing Joint Stock Company was born with the aspiration of building a modern, professional, and sustainable forestry enterprise, contributing to elevating the value of Vietnam's wood industry in the international market.",
+        "Established in 2019, Dai Duong Forestry Products Processing Joint Stock Company was born with the aspiration of building a modern, professional, and sustainable forestry enterprise, contributing to elevating the value of Vietnam's wood industry in the international market.",
         'From its very first steps, Dai Duong defined its development strategy based on product quality, legal material sources, and reliability in every commitment to customers. Driven by a spirit of continuous innovation, the company has gradually invested in production systems, processing technology, and logistics infrastructure to enhance competitiveness and meet the increasingly high standards of export markets.',
         "Today, Dai Duong has become a trusted partner for numerous international customers in the fields of wood chips, biomass wood pellets, and processed wood products, helping Vietnam's green resources reach further across the global market.",
       ],
@@ -66,7 +66,7 @@ const VI: MilestonesContent = {
       id: 'establishment',
       heading: 'Kiến tạo giá trị từ tài nguyên xanh',
       paragraphs: [
-        'Được thành lập năm 2017, Công ty Cổ phần Chế biến Lâm sản Đại Dương ra đời với khát vọng xây dựng một doanh nghiệp lâm sản hiện đại, chuyên nghiệp và phát triển bền vững, góp phần nâng cao giá trị ngành gỗ Việt Nam trên thị trường quốc tế.',
+        'Được thành lập năm 2019, Công ty Cổ phần Chế biến Lâm sản Đại Dương ra đời với khát vọng xây dựng một doanh nghiệp lâm sản hiện đại, chuyên nghiệp và phát triển bền vững, góp phần nâng cao giá trị ngành gỗ Việt Nam trên thị trường quốc tế.',
         'Từ những bước đi đầu tiên, Đại Dương đã xác định chiến lược phát triển dựa trên nền tảng chất lượng sản phẩm, nguồn nguyên liệu hợp pháp và sự tin cậy trong mọi cam kết với khách hàng. Với tinh thần đổi mới không ngừng, công ty từng bước đầu tư vào hệ thống sản xuất, công nghệ chế biến và hạ tầng logistics nhằm nâng cao năng lực cạnh tranh và đáp ứng yêu cầu ngày càng cao của các thị trường xuất khẩu.',
         'Ngày nay, Đại Dương đã trở thành đối tác tin cậy của nhiều khách hàng quốc tế trong lĩnh vực dăm gỗ, viên nén gỗ sinh khối và các sản phẩm chế biến từ gỗ, góp phần đưa nguồn tài nguyên xanh của Việt Nam vươn xa trên thị trường toàn cầu.',
       ],

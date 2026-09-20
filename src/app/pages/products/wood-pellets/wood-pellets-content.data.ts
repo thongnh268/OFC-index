@@ -47,7 +47,7 @@ const EN: ProductContent = {
     { label: 'Ash content', value: '≤ 1.5% (depending on the ingredients)' },
     {
       label: 'Calorific value',
-      value: '≈ 4,300–4,800 kcal/kg (≈ 18–20 MJ/kg, depending on the ingredients)',
+      value: '≥ 4,000 kcal/kg',
     },
     { label: 'Mechanical strength', value: '≥ 97.5%' },
     { label: 'Density', value: '≥ 600 kg/m³' },
@@ -205,7 +205,7 @@ const EN: ProductContent = {
     {
       question: 'What heating value do they deliver?',
       answer:
-        'Our pellets have a calorific value above 4,200 kcal/kg with low ash (< 3%) and high durability (> 96.5%), making them an efficient, clean-burning fuel.',
+        'Our pellets have a calorific value of at least 4,000 kcal/kg with low ash (< 3%) and high durability (> 96.5%), making them an efficient, clean-burning fuel.',
     },
     {
       question: 'What sizes do you offer?',
@@ -250,7 +250,7 @@ const VI: ProductContent = {
     { label: 'Hàm lượng tro', value: '≤ 1,5% (tùy nguyên liệu)' },
     {
       label: 'Nhiệt trị',
-      value: '≈ 4.300–4.800 kcal/kg (≈ 18–20 MJ/kg, tùy nguyên liệu)',
+      value: '≥ 4.000 kcal/kg',
     },
     { label: 'Độ bền cơ học', value: '≥ 97,5%' },
     { label: 'Khối lượng riêng', value: '≥ 600 kg/m³' },
@@ -408,7 +408,7 @@ const VI: ProductContent = {
     {
       question: 'Nhiệt trị của viên nén là bao nhiêu?',
       answer:
-        'Viên nén của chúng tôi có nhiệt trị trên 4.200 kcal/kg, hàm lượng tro thấp (< 3%) và độ bền cao (> 96,5%), là nhiên liệu sạch và hiệu quả.',
+        'Viên nén của chúng tôi có nhiệt trị từ 4.000 kcal/kg trở lên, hàm lượng tro thấp (< 3%) và độ bền cao (> 96,5%), là nhiên liệu sạch và hiệu quả.',
     },
     {
       question: 'Có những kích cỡ nào?',

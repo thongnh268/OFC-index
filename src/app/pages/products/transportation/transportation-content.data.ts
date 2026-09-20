@@ -29,7 +29,7 @@ const EN: ProductContent = {
     { label: 'Cargo', value: 'Wood chips, pellets, timber' },
     { label: 'Storage', value: 'Covered & open-yard warehouses' },
     { label: 'Loading', value: 'Bulk vessel & container' },
-    { label: 'Ports', value: 'Cai Lan, Hai Phong' },
+    { label: 'Ports', value: 'Nghi Son, Vissai, Hon La' },
     { label: 'Coverage', value: 'Domestic & international' },
     { label: 'Documentation', value: 'Export docs & customs support' },
     { label: 'Delivery', value: 'On-time, origin to destination' },
@@ -101,7 +101,7 @@ const EN: ProductContent = {
     },
     {
       question: 'Which ports do you ship from?',
-      answer: 'We primarily ship through Cai Lan and Hai Phong ports in northern Vietnam.',
+      answer: 'We ship through Nghi Son, Vissai, and Hon La ports.',
     },
     {
       question: 'Can you consolidate and store cargo?',
@@ -134,7 +134,7 @@ const VI: ProductContent = {
     { label: 'Loại hàng', value: 'Dăm gỗ, viên nén, gỗ chế biến' },
     { label: 'Lưu kho', value: 'Kho kín & bãi ngoài trời' },
     { label: 'Bốc xếp', value: 'Tàu rời & container' },
-    { label: 'Cảng', value: 'Cái Lân, Hải Phòng' },
+    { label: 'Cảng', value: 'Nghi Sơn, Vissai, Hòn La' },
     { label: 'Phạm vi', value: 'Trong nước & quốc tế' },
     { label: 'Chứng từ', value: 'Hỗ trợ chứng từ & hải quan' },
     { label: 'Giao hàng', value: 'Đúng hẹn, từ điểm đầu đến cuối' },
@@ -206,7 +206,7 @@ const VI: ProductContent = {
     },
     {
       question: 'Hàng được xuất qua cảng nào?',
-      answer: 'Chúng tôi chủ yếu xuất qua cảng Cái Lân và Hải Phòng ở miền Bắc Việt Nam.',
+      answer: 'Chúng tôi xuất hàng qua các cảng Nghi Sơn, Vissai và Hòn La.',
     },
     {
       question: 'Có thể gom và lưu kho hàng không?',
