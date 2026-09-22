@@ -22,7 +22,7 @@ const EN: ProductContent = {
     { icon: 'leaf', label: 'Sustainable Source' },
   ],
   overview: [
-    'With the goal of becoming the largest wood chip exporter in Vietnam, OFC has built a closed-loop process from raw material sourcing, processing and production, transportation and warehousing to direct export.',
+    'With the goal of becoming the largest wood chip exporter in Vietnam, Thanh Hoa has built a closed-loop process from raw material sourcing, processing and production, transportation and warehousing to direct export.',
     'Wood Chips are made from Acacia Wood Chips. Our wood chips find utility in both pulp and paper production as well as in biofuel applications.',
   ],
   overviewImage: 'assets/images/products/wood-chips-overview.jpeg',
@@ -90,10 +90,10 @@ const EN: ProductContent = {
       description: '$24 million wood chips and pellets factory',
     },
   ],
-  videoEyebrow: 'OFC Company',
+  videoEyebrow: 'Thanh Hoa Company Limited',
   videoTitle: 'A Leading Wood Chips Producer',
   videoParagraphs: [
-    'OFC Company, based in Vietnam, has emerged as a prominent player in the wood chips market.',
+    'Thanh Hoa Company Limited, based in Vietnam, has emerged as a prominent player in the wood chips market.',
     'With a commitment to sustainable forestry practices, they have become a reliable supplier of high-quality wood chips to international markets.',
   ],
   videoUrl: 'https://youtu.be/ZRkgwLUkhp8',
@@ -145,7 +145,7 @@ const VI: ProductContent = {
     { icon: 'leaf', label: 'Khai thác bền vững' },
   ],
   overview: [
-    'Với mục tiêu trở thành nhà xuất khẩu dăm gỗ lớn nhất Việt Nam, OFC đã xây dựng quy trình khép kín từ thu mua nguyên liệu, chế biến và sản xuất, vận chuyển và lưu kho cho đến xuất khẩu trực tiếp.',
+    'Với mục tiêu trở thành nhà xuất khẩu dăm gỗ lớn nhất Việt Nam, Thanh Hoa đã xây dựng quy trình khép kín từ thu mua nguyên liệu, chế biến và sản xuất, vận chuyển và lưu kho cho đến xuất khẩu trực tiếp.',
     'Dăm gỗ được sản xuất từ gỗ keo. Sản phẩm được ứng dụng trong sản xuất bột giấy, giấy cũng như trong lĩnh vực nhiên liệu sinh học.',
   ],
   overviewImage: 'assets/images/products/wood-chips-overview.jpeg',
@@ -212,10 +212,10 @@ const VI: ProductContent = {
       description: 'Nhà máy dăm gỗ và viên nén trị giá 24 triệu USD',
     },
   ],
-  videoEyebrow: 'OFC Company',
+  videoEyebrow: 'Công ty TNHH Thanh Hoà',
   videoTitle: 'Nhà sản xuất dăm gỗ hàng đầu',
   videoParagraphs: [
-    'OFC Company, có trụ sở tại Việt Nam, đã trở thành một tên tuổi nổi bật trên thị trường dăm gỗ.',
+    'Công ty TNHH Thanh Hoà, có trụ sở tại Việt Nam, đã trở thành một tên tuổi nổi bật trên thị trường dăm gỗ.',
     'Với cam kết về lâm nghiệp bền vững, công ty đã trở thành nhà cung cấp dăm gỗ chất lượng cao đáng tin cậy cho thị trường quốc tế.',
   ],
   videoUrl: 'https://youtu.be/ZRkgwLUkhp8',

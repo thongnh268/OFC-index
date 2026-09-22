@@ -42,7 +42,7 @@ export interface OfcCompany {
 }
 
 export const OFC_COMPANY: OfcCompany = {
-  brand: 'OFC Company',
+  brand: 'Thanh Hoa Company Limited',
   legalName: null,
   taxCode: null,
   shortAddress: null,

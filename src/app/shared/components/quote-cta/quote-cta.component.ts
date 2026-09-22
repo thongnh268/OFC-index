@@ -39,7 +39,7 @@ export interface QuoteCtaConfig {
                 Looking for a reliable wood supply partner?
               </h2>
               <p class="cta-body" i18n="@@quoteCta.body">
-                Get in touch with OFC for competitive pricing, certified quality and on-time
+                Get in touch with Thanh Hoa for competitive pricing, certified quality and on-time
                 delivery.
               </p>
             }

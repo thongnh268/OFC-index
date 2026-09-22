@@ -395,8 +395,8 @@
         <target>Bạn đang tìm đối tác cung ứng gỗ đáng tin cậy?</target>
       </trans-unit>
       <trans-unit id="quoteCta.body" datatype="html">
-        <source>Get in touch with OFC for competitive pricing, certified quality and on-time delivery.</source>
-        <target>Liên hệ OFC để có mức giá cạnh tranh, chất lượng đạt chứng nhận và giao hàng đúng hẹn.</target>
+        <source>Get in touch with Thanh Hoa for competitive pricing, certified quality and on-time delivery.</source>
+        <target>Liên hệ Thanh Hoa để có mức giá cạnh tranh, chất lượng đạt chứng nhận và giao hàng đúng hẹn.</target>
       </trans-unit>
       <trans-unit id="certGrid.previous" datatype="html">
         <source>Previous certificate</source>

@@ -23,7 +23,7 @@ const EN: ProductContent = {
     'Backed by a dedicated logistics network, we streamline cargo movement and export operations to meet the demands of global markets.',
   ],
   overviewImage: 'assets/images/products/transportation-warehouses-overview.png',
-  overviewImageAlt: 'Container trucks at an OFC warehouse',
+  overviewImageAlt: 'Container trucks at a Thanh Hoa warehouse',
   specs: [
     { label: 'Service', value: 'End-to-end export logistics' },
     { label: 'Cargo', value: 'Wood chips, pellets, timber' },
@@ -80,10 +80,10 @@ const EN: ProductContent = {
       description: '$24 million wood chips and pellets factory',
     },
   ],
-  videoEyebrow: 'OFC Company',
+  videoEyebrow: 'Thanh Hoa Company Limited',
   videoTitle: 'A Leading Wood Chips Producer',
   videoParagraphs: [
-    'OFC Company, based in Vietnam, has emerged as a prominent player in the wood chips market.',
+    'Thanh Hoa Company Limited, based in Vietnam, has emerged as a prominent player in the wood chips market.',
     'With a commitment to sustainable forestry practices, they have become a reliable supplier of high-quality wood chips to international markets.',
   ],
   videoUrl: 'https://youtu.be/hJiC6s2RfIo',
@@ -128,7 +128,7 @@ const VI: ProductContent = {
     'Được hậu thuẫn bởi mạng lưới logistics chuyên trách, chúng tôi tối ưu việc luân chuyển hàng hóa và hoạt động xuất khẩu để đáp ứng nhu cầu của thị trường toàn cầu.',
   ],
   overviewImage: 'assets/images/products/transportation-warehouses-overview.png',
-  overviewImageAlt: 'Xe container tại kho của OFC',
+  overviewImageAlt: 'Xe container tại kho của Thanh Hoa',
   specs: [
     { label: 'Dịch vụ', value: 'Logistics xuất khẩu trọn gói' },
     { label: 'Loại hàng', value: 'Dăm gỗ, viên nén, gỗ chế biến' },
@@ -185,10 +185,10 @@ const VI: ProductContent = {
       description: 'Nhà máy dăm gỗ và viên nén trị giá 24 triệu USD',
     },
   ],
-  videoEyebrow: 'OFC Company',
+  videoEyebrow: 'Công ty TNHH Thanh Hoà',
   videoTitle: 'Nhà sản xuất dăm gỗ hàng đầu',
   videoParagraphs: [
-    'OFC Company, có trụ sở tại Việt Nam, đã trở thành một tên tuổi nổi bật trên thị trường dăm gỗ.',
+    'Công ty TNHH Thanh Hoà, có trụ sở tại Việt Nam, đã trở thành một tên tuổi nổi bật trên thị trường dăm gỗ.',
     'Với cam kết về lâm nghiệp bền vững, công ty đã trở thành nhà cung cấp dăm gỗ chất lượng cao đáng tin cậy cho thị trường quốc tế.',
   ],
   videoUrl: 'https://youtu.be/hJiC6s2RfIo',
