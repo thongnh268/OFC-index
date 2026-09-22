@@ -10,6 +10,7 @@ import { fetchSbp } from './fetch-sbp.mjs';
 import { fetchFsc } from './fetch-fsc.mjs';
 
 const PROJECT = 'a2vvkgqy';
+// THC temporarily shares news with OFC; keep writes in production.
 const DATASET = 'production';
 const API_VERSION = '2026-03-01';
 

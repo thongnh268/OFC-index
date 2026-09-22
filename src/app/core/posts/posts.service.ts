@@ -5,6 +5,7 @@ import type { Observable } from 'rxjs';
 
 import {
   NEWS_QUERY,
+  SANITY_CONFIG,
   POSTS_PAGE_QUERY,
   POSTS_QUERY,
   POST_BY_SLUG_QUERY,
@@ -87,28 +88,32 @@ export class PostsService {
   // Latest posts, newest first. Errors and half-filled drafts resolve to [] / get
   // dropped - the home page simply hides the news section when there is nothing to show.
   getLatest(): Observable<PostCard[]> {
-    return this.sanity.fetch<readonly PostCardDto[] | null>(NEWS_QUERY).pipe(
-      map((posts) =>
-        (posts ?? [])
-          .filter((post) => post.slug && post.title && post.publishedAt)
-          .map((post) => ({
-            slug: post.slug ?? '',
-            title: post.title ?? '',
-            imageUrl: post.imageUrl ?? null,
-            publishedAt: post.publishedAt ?? '',
-          })),
-      ),
-      catchError(() => of([])),
-    );
+    return this.sanity
+      .fetch<readonly PostCardDto[] | null>(NEWS_QUERY, {}, SANITY_CONFIG.newsDataset)
+      .pipe(
+        map((posts) =>
+          (posts ?? [])
+            .filter((post) => post.slug && post.title && post.publishedAt)
+            .map((post) => ({
+              slug: post.slug ?? '',
+              title: post.title ?? '',
+              imageUrl: post.imageUrl ?? null,
+              publishedAt: post.publishedAt ?? '',
+            })),
+        ),
+        catchError(() => of([])),
+      );
   }
 
   // Every post for the /news index, newest first. Same resilience as getLatest:
   // half-filled drafts are dropped and any failure resolves to an empty list.
   getAll(): Observable<PostListItem[]> {
-    return this.sanity.fetch<readonly PostSummary[] | null>(POSTS_QUERY).pipe(
-      map((posts) => this.toPostListItems(posts ?? [])),
-      catchError(() => of([])),
-    );
+    return this.sanity
+      .fetch<readonly PostSummary[] | null>(POSTS_QUERY, {}, SANITY_CONFIG.newsDataset)
+      .pipe(
+        map((posts) => this.toPostListItems(posts ?? [])),
+        catchError(() => of([])),
+      );
   }
 
   // Server-side/CMS pagination for /news. Sanity returns only the requested range plus
@@ -119,39 +124,43 @@ export class PostsService {
     const start = (safePage - 1) * safePageSize;
     const end = start + safePageSize;
 
-    return this.sanity.fetch<PostListPageDto | null>(POSTS_PAGE_QUERY, { start, end }).pipe(
-      map((result) => ({
-        items: this.toPostListItems(result?.items ?? []),
-        total: Math.max(0, result?.total ?? 0),
-      })),
-      catchError(() => of({ items: [], total: 0 })),
-    );
+    return this.sanity
+      .fetch<PostListPageDto | null>(POSTS_PAGE_QUERY, { start, end }, SANITY_CONFIG.newsDataset)
+      .pipe(
+        map((result) => ({
+          items: this.toPostListItems(result?.items ?? []),
+          total: Math.max(0, result?.total ?? 0),
+        })),
+        catchError(() => of({ items: [], total: 0 })),
+      );
   }
 
   // One post by slug, or null when it's missing / unpublished / half-filled - the detail
   // page renders a 404 for null.
   getBySlug(slug: string): Observable<PostDetail | null> {
-    return this.sanity.fetch<PostDetailDto | null>(POST_BY_SLUG_QUERY, { slug }).pipe(
-      map((post) => {
-        if (!post?.slug || !post.title || !post.publishedAt) {
-          return null;
-        }
-        return {
-          slug: post.slug,
-          title: post.title,
-          excerpt: post.excerpt ?? null,
-          imageUrl: post.imageUrl ?? null,
-          imageAlt: post.imageAlt ?? null,
-          publishedAt: post.publishedAt,
-          author: post.author ?? null,
-          body: post.body ?? [],
-          bodyHtml: post.bodyHtml ?? null,
-          source: post.source ?? null,
-          sourceUrl: post.sourceUrl ?? null,
-        };
-      }),
-      catchError(() => of(null)),
-    );
+    return this.sanity
+      .fetch<PostDetailDto | null>(POST_BY_SLUG_QUERY, { slug }, SANITY_CONFIG.newsDataset)
+      .pipe(
+        map((post) => {
+          if (!post?.slug || !post.title || !post.publishedAt) {
+            return null;
+          }
+          return {
+            slug: post.slug,
+            title: post.title,
+            excerpt: post.excerpt ?? null,
+            imageUrl: post.imageUrl ?? null,
+            imageAlt: post.imageAlt ?? null,
+            publishedAt: post.publishedAt,
+            author: post.author ?? null,
+            body: post.body ?? [],
+            bodyHtml: post.bodyHtml ?? null,
+            source: post.source ?? null,
+            sourceUrl: post.sourceUrl ?? null,
+          };
+        }),
+        catchError(() => of(null)),
+      );
   }
 
   private toPostListItems(posts: readonly PostSummary[]): PostListItem[] {

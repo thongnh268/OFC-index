@@ -6,11 +6,11 @@ import { schemaTypes, singletonTypes } from './schemaTypes';
 import { structure } from './structure';
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID ?? '';
-const dataset = process.env.SANITY_STUDIO_DATASET ?? 'production';
+const dataset = process.env.SANITY_STUDIO_DATASET ?? 'thc-data';
 
 export default defineConfig({
   name: 'default',
-  title: 'OFC Website',
+  title: 'THC Website',
 
   projectId,
   dataset,

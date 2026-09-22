@@ -39,6 +39,15 @@ describe('SanityService', () => {
     request.flush({ result: [] });
   });
 
+  it('routes news to production while keeping ordinary content in thc-data', () => {
+    setup('vi');
+    service.fetch('*[_type == "post"]', {}, SANITY_CONFIG.newsDataset).subscribe();
+    service.fetch('*[_type == "siteSettings"]').subscribe();
+
+    httpMock.expectOne((req) => req.url.endsWith('/data/query/production')).flush({ result: [] });
+    httpMock.expectOne((req) => req.url.endsWith('/data/query/thc-data')).flush({ result: [] });
+  });
+
   it('binds $locale from LOCALE_ID (en build)', () => {
     setup('en-US');
     service.fetch('*').subscribe();

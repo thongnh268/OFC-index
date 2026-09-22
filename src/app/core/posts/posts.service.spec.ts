@@ -150,7 +150,11 @@ describe('PostsService', () => {
         ],
         total: 42,
       });
-      expect(fetchSpy).toHaveBeenCalledWith(jasmine.any(String), { start: 24, end: 36 });
+      expect(fetchSpy).toHaveBeenCalledWith(
+        jasmine.any(String),
+        { start: 24, end: 36 },
+        'production',
+      );
     });
 
     it('drops incomplete page items and resolves to an empty page on null or error', () => {
@@ -217,7 +221,7 @@ describe('PostsService', () => {
         }),
       );
       const result = firstValue<PostDetail | null>(service.getBySlug('a'));
-      expect(fetchSpy).toHaveBeenCalledWith(jasmine.any(String), { slug: 'a' });
+      expect(fetchSpy).toHaveBeenCalledWith(jasmine.any(String), { slug: 'a' }, 'production');
       expect(result?.slug).toBe('a');
       expect(result?.imageAlt).toBe('alt');
       expect(result?.body.length).toBe(1);

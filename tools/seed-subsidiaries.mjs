@@ -8,7 +8,7 @@
 import { pathToFileURL } from 'node:url';
 
 const PROJECT = 'a2vvkgqy';
-const DATASET = 'production';
+const DATASET = 'thc-data';
 const API_VERSION = '2026-03-01';
 
 const PORTS = [

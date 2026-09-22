@@ -3,6 +3,8 @@
 // (also set sanity/.env for the studio - see sanity/.env.example).
 export const SANITY_CONFIG = {
   projectId: 'a2vvkgqy',
-  dataset: 'production',
+  dataset: 'thc-data',
+  // Temporary: THC news continues to use the existing OFC dataset.
+  newsDataset: 'production',
   apiVersion: '2026-03-01',
 } as const;

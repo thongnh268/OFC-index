@@ -14,12 +14,16 @@ export class SanityService {
   /** Locale of this build ('vi' | 'en') - bound into every query as $locale. */
   readonly locale = inject(LOCALE_ID).startsWith('vi') ? 'vi' : 'en';
 
-  private readonly queryUrl =
+  private readonly queryBaseUrl =
     `https://${SANITY_CONFIG.projectId}.apicdn.sanity.io` +
-    `/v${SANITY_CONFIG.apiVersion}/data/query/${SANITY_CONFIG.dataset}`;
+    `/v${SANITY_CONFIG.apiVersion}/data/query/`;
 
   /** Run a GROQ query against the published, CDN-cached dataset. */
-  fetch<T>(query: string, params: Record<string, unknown> = {}): Observable<T> {
+  fetch<T>(
+    query: string,
+    params: Record<string, unknown> = {},
+    dataset: string = SANITY_CONFIG.dataset,
+  ): Observable<T> {
     let httpParams = new HttpParams().set('query', query).set('perspective', 'published');
 
     for (const [key, value] of Object.entries({ locale: this.locale, ...params })) {
@@ -27,7 +31,7 @@ export class SanityService {
     }
 
     return this.http
-      .get<{ result: T }>(this.queryUrl, { params: httpParams })
+      .get<{ result: T }>(`${this.queryBaseUrl}${dataset}`, { params: httpParams })
       .pipe(map((response) => response.result));
   }
 }

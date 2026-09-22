@@ -1,11 +1,11 @@
 name: Deploy Sanity Studio
 
-# Redeploys the hosted Studio (https://ofc.sanity.studio/) whenever the Studio/schema code under
+# Redeploys the hosted Studio (https://thc.sanity.studio/) whenever the Studio/schema code under
 # sanity/ changes, so editors always get the latest content model without a manual `sanity deploy`.
 # Requires repo secret SANITY_DEPLOY_TOKEN (a Sanity token with deploy permission).
 on:
   push:
-    branches: [main, develop]
+    branches: [THC-develop]
     paths:
       - 'sanity/**'
       - '.github/workflows/studio-deploy.yml'
@@ -26,10 +26,9 @@ jobs:
       run:
         working-directory: sanity
     env:
-      # Public project id (also in the Angular config); read by sanity.cli.ts. appId is pinned
-      # there so the deploy is non-interactive.
+      # Public project id; sanity.cli.ts targets the THC Studio hostname.
       SANITY_STUDIO_PROJECT_ID: a2vvkgqy
-      SANITY_STUDIO_DATASET: production
+      SANITY_STUDIO_DATASET: thc-data
       # The Sanity CLI authenticates non-interactively from SANITY_AUTH_TOKEN.
       SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
     steps:
@@ -49,4 +48,4 @@ jobs:
         run: npm ci
 
       - name: Deploy Studio
-        run: npx sanity deploy
+        run: npx sanity deploy --url thc --yes
