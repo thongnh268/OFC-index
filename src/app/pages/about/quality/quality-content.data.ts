@@ -21,7 +21,7 @@ const EN: QualityContent = {
   blocks: [
     {
       paragraphs: [
-        '<b>DAI DUONG FOREST PRODUCTS JSC.</b> declare the Policies of Quality Control as follows:',
+        '<b>THANH HOA LIMITED COMPANY</b> declare the Policies of Quality Control as follows:',
       ],
     },
     {
@@ -48,7 +48,6 @@ const EN: QualityContent = {
   ],
   certHeading: 'Certificates of FSC FM, FSC CW/COC & PEFC',
   certificates: [
-    { title: 'FM - Dai Lam 2025-2030', thumbnailUrl: 'assets/images/certificates/FM-DaiLam.png' },
     {
       title: 'FSC FM - Thanh Hoa (2023-2028)',
       thumbnailUrl: 'assets/images/certificates/FSC-FM-ThanhHoa.png',
@@ -56,22 +55,6 @@ const EN: QualityContent = {
     {
       title: 'FSC CW/COC - THC 2025',
       thumbnailUrl: 'assets/images/certificates/FSC-CW-COC-THC.png',
-    },
-    {
-      title: 'PEFC COC - Dai Duong',
-      thumbnailUrl: 'assets/images/certificates/PEFC-COC-DaiDuong.png',
-    },
-    {
-      title: 'FSC COC with CW - Dai Duong Forest Products JSC',
-      thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
-    },
-    {
-      title: 'FSC COC/CW Scope - Appendix A (Dai Duong)',
-      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-A.png',
-    },
-    {
-      title: 'FSC COC/CW Scope - Appendix B (Dai Duong)',
-      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-B.png',
     },
     {
       title: 'Company Information',
@@ -87,7 +70,7 @@ const VI: QualityContent = {
   blocks: [
     {
       paragraphs: [
-        '<b>CÔNG TY CỔ PHẦN CHẾ BIẾN LÂM SẢN ĐẠI DƯƠNG</b> công bố Chính sách kiểm soát chất lượng như sau:',
+        '<b>CÔNG TY TNHH THANH HOÀ</b> công bố Chính sách kiểm soát chất lượng như sau:',
       ],
     },
     {
@@ -114,22 +97,13 @@ const VI: QualityContent = {
   ],
   certHeading: 'Chứng chỉ FSC FM, FSC CW/COC & PEFC',
   certificates: [
-    { title: 'FM - Đại Lâm 2025-2030', thumbnailUrl: 'assets/images/certificates/FM-DaiLam.png' },
     {
-      title: 'PEFC COC - Đại Dương',
-      thumbnailUrl: 'assets/images/certificates/PEFC-COC-DaiDuong.png',
+      title: 'FSC FM - Thanh Hoà (2023-2028)',
+      thumbnailUrl: 'assets/images/certificates/FSC-FM-ThanhHoa.png',
     },
     {
-      title: 'FSC COC kèm CW - CP Lâm sản Đại Dương',
-      thumbnailUrl: 'assets/images/certificates/FSC-COC-with-CW-DaiDuong.png',
-    },
-    {
-      title: 'Phạm vi FSC COC/CW - Phụ lục A (Đại Dương)',
-      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-A.png',
-    },
-    {
-      title: 'Phạm vi FSC COC/CW - Phụ lục B (Đại Dương)',
-      thumbnailUrl: 'assets/images/certificates/Scopes-DaiDuong-B.png',
+      title: 'FSC CW/COC - THC 2025',
+      thumbnailUrl: 'assets/images/certificates/FSC-CW-COC-THC.png',
     },
     {
       title: 'Thông tin công ty',
