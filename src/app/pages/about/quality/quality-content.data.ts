@@ -20,9 +20,7 @@ const EN: QualityContent = {
   title: 'Policies of Quality Control',
   blocks: [
     {
-      paragraphs: [
-        '<b>THANH HOA LIMITED COMPANY</b> declare the Policies of Quality Control as follows:',
-      ],
+      paragraphs: ['<b>THANH HOA CO., LTD</b> declare the Policies of Quality Control as follows:'],
     },
     {
       heading: '1. Raw Material Policies',
