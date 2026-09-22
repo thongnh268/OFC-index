@@ -20,17 +20,15 @@ const EN: IntroductionContent = {
       id: 'introduction',
       heading: 'Sustainable Products – Reliable Supply Chain',
       paragraphs: [
-        'Established in 2019, Dai Duong Forest Products Processing Joint Stock Company is an enterprise operating in the processing and exporting of wood products. The company aims for sustainable development and strives to become a trusted partner for both domestic and international customers.',
-        'From its earliest days, Dai Duong has built its development strategy upon three core values: Credibility – Quality – Sustainability. The company continuously invests in modern technology, enhances its management capacity, develops its human resources, and builds a stable raw material supply chain to create products that meet the strictest international standards.',
-        "With a guiding principle of harmonizing economic efficiency, social responsibility, and environmental protection, Dai Duong is steadily affirming its position as one of the exemplary enterprises in Vietnam's forestry processing industry.",
+        'Established in 2017, Thanh Hoa Limited Company is an enterprise operating in the processing and exporting of wood products. The company aims for sustainable development and strives to become a trusted partner for both domestic and international customers.',
+        'From its earliest days, Thanh Hoa has built its development strategy upon three core values: Credibility – Quality – Sustainability. The company continuously invests in modern technology, enhances its management capacity, develops its human resources, and builds a stable raw material supply chain to create products that meet the strictest international standards.',
+        "With a guiding principle of harmonizing economic efficiency, social responsibility, and environmental protection, Thanh Hoa is steadily affirming its position as one of the exemplary enterprises in Vietnam's forestry processing industry.",
       ],
     },
     {
       id: 'business-activities',
       heading: 'Business Activities',
-      paragraphs: [
-        'Dai Duong Forestry Products Processing Joint Stock Company specializes in manufacturing and exporting:',
-      ],
+      paragraphs: ['Thanh Hoa Limited Company specializes in manufacturing and exporting:'],
       list: [
         'Raw wood chips for the paper industry.',
         'Biomass wood pellets for renewable energy.',
@@ -47,7 +45,7 @@ const EN: IntroductionContent = {
       heading: 'Partnership Network and Supply Chain',
       paragraphs: [
         'The company has built a strong collaborative system with partners in the fields of logging, procurement, transportation, and the export of forestry products, forming a stable and sustainable raw material supply chain.',
-        'Through a network comprising 16 affiliated units in the Nghi Son Port area and 5 affiliated units in the Song Lam Port area, Dai Duong has the capacity to fulfill large orders with rapid delivery times, consistent quality, and high competitiveness in the international market.',
+        'Through a network comprising 16 affiliated units in the Nghi Son Port area and 5 affiliated units in the Song Lam Port area, Thanh Hoa has the capacity to fulfill large orders with rapid delivery times, consistent quality, and high competitiveness in the international market.',
       ],
     },
     {
@@ -87,15 +85,15 @@ const VI: IntroductionContent = {
       id: 'introduction',
       heading: 'Sản phẩm bền vững – Chuỗi cung ứng đáng tin cậy',
       paragraphs: [
-        'Được thành lập năm 2019, Công ty Cổ phần Chế biến Lâm sản Đại Dương là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ, hướng tới mục tiêu phát triển bền vững và trở thành đối tác tin cậy của khách hàng trong nước và quốc tế.',
-        'Ngay từ những ngày đầu thành lập, Đại Dương đã xác định chiến lược phát triển dựa trên ba giá trị cốt lõi: Uy tín – Chất lượng – Bền vững. Công ty không ngừng đầu tư công nghệ hiện đại, nâng cao năng lực quản trị, phát triển nguồn nhân lực và xây dựng chuỗi cung ứng nguyên liệu ổn định nhằm tạo ra những sản phẩm đáp ứng các tiêu chuẩn quốc tế khắt khe nhất.',
-        'Với phương châm phát triển hài hòa giữa hiệu quả kinh tế, trách nhiệm xã hội và bảo vệ môi trường, Đại Dương đang từng bước khẳng định vị thế là một trong những doanh nghiệp tiêu biểu của ngành chế biến lâm sản Việt Nam.',
+        'Được thành lập năm 2017, Công ty TNHH Thanh Hoà là doanh nghiệp hoạt động trong lĩnh vực chế biến và xuất khẩu các sản phẩm từ gỗ, hướng tới mục tiêu phát triển bền vững và trở thành đối tác tin cậy của khách hàng trong nước và quốc tế.',
+        'Ngay từ những ngày đầu thành lập, Thanh Hoà đã xác định chiến lược phát triển dựa trên ba giá trị cốt lõi: Uy tín – Chất lượng – Bền vững. Công ty không ngừng đầu tư công nghệ hiện đại, nâng cao năng lực quản trị, phát triển nguồn nhân lực và xây dựng chuỗi cung ứng nguyên liệu ổn định nhằm tạo ra những sản phẩm đáp ứng các tiêu chuẩn quốc tế khắt khe nhất.',
+        'Với phương châm phát triển hài hòa giữa hiệu quả kinh tế, trách nhiệm xã hội và bảo vệ môi trường, Thanh Hoà đang từng bước khẳng định vị thế là một trong những doanh nghiệp tiêu biểu của ngành chế biến lâm sản Việt Nam.',
       ],
     },
     {
       id: 'business-activities',
       heading: 'Lĩnh vực hoạt động',
-      paragraphs: ['Công ty Cổ phần Chế biến Lâm sản Đại Dương chuyên sản xuất và xuất khẩu:'],
+      paragraphs: ['Công ty TNHH Thanh Hoà chuyên sản xuất và xuất khẩu:'],
       list: [
         'Dăm gỗ nguyên liệu phục vụ ngành công nghiệp giấy.',
         'Viên nén gỗ sinh khối (Wood Pellets) phục vụ năng lượng tái tạo.',
@@ -112,7 +110,7 @@ const VI: IntroductionContent = {
       heading: 'Mạng lưới liên kết và chuỗi cung ứng',
       paragraphs: [
         'Công ty xây dựng hệ thống liên kết chặt chẽ với các đối tác trong lĩnh vực khai thác, thu mua, vận chuyển và xuất khẩu lâm sản, hình thành chuỗi cung ứng nguyên liệu ổn định và bền vững.',
-        'Thông qua mạng lưới gồm 16 đơn vị liên kết tại khu vực Cảng Nghi Sơn và 05 đơn vị liên kết tại khu vực Cảng Sông Lam, Đại Dương có khả năng đáp ứng các đơn hàng lớn với tiến độ nhanh chóng, chất lượng đồng nhất và tính cạnh tranh cao trên thị trường quốc tế.',
+        'Thông qua mạng lưới gồm 16 đơn vị liên kết tại khu vực Cảng Nghi Sơn và 05 đơn vị liên kết tại khu vực Cảng Sông Lam, Thanh Hoà có khả năng đáp ứng các đơn hàng lớn với tiến độ nhanh chóng, chất lượng đồng nhất và tính cạnh tranh cao trên thị trường quốc tế.',
       ],
     },
     {
