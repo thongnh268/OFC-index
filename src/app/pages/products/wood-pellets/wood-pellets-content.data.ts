@@ -80,7 +80,7 @@ const EN: ProductContent = {
     note: 'Each stage is monitored to meet the technical requirements of domestic and international customers.',
   },
   productLinesIntro:
-    'Dai Duong Wood Pellet Factory offers product lines tailored to the needs of various markets and boiler systems.',
+    'Thanh Hoa Wood Pellet Factory offers product lines tailored to the needs of various markets and boiler systems.',
   productLines: [
     {
       title: '6 mm wood pellets',
@@ -142,7 +142,7 @@ const EN: ProductContent = {
   ],
   qualityCommitment: {
     intro:
-      'Dai Duong Wood Pellet Factory aims to become a reputable supplier of biofuels to both domestic and international markets. We are committed to:',
+      'Thanh Hoa Wood Pellet Factory aims to become a reputable supplier of biofuels to both domestic and international markets. We are committed to:',
     details: [
       'Using legally sourced and traceable wood raw materials.',
       'Complying with sustainable forest management standards such as FSC and PEFC for raw materials within the scope of certification.',
@@ -283,7 +283,7 @@ const VI: ProductContent = {
     note: 'Mỗi giai đoạn đều được giám sát để đáp ứng các yêu cầu kỹ thuật của khách hàng trong và ngoài nước.',
   },
   productLinesIntro:
-    'Nhà máy Viên nén sinh khối Đại Dương cung cấp các dòng sản phẩm phù hợp với nhu cầu của nhiều thị trường và hệ thống lò hơi khác nhau.',
+    'Nhà máy Viên nén sinh khối Thanh Hoà cung cấp các dòng sản phẩm phù hợp với nhu cầu của nhiều thị trường và hệ thống lò hơi khác nhau.',
   productLines: [
     {
       title: 'Viên nén gỗ 6 mm',
@@ -345,7 +345,7 @@ const VI: ProductContent = {
   ],
   qualityCommitment: {
     intro:
-      'Nhà máy Viên nén sinh khối Đại Dương định hướng trở thành nhà cung cấp nhiên liệu sinh học uy tín cho thị trường trong nước và quốc tế. Chúng tôi cam kết:',
+      'Nhà máy Viên nén sinh khối Thanh Hoà định hướng trở thành nhà cung cấp nhiên liệu sinh học uy tín cho thị trường trong nước và quốc tế. Chúng tôi cam kết:',
     details: [
       'Sử dụng nguồn nguyên liệu gỗ hợp pháp và có thể truy xuất nguồn gốc.',
       'Tuân thủ các tiêu chuẩn về quản lý rừng bền vững như FSC và PEFC (đối với nguồn nguyên liệu thuộc phạm vi chứng nhận).',
