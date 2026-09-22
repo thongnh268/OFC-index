@@ -69,5 +69,8 @@
     "*.{ts,html,scss,css}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=22.16.0 <23"
   }
 }
