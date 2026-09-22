@@ -6,5 +6,5 @@ export default defineCliConfig({
     dataset: process.env.SANITY_STUDIO_DATASET ?? 'thc-data',
   },
   // THC has its own hosted Studio; never reuse the OFC deployment appId.
-  studioHost: 'thc',
+  studioHost: 'thc-ofc',
 });

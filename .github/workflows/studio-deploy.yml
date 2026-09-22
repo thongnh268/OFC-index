@@ -1,6 +1,6 @@
 name: Deploy Sanity Studio
 
-# Redeploys the hosted Studio (https://thc.sanity.studio/) whenever the Studio/schema code under
+# Redeploys the hosted Studio (https://thc-ofc.sanity.studio/) whenever the Studio/schema code under
 # sanity/ changes, so editors always get the latest content model without a manual `sanity deploy`.
 # Requires repo secret SANITY_DEPLOY_TOKEN (a Sanity token with deploy permission).
 on:
@@ -48,4 +48,4 @@ jobs:
         run: npm ci
 
       - name: Deploy Studio
-        run: npx sanity deploy --url thc --yes
+        run: npx sanity deploy --url thc-ofc --yes
