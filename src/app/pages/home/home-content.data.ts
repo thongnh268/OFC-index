@@ -57,7 +57,7 @@ const EN: HomeContent = {
     eyebrow: 'About Thanh Hoa Company Limited',
     heading: 'Sustainable products. Reliable supply chain',
     body: parseEmphasis(
-      '<b>Dai Duong Forest Products JSC</b> was established in 2019. Our leaders and employees strive to make Thanh Hoa Company Limited a professional and reputable provider of wood industry products and services, constantly innovating technology, creating new value, and implementing reliable production processes to contribute to sustainable social development.',
+      '<b>Thanh Hoa Limited Company</b> was established in 2017. Our leaders and employees strive to make THC a professional and reputable provider of wood industry products and services, constantly innovating technology, creating new value, and implementing reliable production processes to contribute to sustainable social development.',
     ),
     videoUrl: 'https://www.youtube.com/embed/YTUConEONEs',
     majorBusiness: {
@@ -195,7 +195,7 @@ const VI: HomeContent = {
     eyebrow: 'Về Công ty TNHH Thanh Hoà',
     heading: 'Sản phẩm bền vững. Chuỗi cung ứng đáng tin cậy',
     body: parseEmphasis(
-      '<b>Công ty Cổ phần Chế biến Lâm sản Đại Dương</b> được thành lập năm 2019. Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa Thanh Hoa trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín - liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
+      '<b>Công ty TNHH Thanh Hoà</b> được thành lập năm 2017. Ban lãnh đạo và tập thể nhân viên không ngừng nỗ lực đưa THC trở thành nhà cung cấp sản phẩm, dịch vụ ngành gỗ chuyên nghiệp và uy tín - liên tục đổi mới công nghệ, tạo ra giá trị mới và vận hành quy trình sản xuất tin cậy, góp phần phát triển xã hội bền vững.',
     ),
     videoUrl: 'https://www.youtube.com/embed/YTUConEONEs',
     majorBusiness: {
